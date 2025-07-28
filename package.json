@@ -16,6 +16,8 @@
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@tanstack/react-table": "^8.21.3",
+    "ag-grid-community": "^34.0.2",
+    "ag-grid-react": "^34.0.2",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

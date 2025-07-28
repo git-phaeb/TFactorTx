@@ -11,7 +11,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
@@ -23,13 +23,13 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --ring: 222.2 84% 4.9%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
   }
 
   .dark {
@@ -39,8 +39,8 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
@@ -51,7 +51,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
+    --ring: 212.7 26.8% 83.9%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -67,6 +67,106 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom AgGrid Styles */
+.ag-theme-alpine {
+  --ag-font-family: inherit;
+  --ag-font-size: 14px;
+  --ag-header-height: 48px;
+  --ag-row-height: 48px;
+  --ag-header-background-color: #f8fafc;
+  --ag-odd-row-background-color: #f8fafc;
+  --ag-row-hover-color: #e2e8f0;
+  --ag-selected-row-background-color: #dbeafe;
+  --ag-border-color: #e2e8f0;
+  --ag-cell-horizontal-border: solid #e2e8f0;
+  --ag-header-foreground-color: #374151;
+  --ag-foreground-color: #374151;
+  --ag-secondary-foreground-color: #6b7280;
+  --ag-header-column-separator-color: #d1d5db;
+  --ag-row-border-color: #e5e7eb;
+  --ag-cell-horizontal-padding: 12px;
+  --ag-cell-vertical-padding: 8px;
+  --ag-borders: solid 1px;
+  --ag-border-radius: 8px;
+  --ag-row-border-style: solid;
+  --ag-row-border-width: 1px;
+  --ag-row-border-color: #e5e7eb;
+}
+
+.ag-theme-alpine .ag-header {
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.ag-theme-alpine .ag-header-cell {
+  font-weight: 600;
+  color: #374151;
+}
+
+.ag-theme-alpine .ag-cell {
+  padding: 8px 12px;
+}
+
+.ag-theme-alpine .ag-row:hover {
+  background-color: #f1f5f9;
+}
+
+.ag-theme-alpine .ag-row-selected {
+  background-color: #dbeafe;
+}
+
+.ag-theme-alpine .ag-paging-panel {
+  border-top: 1px solid #e5e7eb;
+  padding: 12px;
+  background-color: #f8fafc;
+}
+
+.ag-theme-alpine .ag-paging-button {
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #374151;
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin: 0 2px;
+}
+
+.ag-theme-alpine .ag-paging-button:hover {
+  background-color: #f3f4f6;
+}
+
+.ag-theme-alpine .ag-paging-button.ag-disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.ag-theme-alpine .ag-paging-button.ag-current {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* Floating filter styles */
+.ag-theme-alpine .ag-floating-filter-body input {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.ag-theme-alpine .ag-floating-filter-body input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Line clamp utility for function descriptions */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Modern 2025 Sorting Animations */

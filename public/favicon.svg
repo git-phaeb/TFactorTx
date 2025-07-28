@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 15% reduction: circle radius from 32 to 27.2, center remains at (32,32) -->
+  <circle cx="32" cy="32" r="27.2" fill="black"/>
+  <!-- All TF symbol elements reduced by 15% and centered -->
+  <!-- Horizontal T bar -->
+  <rect x="5.6" y="15.9" width="54.4" height="6" fill="white"/>
+  <!-- T stem -->
+  <rect x="28.5" y="22.35" width="6" height="36.55" fill="white"/>
+  <!-- F middle bar -->
+  <rect x="34.0" y="37.6" width="17.0" height="6" fill="white"/>
+</svg> 

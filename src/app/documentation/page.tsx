@@ -1,11 +1,111 @@
+import React from "react";
+
+const sections = [
+  { id: "intro", label: "Introduction" },
+  { id: "columns", label: "Data Columns" },
+  { id: "methodology", label: "Methodology" },
+  { id: "sources", label: "Sources" },
+  { id: "license", label: "License" },
+];
+
+const lorem = `
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, eget facilisis quam felis id mauris. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, eget facilisis quam felis id mauris. Vivamus euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, eget facilisis quam felis id mauris.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.`;
+
 export default function DocumentationPage() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Documentation</h1>
-      <p className="mt-4">
-        This page will contain information about the data columns and the
-        methodology used to rank the transcription factors.
-      </p>
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-1 flex flex-col min-h-0 bg-gray-50" style={{ border: '2px solid red' }}>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 px-4 py-8">
+          {/* Sidebar Navigation */}
+          <aside className="md:w-64 w-full mb-6 md:mb-0" style={{ border: '2px solid blue' }}>
+            <nav className="sticky top-16 bg-white rounded-lg py-8 px-6 text-base" style={{ border: '2px solid blue' }}>
+              <div className="font-semibold text-gray-700 mb-6 tracking-wide text-sm uppercase">Sections</div>
+              <ul className="space-y-3">
+                {sections.map((section) => (
+                  <li key={section.id}>
+                    <a
+                      href={`#${section.id}`}
+                      className="block px-2 py-2 rounded text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                    >
+                      {section.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+          {/* Mobile sidebar (not fixed) */}
+          <aside className="md:hidden w-full mb-6" style={{ border: '2px solid blue' }}>
+            <nav className="bg-white rounded-lg p-6 text-base">
+              <div className="font-semibold text-gray-700 mb-4 tracking-wide text-sm uppercase">Sections</div>
+              <ul className="space-y-2">
+                {sections.map((section) => (
+                  <li key={section.id}>
+                    <a
+                      href={`#${section.id}`}
+                      className="block px-2 py-1 rounded text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                    >
+                      {section.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+          {/* Main Content */}
+          <main className="flex-1 bg-white rounded-lg p-8 shadow-sm" style={{ border: '2px solid green' }}>
+            <section id="intro" className="mb-12 scroll-mt-24">
+              <h1 className="text-2xl font-bold mb-4 text-gray-900">Documentation</h1>
+              <h2 className="text-lg font-semibold mb-2 text-gray-800">Introduction</h2>
+              <p className="leading-relaxed text-gray-700">
+                Welcome to the TFactorTx documentation. Here you’ll find information about the data columns, methodology, and sources used in this project.
+              </p>
+              <p className="mt-4 leading-relaxed text-gray-700">{lorem}</p>
+              <p className="mt-4 leading-relaxed text-gray-700">{lorem}</p>
+            </section>
+            <section id="columns" className="mb-12 scroll-mt-24">
+              <h2 className="text-lg font-semibold mb-2 text-gray-800">Data Columns</h2>
+              <p className="leading-relaxed text-gray-700">
+                Each row in the database contains the following columns:
+              </p>
+              <ul className="list-disc ml-6 mt-2 text-gray-700">
+                <li><b>Gene Symbol</b>: Standard gene symbol for the transcription factor.</li>
+                <li><b>Gene Name</b>: Full name of the gene.</li>
+                <li><b>Function</b>: Brief description of the gene’s function.</li>
+                <li><b>Evidence</b>: Type of evidence supporting the gene’s role.</li>
+                <li><b>References</b>: Links to supporting literature or databases.</li>
+              </ul>
+              <p className="mt-4 leading-relaxed text-gray-700">{lorem}</p>
+            </section>
+            <section id="methodology" className="mb-12 scroll-mt-24">
+              <h2 className="text-lg font-semibold mb-2 text-gray-800">Methodology</h2>
+              <p className="leading-relaxed text-gray-700">
+                Transcription factors were ranked and selected based on a combination of manual curation, literature review, and integration of public datasets. Criteria included relevance to aging, disease, and experimental validation.
+              </p>
+              <p className="mt-4 leading-relaxed text-gray-700">{lorem}</p>
+              <p className="mt-4 leading-relaxed text-gray-700">{lorem}</p>
+            </section>
+            <section id="sources" className="mb-12 scroll-mt-24">
+              <h2 className="text-lg font-semibold mb-2 text-gray-800">Sources</h2>
+              <p className="leading-relaxed text-gray-700">
+                All data was compiled from publicly available and openly licensed sources, including NCBI Gene, UniProt, and recent scientific publications.
+              </p>
+              <p className="mt-4 leading-relaxed text-gray-700">{lorem}</p>
+            </section>
+            <section id="license" className="mb-12 scroll-mt-24">
+              <h2 className="text-lg font-semibold mb-2 text-gray-800">License</h2>
+              <p className="leading-relaxed text-gray-700">
+                This project and all associated data are dedicated to the public domain under the terms of the Creative Commons Zero v1.0 Universal Public Domain Dedication (CC0 1.0).
+              </p>
+              <p className="mt-4 leading-relaxed text-gray-700">{lorem}</p>
+            </section>
+          </main>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,8 @@
+# Paste your CSV data here
+# Replace this content with your actual CSV data
+# Make sure to include the header row
+
+Entry,Entry Name,Organism,Function,Length,Mass,Status,Last Updated
+P35568,FOXO1_HUMAN,Homo sapiens (Human),Transcription factor that is the main target of insulin signaling,655,69923,reviewed,2024-01-15
+Q12778,FOXO3_HUMAN,Homo sapiens (Human),Transcriptional activator which triggers apoptosis,673,71084,reviewed,2024-01-10
+P98177,FOXO4_HUMAN,Homo sapiens (Human),Transcription factor involved in cell cycle regulation,505,54012,reviewed,2024-01-20 
