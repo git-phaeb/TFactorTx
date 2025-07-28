@@ -17,8 +17,8 @@ Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit la
 
 export default function DocumentationPage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-1 flex flex-col min-h-0 bg-gray-50" style={{ border: '2px solid red' }}>
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+      <div className="flex-1 flex flex-col min-h-0" style={{ border: '2px solid red' }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 px-4 py-8">
           {/* Sidebar Navigation */}
           <aside className="md:w-64 w-full mb-6 md:mb-0" style={{ border: '2px solid blue' }}>

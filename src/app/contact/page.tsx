@@ -52,7 +52,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+      <div className="container mx-auto px-4 py-8 max-w-2xl">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
         <p className="text-muted-foreground">
@@ -162,6 +163,7 @@ export default function ContactPage() {
           </a>
         </p>
       </div>
+    </div>
     </div>
   );
 }

@@ -24,24 +24,24 @@ const featureBlocks = [
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Get started for free",
-    description: "Play around with GitBook and set up your docs for free. Add your team and pay when you’re ready.",
+    title: "Get started with open source",
+    description: "Play around with GitBook and set up your docs for free. Add your team and pay when you're ready.",
     image: "/placeholder-feature.svg",
   },
 ];
 
 export default function Home() {
   return (
-    <>
+    <div className="h-full" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
       {/* Hero Section with debugging borders */}
       <section className="relative w-full py-2 md:py-4 lg:py-6" style={{ border: '' }}>
         <div className="container" style={{ border: '' }}>
           <div className="relative z-10 mx-auto max-w-3xl text-center" style={{ border: '' }}>
-            <div className="mb-4 inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-              Beta
-            </div>
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-              TFactorTx:<br />A Free Database for Transcription Factor Research
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              TFactorTx<br />
+              <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800">
+                An Open Source Database for Human Transcription Factors
+              </span>
             </h1>
             <p className="mx-auto mt-6 max-w-[725px] text-muted-foreground md:text-xl">
               Accelerate your research with a manually curated, searchable, and
@@ -60,11 +60,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]" />
       </section>
 
       {/* Lower Timeline Section with debugging borders */}
-      <section className="w-full py-4 bg-background" style={{ border: '' }}>
+      <section className="w-full py-4" style={{ border: '' }}>
         <div className="container mx-auto px-4 max-w-4xl" style={{ border: '' }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
             Simplify your docs workflow and help your users succeed
@@ -139,6 +138,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

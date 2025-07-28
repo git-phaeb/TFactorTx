@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   useReactTable,
   getCoreRowModel,
@@ -12,7 +13,7 @@ import {
   SortingState,
   ColumnDef,
 } from '@tanstack/react-table';
-import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Search, Target, Clock, Wrench } from 'lucide-react';
+import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, ChevronFirst, ChevronLast, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -20,15 +21,25 @@ import { Badge } from '@/components/ui/badge';
 import { TFactorTxData, getTDL } from '@/lib/csv-loader';
 
 export default function DatabasePage() {
+  const router = useRouter();
   const [sorting, setSorting] = useState<SortingState>([
     { id: 'sort_disease_ot_ard_aging_overall_rank', desc: false }
   ]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedRow, setSelectedRow] = useState<TFactorTxData | null>(null);
   const [data, setData] = useState<TFactorTxData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [columnNames, setColumnNames] = useState<string[]>([]);
+
+  // Handle search term change
+  const handleSearchChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+  };
+
+  // Open gene details in new tab
+  const handleGeneClick = (geneSymbol: string) => {
+    window.open(`/database/${encodeURIComponent(geneSymbol)}`, '_blank');
+  };
 
   // Fetch data from API
   useEffect(() => {
@@ -44,9 +55,9 @@ export default function DatabasePage() {
         console.log('Loaded column names:', result.columnNames);
         setData(result.data);
         setColumnNames(result.columnNames || []);
-        // Set default selected row to TP53 (rank 1)
-        const tp53 = result.data.find((row: TFactorTxData) => row['TF Symbol'] === 'TP53');
-        setSelectedRow(tp53 || result.data[0]);
+        // Remove automatic selection of TP53
+        // const tp53 = result.data.find((row: TFactorTxData) => row['TF Symbol'] === 'TP53');
+        // setSelectedRow(tp53 || result.data[0]);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load data');
       } finally {
@@ -63,9 +74,9 @@ export default function DatabasePage() {
       accessorKey: 'TF Symbol',
       header: columnNames[0] || 'Gene Name',
       cell: ({ row }) => (
-        <div 
+        <div
           className="font-medium text-blue-600 cursor-pointer hover:text-blue-800 truncate"
-          onClick={() => setSelectedRow(row.original)}
+          onClick={() => handleGeneClick(row.getValue('TF Symbol') as string)}
           title={row.getValue('TF Symbol') as string}
         >
           {row.getValue('TF Symbol')}
@@ -244,7 +255,7 @@ export default function DatabasePage() {
   // Filter data based on search term
   const filteredData = useMemo(() => {
     if (!searchTerm) return data;
-    return data.filter(row => 
+    return data.filter(row =>
       row['TF Symbol'].toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [searchTerm, data]);
@@ -261,12 +272,12 @@ export default function DatabasePage() {
       if (typeof updater === 'function') {
         const newSorting = updater(sorting);
         // If no sorting or same column clicked, toggle between asc/desc
-        if (newSorting.length === 0 || 
+        if (newSorting.length === 0 ||
             (newSorting.length === 1 && sorting.length === 1 && newSorting[0].id === sorting[0].id)) {
           // Toggle current sort direction
-          setSorting([{ 
-            id: sorting.length > 0 ? sorting[0].id : 'sort_disease_ot_ard_aging_overall_rank', 
-            desc: !(sorting.length > 0 ? sorting[0].desc : false) 
+          setSorting([{
+            id: sorting.length > 0 ? sorting[0].id : 'sort_disease_ot_ard_aging_overall_rank',
+            desc: !(sorting.length > 0 ? sorting[0].desc : false)
           }]);
         } else {
           // New column selected, start with ascending
@@ -281,13 +292,15 @@ export default function DatabasePage() {
         }
       }
     },
+    onGlobalFilterChange: setSearchTerm,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     initialState: {
       pagination: {
-        pageSize: 20, // Default page size
+        pageSize: 20,
+        pageIndex: 0,
       },
       sorting: [
         { id: 'sort_disease_ot_ard_aging_overall_rank', desc: false },
@@ -326,40 +339,34 @@ export default function DatabasePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 border-4 border-purple-500">
-      <div className="container mx-auto px-4 py-8 border-4 border-orange-500">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6 border-2 border-pink-500">Database</h1>
+    <div className="min-h-screen pt-20 border-4 border-purple-500" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+      <div className="container mx-auto px-4 py-0 border-4 border-orange-500" style={{ marginTop: '-20px' }}>
 
         {/* Filter Options - Horizontal Layout */}
-        <Card className="mb-4 border-4 border-yellow-500">
-          <CardHeader className="border-2 border-green-500 py-2">
-            <CardTitle className="text-lg border-2 border-blue-500">Filter Options</CardTitle>
-          </CardHeader>
-          <CardContent className="border-2 border-indigo-500 py-2">
-            <div className="flex items-center space-x-4">
-              <div className="flex-1 max-w-md border-2 border-teal-500">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <Input
-                    type="text"
-                    placeholder="Search by TF Symbol..."
-                    value={searchTerm}
-                    onChange={e => setSearchTerm(e.target.value)}
-                    className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm w-full"
-                  />
-                </div>
-              </div>
-              <div className="flex items-center border-2 border-cyan-500">
-                <div className="text-sm text-gray-600">
-                  <span className="font-medium">{filteredData.length}</span> results found
-                </div>
+        <div className="mb-1 p-2 bg-white border border-gray-200 rounded border-yellow-500">
+          <div className="flex items-center space-x-4">
+            <div className="flex-1 max-w-md border-2 border-teal-500">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Input
+                  type="text"
+                  placeholder="Search by TF Symbol..."
+                  value={searchTerm}
+                  onChange={e => handleSearchChange(e.target.value)}
+                  className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm w-full"
+                />
               </div>
             </div>
-          </CardContent>
-        </Card>
+            <div className="flex items-center border-2 border-cyan-500">
+              <div className="text-sm text-gray-600">
+                <span className="font-medium">{filteredData.length}</span> results found
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Pagination Controls - Moved to top */}
-        <div className="mb-2 p-2 bg-white border border-gray-200 rounded border-red-500">
+        <div className="mb-1 p-1 bg-white border border-gray-200 rounded border-red-500">
           <div className="flex items-center justify-between">
             <div className="text-xs text-gray-600">
               {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
@@ -388,6 +395,15 @@ export default function DatabasePage() {
                 <Button
                   variant="outline"
                   size="sm"
+                  onClick={() => table.setPageIndex(0)}
+                  disabled={!table.getCanPreviousPage()}
+                  className="h-6 px-2 text-xs"
+                >
+                  <ChevronFirst className="w-3 h-3" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
                   onClick={() => table.previousPage()}
                   disabled={!table.getCanPreviousPage()}
                   className="h-6 px-2 text-xs"
@@ -406,13 +422,22 @@ export default function DatabasePage() {
                 >
                   <ChevronRight className="w-3 h-3" />
                 </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                  disabled={!table.getCanNextPage()}
+                  className="h-6 px-2 text-xs"
+                >
+                  <ChevronLast className="w-3 h-3" />
+                </Button>
               </div>
             </div>
           </div>
         </div>
 
         {/* Main Content - Full Width */}
-        <div className="space-y-6 border-4 border-red-500">
+        <div className="space-y-2 border-4 border-red-500">
           {/* Rotated Column Headers - Independent above table */}
           <div className="bg-gray-50 border border-gray-200 rounded-t-lg border-4 border-blue-500">
             <div className="flex" style={{ height: '120px' }}> {/* Increased height for longer names */}
@@ -468,10 +493,10 @@ export default function DatabasePage() {
                       <tr
                         key={row.id}
                         className="hover:bg-gray-50 cursor-pointer relative border border-teal-500"
-                        onClick={() => setSelectedRow(row.original)}
+                        onClick={() => handleGeneClick(row.original['TF Symbol'])}
                       >
                         {row.getVisibleCells().map(cell => (
-                          <td key={cell.id} className="py-3 text-sm text-gray-900 border border-green-500 relative">
+                          <td key={cell.id} className="py-2 text-sm text-gray-900 border border-green-500 relative">
                             {/* Yellow dot for first row only */}
                             {rowIndex === 0 && (
                               <div
@@ -493,7 +518,7 @@ export default function DatabasePage() {
           </Card>
 
           {/* Pagination Controls - Bottom */}
-          <div className="mt-2 p-2 bg-white border border-gray-200 rounded border-red-500">
+          <div className="mt-1 p-1 bg-white border border-gray-200 rounded border-red-500">
             <div className="flex items-center justify-between">
               <div className="text-xs text-gray-600">
                 {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
@@ -522,6 +547,15 @@ export default function DatabasePage() {
                   <Button
                     variant="outline"
                     size="sm"
+                    onClick={() => table.setPageIndex(0)}
+                    disabled={!table.getCanPreviousPage()}
+                    className="h-6 px-2 text-xs"
+                  >
+                    <ChevronFirst className="w-3 h-3" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
                     onClick={() => table.previousPage()}
                     disabled={!table.getCanPreviousPage()}
                     className="h-6 px-2 text-xs"
@@ -540,88 +574,21 @@ export default function DatabasePage() {
                   >
                     <ChevronRight className="w-3 h-3" />
                   </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                    disabled={!table.getCanNextPage()}
+                    className="h-6 px-2 text-xs"
+                  >
+                    <ChevronLast className="w-3 h-3" />
+                  </Button>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Detail Card */}
-          {selectedRow && (
-            <Card className="border-4 border-cyan-500">
-              <CardHeader className="border-2 border-magenta-500">
-                <CardTitle className="text-2xl flex items-center border-2 border-lime-500">
-                  <Target className="w-6 h-6 mr-2 text-blue-600" />
-                  Details for: {selectedRow['TF Symbol']}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Target-Disease Module */}
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-2">
-                      <Target className="w-5 h-5 text-blue-600" />
-                      <h3 className="text-lg font-semibold">🎯 Target–Disease Module</h3>
-                    </div>
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <div className="text-2xl font-bold text-blue-600">—</div>
-                      <div className="text-sm text-blue-700">Total Assoc. Score</div>
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>Top Disease:</strong> {selectedRow['disease_ot_ard_strongest_linked_disease'] === '#NA' ? 'Unknown' : selectedRow['disease_ot_ard_strongest_linked_disease']}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>Overall Rank:</strong> {selectedRow['sort_disease_ot_ard_aging_overall_rank']}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>Disease Rank:</strong> {selectedRow['sort_disease_ot_total_assoc_score_rank']}
-                    </div>
-                  </div>
-
-                  {/* Aging Module */}
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-2">
-                      <Clock className="w-5 h-5 text-green-600" />
-                      <h3 className="text-lg font-semibold">⏳ Aging Module</h3>
-                    </div>
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <div className="text-2xl font-bold text-green-600">—</div>
-                      <div className="text-sm text-green-700">Aging DB Entries</div>
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>Human:</strong> {selectedRow['aging_summary_human'] === 'Y' ? 'Yes' : 'No'}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>Aging Rank:</strong> {selectedRow['sort_aging_summary_total_db_entries_count_rank']}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>M. musculus:</strong> {selectedRow['aging_summary_mm_influence'] === '#NA' ? 'Unknown' : selectedRow['aging_summary_mm_influence']}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>C. elegans:</strong> {selectedRow['aging_summary_ce_influence'] === '#NA' ? 'Unknown' : selectedRow['aging_summary_ce_influence']}
-                    </div>
-                    <div className="text-sm text-gray-600">
-                      <strong>D. melanogaster:</strong> {selectedRow['aging_summary_dm_influence'] === '#NA' ? 'Unknown' : selectedRow['aging_summary_dm_influence']}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Development Module */}
-                <div className="mt-6 space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <Wrench className="w-5 h-5 text-purple-600" />
-                    <h3 className="text-lg font-semibold">🛠 Development Module</h3>
-                  </div>
-                  <div className="bg-purple-50 p-4 rounded-lg inline-block">
-                    <div className="text-2xl font-bold text-purple-600">{getTDL(selectedRow['dev_pharos_tcrd_tdl'])}</div>
-                    <div className="text-sm text-purple-700">TDL</div>
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    <strong>Development Category:</strong> {selectedRow['dev_summary_dev_level_category']}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+          {/* Gene Details Modal - REMOVED - Now using page navigation */}
         </div>
       </div>
     </div>
