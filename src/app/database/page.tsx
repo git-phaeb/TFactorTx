@@ -339,13 +339,13 @@ export default function DatabasePage() {
   }
 
   return (
-    <div className="min-h-screen pt-20 border-4 border-purple-500" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
-      <div className="container mx-auto px-4 py-0 border-4 border-orange-500" style={{ marginTop: '-20px' }}>
+    <div className="min-h-screen pt-4" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+      <div className="container mx-auto px-4 pt-0 pb-0 mb-8" style={{ marginTop: '-20px' }}>
 
         {/* Filter Options - Horizontal Layout */}
-        <div className="mb-1 p-2 bg-white border border-gray-200 rounded border-yellow-500">
+        <div className="mb-1 p-2 bg-white border border-gray-200 rounded">
           <div className="flex items-center space-x-4">
-            <div className="flex-1 max-w-md border-2 border-teal-500">
+            <div className="flex-1 max-w-md">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
@@ -357,7 +357,7 @@ export default function DatabasePage() {
                 />
               </div>
             </div>
-            <div className="flex items-center border-2 border-cyan-500">
+            <div className="flex items-center">
               <div className="text-sm text-gray-600">
                 <span className="font-medium">{filteredData.length}</span> results found
               </div>
@@ -366,7 +366,7 @@ export default function DatabasePage() {
         </div>
 
         {/* Pagination Controls - Moved to top */}
-        <div className="mb-1 p-1 bg-white border border-gray-200 rounded border-red-500">
+        <div className="mb-1 p-1 bg-white border border-gray-200 rounded">
           <div className="flex items-center justify-between">
             <div className="text-xs text-gray-600">
               {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
@@ -437,88 +437,79 @@ export default function DatabasePage() {
         </div>
 
         {/* Main Content - Full Width */}
-        <div className="space-y-2 border-4 border-red-500">
+        <div className="space-y-2">
           {/* Rotated Column Headers - Independent above table */}
-          <div className="bg-gray-50 border border-gray-200 rounded-t-lg border-4 border-blue-500">
-            <div className="flex" style={{ height: '120px' }}> {/* Increased height for longer names */}
-              {table.getHeaderGroups()[0].headers.map((header, index) => (
-                <div
-                  key={header.id}
-                  className="flex items-end cursor-pointer hover:bg-gray-100 transition-colors relative border border-red-500"
-                  onClick={header.column.getToggleSortingHandler()}
-                  style={{
-                    width: `${100 / table.getHeaderGroups()[0].headers.length}%`
-                  }}
-                >
+          <div className="bg-gray-50 border border-gray-200 rounded-t-lg">
+              <div className="flex" style={{ height: '120px' }}>
+                {table.getHeaderGroups()[0].headers.map((header, index) => (
                   <div
-                    className="text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap border border-blue-500"
+                    key={header.id}
+                    className="flex items-end justify-center cursor-pointer hover:bg-gray-100 transition-colors"
+                    onClick={header.column.getToggleSortingHandler()}
                     style={{
-                      transform: 'translateX(-50%) rotate(-45deg)',
-                      transformOrigin: '50% 100%',
-                      position: 'absolute',
-                      left: '50%',
-                      bottom: '0px'
+                      width: `${100 / table.getHeaderGroups()[0].headers.length}%`,
+                      position: 'relative',
                     }}
                   >
-                    <div className="flex items-center space-x-1">
-                      <span>
-                        {columnNames[table.getHeaderGroups()[0].headers.indexOf(header)] || header.id} {/* Dynamic header name */}
+                    <span
+                      className="block text-xs font-medium text-gray-500 tracking-wider whitespace-nowrap"
+                      style={{
+                        position: 'absolute',
+                        left: '50%',
+                        bottom: 0,
+                        transform: 'translateX(0%) rotate(-45deg)',
+                        transformOrigin: 'bottom left',
+                        display: 'inline-block',
+                      }}
+                    >
+                      <span className="flex flex-row items-center gap-1">
+                        {((columnNames[table.getHeaderGroups()[0].headers.indexOf(header)] || header.id) as string)
+                          .replace(/_/g, ' ')
+                          .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}
+                        {header.column.getIsSorted() === 'asc' ? (
+                          <ChevronUp className="w-3 h-3 flex-shrink-0 text-blue-600" />
+                        ) : header.column.getIsSorted() === 'desc' ? (
+                          <ChevronDown className="w-3 h-3 flex-shrink-0 text-blue-600" />
+                        ) : (
+                          <ChevronUp className="w-3 h-3 flex-shrink-0 text-gray-300" />
+                        )}
                       </span>
-                      {header.column.getIsSorted() === 'asc' ? (
-                        <ChevronUp className="w-3 h-3 flex-shrink-0 text-blue-600" />
-                      ) : header.column.getIsSorted() === 'desc' ? (
-                        <ChevronDown className="w-3 h-3 flex-shrink-0 text-blue-600" />
-                      ) : (
-                        <ChevronUp className="w-3 h-3 flex-shrink-0 text-gray-300" />
-                      )}
-                    </div>
+                    </span>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
           </div>
 
           {/* Table */}
-          <Card className="border-4 border-green-500">
-            <CardContent className="p-0 border-2 border-purple-500">
-              <div className="overflow-x-auto border-2 border-yellow-500">
-                <table className="w-full table-fixed border-2 border-pink-500">
-                  <colgroup>
-                    {table.getHeaderGroups()[0].headers.map((header, index) => (
-                      <col key={header.id} style={{ width: `${100 / table.getHeaderGroups()[0].headers.length}%` }} />
+          <div className="overflow-x-auto pb-0 mb-0">
+            <table className="w-full table-fixed">
+              <colgroup>
+                {table.getHeaderGroups()[0].headers.map((header, index) => (
+                  <col key={header.id} style={{ width: `${100 / table.getHeaderGroups()[0].headers.length}%` }} />
+                ))}
+              </colgroup>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {table.getRowModel().rows.map((row, rowIndex) => (
+                  <tr
+                    key={row.id}
+                    className="hover:bg-gray-50 cursor-pointer relative"
+                    onClick={() => handleGeneClick(row.original['TF Symbol'])}
+                  >
+                    {row.getVisibleCells().map(cell => (
+                      <td key={cell.id} className="py-2 text-sm text-gray-900 relative">
+                        <div className="truncate px-2">
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </div>
+                      </td>
                     ))}
-                  </colgroup>
-                  <tbody className="bg-white divide-y divide-gray-200 border-2 border-indigo-500">
-                    {table.getRowModel().rows.map((row, rowIndex) => (
-                      <tr
-                        key={row.id}
-                        className="hover:bg-gray-50 cursor-pointer relative border border-teal-500"
-                        onClick={() => handleGeneClick(row.original['TF Symbol'])}
-                      >
-                        {row.getVisibleCells().map(cell => (
-                          <td key={cell.id} className="py-2 text-sm text-gray-900 border border-green-500 relative">
-                            {/* Yellow dot for first row only */}
-                            {rowIndex === 0 && (
-                              <div
-                                className="absolute top-0 left-1/2 w-2 h-2 bg-yellow-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-10"
-                                style={{ pointerEvents: 'none' }}
-                              />
-                            )}
-                            <div className="truncate px-2">
-                              {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                            </div>
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-          </Card>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           {/* Pagination Controls - Bottom */}
-          <div className="mt-1 p-1 bg-white border border-gray-200 rounded border-red-500">
+          <div className="mt-1 p-1 bg-white border border-gray-200 rounded">
             <div className="flex items-center justify-between">
               <div className="text-xs text-gray-600">
                 {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results

@@ -65,7 +65,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background: linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%);
   }
 }
 

@@ -2,13 +2,20 @@ import Link from "next/link";
 
 export function NavigationBar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-gray-800 p-4 z-50 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 bg-gray-800 p-2 z-50 shadow-lg">
       <div className="container mx-auto">
-        {/* Main Navigation */}
-        <div className="flex justify-between items-center mb-2">
+        <div className="relative flex items-center justify-between">
+          {/* Left: Logo */}
           <div className="text-white text-lg font-bold">
             <Link href="/">TFactorTx</Link>
           </div>
+          {/* Center: Alpha badge, absolutely centered */}
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <div className="inline-block rounded-lg bg-gray-700 px-2 py-1 text-xs text-gray-200">
+              Alpha v0.1.0
+            </div>
+          </div>
+          {/* Right: Navigation links */}
           <div className="space-x-4 flex items-center">
             <Link href="/" className="text-gray-300 hover:text-white inline-flex items-center">
               <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -41,12 +48,6 @@ export function NavigationBar() {
               </svg>
               <span>Contact</span>
             </Link>
-          </div>
-        </div>
-        {/* Alpha Badge - Centered below navigation */}
-        <div className="text-center">
-          <div className="inline-block rounded-lg bg-gray-700 px-2 py-1 text-xs text-gray-200">
-            Alpha v0.1.0
           </div>
         </div>
       </div>
