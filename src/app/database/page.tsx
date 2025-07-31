@@ -62,6 +62,30 @@ export default function DatabasePage() {
     });
   };
 
+  const clearAllFilters = () => {
+    setFilters({});
+  };
+
+  // Helper function to get gradient color based on rank
+  const getRankColor = (rank: number | string, maxRank: number = 1000) => {
+    // Handle #NA or invalid values
+    if (rank === '#NA' || rank === null || rank === undefined || isNaN(Number(rank))) {
+      return '#d3d3d3'; // Light grey for #NA values
+    }
+    
+    const rankNum = Number(rank);
+    
+    // Normalize rank to 0-1 range (1 is best, maxRank is worst)
+    const normalized = Math.max(0, Math.min(1, (rankNum - 1) / (maxRank - 1)));
+    
+    // Green to darker green gradient (light green to dark green)
+    const red = Math.round(50 + (normalized * 100)); // 50-150 range
+    const green = Math.round(200 + (normalized * 55)); // 200-255 range  
+    const blue = Math.round(50 + (normalized * 100)); // 50-150 range
+    
+    return `rgb(${red}, ${green}, ${blue})`;
+  };
+
   // Get unique values for a column
   const getUniqueValues = (columnKey: string) => {
     const values = new Set<string>();
@@ -236,20 +260,28 @@ export default function DatabasePage() {
     {
       accessorKey: 'sort_disease_ot_total_assoc_score_rank',
       header: columnNames[2] || 'All Diseases Rank',
-      cell: ({ getValue }) => (
-        <span className="text-sm truncate" title={getValue() as string}>
-          {getValue() as number}
-        </span>
-      ),
+      cell: ({ getValue }) => {
+        const rank = getValue() as number;
+        return (
+          <div 
+            className="w-full h-full"
+            title={`Rank: ${rank}`}
+          />
+        );
+      },
     },
     {
       accessorKey: 'sort_disease_ot_ard_total_assoc_count_score_rank',
       header: columnNames[3] || 'ARDs Rank',
-      cell: ({ getValue }) => (
-        <span className="text-sm truncate" title={getValue() as string}>
-          {getValue() as number}
-        </span>
-      ),
+      cell: ({ getValue }) => {
+        const rank = getValue() as number;
+        return (
+          <div 
+            className="w-full h-full"
+            title={`Rank: ${rank}`}
+          />
+        );
+      },
     },
     {
       accessorKey: 'disease_ot_ard_strongest_linked_disease',
@@ -267,11 +299,15 @@ export default function DatabasePage() {
     {
       accessorKey: 'sort_aging_summary_total_db_entries_count_rank',
       header: columnNames[5] || 'Aging Rank',
-      cell: ({ getValue }) => (
-        <span className="text-sm truncate" title={getValue() as string}>
-          {getValue() as number}
-        </span>
-      ),
+      cell: ({ getValue }) => {
+        const rank = getValue() as number;
+        return (
+          <div 
+            className="w-full h-full"
+            title={`Rank: ${rank}`}
+          />
+        );
+      },
     },
     {
       accessorKey: 'aging_summary_human',
@@ -385,17 +421,17 @@ export default function DatabasePage() {
       const symbolMatch = symbol.includes(searchTerm.toLowerCase());
       
       // Apply column filters
-      const humanMatch = filters['aging_summary_human'].length === 0 || 
+      const humanMatch = !filters['aging_summary_human'] || filters['aging_summary_human'].length === 0 || 
         filters['aging_summary_human'].includes((row['aging_summary_human'] || '').trim());
-      const mmMatch = filters['aging_summary_mm_influence'].length === 0 || 
+      const mmMatch = !filters['aging_summary_mm_influence'] || filters['aging_summary_mm_influence'].length === 0 || 
         filters['aging_summary_mm_influence'].includes((row['aging_summary_mm_influence'] || '').trim());
-      const ceMatch = filters['aging_summary_ce_influence'].length === 0 || 
+      const ceMatch = !filters['aging_summary_ce_influence'] || filters['aging_summary_ce_influence'].length === 0 || 
         filters['aging_summary_ce_influence'].includes((row['aging_summary_ce_influence'] || '').trim());
-      const dmMatch = filters['aging_summary_dm_influence'].length === 0 || 
+      const dmMatch = !filters['aging_summary_dm_influence'] || filters['aging_summary_dm_influence'].length === 0 || 
         filters['aging_summary_dm_influence'].includes((row['aging_summary_dm_influence'] || '').trim());
-      const devMatch = filters['dev_summary_dev_level_category'].length === 0 || 
+      const devMatch = !filters['dev_summary_dev_level_category'] || filters['dev_summary_dev_level_category'].length === 0 || 
         filters['dev_summary_dev_level_category'].includes((row['dev_summary_dev_level_category'] || '').trim());
-      const tdlMatch = filters['dev_pharos_tcrd_tdl'].length === 0 || 
+      const tdlMatch = !filters['dev_pharos_tcrd_tdl'] || filters['dev_pharos_tcrd_tdl'].length === 0 || 
         filters['dev_pharos_tcrd_tdl'].includes((row['dev_pharos_tcrd_tdl'] || '').trim());
       
       return symbolMatch && humanMatch && mmMatch && ceMatch && dmMatch && devMatch && tdlMatch;
@@ -487,7 +523,7 @@ export default function DatabasePage() {
         {/* Filter Options - Horizontal Layout */}
         <div className="mb-1 p-2 bg-white border border-gray-200 rounded">
           <div className="flex items-center space-x-4">
-            <div className="flex-1 max-w-md">
+            <div className="flex-1" style={{ maxWidth: 'fit-content' }}>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
@@ -495,7 +531,8 @@ export default function DatabasePage() {
                   placeholder="Search by TF Symbol..."
                   value={searchTerm}
                   onChange={e => handleSearchChange(e.target.value)}
-                  className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm w-full"
+                  className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+                  style={{ width: '220px' }}
                 />
               </div>
             </div>
@@ -583,9 +620,6 @@ export default function DatabasePage() {
 
 
 
-
-          
-
           {/* Simple Table */}
           <div className="overflow-x-auto">
             <table className="w-full border-collapse" style={{ tableLayout: 'fixed' }}>
@@ -604,31 +638,82 @@ export default function DatabasePage() {
                 <col style={{ width: '80px' }} /> {/* Pharos TDL */}
               </colgroup>
               <thead>
-                <tr className="bg-gray-50">
+                {/* Rotated Headers Row */}
+                <tr className="bg-transparent">
+                  {table.getHeaderGroups()[0].headers.map((header) => (
+                    <th
+                      key={`rotated-${header.id}`}
+                      className="p-2 text-left text-sm font-medium text-gray-500 border-b"
+                      style={{ 
+                        height: '124px',
+                        verticalAlign: 'bottom',
+                        paddingBottom: '4px',
+                        paddingLeft: '8px',
+                        position: 'relative'
+                      }}
+                    >
+                      <div 
+                        className="transform -rotate-45 origin-bottom-left whitespace-nowrap"
+                        style={{
+                          transform: 'rotate(-45deg)',
+                          transformOrigin: 'bottom left',
+                          width: 'max-content',
+                          minHeight: '20px',
+                          overflow: 'visible',
+                          textOverflow: 'clip',
+                          position: 'absolute',
+                          left: '20px',
+                          bottom: '4px',
+                          padding: '2px'
+                        }}
+                      >
+                        {header.column.columnDef.header as string}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+                {/* Functional Headers Row */}
+                <tr className="bg-gray-50 border-2 border-red-500">
                   {table.getHeaderGroups()[0].headers.map((header) => (
                     <th
                       key={header.id}
-                      className={`p-2 text-left text-sm font-medium text-gray-500 border-b ${
-                        [1, 2, 3, 5].includes(table.getHeaderGroups()[0].headers.indexOf(header)) 
-                          ? 'cursor-pointer hover:bg-gray-100' 
-                          : ''
-                      }`}
-                      onClick={[1, 2, 3, 5].includes(table.getHeaderGroups()[0].headers.indexOf(header)) 
-                        ? header.column.getToggleSortingHandler() 
-                        : undefined
-                      }
+                      className="text-left text-sm font-medium text-gray-500 border-b border-2 border-blue-500"
+                      style={{
+                        padding: '8px'
+                      }}
+                      onClick={undefined}
                     >
-                      <div className="flex items-center justify-start">
+                      <div className="flex items-center justify-start border-2 border-green-500 min-h-[32px]">
                         {(() => {
                           const headerIndex = table.getHeaderGroups()[0].headers.indexOf(header);
+                          console.log(`Header ${headerIndex}: ${header.column.columnDef.header} - Width: ${header.getSize()}, Column ID: ${header.column.id}`);
                           // Show sorting buttons for rank columns (indices 1, 2, 3, 5)
                           if ([1, 2, 3, 5].includes(headerIndex)) {
-                            return header.column.getIsSorted() === 'asc' ? (
-                              <ChevronUp className="w-4 h-4 text-blue-600" />
-                            ) : header.column.getIsSorted() === 'desc' ? (
-                              <ChevronDown className="w-4 h-4 text-blue-600" />
-                            ) : (
-                              <ChevronUp className="w-4 h-4 text-gray-300" />
+                            const sortDirection = header.column.getIsSorted();
+                            return (
+                              <div className="flex items-center justify-center w-full h-full border-2 border-purple-500 relative">
+                                <div className="absolute top-0 left-0 text-xs text-red-600 font-bold">#{headerIndex}</div>
+                                <div className="absolute top-0 right-0 text-xs text-blue-600 font-bold">{header.getSize()}px</div>
+                                <button
+                                  className={`w-6 h-6 rounded-md border transition-all duration-200 flex items-center justify-center ${
+                                    sortDirection 
+                                      ? 'bg-blue-50 border-blue-200 text-blue-600 hover:bg-blue-100' 
+                                      : 'bg-gray-50 border-gray-200 text-gray-400 hover:bg-gray-100 hover:text-gray-600'
+                                  }`}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    header.column.getToggleSortingHandler()?.(e);
+                                  }}
+                                >
+                                  {sortDirection === 'asc' ? (
+                                    <ChevronUp className="w-3 h-3" />
+                                  ) : sortDirection === 'desc' ? (
+                                    <ChevronDown className="w-3 h-3" />
+                                  ) : (
+                                    <ChevronUp className="w-3 h-3" />
+                                  )}
+                                </button>
+                              </div>
                             );
                           }
                           // Show filter buttons for the last 6 columns (indices 6-11)
@@ -646,26 +731,29 @@ export default function DatabasePage() {
                             const activeFilters = filters[columnKey]?.length || 0;
                             
                             return (
-                              <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
+                              <div className="relative w-full h-full border-2 border-orange-500" onClick={(e) => e.stopPropagation()}>
+                                <div className="absolute top-0 left-0 text-xs text-red-600 font-bold">#{headerIndex}</div>
+                                <div className="absolute top-0 right-0 text-xs text-blue-600 font-bold">{header.getSize()}px</div>
                                 <div 
-                                  className={`flex items-center justify-center w-8 h-8 rounded-md border-2 cursor-pointer transition-colors ${
+                                  className={`flex items-center justify-center w-6 h-6 rounded-full cursor-pointer transition-all duration-200 z-20 ${
                                     isOpen 
-                                      ? 'border-blue-500 bg-blue-50' 
+                                      ? 'bg-blue-500 text-white shadow-md' 
                                       : activeFilters > 0 
-                                        ? 'border-blue-300 bg-blue-50' 
-                                        : 'border-gray-300 hover:border-gray-400'
+                                        ? 'bg-blue-100 text-blue-600 hover:bg-blue-200' 
+                                        : 'bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700'
                                   }`}
+                                  style={{ backgroundColor: isOpen ? '#3b82f6' : activeFilters > 0 ? '#dbeafe' : '#f3f4f6' }}
                                   onClick={(e) => {
                                     const rect = e.currentTarget.getBoundingClientRect();
                                     setFilterPosition({ x: rect.left, y: rect.bottom + 5 });
                                     setOpenFilter(isOpen ? null : columnKey);
                                   }}
                                 >
-                                  <Filter className={`w-4 h-4 ${
-                                    isOpen ? 'text-blue-600' : activeFilters > 0 ? 'text-blue-500' : 'text-gray-500'
+                                  <Filter className={`w-3 h-3 ${
+                                    isOpen ? 'text-white' : activeFilters > 0 ? 'text-blue-600' : 'text-gray-500'
                                   }`} />
                                   {activeFilters > 0 && (
-                                    <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                                    <span className="absolute top-1/2 -translate-y-1/2 bg-blue-400 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-medium shadow-sm" style={{ left: '36px' }}>
                                       {activeFilters}
                                     </span>
                                   )}
@@ -686,17 +774,58 @@ export default function DatabasePage() {
                   <tr
                     key={row.id}
                     className="hover:bg-gray-50 cursor-pointer border-b"
+                    style={{ height: '20px' }}
                     onClick={() => handleGeneClick(row.original['TF Symbol'])}
                   >
-                    {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className="p-2 text-sm text-gray-900">
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </td>
-                    ))}
+                    {row.getVisibleCells().map((cell, cellIndex) => {
+                      // Apply background color directly to rank column cells
+                      const rankColumns = [2, 3, 5]; // All Diseases Rank, ARDs Rank, Aging Rank
+                      let cellStyle = {};
+                      
+                      if (rankColumns.includes(cellIndex)) {
+                        const rank = cell.getValue() as number;
+                        const color = getRankColor(rank);
+                        cellStyle = { 
+                          backgroundColor: color,
+                          border: '1px solid white',
+                          padding: '0px'
+                        };
+                        console.log(`Cell ${cellIndex} (${cell.column.id}):`, rank, 'Color:', color);
+                      }
+                      
+                      return (
+                        <td 
+                          key={cell.id} 
+                          className="text-sm text-gray-900"
+                          style={{
+                            ...cellStyle,
+                            height: '20px',
+                            lineHeight: '20px',
+                            verticalAlign: 'middle',
+                            padding: rankColumns.includes(cellIndex) ? '0px' : '2px 4px'
+                          }}
+                        >
+                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Clear All Filters Button */}
+          <div className="flex justify-end mt-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={clearAllFilters}
+              className="text-xs px-3 py-1 h-7"
+              disabled={Object.keys(filters).length === 0 || Object.values(filters).every(f => f.length === 0)}
+            >
+              Clear All Filters
+            </Button>
           </div>
 
           {/* Filter Popup Portal */}
