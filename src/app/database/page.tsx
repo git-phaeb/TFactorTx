@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   useReactTable,
@@ -13,7 +13,7 @@ import {
   SortingState,
   ColumnDef,
 } from '@tanstack/react-table';
-import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, ChevronFirst, ChevronLast, Search } from 'lucide-react';
+import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, ChevronFirst, ChevronLast, Search, Filter, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -30,6 +30,16 @@ export default function DatabasePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [columnNames, setColumnNames] = useState<string[]>([]);
+  const [filters, setFilters] = useState<Record<string, string[]>>({
+    'aging_summary_human': [],
+    'aging_summary_mm_influence': [],
+    'aging_summary_ce_influence': [],
+    'aging_summary_dm_influence': [],
+    'development_level': [],
+    'pharos_tdl': []
+  });
+  const [openFilter, setOpenFilter] = useState<string | null>(null);
+  const [filterPosition, setFilterPosition] = useState<{ x: number; y: number } | null>(null);
 
   // Handle search term change
   const handleSearchChange = (newSearchTerm: string) => {
@@ -40,6 +50,52 @@ export default function DatabasePage() {
   const handleGeneClick = (geneSymbol: string) => {
     window.open(`/database/${encodeURIComponent(geneSymbol)}`, '_blank');
   };
+
+  // Handle filter changes
+  const handleFilterChange = (columnKey: string, value: string) => {
+    setFilters(prev => {
+      const currentFilters = prev[columnKey] || [];
+      const newFilters = currentFilters.includes(value)
+        ? currentFilters.filter(v => v !== value)
+        : [...currentFilters, value];
+      return { ...prev, [columnKey]: newFilters };
+    });
+  };
+
+  // Get unique values for a column
+  const getUniqueValues = (columnKey: string) => {
+    const values = new Set<string>();
+    data.forEach(row => {
+      const value = row[columnKey as keyof TFactorTxData];
+      if (value && value !== '#NA') {
+        // Handle special cases for the last two columns
+        if (columnKey === 'dev_summary_dev_level_category') {
+          values.add(value.toString());
+        } else if (columnKey === 'dev_pharos_tcrd_tdl') {
+          const displayText = getTDL(value.toString());
+          values.add(displayText);
+        } else {
+          values.add(value.toString());
+        }
+      }
+    });
+    return Array.from(values).sort();
+  };
+
+
+
+  // Close filter popup when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (openFilter && !(event.target as Element).closest('.filter-popup')) {
+        setOpenFilter(null);
+        setFilterPosition(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [openFilter]);
 
   // Fetch data from API
   useEffect(() => {
@@ -68,6 +124,12 @@ export default function DatabasePage() {
     fetchData();
   }, []);
 
+
+
+
+
+
+
   // Column definitions
   const columns: ColumnDef<TFactorTxData>[] = useMemo(() => [
     {
@@ -75,7 +137,7 @@ export default function DatabasePage() {
       header: columnNames[0] || 'Gene Name',
       cell: ({ row }) => (
         <div
-          className="font-medium text-blue-600 cursor-pointer hover:text-blue-800 truncate"
+          className="text-sm font-medium text-blue-600 cursor-pointer hover:text-blue-800 truncate"
           onClick={() => handleGeneClick(row.getValue('TF Symbol') as string)}
           title={row.getValue('TF Symbol') as string}
         >
@@ -87,7 +149,7 @@ export default function DatabasePage() {
       accessorKey: 'sort_disease_ot_ard_aging_overall_rank',
       header: columnNames[1] || 'Overall Rank',
       cell: ({ getValue }) => (
-        <span className="font-medium truncate" title={getValue() as string}>
+        <span className="text-sm font-medium truncate" title={getValue() as string}>
           {getValue() as number}
         </span>
       ),
@@ -96,7 +158,7 @@ export default function DatabasePage() {
       accessorKey: 'sort_disease_ot_total_assoc_score_rank',
       header: columnNames[2] || 'All Diseases Rank',
       cell: ({ getValue }) => (
-        <span className="truncate" title={getValue() as string}>
+        <span className="text-sm truncate" title={getValue() as string}>
           {getValue() as number}
         </span>
       ),
@@ -105,7 +167,7 @@ export default function DatabasePage() {
       accessorKey: 'sort_disease_ot_ard_total_assoc_count_score_rank',
       header: columnNames[3] || 'ARDs Rank',
       cell: ({ getValue }) => (
-        <span className="truncate" title={getValue() as string}>
+        <span className="text-sm truncate" title={getValue() as string}>
           {getValue() as number}
         </span>
       ),
@@ -117,7 +179,7 @@ export default function DatabasePage() {
         const disease = getValue() as string;
         const displayText = disease === '#NA' ? 'Unknown' : disease;
         return (
-          <span className="truncate block" title={displayText}>
+          <span className="text-xs truncate block" title={displayText}>
             {displayText}
           </span>
         );
@@ -127,7 +189,7 @@ export default function DatabasePage() {
       accessorKey: 'sort_aging_summary_total_db_entries_count_rank',
       header: columnNames[5] || 'Aging Rank',
       cell: ({ getValue }) => (
-        <span className="truncate" title={getValue() as string}>
+        <span className="text-sm truncate" title={getValue() as string}>
           {getValue() as number}
         </span>
       ),
@@ -137,10 +199,12 @@ export default function DatabasePage() {
       header: columnNames[6] || 'Human Link Y/N',
       cell: ({ getValue }) => {
         const human = getValue() as string;
+        const bgColor = human === 'Y' ? 'bg-blue-600' : 'bg-gray-200';
+        const textColor = human === 'Y' ? 'text-white' : 'text-gray-700';
         return (
-          <Badge variant={human === 'Y' ? 'default' : 'secondary'} className="text-xs">
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
             {human === 'Y' ? 'Yes' : 'No'}
-          </Badge>
+          </span>
         );
       },
     },
@@ -150,20 +214,19 @@ export default function DatabasePage() {
       cell: ({ getValue }) => {
         const influence = getValue() as string;
         if (influence === '#NA') return <span className="text-xs">Unknown</span>;
+        if (influence === 'Pro-Longevity' || influence === 'Anti-Longevity') {
+          const bgColor = influence === 'Pro-Longevity' ? 'bg-blue-600' : 'bg-red-600';
+          const textColor = 'text-white';
+          return (
+            <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
+              {influence}
+            </span>
+          );
+        }
         return (
-          <Badge
-            variant={
-              influence === 'Pro-Longevity'
-                ? 'default'
-                : influence === 'Anti-Longevity'
-                ? 'destructive'
-                : 'secondary'
-            }
-            className="text-xs"
-            title={influence}
-          >
+          <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap" title={influence}>
             {influence}
-          </Badge>
+          </span>
         );
       },
     },
@@ -173,20 +236,19 @@ export default function DatabasePage() {
       cell: ({ getValue }) => {
         const influence = getValue() as string;
         if (influence === '#NA') return <span className="text-xs">Unknown</span>;
+        if (influence === 'Pro-Longevity' || influence === 'Anti-Longevity') {
+          const bgColor = influence === 'Pro-Longevity' ? 'bg-blue-600' : 'bg-red-600';
+          const textColor = 'text-white';
+          return (
+            <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
+              {influence}
+            </span>
+          );
+        }
         return (
-          <Badge
-            variant={
-              influence === 'Pro-Longevity'
-                ? 'default'
-                : influence === 'Anti-Longevity'
-                ? 'destructive'
-                : 'secondary'
-            }
-            className="text-xs"
-            title={influence}
-          >
+          <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap" title={influence}>
             {influence}
-          </Badge>
+          </span>
         );
       },
     },
@@ -196,20 +258,19 @@ export default function DatabasePage() {
       cell: ({ getValue }) => {
         const influence = getValue() as string;
         if (influence === '#NA') return <span className="text-xs">Unknown</span>;
+        if (influence === 'Pro-Longevity' || influence === 'Anti-Longevity') {
+          const bgColor = influence === 'Pro-Longevity' ? 'bg-blue-600' : 'bg-red-600';
+          const textColor = 'text-white';
+          return (
+            <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
+              {influence}
+            </span>
+          );
+        }
         return (
-          <Badge
-            variant={
-              influence === 'Pro-Longevity'
-                ? 'default'
-                : influence === 'Anti-Longevity'
-                ? 'destructive'
-                : 'secondary'
-            }
-            className="text-xs"
-            title={influence}
-          >
+          <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap" title={influence}>
             {influence}
-          </Badge>
+          </span>
         );
       },
     },
@@ -219,15 +280,15 @@ export default function DatabasePage() {
       cell: ({ getValue }) => {
         const category = getValue() as string;
         const getVariant = (cat: string) => {
-          if (cat.includes('High')) return 'default';
-          if (cat.includes('Medium')) return 'outline';
-          if (cat.includes('Low')) return 'secondary';
-          return 'outline';
+          if (cat.includes('High')) return 'bg-blue-600 text-white';
+          if (cat.includes('Medium')) return 'bg-gray-200 text-gray-700';
+          if (cat.includes('Low')) return 'bg-gray-200 text-gray-700';
+          return 'bg-gray-200 text-gray-700';
         };
         return (
-          <Badge variant={getVariant(category)} className="text-xs" title={category}>
+          <span className={`text-xs ${getVariant(category)} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={category}>
             {category}
-          </Badge>
+          </span>
         );
       },
     },
@@ -237,28 +298,44 @@ export default function DatabasePage() {
       cell: ({ getValue }) => {
         const tdl = getValue() as string;
         const getVariant = (tdlVal: string) => {
-          if (tdlVal === 'Tclin') return 'default';
-          if (tdlVal === 'Tchem') return 'outline';
-          if (tdlVal === 'Tbio') return 'outline';
-          return 'outline';
+          if (tdlVal === 'Tclin') return 'bg-blue-600 text-white';
+          if (tdlVal === 'Tchem') return 'bg-gray-200 text-gray-700';
+          if (tdlVal === 'Tbio') return 'bg-gray-200 text-gray-700';
+          return 'bg-gray-200 text-gray-700';
         };
         const displayText = getTDL(tdl);
         return (
-          <Badge variant={getVariant(tdl)} className="text-xs" title={displayText}>
+          <span className={`text-xs ${getVariant(tdl)} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={displayText}>
             {displayText}
-          </Badge>
+          </span>
         );
       },
     },
   ], [columnNames]);
 
-  // Filter data based on search term
+  // Filter data based on search term and column filters
   const filteredData = useMemo(() => {
-    if (!searchTerm) return data;
-    return data.filter(row =>
-      row['TF Symbol'].toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [searchTerm, data]);
+    return data.filter(row => {
+      const symbol = row['TF Symbol']?.toString().toLowerCase() || '';
+      const symbolMatch = symbol.includes(searchTerm.toLowerCase());
+      
+      // Apply column filters
+      const humanMatch = filters['aging_summary_human'].length === 0 || 
+        filters['aging_summary_human'].includes(row['aging_summary_human'] || '');
+      const mmMatch = filters['aging_summary_mm_influence'].length === 0 || 
+        filters['aging_summary_mm_influence'].includes(row['aging_summary_mm_influence'] || '');
+      const ceMatch = filters['aging_summary_ce_influence'].length === 0 || 
+        filters['aging_summary_ce_influence'].includes(row['aging_summary_ce_influence'] || '');
+      const dmMatch = filters['aging_summary_dm_influence'].length === 0 || 
+        filters['aging_summary_dm_influence'].includes(row['aging_summary_dm_influence'] || '');
+      const devMatch = filters['development_level'].length === 0 || 
+        filters['development_level'].includes(row['dev_summary_dev_level_category'] || '');
+      const tdlMatch = filters['pharos_tdl'].length === 0 || 
+        filters['pharos_tdl'].includes(row['dev_pharos_tcrd_tdl'] || '');
+      
+      return symbolMatch && humanMatch && mmMatch && ceMatch && dmMatch && devMatch && tdlMatch;
+    });
+  }, [data, searchTerm, filters]);
 
   // Table instance
   const table = useReactTable({
@@ -353,7 +430,7 @@ export default function DatabasePage() {
                   placeholder="Search by TF Symbol..."
                   value={searchTerm}
                   onChange={e => handleSearchChange(e.target.value)}
-                  className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm w-full"
+                  className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm w-full"
                 />
               </div>
             </div>
@@ -438,68 +515,110 @@ export default function DatabasePage() {
 
         {/* Main Content - Full Width */}
         <div className="space-y-2">
-          {/* Rotated Column Headers - Independent above table */}
-          <div className="bg-gray-50 border border-gray-200 rounded-t-lg">
-              <div className="flex" style={{ height: '120px' }}>
-                {table.getHeaderGroups()[0].headers.map((header, index) => (
-                  <div
-                    key={header.id}
-                    className="flex items-end justify-center cursor-pointer hover:bg-gray-100 transition-colors"
-                    onClick={header.column.getToggleSortingHandler()}
-                    style={{
-                      width: `${100 / table.getHeaderGroups()[0].headers.length}%`,
-                      position: 'relative',
-                    }}
-                  >
-                    <span
-                      className="block text-xs font-medium text-gray-500 tracking-wider whitespace-nowrap"
-                      style={{
-                        position: 'absolute',
-                        left: '50%',
-                        bottom: 0,
-                        transform: 'translateX(0%) rotate(-45deg)',
-                        transformOrigin: 'bottom left',
-                        display: 'inline-block',
-                      }}
-                    >
-                      <span className="flex flex-row items-center gap-1">
-                        {((columnNames[table.getHeaderGroups()[0].headers.indexOf(header)] || header.id) as string)
-                          .replace(/_/g, ' ')
-                          .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}
-                        {header.column.getIsSorted() === 'asc' ? (
-                          <ChevronUp className="w-3 h-3 flex-shrink-0 text-blue-600" />
-                        ) : header.column.getIsSorted() === 'desc' ? (
-                          <ChevronDown className="w-3 h-3 flex-shrink-0 text-blue-600" />
-                        ) : (
-                          <ChevronUp className="w-3 h-3 flex-shrink-0 text-gray-300" />
-                        )}
-                      </span>
-                    </span>
-                  </div>
-                ))}
-              </div>
-          </div>
 
-          {/* Table */}
-          <div className="overflow-x-auto pb-0 mb-0">
-            <table className="w-full table-fixed">
+
+
+
+          
+
+          {/* Simple Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse" style={{ tableLayout: 'fixed' }}>
               <colgroup>
-                {table.getHeaderGroups()[0].headers.map((header, index) => (
-                  <col key={header.id} style={{ width: `${100 / table.getHeaderGroups()[0].headers.length}%` }} />
-                ))}
+                <col style={{ width: '120px' }} /> {/* Gene name */}
+                <col style={{ width: '60px' }} /> {/* Overall Rank */}
+                <col style={{ width: '60px' }} /> {/* All Diseases Rank */}
+                <col style={{ width: '60px' }} /> {/* ARDs Rank */}
+                <col style={{ width: '350px' }} /> {/* Strongest Linked ARD */}
+                <col style={{ width: '60px' }} /> {/* Aging Rank */}
+                <col style={{ width: '80px' }} /> {/* Human Link */}
+                <col style={{ width: '120px' }} /> {/* M. musculus Link */}
+                <col style={{ width: '120px' }} /> {/* C. elegans Link */}
+                <col style={{ width: '120px' }} /> {/* D. melanogaster Link */}
+                <col style={{ width: '130px' }} /> {/* Development Level */}
+                <col style={{ width: '80px' }} /> {/* Pharos TDL */}
               </colgroup>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {table.getRowModel().rows.map((row, rowIndex) => (
+              <thead>
+                <tr className="bg-gray-50">
+                  {table.getHeaderGroups()[0].headers.map((header) => (
+                    <th
+                      key={header.id}
+                      className="p-2 text-left text-sm font-medium text-gray-500 cursor-pointer hover:bg-gray-100 border-b"
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      <div className="flex items-center justify-start">
+                        {(() => {
+                          const headerIndex = table.getHeaderGroups()[0].headers.indexOf(header);
+                          // Show sorting buttons for rank columns (indices 1, 2, 3, 5)
+                          if ([1, 2, 3, 5].includes(headerIndex)) {
+                            return header.column.getIsSorted() === 'asc' ? (
+                              <ChevronUp className="w-4 h-4 text-blue-600" />
+                            ) : header.column.getIsSorted() === 'desc' ? (
+                              <ChevronDown className="w-4 h-4 text-blue-600" />
+                            ) : (
+                              <ChevronUp className="w-4 h-4 text-gray-300" />
+                            );
+                          }
+                          // Show filter buttons for the last 6 columns (indices 6-11)
+                          if ([6, 7, 8, 9, 10, 11].includes(headerIndex)) {
+                            const columnKeys = [
+                              'aging_summary_human',
+                              'aging_summary_mm_influence', 
+                              'aging_summary_ce_influence',
+                              'aging_summary_dm_influence',
+                              'dev_summary_dev_level_category',
+                              'dev_pharos_tcrd_tdl'
+                            ];
+                            const columnKey = columnKeys[headerIndex - 6];
+                            const isOpen = openFilter === columnKey;
+                            const activeFilters = filters[columnKey]?.length || 0;
+                            
+                            return (
+                              <div className="relative w-full h-full" onClick={(e) => e.stopPropagation()}>
+                                <div 
+                                  className={`flex items-center justify-center w-8 h-8 rounded-md border-2 cursor-pointer transition-colors ${
+                                    isOpen 
+                                      ? 'border-blue-500 bg-blue-50' 
+                                      : activeFilters > 0 
+                                        ? 'border-blue-300 bg-blue-50' 
+                                        : 'border-gray-300 hover:border-gray-400'
+                                  }`}
+                                  onClick={(e) => {
+                                    const rect = e.currentTarget.getBoundingClientRect();
+                                    setFilterPosition({ x: rect.left, y: rect.bottom + 5 });
+                                    setOpenFilter(isOpen ? null : columnKey);
+                                  }}
+                                >
+                                  <Filter className={`w-4 h-4 ${
+                                    isOpen ? 'text-blue-600' : activeFilters > 0 ? 'text-blue-500' : 'text-gray-500'
+                                  }`} />
+                                  {activeFilters > 0 && (
+                                    <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                                      {activeFilters}
+                                    </span>
+                                  )}
+                                </div>
+
+                              </div>
+                            );
+                          }
+                          return null;
+                        })()}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {table.getRowModel().rows.map((row) => (
                   <tr
                     key={row.id}
-                    className="hover:bg-gray-50 cursor-pointer relative"
+                    className="hover:bg-gray-50 cursor-pointer border-b"
                     onClick={() => handleGeneClick(row.original['TF Symbol'])}
                   >
-                    {row.getVisibleCells().map(cell => (
-                      <td key={cell.id} className="py-2 text-sm text-gray-900 relative">
-                        <div className="truncate px-2">
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </div>
+                    {row.getVisibleCells().map((cell) => (
+                      <td key={cell.id} className="p-2 text-sm text-gray-900">
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     ))}
                   </tr>
@@ -507,6 +626,53 @@ export default function DatabasePage() {
               </tbody>
             </table>
           </div>
+
+          {/* Filter Popup Portal */}
+          {openFilter && filterPosition && (
+            <div 
+              className="fixed z-50 bg-white border border-gray-200 rounded-md shadow-lg p-3 min-w-56"
+              style={{
+                left: `${filterPosition.x}px`,
+                top: `${filterPosition.y}px`,
+                maxHeight: '400px',
+                overflow: 'hidden'
+              }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-medium text-gray-900">Filter Options</span>
+                <X 
+                  className="w-4 h-4 text-gray-500 hover:text-gray-700 cursor-pointer"
+                  onClick={() => {
+                    setOpenFilter(null);
+                    setFilterPosition(null);
+                  }}
+                />
+              </div>
+              <div className="space-y-2 max-h-48 overflow-y-auto">
+                {getUniqueValues(openFilter).map(value => (
+                  <label key={value} className="flex items-center space-x-3 text-sm cursor-pointer hover:bg-gray-50 p-1 rounded">
+                    <input
+                      type="checkbox"
+                      checked={filters[openFilter]?.includes(value) || false}
+                      onChange={() => handleFilterChange(openFilter, value)}
+                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="flex-1">{value}</span>
+                  </label>
+                ))}
+              </div>
+              {filters[openFilter]?.length > 0 && (
+                <div className="mt-3 pt-2 border-t border-gray-200">
+                  <button
+                    onClick={() => setFilters(prev => ({ ...prev, [openFilter]: [] }))}
+                    className="text-xs text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    Clear all filters ({filters[openFilter]?.length})
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Pagination Controls - Bottom */}
           <div className="mt-1 p-1 bg-white border border-gray-200 rounded">
