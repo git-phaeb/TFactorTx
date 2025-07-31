@@ -35,8 +35,8 @@ export default function DatabasePage() {
     'aging_summary_mm_influence': [],
     'aging_summary_ce_influence': [],
     'aging_summary_dm_influence': [],
-    'development_level': [],
-    'pharos_tdl': []
+    'dev_summary_dev_level_category': [],
+    'dev_pharos_tcrd_tdl': []
   });
   const [openFilter, setOpenFilter] = useState<string | null>(null);
   const [filterPosition, setFilterPosition] = useState<{ x: number; y: number } | null>(null);
@@ -68,17 +68,93 @@ export default function DatabasePage() {
     data.forEach(row => {
       const value = row[columnKey as keyof TFactorTxData];
       if (value && value !== '#NA') {
-        // Handle special cases for the last two columns
-        if (columnKey === 'dev_summary_dev_level_category') {
-          values.add(value.toString());
-        } else if (columnKey === 'dev_pharos_tcrd_tdl') {
-          const displayText = getTDL(value.toString());
-          values.add(displayText);
-        } else {
-          values.add(value.toString());
+        // Trim whitespace and normalize the value
+        const normalizedValue = value.toString().trim();
+        if (normalizedValue) {
+          values.add(normalizedValue);
         }
       }
     });
+    
+    // Special handling for Human Link column - dynamic based on actual data
+    if (columnKey === 'aging_summary_human') {
+      const uniqueValues = Array.from(values);
+      // If we have Yes/No values, return them in that order
+      if (uniqueValues.includes('Yes') && uniqueValues.includes('No')) {
+        return ['Yes', 'No'];
+      }
+      // If we have Y/N values, return them in that order
+      if (uniqueValues.includes('Y') && uniqueValues.includes('N')) {
+        return ['Y', 'N'];
+      }
+      // Otherwise return sorted values
+      return uniqueValues.sort();
+    }
+
+    // Special handling for Development Level column
+    if (columnKey === 'dev_summary_dev_level_category') {
+      const uniqueValues = Array.from(values);
+      const orderedValues = [];
+      
+      // Add values in the specified order if they exist
+      if (uniqueValues.includes('High')) orderedValues.push('High');
+      if (uniqueValues.includes('Medium')) orderedValues.push('Medium');
+      if (uniqueValues.includes('Medium to Low')) orderedValues.push('Medium to Low');
+      if (uniqueValues.includes('Low')) orderedValues.push('Low');
+      if (uniqueValues.includes('None')) orderedValues.push('None');
+      
+      // Add any other values that might exist but weren't in our predefined order
+      const remainingValues = uniqueValues.filter(val => 
+        !['High', 'Medium', 'Medium to Low', 'Low', 'None'].includes(val)
+      );
+      
+      return [...orderedValues, ...remainingValues.sort()];
+    }
+
+    // Special handling for Pharos TDL column
+    if (columnKey === 'dev_pharos_tcrd_tdl') {
+      const uniqueValues = Array.from(values);
+      const orderedValues = [];
+      
+      // Add values in the specified order if they exist
+      if (uniqueValues.includes('Tclin')) orderedValues.push('Tclin');
+      if (uniqueValues.includes('Tchem')) orderedValues.push('Tchem');
+      if (uniqueValues.includes('Tbio')) orderedValues.push('Tbio');
+      if (uniqueValues.includes('Tdark')) orderedValues.push('Tdark');
+      if (uniqueValues.includes('#NA')) orderedValues.push('#NA');
+      
+      // Add any other values that might exist but weren't in our predefined order
+      const remainingValues = uniqueValues.filter(val => 
+        !['Tclin', 'Tchem', 'Tbio', 'Tdark', '#NA'].includes(val)
+      );
+      
+      return [...orderedValues, ...remainingValues.sort()];
+    }
+
+    // Special handling for aging link columns (M. musculus, C. elegans, D. melanogaster)
+    if (columnKey === 'aging_summary_mm_influence' || 
+        columnKey === 'aging_summary_ce_influence' || 
+        columnKey === 'aging_summary_dm_influence') {
+      const uniqueValues = Array.from(values);
+      const orderedValues = [];
+      
+      // Add Pro-Longevity and Anti-Longevity first if they exist
+      if (uniqueValues.includes('Pro-Longevity')) orderedValues.push('Pro-Longevity');
+      if (uniqueValues.includes('Anti-Longevity')) orderedValues.push('Anti-Longevity');
+      
+      // Add all other values except None, sorted alphabetically
+      const otherValues = uniqueValues.filter(val => 
+        !['Pro-Longevity', 'Anti-Longevity', 'None'].includes(val)
+      ).sort();
+      
+      // Add None at the very end if it exists
+      if (uniqueValues.includes('None')) {
+        return [...orderedValues, ...otherValues, 'None'];
+      }
+      
+      return [...orderedValues, ...otherValues];
+    }
+    
     return Array.from(values).sort();
   };
 
@@ -87,7 +163,9 @@ export default function DatabasePage() {
   // Close filter popup when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (openFilter && !(event.target as Element).closest('.filter-popup')) {
+      const target = event.target as Element;
+      // Check if click is on the popup itself or any of its children
+      if (openFilter && !target.closest('[data-filter-popup]')) {
         setOpenFilter(null);
         setFilterPosition(null);
       }
@@ -97,18 +175,19 @@ export default function DatabasePage() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [openFilter]);
 
-  // Fetch data from API
+  // Fetch data from API - dynamically adapts to CSV structure changes
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // Add cache-busting parameter to force reload
+        // Add cache-busting parameter to force reload and get latest CSV data
         const response = await fetch(`/api/csv-data?t=${Date.now()}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
         const result = await response.json();
         console.log('Loaded column names:', result.columnNames);
+        console.log('Data structure adapts to CSV changes automatically');
         setData(result.data);
         setColumnNames(result.columnNames || []);
         // Remove automatic selection of TP53
@@ -199,11 +278,13 @@ export default function DatabasePage() {
       header: columnNames[6] || 'Human Link Y/N',
       cell: ({ getValue }) => {
         const human = getValue() as string;
-        const bgColor = human === 'Y' ? 'bg-blue-600' : 'bg-gray-200';
-        const textColor = human === 'Y' ? 'text-white' : 'text-gray-700';
+        // Dynamic styling based on actual values in data
+        const isPositive = human === 'Yes' || human === 'Y';
+        const bgColor = isPositive ? 'bg-blue-600' : 'bg-gray-200';
+        const textColor = isPositive ? 'text-white' : 'text-gray-700';
         return (
           <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
-            {human === 'Y' ? 'Yes' : 'No'}
+            {human}
           </span>
         );
       },
@@ -213,18 +294,13 @@ export default function DatabasePage() {
       header: columnNames[7] || 'M. musculus Link',
       cell: ({ getValue }) => {
         const influence = getValue() as string;
-        if (influence === '#NA') return <span className="text-xs">Unknown</span>;
-        if (influence === 'Pro-Longevity' || influence === 'Anti-Longevity') {
-          const bgColor = influence === 'Pro-Longevity' ? 'bg-blue-600' : 'bg-red-600';
-          const textColor = 'text-white';
-          return (
-            <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
-              {influence}
-            </span>
-          );
-        }
+        // Dynamic styling based on actual values
+        const isProLongevity = influence === 'Pro-Longevity';
+        const isAntiLongevity = influence === 'Anti-Longevity';
+        const bgColor = isProLongevity ? 'bg-blue-600' : isAntiLongevity ? 'bg-red-600' : 'bg-gray-200';
+        const textColor = (isProLongevity || isAntiLongevity) ? 'text-white' : 'text-gray-700';
         return (
-          <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap" title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={influence}>
             {influence}
           </span>
         );
@@ -235,18 +311,13 @@ export default function DatabasePage() {
       header: columnNames[8] || 'C. elegans Link',
       cell: ({ getValue }) => {
         const influence = getValue() as string;
-        if (influence === '#NA') return <span className="text-xs">Unknown</span>;
-        if (influence === 'Pro-Longevity' || influence === 'Anti-Longevity') {
-          const bgColor = influence === 'Pro-Longevity' ? 'bg-blue-600' : 'bg-red-600';
-          const textColor = 'text-white';
-          return (
-            <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
-              {influence}
-            </span>
-          );
-        }
+        // Dynamic styling based on actual values
+        const isProLongevity = influence === 'Pro-Longevity';
+        const isAntiLongevity = influence === 'Anti-Longevity';
+        const bgColor = isProLongevity ? 'bg-blue-600' : isAntiLongevity ? 'bg-red-600' : 'bg-gray-200';
+        const textColor = (isProLongevity || isAntiLongevity) ? 'text-white' : 'text-gray-700';
         return (
-          <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap" title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={influence}>
             {influence}
           </span>
         );
@@ -257,18 +328,13 @@ export default function DatabasePage() {
       header: columnNames[9] || 'D. melanogaster Link',
       cell: ({ getValue }) => {
         const influence = getValue() as string;
-        if (influence === '#NA') return <span className="text-xs">Unknown</span>;
-        if (influence === 'Pro-Longevity' || influence === 'Anti-Longevity') {
-          const bgColor = influence === 'Pro-Longevity' ? 'bg-blue-600' : 'bg-red-600';
-          const textColor = 'text-white';
-          return (
-            <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`}>
-              {influence}
-            </span>
-          );
-        }
+        // Dynamic styling based on actual values
+        const isProLongevity = influence === 'Pro-Longevity';
+        const isAntiLongevity = influence === 'Anti-Longevity';
+        const bgColor = isProLongevity ? 'bg-blue-600' : isAntiLongevity ? 'bg-red-600' : 'bg-gray-200';
+        const textColor = (isProLongevity || isAntiLongevity) ? 'text-white' : 'text-gray-700';
         return (
-          <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap" title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={influence}>
             {influence}
           </span>
         );
@@ -303,10 +369,9 @@ export default function DatabasePage() {
           if (tdlVal === 'Tbio') return 'bg-gray-200 text-gray-700';
           return 'bg-gray-200 text-gray-700';
         };
-        const displayText = getTDL(tdl);
         return (
-          <span className={`text-xs ${getVariant(tdl)} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={displayText}>
-            {displayText}
+          <span className={`text-xs ${getVariant(tdl)} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={tdl}>
+            {tdl}
           </span>
         );
       },
@@ -321,17 +386,17 @@ export default function DatabasePage() {
       
       // Apply column filters
       const humanMatch = filters['aging_summary_human'].length === 0 || 
-        filters['aging_summary_human'].includes(row['aging_summary_human'] || '');
+        filters['aging_summary_human'].includes((row['aging_summary_human'] || '').trim());
       const mmMatch = filters['aging_summary_mm_influence'].length === 0 || 
-        filters['aging_summary_mm_influence'].includes(row['aging_summary_mm_influence'] || '');
+        filters['aging_summary_mm_influence'].includes((row['aging_summary_mm_influence'] || '').trim());
       const ceMatch = filters['aging_summary_ce_influence'].length === 0 || 
-        filters['aging_summary_ce_influence'].includes(row['aging_summary_ce_influence'] || '');
+        filters['aging_summary_ce_influence'].includes((row['aging_summary_ce_influence'] || '').trim());
       const dmMatch = filters['aging_summary_dm_influence'].length === 0 || 
-        filters['aging_summary_dm_influence'].includes(row['aging_summary_dm_influence'] || '');
-      const devMatch = filters['development_level'].length === 0 || 
-        filters['development_level'].includes(row['dev_summary_dev_level_category'] || '');
-      const tdlMatch = filters['pharos_tdl'].length === 0 || 
-        filters['pharos_tdl'].includes(row['dev_pharos_tcrd_tdl'] || '');
+        filters['aging_summary_dm_influence'].includes((row['aging_summary_dm_influence'] || '').trim());
+      const devMatch = filters['dev_summary_dev_level_category'].length === 0 || 
+        filters['dev_summary_dev_level_category'].includes((row['dev_summary_dev_level_category'] || '').trim());
+      const tdlMatch = filters['dev_pharos_tcrd_tdl'].length === 0 || 
+        filters['dev_pharos_tcrd_tdl'].includes((row['dev_pharos_tcrd_tdl'] || '').trim());
       
       return symbolMatch && humanMatch && mmMatch && ceMatch && dmMatch && devMatch && tdlMatch;
     });
@@ -543,8 +608,15 @@ export default function DatabasePage() {
                   {table.getHeaderGroups()[0].headers.map((header) => (
                     <th
                       key={header.id}
-                      className="p-2 text-left text-sm font-medium text-gray-500 cursor-pointer hover:bg-gray-100 border-b"
-                      onClick={header.column.getToggleSortingHandler()}
+                      className={`p-2 text-left text-sm font-medium text-gray-500 border-b ${
+                        [1, 2, 3, 5].includes(table.getHeaderGroups()[0].headers.indexOf(header)) 
+                          ? 'cursor-pointer hover:bg-gray-100' 
+                          : ''
+                      }`}
+                      onClick={[1, 2, 3, 5].includes(table.getHeaderGroups()[0].headers.indexOf(header)) 
+                        ? header.column.getToggleSortingHandler() 
+                        : undefined
+                      }
                     >
                       <div className="flex items-center justify-start">
                         {(() => {
@@ -630,44 +702,47 @@ export default function DatabasePage() {
           {/* Filter Popup Portal */}
           {openFilter && filterPosition && (
             <div 
-              className="fixed z-50 bg-white border border-gray-200 rounded-md shadow-lg p-3 min-w-56"
+              data-filter-popup
+              className="fixed z-50 bg-white border border-gray-200 rounded-md shadow-lg p-2"
               style={{
                 left: `${filterPosition.x}px`,
                 top: `${filterPosition.y}px`,
-                maxHeight: '400px',
-                overflow: 'hidden'
+                maxHeight: '300px',
+                overflow: 'hidden',
+                minWidth: 'fit-content',
+                maxWidth: '280px'
               }}
             >
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-gray-900">Filter Options</span>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-medium text-gray-900">Filter</span>
                 <X 
-                  className="w-4 h-4 text-gray-500 hover:text-gray-700 cursor-pointer"
+                  className="w-3 h-3 text-gray-500 hover:text-gray-700 cursor-pointer"
                   onClick={() => {
                     setOpenFilter(null);
                     setFilterPosition(null);
                   }}
                 />
               </div>
-              <div className="space-y-2 max-h-48 overflow-y-auto">
+              <div className="space-y-1 max-h-40 overflow-y-auto">
                 {getUniqueValues(openFilter).map(value => (
-                  <label key={value} className="flex items-center space-x-3 text-sm cursor-pointer hover:bg-gray-50 p-1 rounded">
+                  <label key={value} className="flex items-center space-x-2 text-xs cursor-pointer hover:bg-gray-50 px-1 py-0.5 rounded">
                     <input
                       type="checkbox"
                       checked={filters[openFilter]?.includes(value) || false}
                       onChange={() => handleFilterChange(openFilter, value)}
-                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 w-3 h-3"
                     />
-                    <span className="flex-1">{value}</span>
+                    <span className="flex-1 truncate" title={value}>{value}</span>
                   </label>
                 ))}
               </div>
               {filters[openFilter]?.length > 0 && (
-                <div className="mt-3 pt-2 border-t border-gray-200">
+                <div className="mt-2 pt-1 border-t border-gray-200">
                   <button
                     onClick={() => setFilters(prev => ({ ...prev, [openFilter]: [] }))}
                     className="text-xs text-blue-600 hover:text-blue-800 font-medium"
                   >
-                    Clear all filters ({filters[openFilter]?.length})
+                    Clear ({filters[openFilter]?.length})
                   </button>
                 </div>
               )}
