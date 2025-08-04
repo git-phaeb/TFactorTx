@@ -132,7 +132,7 @@ export default function GeneDetailPage() {
                     </Badge>
                   </p>
                   <p className="text-sm text-gray-700">
-                    <span className="font-medium">M. musculus Influence:</span>{' '}
+                                         <span className="font-medium">M. musculus Influence:</span>{' '}
                     <Badge
                       variant={
                         geneData['aging_summary_mm_influence'] === 'Pro-Longevity'
@@ -148,7 +148,7 @@ export default function GeneDetailPage() {
                     </Badge>
                   </p>
                   <p className="text-sm text-gray-700">
-                    <span className="font-medium">C. elegans Influence:</span>{' '}
+                                         <span className="font-medium">C. elegans Influence:</span>{' '}
                     <Badge
                       variant={
                         geneData['aging_summary_ce_influence'] === 'Pro-Longevity'

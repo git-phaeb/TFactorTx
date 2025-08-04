@@ -12,7 +12,7 @@ export function NavigationBar() {
           {/* Center: Alpha badge, absolutely centered */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <div className="inline-block rounded-lg bg-gray-700 px-2 py-1 text-xs text-gray-200">
-              Alpha v0.1.0
+              Alpha v0.2.0-alpha.1
             </div>
           </div>
           {/* Right: Navigation links */}
