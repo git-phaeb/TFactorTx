@@ -916,10 +916,14 @@ export default function DatabasePage() {
       header: columnNames[11] || 'Pharos TDL',
       cell: ({ getValue }) => {
         const tdl = getValue() as string;
+        console.log('Pharos TDL value:', tdl, 'Type:', typeof tdl, 'Length:', tdl?.length);
         
         if (tdl === 'None') {
           return (
-            <span className="text-xs text-gray-400 font-normal pl-2">
+            <span 
+              className="text-xs font-normal pl-2" 
+              style={{ color: '#9ca3af', fontWeight: 'normal' }}
+            >
               None
             </span>
           );
