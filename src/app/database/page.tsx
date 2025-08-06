@@ -528,10 +528,10 @@ export default function DatabasePage() {
     data.forEach(row => {
       const value = row[columnKey as keyof TFactorTxData];
       if (value && value !== '#NA') {
-        // Trim whitespace and normalize the value
-        const normalizedValue = value.toString().trim();
-        if (normalizedValue) {
-          values.add(normalizedValue);
+        // Use the raw value without any processing
+        const rawValue = value.toString();
+        if (rawValue) {
+          values.add(rawValue);
         }
       }
     });
@@ -581,11 +581,11 @@ export default function DatabasePage() {
       if (uniqueValues.includes('Tchem')) orderedValues.push('Tchem');
       if (uniqueValues.includes('Tbio')) orderedValues.push('Tbio');
       if (uniqueValues.includes('Tdark')) orderedValues.push('Tdark');
-      if (uniqueValues.includes('#NA')) orderedValues.push('#NA');
+      if (uniqueValues.includes('None')) orderedValues.push('None');
       
       // Add any other values that might exist but weren't in our predefined order
       const remainingValues = uniqueValues.filter(val => 
-        !['Tclin', 'Tchem', 'Tbio', 'Tdark', '#NA'].includes(val)
+        !['Tclin', 'Tchem', 'Tbio', 'Tdark', 'None'].includes(val)
       );
       
       return [...orderedValues, ...remainingValues.sort()];
@@ -916,7 +916,6 @@ export default function DatabasePage() {
       header: columnNames[11] || 'Pharos TDL',
       cell: ({ getValue }) => {
         const tdl = getValue() as string;
-        console.log('Pharos TDL value:', tdl, 'Type:', typeof tdl, 'Length:', tdl?.length);
         
         if (tdl === 'None') {
           return (
@@ -929,20 +928,16 @@ export default function DatabasePage() {
           );
         }
         
-        // Use viridis colors for text: purple for Tclin, blue for Tchem, teal for Tbio
-        const getTextColor = (tdlVal: string) => {
-          if (tdlVal === 'Tclin') return 'text-[#440154]';
-          if (tdlVal === 'Tchem') return 'text-[#31688e]';
-          if (tdlVal === 'Tbio') return 'text-[#1f9e89]';
-          return 'text-gray-600';
-        };
-        
+        // Use black text for all other values (Tclin, Tchem, Tbio, etc.)
         return (
-          <span className={`text-xs font-normal pl-2 ${getTextColor(tdl)}`}>
+          <span 
+            className="text-xs font-normal pl-2"
+            style={{ color: '#000000' }}
+          >
             {tdl}
           </span>
         );
-      },
+      }
     },
     ], [columnNames]);
 
@@ -965,7 +960,7 @@ export default function DatabasePage() {
         filters['dev_summary_dev_level_category'].includes((row['dev_summary_dev_level_category'] || '').trim());
       
       const tdlMatch = !filters['dev_pharos_tcrd_tdl'] || filters['dev_pharos_tcrd_tdl'].length === 0 || 
-        filters['dev_pharos_tcrd_tdl'].includes((row['dev_pharos_tcrd_tdl'] || '').trim());
+        filters['dev_pharos_tcrd_tdl'].includes(row['dev_pharos_tcrd_tdl'] || '');
       
       return symbolMatch && humanMatch && mmMatch && ceMatch && dmMatch && devMatch && tdlMatch;
     });
@@ -1134,6 +1129,21 @@ export default function DatabasePage() {
               >
                 <Eye className="w-3 h-3" />
                 <span>Columns</span>
+              </Button>
+            </div>
+            
+            {/* Clear All Filters Button */}
+            <div className="flex items-center" style={{ width: '120px', flexShrink: 0 }}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={clearAllFilters}
+                className="text-xs px-3 py-1 h-7 flex items-center space-x-1 w-full"
+                disabled={searchTerm.trim() === '' && Object.values(filters).every(f => f.length === 0)}
+                title="Clear all filters"
+              >
+                <X className="w-3 h-3" />
+                <span>Clear Filters</span>
               </Button>
             </div>
             
@@ -1437,7 +1447,7 @@ export default function DatabasePage() {
                       return (
                         <td 
                           key={cell.id} 
-                          className={`text-sm text-gray-900 ${borderClass}`}
+                          className={`text-sm ${borderClass}`}
                           style={{
                             ...cellStyle,
                             height: '24px',
@@ -1465,19 +1475,6 @@ export default function DatabasePage() {
           </div>
 
 
-
-          {/* Clear All Filters Button */}
-          <div className="flex justify-end mt-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={clearAllFilters}
-              className="text-xs px-3 py-1 h-7"
-              disabled={searchTerm.trim() === '' && Object.values(filters).every(f => f.length === 0)}
-            >
-              Clear All Filters
-            </Button>
-          </div>
 
           {/* Filter Popup Portal */}
           {openFilter && filterPosition && (

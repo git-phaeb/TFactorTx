@@ -2,16 +2,21 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
+// Helper function to clean CSV values by removing carriage returns and trimming whitespace
+function cleanCSVValue(value: string): string {
+  return value.replace(/\r?\n/g, '').trim();
+}
+
 export async function GET() {
   try {
     const csvPath = path.join(process.cwd(), 'src', 'data', '250726_TFactorTx_Master_Table_nf_Overview_for_CSV.csv');
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
     const lines = csvContent.trim().split('\n');
-    const headers = lines[0].split(';');
+    const headers = lines[0].split(';').map(cleanCSVValue);
 
     const data = lines.slice(1).map(line => {
-      const values = line.split(';');
+      const values = line.split(';').map(cleanCSVValue);
       return {
         'TF Symbol': values[0] || '',
         'sort_disease_ot_ard_aging_overall_rank': parseInt(values[1]) || 0,
