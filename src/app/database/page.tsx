@@ -367,8 +367,13 @@ export default function DatabasePage() {
 
     // Create unique filename
     const now = new Date();
-    const timestamp = now.toISOString().replace(/[:.]/g, '-').split('T')[0] + '_' + 
-                     now.toTimeString().split(' ')[0].replace(/:/g, '-');
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timestamp = `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
     const filename = `TFactorTx_Data_${timestamp}.csv`;
 
     // Download file
@@ -678,6 +683,7 @@ export default function DatabasePage() {
     {
       accessorKey: 'TF Symbol',
       header: columnNames[0] || 'Gene Name',
+      enableSorting: true,
       cell: ({ row }) => {
         const geneSymbol = row.getValue('TF Symbol') as string;
         return (
@@ -739,6 +745,7 @@ export default function DatabasePage() {
     {
       accessorKey: 'disease_ot_ard_strongest_linked_disease',
       header: columnNames[4] || 'Strongest Linked ARD',
+      enableSorting: true,
       cell: ({ getValue }) => {
         const disease = getValue() as string;
         const displayText = disease === '#NA' ? 'Unknown' : disease;
@@ -1051,48 +1058,48 @@ export default function DatabasePage() {
         {/* Filter Options - Horizontal Layout */}
         <div className="mb-1 p-2 bg-white border border-gray-200 rounded" style={{ minHeight: '48px' }}>
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="flex-1" style={{ maxWidth: 'fit-content', minWidth: '220px' }}>
-                <div className="relative" style={{ minHeight: '32px', width: '220px' }}>
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <Input
-                    type="text"
-                    placeholder="Search by TF Symbol..."
-                    value={searchTerm}
-                    onChange={e => handleSearchChange(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    onFocus={() => searchTerm.length >= 1 && suggestions.length > 0 && setShowSuggestions(true)}
-                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-                    className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-                    style={{ width: '220px', minWidth: '220px', maxWidth: '220px' }}
-                  />
-                  
-                  {/* Autocomplete Suggestions */}
-                  {showSuggestions && suggestions.length > 0 && (
-                    <div 
-                      className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-48 overflow-y-auto"
-                      style={{ position: 'absolute', zIndex: 1000 }}
-                      onMouseDown={(e) => e.preventDefault()} // Prevent blur when clicking inside dropdown
-                    >
-                      {suggestions.map((suggestion, index) => (
-                        <div
-                          key={suggestion}
-                          className={`px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 ${
-                            index === selectedSuggestionIndex ? 'bg-gray-100' : ''
-                          }`}
-                          onClick={() => handleSuggestionClick(suggestion)}
-                          onMouseEnter={() => setSelectedSuggestionIndex(index)}
-                          onMouseDown={(e) => e.preventDefault()} // Prevent blur when clicking suggestion
-                        >
-                          <span className="font-medium" style={{ color: '#31688e' }}>
-                            {suggestion}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                          <div className="flex items-center space-x-4">
+                <div className="flex-1" style={{ maxWidth: 'fit-content', minWidth: '220px' }}>
+                  <div className="relative" style={{ minHeight: '32px', width: '220px' }}>
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      type="text"
+                      placeholder="Search by TF Symbol..."
+                      value={searchTerm}
+                      onChange={e => handleSearchChange(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      onFocus={() => searchTerm.length >= 1 && suggestions.length > 0 && setShowSuggestions(true)}
+                      onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                      className="pl-9 pr-4 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      style={{ width: '220px', minWidth: '220px', maxWidth: '220px' }}
+                    />
+                    
+                    {/* Autocomplete Suggestions */}
+                    {showSuggestions && suggestions.length > 0 && (
+                      <div 
+                        className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-48 overflow-y-auto"
+                        style={{ position: 'absolute', zIndex: 1000 }}
+                        onMouseDown={(e) => e.preventDefault()} // Prevent blur when clicking inside dropdown
+                      >
+                        {suggestions.map((suggestion, index) => (
+                          <div
+                            key={suggestion}
+                            className={`px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 ${
+                              index === selectedSuggestionIndex ? 'bg-gray-100' : ''
+                            }`}
+                            onClick={() => handleSuggestionClick(suggestion)}
+                            onMouseEnter={() => setSelectedSuggestionIndex(index)}
+                            onMouseDown={(e) => e.preventDefault()} // Prevent blur when clicking suggestion
+                          >
+                            <span className="font-medium" style={{ color: '#31688e' }}>
+                              {suggestion}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
               <div className="flex items-center" style={{ width: '140px', flexShrink: 0 }}>
                 <div className="text-sm text-gray-600 text-right w-full">
                   <span className="font-medium">{filteredData.length}</span> results found
@@ -1340,8 +1347,8 @@ export default function DatabasePage() {
                         {(() => {
                           const columnId = header.column.id;
 
-                          // Show sorting buttons for rank columns (by identity, not position)
-                          if (['sort_disease_ot_ard_aging_overall_rank', 'sort_disease_ot_total_assoc_score_rank', 'sort_disease_ot_ard_total_assoc_count_score_rank', 'sort_aging_summary_total_db_entries_count_rank'].includes(columnId)) {
+                          // Show sorting buttons for gene name column, rank columns, and Strongest Linked ARD
+                          if (['TF Symbol', 'sort_disease_ot_ard_aging_overall_rank', 'sort_disease_ot_total_assoc_score_rank', 'sort_disease_ot_ard_total_assoc_count_score_rank', 'sort_aging_summary_total_db_entries_count_rank', 'disease_ot_ard_strongest_linked_disease'].includes(columnId)) {
                             const sortDirection = header.column.getIsSorted();
                             return (
                               <div className="flex items-center justify-center w-full h-full relative p-0">
