@@ -475,56 +475,83 @@ export default function DatabasePage() {
 
 
 
-  // Helper function to get gradient color based on rank using viridis palette
-  // Uses column-specific rank ranges to ensure full color span
+  // Viridis color palette hex values (inverted for warmer colors for lower ranks)
+  // From dark purple (best) -> blue -> teal -> green -> bright yellow (worst)
+  const viridisColors = [
+    '#440154', // Dark purple (best rank)
+    '#482878', // Purple
+    '#3e4989', // Dark blue-purple
+    '#31688e', // Blue-purple
+    '#26828e', // Blue-teal
+    '#1f9e89', // Teal
+    '#35b779', // Green-teal
+    '#6ece58', // Green
+    '#b5de2b', // Light green
+    '#fde725'  // Bright yellow (worst rank)
+  ];
+
+  // Memoized rank color cache - recalculates only when data changes
+  const rankColorCache = useMemo(() => {
+    const cache = new Map<string, Map<number | string, string>>();
+    
+    // Process each rank column
+    const rankColumns = ['sort_disease_ot_total_assoc_score_rank', 'sort_disease_ot_ard_total_assoc_count_score_rank', 'sort_aging_summary_total_db_entries_count_rank'];
+    
+    rankColumns.forEach(columnKey => {
+      const columnCache = new Map<number | string, string>();
+      
+      // Get unique rank values for this column
+      const columnRanks = data
+        .map(row => row[columnKey as keyof TFactorTxData])
+        .filter(val => val !== '#NA' && val !== null && val !== undefined && !isNaN(Number(val)))
+        .map(val => Number(val))
+        .sort((a, b) => a - b);
+      
+      // Remove duplicates and get min/max
+      const uniqueRanks = [...new Set(columnRanks)];
+      const minRank = Math.min(...uniqueRanks);
+      const maxRank = Math.max(...uniqueRanks);
+      
+      // Pre-calculate colors for all possible rank values
+      data.forEach(row => {
+        const rank = row[columnKey as keyof TFactorTxData];
+        
+        // Handle #NA or invalid values
+        if (rank === '#NA' || rank === null || rank === undefined || isNaN(Number(rank))) {
+          columnCache.set(rank, '#d3d3d3'); // Light grey for #NA values
+          return;
+        }
+        
+        const rankNum = Number(rank);
+        
+        // Normalize rank to 0-1 range within this column's range
+        // Invert so lower ranks (worse) get warmer colors
+        const normalized = uniqueRanks.length > 1 
+          ? Math.max(0, Math.min(1, (rankNum - minRank) / (maxRank - minRank)))
+          : 0; // If all values are the same, use 0
+        
+        // Map normalized value to color index
+        const colorIndex = Math.min(
+          Math.floor(normalized * (viridisColors.length - 1)),
+          viridisColors.length - 1
+        );
+        
+        columnCache.set(rank, viridisColors[colorIndex]);
+      });
+      
+      cache.set(columnKey, columnCache);
+    });
+    
+    return cache;
+  }, [data]);
+
+  // Optimized function to get gradient color based on rank using cached values
   const getRankColor = (rank: number | string, columnKey: string) => {
-    // Handle #NA or invalid values
-    if (rank === '#NA' || rank === null || rank === undefined || isNaN(Number(rank))) {
-      return '#d3d3d3'; // Light grey for #NA values
+    const columnCache = rankColorCache.get(columnKey);
+    if (columnCache) {
+      return columnCache.get(rank) || '#d3d3d3';
     }
-    
-    const rankNum = Number(rank);
-    
-    // Get unique rank values for this column
-    const columnRanks = data
-      .map(row => row[columnKey as keyof TFactorTxData])
-      .filter(val => val !== '#NA' && val !== null && val !== undefined && !isNaN(Number(val)))
-      .map(val => Number(val))
-      .sort((a, b) => a - b);
-    
-    // Remove duplicates and get min/max
-    const uniqueRanks = [...new Set(columnRanks)];
-    const minRank = Math.min(...uniqueRanks);
-    const maxRank = Math.max(...uniqueRanks);
-    
-    // Normalize rank to 0-1 range within this column's range
-    // Invert so lower ranks (worse) get warmer colors
-    const normalized = uniqueRanks.length > 1 
-      ? Math.max(0, Math.min(1, (rankNum - minRank) / (maxRank - minRank)))
-      : 0; // If all values are the same, use 0
-    
-    // Viridis color palette hex values (inverted for warmer colors for lower ranks)
-    // From dark purple (best) -> blue -> teal -> green -> bright yellow (worst)
-    const viridisColors = [
-      '#440154', // Dark purple (best rank)
-      '#482878', // Purple
-      '#3e4989', // Dark blue-purple
-      '#31688e', // Blue-purple
-      '#26828e', // Blue-teal
-      '#1f9e89', // Teal
-      '#35b779', // Green-teal
-      '#6ece58', // Green
-      '#b5de2b', // Light green
-      '#fde725'  // Bright yellow (worst rank)
-    ];
-    
-    // Map normalized value to color index
-    const colorIndex = Math.min(
-      Math.floor(normalized * (viridisColors.length - 1)),
-      viridisColors.length - 1
-    );
-    
-    return viridisColors[colorIndex];
+    return '#d3d3d3'; // Fallback
   };
 
   // Get unique values for a column
@@ -1231,7 +1258,7 @@ export default function DatabasePage() {
                 >
                   <ChevronLeft className="w-3 h-3" />
                 </Button>
-                <span className="text-xs font-medium px-1 whitespace-nowrap" style={{ width: '50px', textAlign: 'center' }}>
+                <span className="text-xs font-medium px-1 whitespace-nowrap" style={{ width: '60px', textAlign: 'center', minWidth: '60px' }}>
                   {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
                 </span>
                 <Button
@@ -1670,7 +1697,7 @@ export default function DatabasePage() {
                   >
                     <ChevronLeft className="w-3 h-3" />
                   </Button>
-                  <span className="text-xs font-medium px-1 whitespace-nowrap" style={{ width: '50px', textAlign: 'center' }}>
+                  <span className="text-xs font-medium px-1 whitespace-nowrap" style={{ width: '60px', textAlign: 'center', minWidth: '60px' }}>
                     {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
                   </span>
                   <Button
