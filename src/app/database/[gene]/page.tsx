@@ -422,8 +422,10 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-4">
                 <div className="text-gray-900">
-                  Add Fields
-                  <div className="text-xs text-gray-400 mt-1 text-center">[NEED_CSV_FIELD]</div>
+                  {geneData.disease_ot_ard_strongest_linked_disease && geneData.disease_ot_ard_strongest_linked_disease !== '#N/A' ? 
+                    geneData.disease_ot_ard_strongest_linked_disease : 'N/A'
+                  }
+                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_ard_strongest_linked_disease]</div>
                 </div>
               </div>
             </div>
@@ -543,113 +545,525 @@ export default function GeneDetailPage() {
         </CardContent>
       </Card>
 
-      {/* Development Level Section */}
+      {/* Target-Aging Module Section */}
       <Card>
         <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">Development Level</CardTitle>
+          <CardTitle className="text-blue-900 text-lg">
+            Target-Aging Module (based on{' '}
+            <a 
+              href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              PMID35343830
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://genomics.senescence.info/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              HAGR
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://agingregdb.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              AgingReG
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://senequest.net/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              SeneQuest
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://opengenes.github.io/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              Open Genes
+            </a>
+            ). Mapping of orthologous genes in non-human species, where required, via{' '}
+            <a 
+              href="https://www.flyrnai.org/diopt" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              DIOPT
+            </a>
+            .
+          </CardTitle>
         </CardHeader>
         <CardContent className="p-0">
-          {/* Column Headers Row - Grey */}
-          <div className="grid grid-cols-2 divide-x bg-gray-100">
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">Development Level</div>
-            </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">Pharos TDL</div>
-            </div>
-          </div>
-          {/* Data Row - White */}
-          <div className="grid grid-cols-2 divide-x bg-white">
-            <div className="p-4">
-              <div className="text-gray-900">{geneData.sort_dev_summary_dev_level_category || 'N/A'}</div>
-            </div>
-            <div className="p-4">
-              <div className="text-gray-900">{geneData.dev_pharos_tcrd_tdl || 'N/A'}</div>
-            </div>
-          </div>
+          {/* Helper function to render aging influence badges */}
+          {(() => {
+            const renderAgingBadge = (value: string | undefined) => {
+              if (!value || value === '#N/A' || value === '') {
+                return (
+                  <span className="text-xs text-gray-400 font-normal pl-2">
+                    None
+                  </span>
+                );
+              }
+              
+              if (value === 'Pro-Longevity') {
+                return (
+                  <span className="text-xs bg-[#440154] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                    {value}
+                  </span>
+                );
+              }
+              
+              if (value === 'Anti-Longevity') {
+                return (
+                  <span className="text-xs bg-[#FDE725] text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                    {value}
+                  </span>
+                );
+              }
+              
+              if (value === 'Unclear') {
+                return (
+                  <span className="text-xs bg-[#1f9e89] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                    {value}
+                  </span>
+                );
+              }
+              
+              // For any other values, display them as-is
+              return (
+                <span className="text-xs bg-gray-200 text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                  {value}
+                </span>
+              );
+            };
+
+            const renderHumanBadge = (value: string | undefined) => {
+              // Show "Yes" for any value other than #N/A, "No" for #N/A or empty values
+              if (value && value !== '#N/A' && value !== 'NA' && value.trim() !== '') {
+                return (
+                  <span className="text-xs bg-[#440154] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                    Yes
+                  </span>
+                );
+              } else {
+                return (
+                  <span className="text-xs bg-[#FDE725] text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                    No
+                  </span>
+                );
+              }
+            };
+
+            return (
+              <div>
+                {/* Header Row */}
+                <div className="grid grid-cols-5 divide-x">
+                  {/* Empty top-left cell */}
+                  <div className="bg-gray-100 p-4"></div>
+                  
+                  {/* Column Headers */}
+                  <div className="bg-gray-100 p-4">
+                    <div className="font-bold text-center text-gray-700">H. sapiens</div>
+                  </div>
+                  <div className="bg-gray-100 p-4">
+                    <div className="font-bold text-center text-gray-700">M. musculus</div>
+                  </div>
+                  <div className="bg-gray-100 p-4">
+                    <div className="font-bold text-center text-gray-700">C. elegans</div>
+                  </div>
+                  <div className="bg-gray-100 p-4">
+                    <div className="font-bold text-center text-gray-700">D. melanogaster</div>
+                  </div>
+                </div>
+                
+                {/* Data Rows */}
+                <div className="grid grid-cols-5 divide-x">
+                  {/* Row 1: PMID35343830 */}
+                  <div className="bg-gray-100 p-4">
+                    <div className="text-gray-700">
+                      <a 
+                        href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        PMID35343830
+                      </a>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderHumanBadge(geneData.aging_PMID35343830_human)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_PMID35343830_mm)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_PMID35343830_ce)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_PMID35343830_dm)}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-5 divide-x">
+                  {/* Row 2: HAGR */}
+                  <div className="bg-gray-100 p-4">
+                    <div className="text-gray-700">
+                      <a 
+                        href="https://genomics.senescence.info/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        HAGR
+                      </a>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderHumanBadge(geneData.aging_hagr_genage_human_inclusion)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_hagr_genage_mm_influence)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_hagr_genage_ce_influence)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_hagr_genage_dm_influence)}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-5 divide-x">
+                  {/* Row 3: Open Genes */}
+                  <div className="bg-gray-100 p-4">
+                    <div className="text-gray-700">
+                      <a 
+                        href="https://open-genes.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        Open Genes
+                      </a>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderHumanBadge(geneData.aging_opengenes_human_longevity_assoc)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_opengenes_mm_influence)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_opengenes_ce_influence)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderAgingBadge(geneData.aging_opengenes_dm_influence)}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-5 divide-x">
+                  {/* Row 4: AgingReG */}
+                  <div className="bg-gray-100 p-4">
+                    <div className="text-gray-700">
+                      <a 
+                        href="https://bio.liclab.net/Aging-ReG/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        AgingReG
+                      </a>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderHumanBadge(geneData.aging_agingreg_human_influence)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {/* AgingReG has no mouse data - empty cell */}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {/* AgingReG has no worm data - empty cell */}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {/* AgingReG has no fly data - empty cell */}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-5 divide-x">
+                  {/* Row 5: SeneQuest */}
+                  <div className="bg-gray-100 p-4">
+                    <div className="text-gray-700">
+                      <a 
+                        href="https://senequest.net/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        SeneQuest
+                      </a>
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {renderHumanBadge(geneData.aging_senequest_total_entries)}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {/* SeneQuest has no mouse data - empty cell */}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {/* SeneQuest has no worm data - empty cell */}
+                    </div>
+                  </div>
+                  <div className="bg-white p-4">
+                    <div className="text-center">
+                      {/* SeneQuest has no fly data - empty cell */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
         </CardContent>
       </Card>
 
-      {/* Aging Summary Section */}
+      {/* Target-Development Module (based on Pharos / DGIdb / TTD / ChEMBL) Section */}
       <Card>
         <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">Aging Summary</CardTitle>
+          <CardTitle className="text-blue-900 text-lg">
+            Target-Development Module (based on{' '}
+            <a 
+              href="https://pharos.nih.gov/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              Pharos
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://www.dgidb.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              DGIdb
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://db.idrblab.net/ttd/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              TTD
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://www.ebi.ac.uk/chembl/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              ChEMBL
+            </a>
+            )
+          </CardTitle>
         </CardHeader>
         <CardContent className="p-0">
-          {/* Column Headers Row - Grey */}
-          <div className="grid grid-cols-2 divide-x bg-gray-100">
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">Total DB Entries</div>
-            </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">Human Influence</div>
-            </div>
-          </div>
-          {/* Data Row - White */}
-          <div className="grid grid-cols-2 divide-x bg-white">
-            <div className="p-4">
-              <div className="text-gray-900">{geneData.aging_summary_total_db_entries_count || 'N/A'}</div>
-            </div>
-            <div className="p-4">
-              <div className="text-gray-900">{geneData.aging_summary_human || 'N/A'}</div>
-            </div>
-          </div>
+          <div>
+                {/* Row 1: Database Names */}
+                <div className="grid grid-cols-8 divide-x">
+                  {/* Column 1: Pharos */}
+                  <div className="col-span-1 bg-gray-100 p-4">
+                    <div className="font-semibold text-gray-700 text-xs">Pharos</div>
+                  </div>
+                  
+                  {/* Column 2: DGIdb (spans 2 columns) */}
+                  <div className="col-span-2 bg-gray-100 p-4">
+                    <div className="font-semibold text-gray-700 text-xs">DGIdb</div>
+                  </div>
+                  
+                  {/* Column 3: TTD */}
+                  <div className="col-span-1 bg-gray-100 p-4">
+                    <div className="font-semibold text-gray-700 text-xs">TTD</div>
+                  </div>
+                  
+                  {/* Column 4-7: ChEMBL (spans 4 columns) */}
+                  <div className="col-span-4 bg-gray-100 p-4">
+                    <div className="font-semibold text-gray-700 text-xs">ChEMBL</div>
+                  </div>
+                </div>
+
+                {/* Row 2: Specific Metrics */}
+                <div className="grid grid-cols-8 divide-x">
+                  {/* Column 1: Pharos - Target Development Level (TDL) */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">Target Development Level (TDL)</div>
+                  </div>
+                  
+                  {/* Column 2: DGIdb - All Drugs Count */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">All Drugs Count</div>
+                  </div>
+                  
+                  {/* Column 3: DGIdb - Drugs MOA Count */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">Drugs MOA Count</div>
+                  </div>
+                  
+                  {/* Column 4: TTD - Approved Drugs Count */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">Approved Drugs Count</div>
+                  </div>
+                  
+                  {/* Column 5: ChEMBL - Target ID */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">Target ID</div>
+                  </div>
+                  
+                  {/* Column 6: ChEMBL - Approved Drugs and Clinical Candidates Count */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">Approved Drugs and Clinical Candidates Count</div>
+                  </div>
+                  
+                  {/* Column 7: ChEMBL - Approved Drugs and Clinical Candidates Max Phase */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">Approved Drugs and Clinical Candidates Max Phase</div>
+                  </div>
+                  
+                  {/* Column 8: ChEMBL - Approved Drugs and Clinical Candidates First Approval */}
+                  <div className="col-span-1 bg-gray-50 p-2">
+                    <div className="text-xs text-gray-600 font-medium">Approved Drugs and Clinical Candidates First Approval</div>
+                  </div>
+                </div>
+
+                {/* Row 3: Data Values */}
+                <div className="grid grid-cols-8 divide-x">
+                  {/* Column 1: Pharos - Target Development Level (TDL) */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      {geneData.dev_pharos_tcrd_tdl && geneData.dev_pharos_tcrd_tdl !== '#N/A' ? 
+                        geneData.dev_pharos_tcrd_tdl.replace(/"/g, '') : 'None'}
+                      <div className="text-xs text-red-500 font-bold mt-1">
+                        Row 1: dev_pharos_tcrd_tdl
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Column 2: DGIdb - All Drugs Count */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      {geneData.dev_dgidb_all_drugs && geneData.dev_dgidb_all_drugs !== '#N/A' ? 
+                        geneData.dev_dgidb_all_drugs.replace(/"/g, '') : 'None'}
+                      <div className="text-xs text-red-500 font-bold mt-1">
+                        Row 1: dev_dgidb_all_drugs
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Column 3: DGIdb - Drugs MOA Count */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      {geneData.dev_dgidb_MOA_drugs && geneData.dev_dgidb_MOA_drugs !== '#N/A' ? 
+                        geneData.dev_dgidb_MOA_drugs.replace(/"/g, '') : 'None'}
+                      <div className="text-xs text-red-500 font-bold mt-1">
+                        Row 1: dev_dgidb_MOA_drugs
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Column 4: TTD - Approved Drugs Count */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      {geneData.dev_ttd_approved_drugs && geneData.dev_ttd_approved_drugs !== '#N/A' ? 
+                        geneData.dev_ttd_approved_drugs.replace(/"/g, '') : 'None'}
+                      <div className="text-xs text-red-500 font-bold mt-1">
+                        Row 1: dev_ttd_approved_drugs
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Column 5: ChEMBL - Target ID */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                    </div>
+                  </div>
+                  
+                  {/* Column 6: ChEMBL - Approved Drugs and Clinical Candidates Count */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                    </div>
+                  </div>
+                  
+                  {/* Column 7: ChEMBL - Approved Drugs and Clinical Candidates Max Phase */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                    </div>
+                  </div>
+                  
+                  {/* Column 8: ChEMBL - Approved Drugs and Clinical Candidates First Approval */}
+                  <div className="col-span-1 bg-white p-4">
+                    <div className="text-gray-900">
+                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </CardContent>
       </Card>
 
-      {/* Disease Associations Section */}
-      <Card>
-        <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">Disease Associations</CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
-          {/* Column Headers Row - Grey */}
-          <div className="grid grid-cols-2 divide-x bg-gray-100">
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">Total Association Count</div>
-            </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">Total Association Score</div>
-            </div>
-          </div>
-          {/* Data Row - White */}
-          <div className="grid grid-cols-2 divide-x bg-white">
-            <div className="p-4">
-              <div className="text-gray-900">{geneData.disease_ot_total_assoc_count || 'N/A'}</div>
-            </div>
-            <div className="p-4">
-              <div className="text-gray-900">{geneData.disease_ot_total_assoc_score || 'N/A'}</div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Additional Information Section */}
-      <Card>
-        <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">Additional Information</CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
-          {/* Column Headers Row - Grey */}
-          <div className="grid grid-cols-2 divide-x bg-gray-100">
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">Protein Name</div>
-            </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700">UniProt ID</div>
-            </div>
-          </div>
-          {/* Data Row - White */}
-          <div className="grid grid-cols-2 divide-x bg-white">
-            <div className="p-4">
-              <div className="text-gray-900 text-sm">{geneData.basic_protein_name || 'N/A'}</div>
-            </div>
-            <div className="p-4">
-              <div className="text-gray-900">{geneData.basic_uniprot_id || 'N/A'}</div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 } 
