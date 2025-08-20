@@ -1,11 +1,8 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 interface DetailedGeneData {
   [key: string]: any;
@@ -13,7 +10,6 @@ interface DetailedGeneData {
 
 export default function GeneDetailPage() {
   const params = useParams();
-  const router = useRouter();
   const [geneData, setGeneData] = useState<DetailedGeneData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -58,122 +54,135 @@ export default function GeneDetailPage() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-red-600 mb-4">Error</h1>
           <p className="text-gray-600 mb-4">{error || 'Gene data not found'}</p>
-          <Button onClick={() => router.back()}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Go Back
-          </Button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="container mx-auto p-3 space-y-3">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <Button variant="ghost" onClick={() => router.back()} className="mb-4">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Database
-          </Button>
-          <h1 className="text-3xl font-bold text-gray-900">{geneSymbol}</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{geneSymbol}</h1>
         </div>
       </div>
 
       {/* TFactorTx IDs and Classification Section - Side by Side */}
-      <div className="grid grid-cols-2 gap-6">
-        {/* TFactorTx IDs Section */}
-        <Card>
-          <CardHeader className="bg-blue-50 p-4">
-            <CardTitle className="text-blue-900 text-lg">TFactorTx IDs</CardTitle>
-          </CardHeader>
-          <CardContent className="p-0">
-            {/* Column Headers Row - Grey */}
-            <div className="grid grid-cols-2 divide-x bg-gray-100">
-              <div className="p-4">
-                <div className="font-semibold text-gray-700">TFactorTx ID</div>
+      <div className="grid grid-cols-3 gap-3">
+        {/* TFactorTx IDs Section - 1/3 width */}
+        <div className="col-span-1">
+          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+            {/* Header Row - spans full width */}
+            <div className="bg-blue-100 border-b border-gray-200">
+              <div className="text-blue-900 text-sm font-semibold px-2 py-1">TFactorTx IDs</div>
+            </div>
+            {/* Content - Table structure */}
+            <div>
+              {/* Column Headers Row - Grey */}
+              <div className="grid grid-cols-2 divide-x bg-gray-100">
+                <div className="p-2">
+                  <div className="font-semibold text-gray-700 text-xs">TFactorTx ID</div>
+                </div>
+                <div className="p-2">
+                  <div className="font-semibold text-gray-700 text-xs">TFactorTx Gene Name</div>
+                </div>
               </div>
-              <div className="p-4">
-                <div className="font-semibold text-gray-700">TFactorTx Gene Name</div>
+              {/* Data Row - White */}
+              <div className="grid grid-cols-2 divide-x bg-white">
+                <div className="p-2">
+                  <div className="text-gray-900 text-xs">{geneData.basic_tfactortx_id || 'N/A'}</div>
+                </div>
+                <div className="p-2">
+                  <div className="text-gray-900 text-xs">{geneData.basic_gene_symbol || 'N/A'}</div>
+                </div>
               </div>
             </div>
-            {/* Data Row - White */}
-            <div className="grid grid-cols-2 divide-x bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">{geneData.basic_tfactortx_id || 'N/A'}</div>
-              </div>
-              <div className="p-4">
-                <div className="text-gray-900">{geneData.basic_gene_symbol || 'N/A'}</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        {/* Classification Section */}
-        <Card>
-          <CardHeader className="bg-blue-50 p-4">
-            <CardTitle className="text-blue-900 text-lg">Classification (based on TFClass)</CardTitle>
-          </CardHeader>
-          <CardContent className="p-0">
-            {/* Column Headers Row - Grey */}
-            <div className="grid grid-cols-3 divide-x bg-gray-100">
-              <div className="p-4">
-                <div className="font-semibold text-gray-700">Superclass</div>
-              </div>
-              <div className="p-4">
-                <div className="font-semibold text-gray-700">Class</div>
-              </div>
-              <div className="p-4">
-                <div className="font-semibold text-gray-700">Family</div>
-              </div>
-            </div>
-            {/* Data Row - White */}
-            <div className="grid grid-cols-3 divide-x bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">{geneData.basic_tf_superclass || 'N/A'}</div>
-              </div>
-              <div className="p-4">
-                <div className="text-gray-900">{geneData.basic_tf_class || 'N/A'}</div>
-              </div>
-              <div className="p-4">
-                <div className="text-gray-900">{geneData.basic_tf_family || 'N/A'}</div>
+        {/* Classification Section - 2/3 width */}
+        <div className="col-span-2">
+          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+            {/* Header Row - spans full width */}
+            <div className="bg-blue-100 border-b border-gray-200">
+              <div className="text-blue-900 text-sm font-semibold px-2 py-1">
+                Classification (based on{' '}
+                <a 
+                  href="http://tfclass.bioinf.med.uni-goettingen.de/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  TFClass
+                </a>
+                )
               </div>
             </div>
-          </CardContent>
-        </Card>
+            {/* Content - Table structure */}
+            <div>
+              {/* Column Headers Row - Grey */}
+              <div className="grid grid-cols-3 divide-x bg-gray-100">
+                <div className="p-2">
+                  <div className="font-semibold text-gray-700 text-xs">Superclass</div>
+                </div>
+                <div className="p-2">
+                  <div className="font-semibold text-gray-700 text-xs">Class</div>
+                </div>
+                <div className="p-2">
+                  <div className="text-gray-900 text-xs">Family</div>
+                </div>
+              </div>
+              {/* Data Row - White */}
+              <div className="grid grid-cols-3 divide-x bg-white">
+                <div className="p-2">
+                  <div className="text-gray-900 text-xs">{geneData.basic_tf_superclass || 'N/A'}</div>
+                </div>
+                <div className="p-2">
+                  <div className="text-gray-900 text-xs">{geneData.basic_tf_class || 'N/A'}</div>
+                </div>
+                <div className="p-2">
+                  <div className="text-gray-900 text-xs">{geneData.basic_tf_family || 'N/A'}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* External Database Links Section */}
-      <Card>
-        <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">External Database IDs and Linkouts</CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+        {/* Header Row - spans full width */}
+        <div className="bg-blue-100 border-b border-gray-200">
+          <div className="text-blue-900 text-sm font-semibold px-2 py-1">External Database IDs and Linkouts</div>
+        </div>
+        {/* Content - Table structure */}
+        <div>
           {/* Column Headers Row - Grey */}
           <div className="grid grid-cols-6 divide-x bg-gray-100">
-            <div className="p-4">
-              <div className="font-semibold text-gray-700 text-sm">Ensembl Gene ID and Linkout</div>
+            <div className="p-2">
+              <div className="font-semibold text-gray-700 text-xs">Ensembl Gene ID and Linkout</div>
             </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700 text-sm">HGNC ID and Linkout</div>
+            <div className="p-2">
+              <div className="font-semibold text-gray-700 text-xs">HGNC ID and Linkout</div>
             </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700 text-sm">NCBI Gene ID and Linkout</div>
+            <div className="p-2">
+              <div className="font-semibold text-gray-700 text-xs">NCBI Gene ID and Linkout</div>
             </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700 text-sm">UniProt ID and Linkout</div>
+            <div className="p-2">
+              <div className="font-semibold text-gray-700 text-xs">UniProt ID and Linkout</div>
             </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700 text-sm">JASPAR Linkout (via UniProt ID)</div>
+            <div className="p-2">
+              <div className="font-semibold text-gray-700 text-xs">JASPAR Linkout (via UniProt ID)</div>
             </div>
-            <div className="p-4">
-              <div className="font-semibold text-gray-700 text-sm">Open Targets Linkout (via ENSG ID)</div>
+            <div className="p-2">
+              <div className="font-semibold text-gray-700 text-xs">Open Targets Linkout (via ENSG ID)</div>
             </div>
           </div>
           {/* Data Row - White */}
           <div className="grid grid-cols-6 divide-x bg-white">
-            <div className="p-4">
-              <div className="text-gray-900">
+            <div className="p-2">
+              <div className="text-gray-900 text-xs">
                 {geneData.basic_ensembl_gene_id && geneData.basic_ensembl_gene_id !== '#N/A' ? (
                   <a 
                     href={`https://ensembl.org/Homo_sapiens/Gene/Summary?g=${geneData.basic_ensembl_gene_id}`}
@@ -188,8 +197,8 @@ export default function GeneDetailPage() {
                 )}
               </div>
             </div>
-            <div className="p-4">
-              <div className="text-gray-900">
+            <div className="p-2">
+              <div className="text-gray-900 text-xs">
                 {geneData.basic_hgnc_id && geneData.basic_hgnc_id !== '#N/A' ? (
                   <a 
                     href={`https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/${geneData.basic_hgnc_id}`}
@@ -204,8 +213,8 @@ export default function GeneDetailPage() {
                 )}
               </div>
             </div>
-            <div className="p-4">
-              <div className="text-gray-900">
+            <div className="p-2">
+              <div className="text-gray-900 text-xs">
                 {geneData.basic_ncbi_gene_id && geneData.basic_ncbi_gene_id !== '#N/A' ? (
                   <a 
                     href={`https://www.ncbi.nlm.nih.gov/gene/${geneData.basic_ncbi_gene_id}`}
@@ -220,8 +229,8 @@ export default function GeneDetailPage() {
                 )}
               </div>
             </div>
-            <div className="p-4">
-              <div className="text-gray-900">
+            <div className="p-2">
+              <div className="text-gray-900 text-xs">
                 {geneData.basic_uniprot_id && geneData.basic_uniprot_id !== '#N/A' ? (
                   <a 
                     href={`https://www.uniprot.org/uniprot/${geneData.basic_uniprot_id}`}
@@ -236,8 +245,8 @@ export default function GeneDetailPage() {
                 )}
               </div>
             </div>
-            <div className="p-4">
-              <div className="text-gray-900">
+            <div className="p-2">
+              <div className="text-gray-900 text-xs">
                 {geneData.basic_jaspar_url && geneData.basic_jaspar_url !== '#N/A' ? (
                   <a 
                     href={geneData.basic_jaspar_url}
@@ -253,8 +262,8 @@ export default function GeneDetailPage() {
                 )}
               </div>
             </div>
-            <div className="p-4">
-              <div className="text-gray-900">
+            <div className="p-2">
+              <div className="text-gray-900 text-xs">
                 {geneData.basic_open_targets_url && geneData.basic_open_targets_url !== '#N/A' ? (
                   <a 
                     href={geneData.basic_open_targets_url}
@@ -271,13 +280,14 @@ export default function GeneDetailPage() {
               </div>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* Target-Disease Module (based on Open Targets) Section */}
-      <Card>
-        <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+        {/* Header Row - spans full width */}
+        <div className="bg-blue-100 border-b border-gray-200">
+          <div className="text-blue-900 text-sm font-semibold px-2 py-1">
             Target-Disease Module (based on{' '}
             <a 
               href="https://platform.opentargets.org/" 
@@ -288,64 +298,65 @@ export default function GeneDetailPage() {
               Open Targets
             </a>
             )
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
+          </div>
+        </div>
+        {/* Content - Table structure */}
+        <div>
           {/* Single Grid Container for all rows */}
           <div className="grid grid-cols-7 divide-x">
             {/* Column 1: Linkout header (Row 1 only) */}
             <div className="col-span-1 bg-gray-100">
-              <div className="p-4">
+              <div className="p-2">
                 <div className="font-semibold text-gray-700 text-xs">Linkout</div>
               </div>
             </div>
 
             {/* Column 2: Total Disease Associations */}
             <div className="col-span-1 bg-gray-100">
-              <div className="p-4">
+              <div className="p-2">
                 <div className="font-semibold text-gray-700 text-xs">Total Disease Associations Count (Normalized Value)</div>
               </div>
             </div>
 
             {/* Column 3: Low Confidence */}
             <div className="col-span-1 bg-gray-100">
-              <div className="p-4">
+              <div className="p-2">
                 <div className="font-semibold text-gray-700 text-xs">Low Confidence Associations Count (Normalized Value)</div>
               </div>
             </div>
 
             {/* Column 4: Medium Confidence */}
             <div className="col-span-1 bg-gray-100">
-              <div className="p-4">
+              <div className="p-2">
                 <div className="font-semibold text-gray-700 text-xs">Medium Confidence Assoc Count (Normalized Value)</div>
               </div>
             </div>
 
             {/* Column 5: High Confidence */}
             <div className="col-span-1 bg-gray-100">
-              <div className="p-4">
+              <div className="p-2">
                 <div className="font-semibold text-gray-700 text-xs">High Confidence Associations Count (Normalized Value)</div>
               </div>
             </div>
 
             {/* Column 6: Representative ARD */}
             <div className="col-span-1 bg-gray-100">
-              <div className="p-4">
+              <div className="p-2">
                 <div className="font-semibold text-gray-700 text-xs">Representative ARD Count (Normalized Value)</div>
               </div>
             </div>
 
             {/* Column 7: Best Evidenced Linked Representative ARD */}
             <div className="col-span-1 bg-gray-100">
-              <div className="p-4">
+              <div className="p-2">
                 <div className="font-semibold text-gray-700 text-xs">Best Evidenced Linked Representative ARD</div>
               </div>
             </div>
 
             {/* Column 1: TP53 Disease Associations - spans rows 2-4 */}
             <div className="col-span-1 row-span-3 bg-white">
-              <div className="p-4 h-full flex items-center justify-center">
-                <div className="text-gray-900">
+              <div className="p-2 h-full flex items-center justify-center">
+                <div className="text-gray-900 text-xs">
                   <a 
                     href={`https://platform.opentargets.org/target/${geneData.basic_ensembl_gene_id}/associations`}
                     target="_blank" 
@@ -360,72 +371,72 @@ export default function GeneDetailPage() {
 
             {/* Column 2: Total Disease Associations Count data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_total_assoc_count && geneData.disease_ot_total_assoc_count_norm ? 
                     `${geneData.disease_ot_total_assoc_count} (${geneData.disease_ot_total_assoc_count_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_total_assoc_count] + [disease_ot_total_assoc_count_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 3: Low Confidence Associations Count data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_lowconf_count && geneData.disease_ot_lowconf_count_norm ? 
                     `${geneData.disease_ot_lowconf_count} (${geneData.disease_ot_lowconf_count_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_lowconf_count] + [disease_ot_lowconf_count_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 4: Medium Confidence Assoc Count data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_modconf_count && geneData.disease_ot_modconf_count_norm ? 
                     `${geneData.disease_ot_modconf_count} (${geneData.disease_ot_modconf_count_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_modconf_count] + [disease_ot_modconf_count_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 5: High Confidence Associations Count data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_hiconf_count && geneData.disease_ot_hiconf_count_norm ? 
                     `${geneData.disease_ot_hiconf_count} (${geneData.disease_ot_hiconf_count_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_hiconf_count] + [disease_ot_hiconf_count_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 6: Representative ARD Count data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_ard_disease_count && geneData.disease_ot_ard_disease_count_norm ? 
                     `${geneData.disease_ot_ard_disease_count} (${geneData.disease_ot_ard_disease_count_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_ard_disease_count] + [disease_ot_ard_disease_count_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 7: Best Evidenced Linked Representative ARD data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_ard_strongest_linked_disease && geneData.disease_ot_ard_strongest_linked_disease !== '#N/A' ? 
                     geneData.disease_ot_ard_strongest_linked_disease : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_ard_strongest_linked_disease]</div>
+
                 </div>
               </div>
             </div>
@@ -474,81 +485,82 @@ export default function GeneDetailPage() {
 
             {/* Column 2: Total Disease Associations Score data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_total_assoc_score && geneData.disease_ot_total_assoc_score_norm ? 
                     `${geneData.disease_ot_total_assoc_score} (${geneData.disease_ot_total_assoc_score_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_total_assoc_score] + [disease_ot_total_assoc_score_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 3: Low Confidence Associations Score data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_lowconf_score && geneData.disease_ot_lowconf_score_norm ? 
                     `${geneData.disease_ot_lowconf_score} (${geneData.disease_ot_lowconf_score_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_lowconf_score] + [disease_ot_lowconf_score_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 4: Medium Confidence Assoc Score data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_modconf_score && geneData.disease_ot_modconf_score_norm ? 
                     `${geneData.disease_ot_modconf_score} (${geneData.disease_ot_modconf_score_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_modconf_score] + [disease_ot_modconf_score_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 5: High Confidence Associations Score data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_hiconf_score && geneData.disease_ot_hiconf_score_norm ? 
                     `${geneData.disease_ot_hiconf_score} (${geneData.disease_ot_hiconf_score_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_hiconf_score] + [disease_ot_hiconf_score_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 6: Representative ARD Score data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   {geneData.disease_ot_ard_total_score && geneData.disease_ot_ard_total_score_norm ? 
                     `${geneData.disease_ot_ard_total_score} (${geneData.disease_ot_ard_total_score_norm})` : 'N/A'
                   }
-                  <div className="text-xs text-gray-400 mt-1 text-center">[disease_ot_ard_total_score] + [disease_ot_ard_total_score_norm]</div>
+
                 </div>
               </div>
             </div>
 
             {/* Column 7: Best Evidenced Linked Representative ARD Score data */}
             <div className="col-span-1 bg-white">
-              <div className="p-4">
-                <div className="text-gray-900">
+              <div className="p-2">
+                <div className="text-gray-900 text-xs">
                   Add Fields
-                  <div className="text-xs text-gray-400 mt-1 text-center">[NEED_CSV_FIELD]</div>
+
                 </div>
               </div>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* Target-Aging Module Section */}
-      <Card>
-        <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+        {/* Header Row - spans full width */}
+        <div className="bg-blue-100 border-b border-gray-200">
+          <div className="text-blue-900 text-sm font-semibold px-2 py-1">
             Target-Aging Module (based on{' '}
             <a 
               href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
@@ -569,7 +581,16 @@ export default function GeneDetailPage() {
             </a>
             {' '}/{' '}
             <a 
-              href="https://agingregdb.org/" 
+              href="https://open-genes.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              Open Genes
+            </a>
+            {' '}/{' '}
+            <a 
+              href="https://bio.liclab.net/Aging-ReG/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 underline"
@@ -585,15 +606,6 @@ export default function GeneDetailPage() {
             >
               SeneQuest
             </a>
-            {' '}/{' '}
-            <a 
-              href="https://opengenes.github.io/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              Open Genes
-            </a>
             ). Mapping of orthologous genes in non-human species, where required, via{' '}
             <a 
               href="https://www.flyrnai.org/diopt" 
@@ -604,9 +616,10 @@ export default function GeneDetailPage() {
               DIOPT
             </a>
             .
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
+          </div>
+        </div>
+        {/* Content - Table structure */}
+        <div>
           {/* Helper function to render aging influence badges */}
           {(() => {
             const renderAgingBadge = (value: string | undefined) => {
@@ -670,30 +683,30 @@ export default function GeneDetailPage() {
             return (
               <div>
                 {/* Header Row */}
-                <div className="grid grid-cols-5 divide-x">
+                <div className="grid grid-cols-5 divide-x border-2 border-red-500">
                   {/* Empty top-left cell */}
-                  <div className="bg-gray-100 p-4"></div>
+                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}></div>
                   
                   {/* Column Headers */}
-                  <div className="bg-gray-100 p-4">
-                    <div className="font-bold text-center text-gray-700">H. sapiens</div>
+                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="font-bold text-center text-gray-700 text-xs">H. sapiens</div>
                   </div>
-                  <div className="bg-gray-100 p-4">
-                    <div className="font-bold text-center text-gray-700">M. musculus</div>
+                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="font-bold text-center text-gray-700 text-xs">M. musculus</div>
                   </div>
-                  <div className="bg-gray-100 p-4">
-                    <div className="font-bold text-center text-gray-700">C. elegans</div>
+                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="font-bold text-center text-gray-700 text-xs">C. elegans</div>
                   </div>
-                  <div className="bg-gray-100 p-4">
-                    <div className="font-bold text-center text-gray-700">D. melanogaster</div>
+                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="font-bold text-center text-gray-700 text-xs">D. melanogaster</div>
                   </div>
                 </div>
                 
                 {/* Data Rows */}
-                <div className="grid grid-cols-5 divide-x">
+                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
                   {/* Row 1: PMID35343830 */}
-                  <div className="bg-gray-100 p-4">
-                    <div className="text-gray-700">
+                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="text-gray-700 text-xs">
                       <a 
                         href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
                         target="_blank" 
@@ -704,32 +717,32 @@ export default function GeneDetailPage() {
                       </a>
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderHumanBadge(geneData.aging_PMID35343830_human)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_PMID35343830_mm)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_PMID35343830_ce)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_PMID35343830_dm)}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x">
+                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
                   {/* Row 2: HAGR */}
-                  <div className="bg-gray-100 p-4">
-                    <div className="text-gray-700">
+                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="text-gray-700 text-xs">
                       <a 
                         href="https://genomics.senescence.info/" 
                         target="_blank" 
@@ -740,32 +753,32 @@ export default function GeneDetailPage() {
                       </a>
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderHumanBadge(geneData.aging_hagr_genage_human_inclusion)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_hagr_genage_mm_influence)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_hagr_genage_ce_influence)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_hagr_genage_dm_influence)}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x">
+                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
                   {/* Row 3: Open Genes */}
-                  <div className="bg-gray-100 p-4">
-                    <div className="text-gray-700">
+                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="text-gray-700 text-xs">
                       <a 
                         href="https://open-genes.com/" 
                         target="_blank" 
@@ -776,32 +789,32 @@ export default function GeneDetailPage() {
                       </a>
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderHumanBadge(geneData.aging_opengenes_human_longevity_assoc)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_opengenes_mm_influence)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_opengenes_ce_influence)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderAgingBadge(geneData.aging_opengenes_dm_influence)}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x">
+                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
                   {/* Row 4: AgingReG */}
-                  <div className="bg-gray-100 p-4">
-                    <div className="text-gray-700">
+                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="text-gray-700 text-xs">
                       <a 
                         href="https://bio.liclab.net/Aging-ReG/" 
                         target="_blank" 
@@ -812,32 +825,32 @@ export default function GeneDetailPage() {
                       </a>
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderHumanBadge(geneData.aging_agingreg_human_influence)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {/* AgingReG has no mouse data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {/* AgingReG has no worm data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {/* AgingReG has no fly data - empty cell */}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x">
+                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
                   {/* Row 5: SeneQuest */}
-                  <div className="bg-gray-100 p-4">
-                    <div className="text-gray-700">
+                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="text-gray-700 text-xs">
                       <a 
                         href="https://senequest.net/" 
                         target="_blank" 
@@ -848,22 +861,22 @@ export default function GeneDetailPage() {
                       </a>
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {renderHumanBadge(geneData.aging_senequest_total_entries)}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {/* SeneQuest has no mouse data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
-                      {/* SeneQuest has no worm data - empty cell */}
+                      {/* SeneQuest has no mouse data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white p-4">
+                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="text-center">
                       {/* SeneQuest has no fly data - empty cell */}
                     </div>
@@ -872,13 +885,14 @@ export default function GeneDetailPage() {
               </div>
             );
           })()}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* Target-Development Module (based on Pharos / DGIdb / TTD / ChEMBL) Section */}
-      <Card>
-        <CardHeader className="bg-blue-50 p-4">
-          <CardTitle className="text-blue-900 text-lg">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+        {/* Header Row - spans full width */}
+        <div className="bg-blue-100 border-b border-gray-200">
+          <div className="text-blue-900 text-sm font-semibold px-2 py-1">
             Target-Development Module (based on{' '}
             <a 
               href="https://pharos.nih.gov/" 
@@ -912,33 +926,34 @@ export default function GeneDetailPage() {
               target="_blank" 
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 underline"
-            >
+              >
               ChEMBL
             </a>
             )
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
+          </div>
+        </div>
+        {/* Content - Table structure */}
+        <div>
           <div>
                 {/* Row 1: Database Names */}
                 <div className="grid grid-cols-8 divide-x">
                   {/* Column 1: Pharos */}
-                  <div className="col-span-1 bg-gray-100 p-4">
+                  <div className="col-span-1 bg-gray-100 p-2">
                     <div className="font-semibold text-gray-700 text-xs">Pharos</div>
                   </div>
                   
                   {/* Column 2: DGIdb (spans 2 columns) */}
-                  <div className="col-span-2 bg-gray-100 p-4">
+                  <div className="col-span-2 bg-gray-100 p-2">
                     <div className="font-semibold text-gray-700 text-xs">DGIdb</div>
                   </div>
                   
                   {/* Column 3: TTD */}
-                  <div className="col-span-1 bg-gray-100 p-4">
+                  <div className="col-span-1 bg-gray-100 p-2">
                     <div className="font-semibold text-gray-700 text-xs">TTD</div>
                   </div>
                   
                   {/* Column 4-7: ChEMBL (spans 4 columns) */}
-                  <div className="col-span-4 bg-gray-100 p-4">
+                  <div className="col-span-4 bg-gray-100 p-2">
                     <div className="font-semibold text-gray-700 text-xs">ChEMBL</div>
                   </div>
                 </div>
@@ -989,8 +1004,8 @@ export default function GeneDetailPage() {
                 {/* Row 3: Data Values */}
                 <div className="grid grid-cols-8 divide-x">
                   {/* Column 1: Pharos - Target Development Level (TDL) */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       {geneData.dev_pharos_tcrd_tdl && geneData.dev_pharos_tcrd_tdl !== '#N/A' ? 
                         geneData.dev_pharos_tcrd_tdl.replace(/"/g, '') : 'None'}
                       <div className="text-xs text-red-500 font-bold mt-1">
@@ -1000,8 +1015,8 @@ export default function GeneDetailPage() {
                   </div>
                   
                   {/* Column 2: DGIdb - All Drugs Count */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       {geneData.dev_dgidb_all_drugs && geneData.dev_dgidb_all_drugs !== '#N/A' ? 
                         geneData.dev_dgidb_all_drugs.replace(/"/g, '') : 'None'}
                       <div className="text-xs text-red-500 font-bold mt-1">
@@ -1011,8 +1026,8 @@ export default function GeneDetailPage() {
                   </div>
                   
                   {/* Column 3: DGIdb - Drugs MOA Count */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       {geneData.dev_dgidb_MOA_drugs && geneData.dev_dgidb_MOA_drugs !== '#N/A' ? 
                         geneData.dev_dgidb_MOA_drugs.replace(/"/g, '') : 'None'}
                       <div className="text-xs text-red-500 font-bold mt-1">
@@ -1022,8 +1037,8 @@ export default function GeneDetailPage() {
                   </div>
                   
                   {/* Column 4: TTD - Approved Drugs Count */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       {geneData.dev_ttd_approved_drugs && geneData.dev_ttd_approved_drugs !== '#N/A' ? 
                         geneData.dev_ttd_approved_drugs.replace(/"/g, '') : 'None'}
                       <div className="text-xs text-red-500 font-bold mt-1">
@@ -1033,36 +1048,36 @@ export default function GeneDetailPage() {
                   </div>
                   
                   {/* Column 5: ChEMBL - Target ID */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
                     </div>
                   </div>
                   
                   {/* Column 6: ChEMBL - Approved Drugs and Clinical Candidates Count */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
                     </div>
                   </div>
                   
                   {/* Column 7: ChEMBL - Approved Drugs and Clinical Candidates Max Phase */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
                     </div>
                   </div>
                   
                   {/* Column 8: ChEMBL - Approved Drugs and Clinical Candidates First Approval */}
-                  <div className="col-span-1 bg-white p-4">
-                    <div className="text-gray-900">
+                  <div className="col-span-1 bg-white p-2">
+                    <div className="text-gray-900 text-xs">
                       <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
                     </div>
                   </div>
                 </div>
               </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
     </div>
   );
