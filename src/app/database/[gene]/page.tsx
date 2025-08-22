@@ -64,14 +64,21 @@ export default function GeneDetailPage() {
       {/* Header */}
       <div className="flex items-center justify-between -mt-1">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">{geneSymbol}</h1>
+          <h1 className="text-2xl font-bold text-gray-900">
+            {geneData.basic_protein_name ? 
+              geneData.basic_protein_name.split('(')[0].trim() : 
+              geneSymbol
+            }
+          </h1>
         </div>
       </div>
 
+
+
       {/* TFactorTx IDs and Classification Section - Side by Side */}
-      <div className="grid grid-cols-3 gap-3 border-2 border-red-500">
+      <div className="grid grid-cols-3 gap-3">
         {/* TFactorTx IDs Section - 1/3 width */}
-        <div className="col-span-1 border-2 border-blue-500">
+        <div className="col-span-1">
           <div className="rounded-lg overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
             <div className="bg-blue-100 border-b border-gray-200">
@@ -102,7 +109,7 @@ export default function GeneDetailPage() {
         </div>
 
         {/* Classification Section - 2/3 width */}
-        <div className="col-span-2 border-2 border-green-500">
+        <div className="col-span-2">
           <div className="rounded-lg overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
             <div className="bg-blue-100 border-b border-gray-200">
@@ -151,7 +158,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* External Database Links Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300 border-2 border-purple-500">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
           <div className="text-blue-900 text-sm font-semibold px-2 py-1">External Database IDs and Linkouts</div>
@@ -547,8 +554,61 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  Add Fields
-
+                  {(() => {
+                    // Get the strongest linked disease
+                    const strongestDisease = geneData.disease_ot_ard_strongest_linked_disease;
+                    
+                    if (!strongestDisease || strongestDisease === '#N/A' || strongestDisease === 'NA') {
+                      return 'N/A';
+                    }
+                    
+                    // Find the corresponding rank and normalized value fields
+                    // For TP53, it would be "Cancer" so we need to look for disease_cancer and disease_cancer_rank
+                    const diseaseKey = strongestDisease.toLowerCase().replace(/\s+/g, '_');
+                    
+                    // Try to find the exact field names by checking common patterns
+                    let rankValue = null;
+                    let normValue = null;
+                    
+                    // Check for exact match first
+                    const exactRankField = `disease_${strongestDisease}_rank`;
+                    const exactNormField = `disease_${strongestDisease}`;
+                    
+                    if (geneData[exactRankField as keyof typeof geneData] && 
+                        geneData[exactNormField as keyof typeof geneData]) {
+                      rankValue = geneData[exactRankField as keyof typeof geneData];
+                      normValue = geneData[exactNormField as keyof typeof geneData];
+                    } else {
+                      // Try to find by searching through all disease fields
+                      const diseaseFields = Object.keys(geneData).filter(key => 
+                        key.startsWith('disease_') && !key.endsWith('_rank')
+                      );
+                      
+                      for (const field of diseaseFields) {
+                        const diseaseName = field.replace('disease_', '');
+                        if (diseaseName === strongestDisease || 
+                            diseaseName.toLowerCase() === strongestDisease.toLowerCase()) {
+                          const rankField = `${field}_rank`;
+                          if (geneData[rankField as keyof typeof geneData]) {
+                            rankValue = geneData[rankField as keyof typeof geneData];
+                            normValue = geneData[field as keyof typeof geneData];
+                            break;
+                          }
+                        }
+                      }
+                    }
+                    
+                    // Return the formatted values
+                    if (rankValue && normValue && 
+                        rankValue !== '#N/A' && rankValue !== 'NA' &&
+                        normValue !== '#N/A' && normValue !== 'NA') {
+                      // Format normalized value to 2 decimal places and put it first, then rank in parentheses
+                      const formattedNormValue = parseFloat(normValue.toString()).toFixed(2);
+                      return `${formattedNormValue} (${rankValue})`;
+                    }
+                    
+                    return 'N/A';
+                  })()}
                 </div>
               </div>
             </div>
@@ -557,7 +617,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* Target-Aging Module Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300 border-2 border-yellow-500">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
           <div className="text-blue-900 text-sm font-semibold px-2 py-1">
@@ -625,7 +685,7 @@ export default function GeneDetailPage() {
             const renderAgingBadge = (value: string | undefined) => {
               if (!value || value === '#N/A' || value === '') {
                 return (
-                  <span className="text-xs text-gray-400 font-normal pl-2">
+                  <span className="text-xs text-gray-400 font-normal text-center w-full">
                     None
                   </span>
                 );
@@ -633,7 +693,7 @@ export default function GeneDetailPage() {
               
               if (value === 'Pro-Longevity') {
                 return (
-                  <span className="text-xs bg-[#440154] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                  <span className="text-xs bg-[#440154] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[100px] flex items-center justify-center">
                     {value}
                   </span>
                 );
@@ -641,7 +701,7 @@ export default function GeneDetailPage() {
               
               if (value === 'Anti-Longevity') {
                 return (
-                  <span className="text-xs bg-[#FDE725] text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                  <span className="text-xs bg-[#FDE725] text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[100px] flex items-center justify-center">
                     {value}
                   </span>
                 );
@@ -649,7 +709,7 @@ export default function GeneDetailPage() {
               
               if (value === 'Unclear') {
                 return (
-                  <span className="text-xs bg-[#1f9e89] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                  <span className="text-xs bg-[#1f9e89] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[100px] flex items-center justify-center">
                     {value}
                   </span>
                 );
@@ -657,7 +717,7 @@ export default function GeneDetailPage() {
               
               // For any other values, display them as-is
               return (
-                <span className="text-xs bg-gray-200 text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap">
+                <span className="text-xs bg-gray-200 text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[100px] flex items-center justify-center">
                   {value}
                 </span>
               );
@@ -678,6 +738,31 @@ export default function GeneDetailPage() {
                   </span>
                 );
               }
+            };
+
+            const renderMultiValue = (value: string | undefined) => {
+              if (!value || value === '#N/A' || value === 'NA' || value.trim() === '') {
+                return <span className="text-gray-400">None</span>;
+              }
+              
+              const cleanValue = value.replace(/"/g, '');
+              
+              // Check if the value contains semicolons (multiple values)
+              if (cleanValue.includes(';')) {
+                const values = cleanValue.split(';').map(v => v.trim()).filter(v => v);
+                return (
+                  <div className="space-y-1">
+                    {values.map((val, index) => (
+                      <div key={index} className="text-gray-900 text-xs">
+                        {val}
+                      </div>
+                    ))}
+                  </div>
+                );
+              }
+              
+              // Single value
+              return <span className="text-gray-900 text-xs">{cleanValue}</span>;
             };
 
             return (
@@ -910,8 +995,10 @@ export default function GeneDetailPage() {
         </div>
       </div>
 
+
+
       {/* Target-Development Module (based on Pharos / DGIdb / TTD / ChEMBL) Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300 border-2 border-pink-500">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
           <div className="text-blue-900 text-sm font-semibold px-2 py-1">
@@ -1023,8 +1110,59 @@ export default function GeneDetailPage() {
                   </div>
                 </div>
 
-                {/* Row 3: Data Values */}
-                <div className="grid grid-cols-8 divide-x">
+                {/* Helper function for rendering multi-value ChEMBL entries */}
+                {(() => {
+                  const renderMultiValue = (value: string | undefined, isTargetId: boolean = false) => {
+                    if (!value || value === '#N/A' || value === 'NA' || value.trim() === '') {
+                      return <span className="text-gray-400 text-xs">None</span>;
+                    }
+                    
+                    const cleanValue = value.replace(/"/g, '');
+                    
+                    // Check if the value contains semicolons (multiple values)
+                    if (cleanValue.includes(';')) {
+                      const values = cleanValue.split(';').map(v => v.trim()).filter(v => v);
+                      return (
+                        <div className="space-y-1">
+                          {values.map((val, index) => (
+                            <div key={index} className="text-gray-900 text-xs">
+                              {isTargetId ? (
+                                <a 
+                                  href={`https://www.ebi.ac.uk/chembl/explore/target/${val}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 hover:text-blue-800 underline"
+                                >
+                                  {val}
+                                </a>
+                              ) : (
+                                val
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    }
+                    
+                    // Single value
+                    if (isTargetId) {
+                      return (
+                        <a 
+                          href={`https://www.ebi.ac.uk/chembl/explore/target/${cleanValue}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          <span className="text-gray-900 text-xs">{cleanValue}</span>
+                        </a>
+                      );
+                    }
+                    
+                    return <span className="text-gray-900 text-xs">{cleanValue}</span>;
+                  };
+
+                  return (
+                    <div className="grid grid-cols-8 divide-x">
                   {/* Column 1: Pharos - Target Development Level (TDL) */}
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
@@ -1059,36 +1197,26 @@ export default function GeneDetailPage() {
                   
                   {/* Column 5: ChEMBL - Target ID */}
                   <div className="col-span-1 bg-white p-2">
-                    <div className="text-gray-900 text-xs">
-                      {geneData.dev_chembl_target_id && geneData.dev_chembl_target_id !== '#N/A' ? 
-                        geneData.dev_chembl_target_id.replace(/"/g, '') : 'None'}
-                    </div>
+                    {renderMultiValue(geneData.dev_chembl_target_id, true)}
                   </div>
                   
                   {/* Column 6: ChEMBL - Approved Drugs and Clinical Candidates Count */}
                   <div className="col-span-1 bg-white p-2">
-                    <div className="text-gray-900 text-xs">
-                      {geneData.dev_chembl_drug_count && geneData.dev_chembl_drug_count !== '#N/A' ? 
-                        geneData.dev_chembl_drug_count.replace(/"/g, '') : 'None'}
-                    </div>
+                    {renderMultiValue(geneData.dev_chembl_drug_count)}
                   </div>
                   
                   {/* Column 7: ChEMBL - Approved Drugs and Clinical Candidates Max Phase */}
                   <div className="col-span-1 bg-white p-2">
-                    <div className="text-gray-900 text-xs">
-                      {geneData.dev_chembl_max_phase && geneData.dev_chembl_max_phase !== '#N/A' ?
-                        geneData.dev_chembl_max_phase.replace(/"/g, '') : 'None'}
-                    </div>
+                    {renderMultiValue(geneData.dev_chembl_max_phase)}
                   </div>
                   
                   {/* Column 8: ChEMBL - Approved Drugs and Clinical Candidates First Approval */}
                   <div className="col-span-1 bg-white p-2">
-                    <div className="text-gray-900 text-xs">
-                      {geneData.dev_chembl_first_approval_min && geneData.dev_chembl_first_approval_min !== '#N/A' ?
-                        geneData.dev_chembl_first_approval_min.replace(/"/g, '') : 'None'}
-                    </div>
+                    {renderMultiValue(geneData.dev_chembl_first_approval_min)}
                   </div>
                 </div>
+                  );
+                })()}
               </div>
         </div>
       </div>

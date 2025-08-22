@@ -36,7 +36,8 @@ export default function DatabasePage() {
     'aging_summary_ce_influence': [],
     'aging_summary_dm_influence': [],
     'dev_summary_dev_level_category': [],
-    'dev_pharos_tcrd_tdl': []
+    'dev_pharos_tcrd_tdl': [],
+    'disease_ot_ard_strongest_linked_disease': []
   });
   const [openFilter, setOpenFilter] = useState<string | null>(null);
   const [filterPosition, setFilterPosition] = useState<{ x: number; y: number } | null>(null);
@@ -767,7 +768,7 @@ export default function DatabasePage() {
     {
       accessorKey: 'disease_ot_ard_strongest_linked_disease',
       header: columnNames[4] || 'Strongest Linked ARD',
-      enableSorting: true,
+      enableSorting: false,
       cell: ({ getValue }) => {
         const disease = getValue() as string;
         const displayText = disease === '#NA' ? 'Unknown' : disease;
@@ -848,8 +849,9 @@ export default function DatabasePage() {
         // Use viridis colors: purple for pro-longevity, yellow for anti-longevity, teal for unclear
         const bgColor = isProLongevity ? 'bg-[#440154]' : isAntiLongevity ? 'bg-[#fde725]' : 'bg-[#1f9e89]';
         const textColor = isProLongevity ? 'text-white' : isAntiLongevity ? 'text-gray-800' : 'text-white';
+        const isUnclear = !isProLongevity && !isAntiLongevity && !isNone;
         return (
-          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[100px] flex items-center justify-center' : ''}`} title={influence}>
             {influence}
           </span>
         );
@@ -876,8 +878,9 @@ export default function DatabasePage() {
         // Use viridis colors: purple for pro-longevity, yellow for anti-longevity, teal for unclear
         const bgColor = isProLongevity ? 'bg-[#440154]' : isAntiLongevity ? 'bg-[#fde725]' : 'bg-[#1f9e89]';
         const textColor = isProLongevity ? 'text-white' : isAntiLongevity ? 'text-gray-800' : 'text-white';
+        const isUnclear = !isProLongevity && !isAntiLongevity && !isNone;
         return (
-          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[100px] flex items-center justify-center' : ''}`} title={influence}>
             {influence}
           </span>
         );
@@ -904,8 +907,9 @@ export default function DatabasePage() {
         // Use viridis colors: purple for pro-longevity, yellow for anti-longevity, teal for unclear
         const bgColor = isProLongevity ? 'bg-[#440154]' : isAntiLongevity ? 'bg-[#fde725]' : 'bg-[#1f9e89]';
         const textColor = isProLongevity ? 'text-white' : isAntiLongevity ? 'text-gray-800' : 'text-white';
+        const isUnclear = !isProLongevity && !isAntiLongevity && !isNone;
         return (
-          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[100px] flex items-center justify-center' : ''}`} title={influence}>
             {influence}
           </span>
         );
@@ -991,7 +995,10 @@ export default function DatabasePage() {
       const tdlMatch = !filters['dev_pharos_tcrd_tdl'] || filters['dev_pharos_tcrd_tdl'].length === 0 || 
         filters['dev_pharos_tcrd_tdl'].includes(row['dev_pharos_tcrd_tdl'] || '');
       
-      return symbolMatch && humanMatch && mmMatch && ceMatch && dmMatch && devMatch && tdlMatch;
+      const diseaseMatch = !filters['disease_ot_ard_strongest_linked_disease'] || filters['disease_ot_ard_strongest_linked_disease'].length === 0 || 
+        filters['disease_ot_ard_strongest_linked_disease'].includes((row['disease_ot_ard_strongest_linked_disease'] || '').trim());
+      
+      return symbolMatch && humanMatch && mmMatch && ceMatch && dmMatch && devMatch && tdlMatch && diseaseMatch;
     });
   }, [data, searchTerm, filters]);
 
@@ -1369,8 +1376,8 @@ export default function DatabasePage() {
                         {(() => {
                           const columnId = header.column.id;
 
-                          // Show sorting buttons for gene name column, rank columns, and Strongest Linked ARD
-                          if (['TF Symbol', 'sort_disease_ot_ard_aging_overall_rank', 'sort_disease_ot_total_assoc_score_rank', 'sort_disease_ot_ard_total_assoc_count_score_rank', 'sort_aging_summary_total_db_entries_count_rank', 'disease_ot_ard_strongest_linked_disease'].includes(columnId)) {
+                          // Show sorting buttons for gene name column and rank columns
+                          if (['TF Symbol', 'sort_disease_ot_ard_aging_overall_rank', 'sort_disease_ot_total_assoc_score_rank', 'sort_disease_ot_ard_total_assoc_count_score_rank', 'sort_aging_summary_total_db_entries_count_rank'].includes(columnId)) {
                             const sortDirection = header.column.getIsSorted();
                             return (
                               <div className="flex items-center justify-center w-full h-full relative p-0">
@@ -1397,7 +1404,7 @@ export default function DatabasePage() {
                             );
                           }
                           // Show filter buttons for filterable columns (by identity, not position)
-                          if (['aging_summary_human', 'aging_summary_mm_influence', 'aging_summary_ce_influence', 'aging_summary_dm_influence', 'dev_summary_dev_level_category', 'dev_pharos_tcrd_tdl'].includes(columnId)) {
+                          if (['aging_summary_human', 'aging_summary_mm_influence', 'aging_summary_ce_influence', 'aging_summary_dm_influence', 'dev_summary_dev_level_category', 'dev_pharos_tcrd_tdl', 'disease_ot_ard_strongest_linked_disease'].includes(columnId)) {
                             const columnKey = columnId;
                             const isOpen = openFilter === columnKey;
                             const activeFilters = filters[columnKey]?.length || 0;
