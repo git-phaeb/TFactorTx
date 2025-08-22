@@ -62,16 +62,16 @@ export default function GeneDetailPage() {
   return (
     <div className="container mx-auto p-3 space-y-3">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between -mt-1">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">{geneSymbol}</h1>
         </div>
       </div>
 
       {/* TFactorTx IDs and Classification Section - Side by Side */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 border-2 border-red-500">
         {/* TFactorTx IDs Section - 1/3 width */}
-        <div className="col-span-1">
+        <div className="col-span-1 border-2 border-blue-500">
           <div className="rounded-lg overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
             <div className="bg-blue-100 border-b border-gray-200">
@@ -102,7 +102,7 @@ export default function GeneDetailPage() {
         </div>
 
         {/* Classification Section - 2/3 width */}
-        <div className="col-span-2">
+        <div className="col-span-2 border-2 border-green-500">
           <div className="rounded-lg overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
             <div className="bg-blue-100 border-b border-gray-200">
@@ -151,7 +151,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* External Database Links Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300 border-2 border-purple-500">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
           <div className="text-blue-900 text-sm font-semibold px-2 py-1">External Database IDs and Linkouts</div>
@@ -355,7 +355,7 @@ export default function GeneDetailPage() {
 
             {/* Column 1: TP53 Disease Associations - spans rows 2-4 */}
             <div className="col-span-1 row-span-3 bg-white">
-              <div className="p-2 h-full flex items-center justify-center">
+              <div className="p-2 h-full flex items-center">
                 <div className="text-gray-900 text-xs">
                   <a 
                     href={`https://platform.opentargets.org/target/${geneData.basic_ensembl_gene_id}/associations`}
@@ -557,7 +557,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* Target-Aging Module Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300 border-2 border-yellow-500">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
           <div className="text-blue-900 text-sm font-semibold px-2 py-1">
@@ -683,201 +683,223 @@ export default function GeneDetailPage() {
             return (
               <div>
                 {/* Header Row */}
-                <div className="grid grid-cols-5 divide-x border-2 border-red-500">
-                  {/* Empty top-left cell */}
-                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}></div>
+                <div className="grid grid-cols-5 divide-x">
+                  {/* Database header */}
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center h-full">
+                      <div className="font-bold text-gray-700 text-xs">Database</div>
+                    </div>
+                  </div>
                   
                   {/* Column Headers */}
-                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="font-bold text-center text-gray-700 text-xs">H. sapiens</div>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
+                      <div className="font-bold text-center text-gray-700 text-xs">H. sapiens</div>
+                    </div>
                   </div>
-                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="font-bold text-center text-gray-700 text-xs">M. musculus</div>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
+                      <div className="font-bold text-center text-gray-700 text-xs">M. musculus</div>
+                    </div>
                   </div>
-                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="font-bold text-center text-gray-700 text-xs">C. elegans</div>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
+                      <div className="font-bold text-center text-gray-700 text-xs">C. elegans</div>
+                    </div>
                   </div>
-                  <div className="bg-gray-100 border-2 border-blue-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="font-bold text-center text-gray-700 text-xs">D. melanogaster</div>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
+                      <div className="font-bold text-center text-gray-700 text-xs">D. melanogaster</div>
+                    </div>
                   </div>
                 </div>
                 
                 {/* Data Rows */}
-                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
+                <div className="grid grid-cols-5 divide-x">
                   {/* Row 1: PMID35343830 */}
-                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-gray-700 text-xs">
-                      <a 
-                        href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        PMID35343830
-                      </a>
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center h-full">
+                      <div className="text-gray-700 text-xs">
+                        <a 
+                          href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          PMID35343830
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderHumanBadge(geneData.aging_PMID35343830_human)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_PMID35343830_mm)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_PMID35343830_ce)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_PMID35343830_dm)}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
+                <div className="grid grid-cols-5 divide-x">
                   {/* Row 2: HAGR */}
-                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-gray-700 text-xs">
-                      <a 
-                        href="https://genomics.senescence.info/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        HAGR
-                      </a>
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center h-full">
+                      <div className="text-gray-700 text-xs">
+                        <a 
+                          href="https://genomics.senescence.info/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          HAGR
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderHumanBadge(geneData.aging_hagr_genage_human_inclusion)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_hagr_genage_mm_influence)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_hagr_genage_ce_influence)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_hagr_genage_dm_influence)}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
+                <div className="grid grid-cols-5 divide-x">
                   {/* Row 3: Open Genes */}
-                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-gray-700 text-xs">
-                      <a 
-                        href="https://open-genes.com/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        Open Genes
-                      </a>
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center h-full">
+                      <div className="text-gray-700 text-xs">
+                        <a 
+                          href="https://open-genes.com/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          Open Genes
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderHumanBadge(geneData.aging_opengenes_human_longevity_assoc)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_opengenes_mm_influence)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_opengenes_ce_influence)}
                     </div>
                   </div>
                   <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                    <div className="flex items-center justify-center h-full">
                       {renderAgingBadge(geneData.aging_opengenes_dm_influence)}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
+                <div className="grid grid-cols-5 divide-x">
                   {/* Row 4: AgingReG */}
-                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-gray-700 text-xs">
-                      <a 
-                        href="https://bio.liclab.net/Aging-ReG/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        AgingReG
-                      </a>
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center h-full">
+                      <div className="text-gray-700 text-xs">
+                        <a 
+                          href="https://bio.liclab.net/Aging-ReG/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          AgingReG
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderHumanBadge(geneData.aging_agingreg_human_influence)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {/* AgingReG has no mouse data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {/* AgingReG has no worm data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {/* AgingReG has no fly data - empty cell */}
                     </div>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-5 divide-x border-2 border-green-500">
+                <div className="grid grid-cols-5 divide-x">
                   {/* Row 5: SeneQuest */}
-                  <div className="bg-gray-100 border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-gray-700 text-xs">
-                      <a 
-                        href="https://senequest.net/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        SeneQuest
-                      </a>
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center h-full">
+                      <div className="text-gray-700 text-xs">
+                        <a 
+                          href="https://senequest.net/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          SeneQuest
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {renderHumanBadge(geneData.aging_senequest_total_entries)}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {/* SeneQuest has no mouse data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {/* SeneQuest has no mouse data - empty cell */}
                     </div>
                   </div>
-                  <div className="bg-white border-2 border-purple-500" style={{ padding: '4px 6px', height: '32px' }}>
-                    <div className="text-center">
+                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="flex items-center justify-center h-full">
                       {/* SeneQuest has no fly data - empty cell */}
                     </div>
                   </div>
@@ -889,7 +911,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* Target-Development Module (based on Pharos / DGIdb / TTD / ChEMBL) Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="rounded-lg overflow-hidden border-2 border-gray-300 border-2 border-pink-500">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
           <div className="text-blue-900 text-sm font-semibold px-2 py-1">
@@ -1008,9 +1030,6 @@ export default function GeneDetailPage() {
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_pharos_tcrd_tdl && geneData.dev_pharos_tcrd_tdl !== '#N/A' ? 
                         geneData.dev_pharos_tcrd_tdl.replace(/"/g, '') : 'None'}
-                      <div className="text-xs text-red-500 font-bold mt-1">
-                        Row 1: dev_pharos_tcrd_tdl
-                      </div>
                     </div>
                   </div>
                   
@@ -1019,9 +1038,6 @@ export default function GeneDetailPage() {
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_dgidb_all_drugs && geneData.dev_dgidb_all_drugs !== '#N/A' ? 
                         geneData.dev_dgidb_all_drugs.replace(/"/g, '') : 'None'}
-                      <div className="text-xs text-red-500 font-bold mt-1">
-                        Row 1: dev_dgidb_all_drugs
-                      </div>
                     </div>
                   </div>
                   
@@ -1030,9 +1046,6 @@ export default function GeneDetailPage() {
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_dgidb_MOA_drugs && geneData.dev_dgidb_MOA_drugs !== '#N/A' ? 
                         geneData.dev_dgidb_MOA_drugs.replace(/"/g, '') : 'None'}
-                      <div className="text-xs text-red-500 font-bold mt-1">
-                        Row 1: dev_dgidb_MOA_drugs
-                      </div>
                     </div>
                   </div>
                   
@@ -1041,37 +1054,38 @@ export default function GeneDetailPage() {
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_ttd_approved_drugs && geneData.dev_ttd_approved_drugs !== '#N/A' ? 
                         geneData.dev_ttd_approved_drugs.replace(/"/g, '') : 'None'}
-                      <div className="text-xs text-red-500 font-bold mt-1">
-                        Row 1: dev_ttd_approved_drugs
-                      </div>
                     </div>
                   </div>
                   
                   {/* Column 5: ChEMBL - Target ID */}
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
-                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                      {geneData.dev_chembl_target_id && geneData.dev_chembl_target_id !== '#N/A' ? 
+                        geneData.dev_chembl_target_id.replace(/"/g, '') : 'None'}
                     </div>
                   </div>
                   
                   {/* Column 6: ChEMBL - Approved Drugs and Clinical Candidates Count */}
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
-                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                      {geneData.dev_chembl_drug_count && geneData.dev_chembl_drug_count !== '#N/A' ? 
+                        geneData.dev_chembl_drug_count.replace(/"/g, '') : 'None'}
                     </div>
                   </div>
                   
                   {/* Column 7: ChEMBL - Approved Drugs and Clinical Candidates Max Phase */}
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
-                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                      {geneData.dev_chembl_max_phase && geneData.dev_chembl_max_phase !== '#N/A' ?
+                        geneData.dev_chembl_max_phase.replace(/"/g, '') : 'None'}
                     </div>
                   </div>
                   
                   {/* Column 8: ChEMBL - Approved Drugs and Clinical Candidates First Approval */}
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
-                      <div className="text-xs text-gray-500">[NEED_CSV_FIELD]</div>
+                      {geneData.dev_chembl_first_approval_min && geneData.dev_chembl_first_approval_min !== '#N/A' ?
+                        geneData.dev_chembl_first_approval_min.replace(/"/g, '') : 'None'}
                     </div>
                   </div>
                 </div>

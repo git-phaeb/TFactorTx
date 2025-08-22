@@ -1,0 +1,5 @@
+[33mdb679c9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Improve detailed TF card design: remove back button, reduce padding, standardize fonts, add TFClass link, adjust module widths, fix link consistency, add debugging borders, and compact Target-Aging Module
+[33m97a6408[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Fix Target-Development Module: remove CSV data loading for ChEMBL fields, add placeholders, fix multiple rows issue, simplify structure to 3 rows
+[33m703047a[m Fix Target-Disease Module data mapping and add debugging markers
+[33m6da1670[m Add sorting functionality for Gene Name and Strongest Linked ARD columns
+[33m992b843[m Fix Pharos TDL column text color issue and improve UI layout - Fixed CSV parsing to handle carriage return characters in last column - Updated Pharos TDL column to display black text for all values except None (gray) - Added special filter ordering for Pharos TDL: Tclin, Tchem, Tbio, Tdark, None - Moved Clear All Filters button to top bar with consistent styling

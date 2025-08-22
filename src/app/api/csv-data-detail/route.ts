@@ -20,11 +20,41 @@ export async function GET(request: Request) {
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
     const lines = csvContent.trim().split('\n');
-    const headers = lines[0].split(';').map(cleanCSVValue);
+    
+    // Parse CSV properly handling quoted fields with semicolons
+    function parseCSVLine(line: string): string[] {
+      const result: string[] = [];
+      let current = '';
+      let inQuotes = false;
+      
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === ';' && !inQuotes) {
+          result.push(cleanCSVValue(current));
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+      
+      // Add the last field
+      result.push(cleanCSVValue(current));
+      return result;
+    }
+
+    // Only treat a value as numeric if it is strictly a single number
+    function isStrictNumber(value: string): boolean {
+      return /^-?\d+(?:\.\d+)?$/.test(value.trim());
+    }
+    
+    const headers = parseCSVLine(lines[0]);
 
     // Find the gene by symbol
     const geneLine = lines.slice(1).find(line => {
-      const values = line.split(';').map(cleanCSVValue);
+      const values = parseCSVLine(line);
       // basic_gene_symbol is the second column (index 1)
       return values[1] === geneSymbol;
     });
@@ -34,24 +64,25 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: `Gene ${geneSymbol} not found` }, { status: 404 });
     }
 
-    const values = geneLine.split(';').map(cleanCSVValue);
+    const values = parseCSVLine(geneLine);
     
     // Create a comprehensive gene data object
     const geneData: Record<string, any> = {};
     
     headers.forEach((header, index) => {
       let value = values[index] || '';
-      
-      // Convert numeric values but ensure they're stored as strings for consistency
+
+      // Convert numeric-looking values but preserve multi-valued fields (e.g., "4;2")
       if (header.includes('rank') || header.includes('count') || header.includes('score')) {
         if (value === '#N/A' || value === '') {
           value = '';
-        } else {
+        } else if (isStrictNumber(value)) {
           const numValue = parseFloat(value);
           value = isNaN(numValue) ? value : numValue.toString();
         }
+        // If not a strict number, leave the original string intact
       }
-      
+
       geneData[header] = value;
     });
 

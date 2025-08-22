@@ -36,7 +36,20 @@ export async function GET() {
     return NextResponse.json({ 
       data, 
       total: data.length,
-      columnNames: headers 
+      columnNames: [
+        'Gene Name',
+        'Overall Rank', 
+        'All Diseases Rank',
+        'ARDs Rank',
+        'Strongest Linked ARD',
+        'Aging Rank',
+        'Human Link Y/N',
+        'M. musculus Link',
+        'C. elegans Link',
+        'D. melanogaster Link',
+        'Development Level',
+        'Pharos TDL'
+      ]
     });
   } catch (error) {
     console.error('Error loading CSV data:', error);

@@ -304,11 +304,32 @@ export default function DatabasePage() {
       });
     }
 
+    // Create dynamic column mapping based on current visibility settings
+    const columnMapping = [
+      { key: 'TF Symbol', header: 'Gene Name', visible: appliedColumnVisibility['TF Symbol'] },
+      { key: 'sort_disease_ot_ard_aging_overall_rank', header: 'Overall Rank', visible: appliedColumnVisibility['sort_disease_ot_ard_aging_overall_rank'] },
+      { key: 'sort_disease_ot_total_assoc_score_rank', header: 'All Diseases Rank', visible: appliedColumnVisibility['sort_disease_ot_total_assoc_score_rank'] },
+      { key: 'sort_disease_ot_ard_total_assoc_count_score_rank', header: 'ARDs Rank', visible: appliedColumnVisibility['sort_disease_ot_ard_total_assoc_count_score_rank'] },
+      { key: 'disease_ot_ard_strongest_linked_disease', header: 'Strongest Linked ARD', visible: appliedColumnVisibility['disease_ot_ard_strongest_linked_disease'] },
+      { key: 'sort_aging_summary_total_db_entries_count_rank', header: 'Aging Rank', visible: appliedColumnVisibility['sort_aging_summary_total_db_entries_count_rank'] },
+      { key: 'aging_summary_human', header: 'Human Link Y/N', visible: appliedColumnVisibility['aging_summary_human'] },
+      { key: 'aging_summary_mm_influence', header: 'M. musculus Link', visible: appliedColumnVisibility['aging_summary_mm_influence'] },
+      { key: 'aging_summary_ce_influence', header: 'C. elegans Link', visible: appliedColumnVisibility['aging_summary_ce_influence'] },
+      { key: 'aging_summary_dm_influence', header: 'D. melanogaster Link', visible: appliedColumnVisibility['aging_summary_dm_influence'] },
+      { key: 'dev_summary_dev_level_category', header: 'Development Level', visible: appliedColumnVisibility['dev_summary_dev_level_category'] },
+      { key: 'dev_pharos_tcrd_tdl', header: 'Pharos TDL', visible: appliedColumnVisibility['dev_pharos_tcrd_tdl'] }
+    ];
+
+    // Filter to only visible columns
+    const visibleColumns = columnMapping.filter(col => col.visible);
+
     console.log('Export info:', {
       totalEntries: dataToExport.length,
       searchTerm: searchTerm,
       hasFilters: Object.values(filters).some(f => f.length > 0),
       sorting: sorting,
+      visibleColumns: visibleColumns.length,
+      hiddenColumns: columnMapping.length - visibleColumns.length,
       firstEntry: dataToExport[0]?.['TF Symbol'],
       lastEntry: dataToExport[dataToExport.length - 1]?.['TF Symbol']
     });
@@ -316,39 +337,13 @@ export default function DatabasePage() {
     // Convert to CSV format
     const csvRows = [];
     
-    // Add header row
-    const headers = [
-      'Gene Name',
-      'Overall Rank', 
-      'All Diseases Rank',
-      'ARDs Rank',
-      'Strongest Linked ARD',
-      'Aging Rank',
-      'Human Link Y/N',
-      'M. musculus Link',
-      'C. elegans Link',
-      'D. melanogaster Link',
-      'Development Level',
-      'Pharos TDL'
-    ];
+    // Add header row with only visible columns
+    const headers = visibleColumns.map(col => col.header);
     csvRows.push(headers.join(','));
 
-    // Add data rows
+    // Add data rows with only visible columns
     dataToExport.forEach(row => {
-      const values = [
-        row['TF Symbol'],
-        row['sort_disease_ot_ard_aging_overall_rank'],
-        row['sort_disease_ot_total_assoc_score_rank'],
-        row['sort_disease_ot_ard_total_assoc_count_score_rank'],
-        row['disease_ot_ard_strongest_linked_disease'],
-        row['sort_aging_summary_total_db_entries_count_rank'],
-        row['aging_summary_human'],
-        row['aging_summary_mm_influence'],
-        row['aging_summary_ce_influence'],
-        row['aging_summary_dm_influence'],
-        row['dev_summary_dev_level_category'],
-        row['dev_pharos_tcrd_tdl']
-      ];
+      const values = visibleColumns.map(col => row[col.key as keyof TFactorTxData]);
       
       // Escape CSV values
       const escapedValues = values.map(value => {
