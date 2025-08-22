@@ -1002,44 +1002,72 @@ export default function GeneDetailPage() {
       <div className="rounded-lg overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
-          <div className="text-blue-900 text-sm font-semibold px-2 py-1">
-            Target-Development Module (based on{' '}
-            <a 
-              href="https://pharos.nih.gov/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              Pharos
-            </a>
-            {' '}/{' '}
-            <a 
-              href="https://www.dgidb.org/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              DGIdb
-            </a>
-            {' '}/{' '}
-            <a 
-              href="https://db.idrblab.net/ttd/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              TTD
-            </a>
-            {' '}/{' '}
-            <a 
-              href="https://www.ebi.ac.uk/chembl/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
+          <div className="flex items-center justify-between px-2 py-1">
+            <div className="text-blue-900 text-sm font-semibold">
+              Target-Development Module (based on{' '}
+              <a 
+                href="https://pharos.nih.gov/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline"
               >
-              ChEMBL
-            </a>
-            )
+                Pharos
+              </a>
+              {' '}/{' '}
+              <a 
+                href="https://www.dgidb.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                DGIdb
+              </a>
+              {' '}/{' '}
+              <a 
+                href="https://db.idrblab.net/ttd/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                TTD
+              </a>
+              {' '}/{' '}
+              <a 
+                href="https://www.ebi.ac.uk/chembl/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline"
+                >
+                ChEMBL
+              </a>
+              )
+            </div>
+            {/* Development Level Badge */}
+            {geneData.dev_summary_dev_level_category && geneData.dev_summary_dev_level_category !== '#N/A' && geneData.dev_summary_dev_level_category !== 'NA' && (
+              <div className="flex items-center space-x-2">
+                <span className="text-blue-900 text-sm font-semibold">Development Level</span>
+                {(() => {
+                  const category = geneData.dev_summary_dev_level_category;
+                  // Extract the text part after the underscore (e.g., "High" from "1_High")
+                  const displayText = category.includes('_') ? category.split('_')[1] : category;
+                  
+                  // Use same viridis colors as main database page: purple for high, teal for medium, green for medium to low, yellow for low
+                  const getVariant = (cat: string) => {
+                    if (cat.includes('High')) return 'bg-[#440154] text-white';
+                    if (cat.includes('Medium to Low')) return 'bg-[#35b779] text-white';
+                    if (cat.includes('Medium')) return 'bg-[#1f9e89] text-white';
+                    if (cat.includes('Low')) return 'bg-[#fde725] text-gray-800';
+                    return 'bg-[#fde725] text-gray-800';
+                  };
+                  
+                  return (
+                    <span className={`text-xs ${getVariant(category)} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={category}>
+                      {displayText}
+                    </span>
+                  );
+                })()}
+              </div>
+            )}
           </div>
         </div>
         {/* Content - Table structure */}

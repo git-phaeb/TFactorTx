@@ -930,9 +930,10 @@ export default function DatabasePage() {
           );
         }
         
-        // Use viridis colors: purple for high, teal for medium, yellow for low
+        // Use viridis colors: purple for high, teal for medium, green for medium to low, yellow for low
         const getVariant = (cat: string) => {
           if (cat.includes('High')) return 'bg-[#440154] text-white';
+          if (cat.includes('Medium to Low')) return 'bg-[#35b779] text-white';
           if (cat.includes('Medium')) return 'bg-[#1f9e89] text-white';
           if (cat.includes('Low')) return 'bg-[#fde725] text-gray-800';
           return 'bg-[#fde725] text-gray-800';
