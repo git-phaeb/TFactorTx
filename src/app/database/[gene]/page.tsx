@@ -60,7 +60,8 @@ export default function GeneDetailPage() {
   }
 
   return (
-    <div className="container mx-auto p-3 space-y-3">
+    <div className="min-h-screen flex flex-col">
+      <div className="container mx-auto p-3 space-y-3 flex-grow">
       {/* Header */}
       <div className="flex items-center justify-between -mt-1">
         <div>
@@ -1220,7 +1221,7 @@ export default function GeneDetailPage() {
               </div>
         </div>
       </div>
-
+      </div>
     </div>
   );
 } 
