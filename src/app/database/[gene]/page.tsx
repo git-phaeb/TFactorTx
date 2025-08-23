@@ -9,6 +9,60 @@ interface DetailedGeneData {
 }
 
 export default function GeneDetailPage() {
+  // Helper function to map disease names to their standardized IDs
+  const getDiseaseId = (diseaseName: string): string => {
+    const diseaseMapping: { [key: string]: string } = {
+      'age-related hearing impairment': 'EFO_0005782',
+      'age-related macular degeneration': 'EFO_0001365',
+      'Alzheimer disease': 'MONDO_0004975',
+      'atherosclerosis': 'EFO_0003914',
+      'benign prostatic hyperplasia': 'EFO_0000284',
+      'cancer': 'MONDO_0004992',
+      'chronic obstructive pulmonary disease': 'EFO_0000341',
+      'heart failure': 'EFO_0003144',
+      'Ischemic stroke': 'HP_0002140',
+      'myocardial infarction': 'EFO_0000612',
+      'non-alcoholic fatty liver disease': 'EFO_0003095',
+      'osteoarthritis': 'MONDO_0005178',
+      'Osteoporosis': 'HP_0000939',
+      'Parkinson disease': 'MONDO_0005180',
+      'sarcopenia': 'EFO_1000653',
+      'type 2 diabetes mellitus': 'MONDO_0005148'
+    };
+    
+    // Try exact match first, then case-insensitive match
+    if (diseaseMapping[diseaseName]) {
+      return diseaseMapping[diseaseName];
+    }
+    
+    // Case-insensitive match
+    const lowerDiseaseName = diseaseName.toLowerCase();
+    for (const [key, value] of Object.entries(diseaseMapping)) {
+      if (key.toLowerCase() === lowerDiseaseName) {
+        return value;
+      }
+    }
+    
+    // If no match found, return the original name
+    return diseaseName;
+  };
+
+  // Helper function to shorten long disease names for display
+  const getShortDiseaseName = (diseaseName: string): string => {
+    const shortNameMapping: { [key: string]: string } = {
+      'chronic obstructive pulmonary disease': 'COPD',
+      'type 2 diabetes mellitus': 'T2DM',
+      'age-related macular degeneration': 'AMD',
+      'age-related hearing impairment': 'ARHI',
+      'benign prostatic hyperplasia': 'BPH',
+      'non-alcoholic fatty liver disease': 'NAFLD',
+      'myocardial infarction': 'MI',
+      'Ischemic stroke': 'IS'
+    };
+    
+    return shortNameMapping[diseaseName.toLowerCase()] || diseaseName;
+  };
+
   const params = useParams();
   const [geneData, setGeneData] = useState<DetailedGeneData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -39,10 +93,198 @@ export default function GeneDetailPage() {
 
   if (loading) {
     return (
-      <div className="container mx-auto p-6">
-        <div className="flex items-center space-x-4">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          <span>Loading gene data...</span>
+      <div className="min-h-screen flex flex-col">
+        <div className="container mx-auto px-6 pb-6 space-y-6 flex-grow">
+          {/* Header Skeleton */}
+          <div className="flex items-center justify-between">
+            <div className="h-8 bg-gray-200 rounded animate-pulse" style={{ width: '200px' }}></div>
+          </div>
+
+          {/* TFactorTx IDs and Classification Section Skeleton */}
+          <div className="grid grid-cols-3 gap-3">
+            {/* TFactorTx IDs Section Skeleton */}
+            <div className="col-span-1">
+              <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+                <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
+                  <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '120px' }}></div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-2 divide-x bg-gray-100">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                    </div>
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '100px' }}></div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 divide-x bg-white">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                    </div>
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Classification Section Skeleton */}
+            <div className="col-span-2">
+              <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+                <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
+                  <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '300px' }}></div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-3 divide-x bg-gray-100">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                    </div>
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                    </div>
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '70px' }}></div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 divide-x bg-white">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '90px' }}></div>
+                    </div>
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '70px' }}></div>
+                    </div>
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* External Database Links Section Skeleton */}
+          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+            <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
+              <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '250px' }}></div>
+            </div>
+            <div>
+              <div className="grid grid-cols-6 divide-x bg-gray-100">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="p-2">
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-6 divide-x bg-white">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="p-2">
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Target-Disease Module Section Skeleton */}
+          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+            <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
+              <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '350px' }}></div>
+            </div>
+            <div>
+              <div className="grid grid-cols-7 divide-x">
+                {[...Array(7)].map((_, i) => (
+                  <div key={i} className="col-span-1 bg-gray-100">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '70px' }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 divide-x">
+                {[...Array(7)].map((_, i) => (
+                  <div key={i} className="col-span-1 bg-white">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '50px' }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 divide-x">
+                {[...Array(7)].map((_, i) => (
+                  <div key={i} className="col-span-1 bg-gray-50">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '90px' }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 divide-x">
+                {[...Array(7)].map((_, i) => (
+                  <div key={i} className="col-span-1 bg-white">
+                    <div className="p-2">
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Target-Aging Module Section Skeleton */}
+          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+            <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
+              <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '400px' }}></div>
+            </div>
+            <div>
+              <div className="grid grid-cols-5 divide-x">
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                  </div>
+                ))}
+              </div>
+              {[...Array(5)].map((_, rowIndex) => (
+                <div key={rowIndex} className="grid grid-cols-5 divide-x">
+                  {[...Array(5)].map((_, colIndex) => (
+                    <div key={colIndex} className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                      <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '40px' }}></div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Target-Development Module Section Skeleton */}
+          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+            <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
+              <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '300px' }}></div>
+            </div>
+            <div>
+              <div className="grid grid-cols-8 divide-x">
+                {[...Array(8)].map((_, i) => (
+                  <div key={i} className="bg-gray-100 p-2">
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '70px' }}></div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-8 divide-x">
+                {[...Array(8)].map((_, i) => (
+                  <div key={i} className="bg-gray-50 p-2">
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '90px' }}></div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-8 divide-x">
+                {[...Array(8)].map((_, i) => (
+                  <div key={i} className="bg-white p-2">
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -61,9 +303,9 @@ export default function GeneDetailPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="container mx-auto p-3 space-y-3 flex-grow">
+      <div className="container mx-auto px-6 pb-6 space-y-6 flex-grow">
       {/* Header */}
-      <div className="flex items-center justify-between -mt-1">
+      <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">
             {geneData.basic_protein_name ? 
@@ -82,8 +324,21 @@ export default function GeneDetailPage() {
         <div className="col-span-1">
           <div className="rounded-lg overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
-            <div className="bg-blue-100 border-b border-gray-200">
-              <div className="text-blue-900 text-sm font-semibold px-2 py-1">TFactorTx IDs</div>
+            <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
+              <div className="text-blue-900 text-sm font-semibold">
+                TFactorTx IDs
+              </div>
+              <span
+                className="text-blue-700 cursor-help text-sm relative group"
+                title="Internal database identifiers and gene names for this transcription factor"
+              >
+                ?
+                <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
+                  <div className="font-medium mb-1">TFactorTx IDs Module</div>
+                  <div className="text-gray-300">Internal database identifiers and gene names for this transcription factor</div>
+                  <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                </div>
+              </span>
             </div>
             {/* Content - Table structure */}
             <div>
@@ -113,8 +368,8 @@ export default function GeneDetailPage() {
         <div className="col-span-2">
           <div className="rounded-lg overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
-            <div className="bg-blue-100 border-b border-gray-200">
-              <div className="text-blue-900 text-sm font-semibold px-2 py-1">
+            <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
+              <div className="text-blue-900 text-sm font-semibold">
                 Classification (based on{' '}
                 <a 
                   href="http://tfclass.bioinf.med.uni-goettingen.de/" 
@@ -126,6 +381,17 @@ export default function GeneDetailPage() {
                 </a>
                 )
               </div>
+              <span
+                className="text-blue-700 cursor-help text-sm relative group"
+                title="TFClass-based hierarchy: Superclass → Class → Family"
+              >
+                ?
+                <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
+                  <div className="font-medium mb-1">Classification Module</div>
+                  <div className="text-gray-300">TFClass-based hierarchy: Superclass → Class → Family</div>
+                  <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                </div>
+              </span>
             </div>
             {/* Content - Table structure */}
             <div>
@@ -161,30 +427,43 @@ export default function GeneDetailPage() {
       {/* External Database Links Section */}
       <div className="rounded-lg overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
-        <div className="bg-blue-100 border-b border-gray-200">
-          <div className="text-blue-900 text-sm font-semibold px-2 py-1">External Database IDs and Linkouts</div>
+        <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
+          <div className="text-blue-900 text-sm font-semibold">
+            External Database IDs
+          </div>
+          <span
+            className="text-blue-700 cursor-help text-sm relative group"
+            title="Direct links to major biological databases including Ensembl, HGNC, NCBI, UniProt, JASPAR, and Open Targets"
+          >
+            ?
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
+              <div className="font-medium mb-1">External Database IDs Module</div>
+              <div className="text-gray-300">Direct links to major biological databases including Ensembl, HGNC, NCBI, UniProt, JASPAR, and Open Targets</div>
+              <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+            </div>
+          </span>
         </div>
         {/* Content - Table structure */}
         <div>
           {/* Column Headers Row - Grey */}
           <div className="grid grid-cols-6 divide-x bg-gray-100">
             <div className="p-2">
-              <div className="font-semibold text-gray-700 text-xs">Ensembl Gene ID and Linkout</div>
+              <div className="font-semibold text-gray-700 text-xs">Ensembl ID</div>
             </div>
             <div className="p-2">
-              <div className="font-semibold text-gray-700 text-xs">HGNC ID and Linkout</div>
+              <div className="font-semibold text-gray-700 text-xs">HGNC ID</div>
             </div>
             <div className="p-2">
-              <div className="font-semibold text-gray-700 text-xs">NCBI Gene ID and Linkout</div>
+              <div className="font-semibold text-gray-700 text-xs">NCBI ID</div>
             </div>
             <div className="p-2">
-              <div className="font-semibold text-gray-700 text-xs">UniProt ID and Linkout</div>
+              <div className="font-semibold text-gray-700 text-xs">UniProt ID</div>
             </div>
             <div className="p-2">
-              <div className="font-semibold text-gray-700 text-xs">JASPAR Linkout (via UniProt ID)</div>
+              <div className="font-semibold text-gray-700 text-xs">JASPAR</div>
             </div>
             <div className="p-2">
-              <div className="font-semibold text-gray-700 text-xs">Open Targets Linkout (via ENSG ID)</div>
+              <div className="font-semibold text-gray-700 text-xs">Open Targets</div>
             </div>
           </div>
           {/* Data Row - White */}
@@ -294,8 +573,8 @@ export default function GeneDetailPage() {
       {/* Target-Disease Module (based on Open Targets) Section */}
       <div className="rounded-lg overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
-        <div className="bg-blue-100 border-b border-gray-200">
-          <div className="text-blue-900 text-sm font-semibold px-2 py-1">
+        <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
+          <div className="text-blue-900 text-sm font-semibold">
             Target-Disease Module (based on{' '}
             <a 
               href="https://platform.opentargets.org/" 
@@ -307,6 +586,17 @@ export default function GeneDetailPage() {
             </a>
             )
           </div>
+          <span
+            className="text-blue-700 cursor-help text-sm relative group"
+            title="Disease associations with confidence levels and aging-related disease data"
+          >
+            ?
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
+              <div className="font-medium mb-1">Target-Disease Module</div>
+              <div className="text-gray-300">Disease associations with confidence levels and aging-related disease data from Open Targets platform</div>
+              <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+            </div>
+          </span>
         </div>
         {/* Content - Table structure */}
         <div>
@@ -322,42 +612,42 @@ export default function GeneDetailPage() {
             {/* Column 2: Total Disease Associations */}
             <div className="col-span-1 bg-gray-100">
               <div className="p-2">
-                <div className="font-semibold text-gray-700 text-xs">Total Disease Associations Count (Normalized Value)</div>
+                <div className="font-semibold text-gray-700 text-xs">Total Diseases (Rank)</div>
               </div>
             </div>
 
             {/* Column 3: Low Confidence */}
             <div className="col-span-1 bg-gray-100">
               <div className="p-2">
-                <div className="font-semibold text-gray-700 text-xs">Low Confidence Associations Count (Normalized Value)</div>
+                <div className="font-semibold text-gray-700 text-xs">Low Conf. Diseases (Rank)</div>
               </div>
             </div>
 
             {/* Column 4: Medium Confidence */}
             <div className="col-span-1 bg-gray-100">
               <div className="p-2">
-                <div className="font-semibold text-gray-700 text-xs">Medium Confidence Assoc Count (Normalized Value)</div>
+                <div className="font-semibold text-gray-700 text-xs">Med. Conf. Diseases (Rank)</div>
               </div>
             </div>
 
             {/* Column 5: High Confidence */}
             <div className="col-span-1 bg-gray-100">
               <div className="p-2">
-                <div className="font-semibold text-gray-700 text-xs">High Confidence Associations Count (Normalized Value)</div>
+                <div className="font-semibold text-gray-700 text-xs">High Conf. Diseases (Rank)</div>
               </div>
             </div>
 
             {/* Column 6: Representative ARD */}
             <div className="col-span-1 bg-gray-100">
               <div className="p-2">
-                <div className="font-semibold text-gray-700 text-xs">Representative ARD Count (Normalized Value)</div>
+                <div className="font-semibold text-gray-700 text-xs">ARD Count (Rank)</div>
               </div>
             </div>
 
             {/* Column 7: Best Evidenced Linked Representative ARD */}
             <div className="col-span-1 bg-gray-100">
               <div className="p-2">
-                <div className="font-semibold text-gray-700 text-xs">Best Evidenced Linked Representative ARD</div>
+                <div className="font-semibold text-gray-700 text-xs">Highest Confidence ARD</div>
               </div>
             </div>
 
@@ -441,10 +731,18 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_ard_strongest_linked_disease && geneData.disease_ot_ard_strongest_linked_disease !== '#N/A' ? 
-                    geneData.disease_ot_ard_strongest_linked_disease : 'N/A'
-                  }
-
+                  {geneData.disease_ot_ard_strongest_linked_disease && geneData.disease_ot_ard_strongest_linked_disease !== '#N/A' ? (
+                    <a 
+                      href={`https://platform.opentargets.org/evidence/${geneData.basic_ensembl_gene_id}/${getDiseaseId(geneData.disease_ot_ard_strongest_linked_disease)}`}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 underline text-xs break-all"
+                    >
+                      {getShortDiseaseName(geneData.disease_ot_ard_strongest_linked_disease)}
+                    </a>
+                  ) : (
+                    'N/A'
+                  )}
                 </div>
               </div>
             </div>
@@ -452,42 +750,42 @@ export default function GeneDetailPage() {
             {/* Column 2: Secondary header for Total Disease Associations */}
             <div className="col-span-1 bg-gray-50">
               <div className="p-2">
-                <div className="text-xs text-gray-600 font-medium">Aggregated Association Score (Normalized Value)</div>
+                <div className="text-xs text-gray-600 font-medium">Agg. Association Score (Rank)</div>
               </div>
             </div>
 
             {/* Column 3: Secondary header for Low Confidence */}
             <div className="col-span-1 bg-gray-50">
               <div className="p-2">
-                <div className="text-xs text-gray-600 font-medium">Aggregated Association Score (Normalized Value)</div>
+                <div className="text-xs text-gray-600 font-medium">Agg. Association Score (Rank)</div>
               </div>
             </div>
 
             {/* Column 4: Secondary header for Medium Confidence */}
             <div className="col-span-1 bg-gray-50">
               <div className="p-2">
-                <div className="text-xs text-gray-600 font-medium">Aggregated Association Score (Normalized Value)</div>
+                <div className="text-xs text-gray-600 font-medium">Agg. Association Score (Rank)</div>
               </div>
             </div>
 
             {/* Column 5: Secondary header for High Confidence */}
             <div className="col-span-1 bg-gray-50">
               <div className="p-2">
-                <div className="text-xs text-gray-600 font-medium">Aggregated Association Score (Normalized Value)</div>
+                <div className="text-xs text-gray-600 font-medium">Agg. Association Score (Rank)</div>
               </div>
             </div>
 
             {/* Column 6: Secondary header for Representative ARD */}
             <div className="col-span-1 bg-gray-50">
               <div className="p-2">
-                <div className="text-xs text-gray-600 font-medium">Aggregated Association Score (Normalized Value)</div>
+                <div className="text-xs text-gray-600 font-medium">Agg. Association Score (Rank)</div>
               </div>
             </div>
 
             {/* Column 7: Secondary header for Best Evidenced Linked Representative ARD */}
             <div className="col-span-1 bg-gray-50">
               <div className="p-2">
-                <div className="text-xs text-gray-600 font-medium">Association Score (Normalized Value)</div>
+                <div className="text-xs text-gray-600 font-medium">Association Score (Rank)</div>
               </div>
             </div>
 
@@ -620,8 +918,8 @@ export default function GeneDetailPage() {
       {/* Target-Aging Module Section */}
       <div className="rounded-lg overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
-        <div className="bg-blue-100 border-b border-gray-200">
-          <div className="text-blue-900 text-sm font-semibold px-2 py-1">
+        <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
+          <div className="text-blue-900 text-sm font-semibold">
             Target-Aging Module (based on{' '}
             <a 
               href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
@@ -678,6 +976,17 @@ export default function GeneDetailPage() {
             </a>
             .
           </div>
+          <span
+            className="text-blue-700 cursor-help text-sm relative group"
+            title="Aging-related data from multiple databases across human, mouse, worm, and fly species"
+          >
+            ?
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
+              <div className="font-medium mb-1">Target-Aging Module</div>
+              <div className="text-gray-300">Aging-related data from multiple databases across human, mouse, worm, and fly species</div>
+              <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+            </div>
+          </span>
         </div>
         {/* Content - Table structure */}
         <div>
@@ -710,7 +1019,7 @@ export default function GeneDetailPage() {
               
               if (value === 'Unclear') {
                 return (
-                  <span className="text-xs bg-[#1f9e89] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[100px] flex items-center justify-center">
+                  <span className="text-xs bg-[#1f9e89] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap flex items-center justify-center">
                     {value}
                   </span>
                 );
@@ -1042,32 +1351,46 @@ export default function GeneDetailPage() {
               </a>
               )
             </div>
-            {/* Development Level Badge */}
-            {geneData.dev_summary_dev_level_category && geneData.dev_summary_dev_level_category !== '#N/A' && geneData.dev_summary_dev_level_category !== 'NA' && (
-              <div className="flex items-center space-x-2">
-                <span className="text-blue-900 text-sm font-semibold">Development Level</span>
-                {(() => {
-                  const category = geneData.dev_summary_dev_level_category;
-                  // Extract the text part after the underscore (e.g., "High" from "1_High")
-                  const displayText = category.includes('_') ? category.split('_')[1] : category;
-                  
-                  // Use same viridis colors as main database page: purple for high, teal for medium, green for medium to low, yellow for low
-                  const getVariant = (cat: string) => {
-                    if (cat.includes('High')) return 'bg-[#440154] text-white';
-                    if (cat.includes('Medium to Low')) return 'bg-[#35b779] text-white';
-                    if (cat.includes('Medium')) return 'bg-[#1f9e89] text-white';
-                    if (cat.includes('Low')) return 'bg-[#fde725] text-gray-800';
-                    return 'bg-[#fde725] text-gray-800';
-                  };
-                  
-                  return (
-                    <span className={`text-xs ${getVariant(category)} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={category}>
-                      {displayText}
-                    </span>
-                  );
-                })()}
-              </div>
-            )}
+            <div className="flex items-center space-x-2">
+              {/* Development Level Badge */}
+              {geneData.dev_summary_dev_level_category && geneData.dev_summary_dev_level_category !== '#N/A' && geneData.dev_summary_dev_level_category !== 'NA' && (
+                <div className="flex items-center space-x-2">
+                  <span className="text-blue-900 text-sm font-semibold">Development Level</span>
+                  {(() => {
+                    const category = geneData.dev_summary_dev_level_category;
+                    // Extract the text part after the underscore (e.g., "High" from "1_High")
+                    const displayText = category.includes('_') ? category.split('_')[1] : category;
+                    
+                    // Use same viridis colors as main database page: purple for high, teal for medium, green for medium to low, yellow for low
+                    const getVariant = (cat: string) => {
+                      if (cat.includes('High')) return 'bg-[#440154] text-white';
+                      if (cat.includes('Medium to Low')) return 'bg-[#35b779] text-white';
+                      if (cat.includes('Medium')) return 'bg-[#1f9e89] text-white';
+                      if (cat.includes('Low')) return 'bg-[#fde725] text-gray-800';
+                      return 'bg-[#fde725] text-gray-800';
+                    };
+                    
+                    return (
+                      <span className={`text-xs ${getVariant(category)} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap`} title={category}>
+                        {displayText}
+                      </span>
+                    );
+                  })()}
+                </div>
+              )}
+              {/* Tooltip */}
+              <span
+                className="text-blue-700 cursor-help text-sm relative group"
+                title="Drug development data from multiple pharmaceutical databases"
+              >
+                ?
+                <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
+                  <div className="font-medium mb-1">Target-Development Module</div>
+                  <div className="text-gray-300">Drug development data from Pharos, DGIdb, TTD, and ChEMBL databases</div>
+                  <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                </div>
+              </span>
+            </div>
           </div>
         </div>
         {/* Content - Table structure */}
@@ -1100,7 +1423,7 @@ export default function GeneDetailPage() {
                 <div className="grid grid-cols-8 divide-x">
                   {/* Column 1: Pharos - Target Development Level (TDL) */}
                   <div className="col-span-1 bg-gray-50 p-2">
-                    <div className="text-xs text-gray-600 font-medium">Target Development Level (TDL)</div>
+                    <div className="text-xs text-gray-600 font-medium">Target Development Level</div>
                   </div>
                   
                   {/* Column 2: DGIdb - All Drugs Count */}
@@ -1125,17 +1448,17 @@ export default function GeneDetailPage() {
                   
                   {/* Column 6: ChEMBL - Approved Drugs and Clinical Candidates Count */}
                   <div className="col-span-1 bg-gray-50 p-2">
-                    <div className="text-xs text-gray-600 font-medium">Approved Drugs and Clinical Candidates Count</div>
+                    <div className="text-xs text-gray-600 font-medium">Drug Count</div>
                   </div>
                   
                   {/* Column 7: ChEMBL - Approved Drugs and Clinical Candidates Max Phase */}
                   <div className="col-span-1 bg-gray-50 p-2">
-                    <div className="text-xs text-gray-600 font-medium">Approved Drugs and Clinical Candidates Max Phase</div>
+                    <div className="text-xs text-gray-600 font-medium">Max Phase</div>
                   </div>
                   
                   {/* Column 8: ChEMBL - Approved Drugs and Clinical Candidates First Approval */}
                   <div className="col-span-1 bg-gray-50 p-2">
-                    <div className="text-xs text-gray-600 font-medium">Approved Drugs and Clinical Candidates First Approval</div>
+                    <div className="text-xs text-gray-600 font-medium">First Approval</div>
                   </div>
                 </div>
 
@@ -1154,7 +1477,7 @@ export default function GeneDetailPage() {
                       return (
                         <div className="space-y-1">
                           {values.map((val, index) => (
-                            <div key={index} className="text-gray-900 text-xs">
+                            <div key={index} className="text-xs">
                               {isTargetId ? (
                                 <a 
                                   href={`https://www.ebi.ac.uk/chembl/explore/target/${val}`}
@@ -1165,7 +1488,7 @@ export default function GeneDetailPage() {
                                   {val}
                                 </a>
                               ) : (
-                                val
+                                <span className="text-gray-900">{val}</span>
                               )}
                             </div>
                           ))}
@@ -1180,9 +1503,9 @@ export default function GeneDetailPage() {
                           href={`https://www.ebi.ac.uk/chembl/explore/target/${cleanValue}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline"
+                          className="text-blue-600 hover:text-blue-800 underline text-xs"
                         >
-                          <span className="text-gray-900 text-xs">{cleanValue}</span>
+                          {cleanValue}
                         </a>
                       );
                     }
@@ -1196,7 +1519,7 @@ export default function GeneDetailPage() {
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_pharos_tcrd_tdl && geneData.dev_pharos_tcrd_tdl !== '#N/A' ? 
-                        geneData.dev_pharos_tcrd_tdl.replace(/"/g, '') : 'None'}
+                        geneData.dev_pharos_tcrd_tdl.replace(/"/g, '') : <span className="text-gray-400">None</span>}
                     </div>
                   </div>
                   
@@ -1204,7 +1527,7 @@ export default function GeneDetailPage() {
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_dgidb_all_drugs && geneData.dev_dgidb_all_drugs !== '#N/A' ? 
-                        geneData.dev_dgidb_all_drugs.replace(/"/g, '') : 'None'}
+                        geneData.dev_dgidb_all_drugs.replace(/"/g, '') : <span className="text-gray-400">None</span>}
                     </div>
                   </div>
                   
@@ -1212,7 +1535,7 @@ export default function GeneDetailPage() {
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_dgidb_MOA_drugs && geneData.dev_dgidb_MOA_drugs !== '#N/A' ? 
-                        geneData.dev_dgidb_MOA_drugs.replace(/"/g, '') : 'None'}
+                        geneData.dev_dgidb_MOA_drugs.replace(/"/g, '') : <span className="text-gray-400">None</span>}
                     </div>
                   </div>
                   
@@ -1220,7 +1543,7 @@ export default function GeneDetailPage() {
                   <div className="col-span-1 bg-white p-2">
                     <div className="text-gray-900 text-xs">
                       {geneData.dev_ttd_approved_drugs && geneData.dev_ttd_approved_drugs !== '#N/A' ? 
-                        geneData.dev_ttd_approved_drugs.replace(/"/g, '') : 'None'}
+                        geneData.dev_ttd_approved_drugs.replace(/"/g, '') : <span className="text-gray-400">None</span>}
                     </div>
                   </div>
                   
