@@ -870,7 +870,7 @@ export default function DatabasePage() {
         const textColor = isProLongevity ? 'text-white' : isAntiLongevity ? 'text-gray-800' : 'text-white';
         const isUnclear = !isProLongevity && !isAntiLongevity && !isNone;
         return (
-          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[100px] flex items-center justify-center' : ''}`} title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[60px] flex items-center justify-center' : ''}`} title={influence}>
             {influence}
           </span>
         );
@@ -899,7 +899,7 @@ export default function DatabasePage() {
         const textColor = isProLongevity ? 'text-white' : isAntiLongevity ? 'text-gray-800' : 'text-white';
         const isUnclear = !isProLongevity && !isAntiLongevity && !isNone;
         return (
-          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[100px] flex items-center justify-center' : ''}`} title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[60px] flex items-center justify-center' : ''}`} title={influence}>
             {influence}
           </span>
         );
@@ -928,7 +928,7 @@ export default function DatabasePage() {
         const textColor = isProLongevity ? 'text-white' : isAntiLongevity ? 'text-gray-800' : 'text-white';
         const isUnclear = !isProLongevity && !isAntiLongevity && !isNone;
         return (
-          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[100px] flex items-center justify-center' : ''}`} title={influence}>
+          <span className={`text-xs ${bgColor} ${textColor} px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap ${isUnclear ? 'w-[60px] flex items-center justify-center' : ''}`} title={influence}>
             {influence}
           </span>
         );
@@ -1105,7 +1105,7 @@ export default function DatabasePage() {
       <div className="container mx-auto px-4 pt-0 pb-0 mb-8" style={{ marginTop: '-20px' }}>
 
         {/* Filter Options - Horizontal Layout */}
-        <div className="mb-1 p-2 bg-white border border-gray-200 rounded" style={{ minHeight: '48px' }}>
+        <div className="mb-1 p-2 bg-white border-2 border-gray-300 rounded-md" style={{ minHeight: '48px' }}>
           <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-4">
                 <div className="flex-1" style={{ maxWidth: 'fit-content', minWidth: '220px' }}>
@@ -1228,7 +1228,7 @@ export default function DatabasePage() {
         </div>
 
         {/* Pagination Controls - Moved to top */}
-        <div className="mb-1 p-1 bg-white border border-gray-200 rounded">
+        <div className="mb-1 p-1 bg-white border-2 border-gray-300 rounded-md">
           <div className="flex items-center justify-between">
             <div className="text-xs text-gray-600" style={{ width: '120px', flexShrink: 0 }}>
               {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
@@ -1318,7 +1318,7 @@ export default function DatabasePage() {
 
 
           {/* Simple Table */}
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto border-2 border-gray-300 rounded-md">
             <table className="w-full border-collapse" style={{ tableLayout: 'fixed' }}>
               <colgroup>
                 {table.getHeaderGroups()[0].headers.map((header) => {
@@ -1344,7 +1344,7 @@ export default function DatabasePage() {
               </colgroup>
               <thead>
                 {/* Rotated Headers Row */}
-                <tr className="bg-transparent">
+                <tr className="bg-white">
                   {table.getHeaderGroups()[0].headers.map((header, headerIndex) => (
                     <th
                       key={`rotated-${header.id}`}
@@ -1672,7 +1672,7 @@ export default function DatabasePage() {
           )}
 
           {/* Pagination Controls - Bottom */}
-          <div className="mt-1 p-1 bg-white border border-gray-200 rounded">
+          <div className="mt-1 p-1 bg-white border-2 border-gray-300 rounded-md">
             <div className="flex items-center justify-between">
               <div className="text-xs text-gray-600" style={{ width: '120px', flexShrink: 0 }}>
                 {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results

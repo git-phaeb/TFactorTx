@@ -94,17 +94,17 @@ export default function GeneDetailPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
-        <div className="container mx-auto px-6 pb-6 space-y-6 flex-grow">
+        <div className="container mx-auto px-6 pb-6 space-y-2 flex-grow">
           {/* Header Skeleton */}
           <div className="flex items-center justify-between">
             <div className="h-8 bg-gray-200 rounded animate-pulse" style={{ width: '200px' }}></div>
           </div>
 
           {/* TFactorTx IDs and Classification Section Skeleton */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-2">
             {/* TFactorTx IDs Section Skeleton */}
             <div className="col-span-1">
-              <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+              <div className="rounded-md overflow-hidden border-2 border-gray-300">
                 <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
                   <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '120px' }}></div>
                 </div>
@@ -131,7 +131,7 @@ export default function GeneDetailPage() {
 
             {/* Classification Section Skeleton */}
             <div className="col-span-2">
-              <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+              <div className="rounded-md overflow-hidden border-2 border-gray-300">
                 <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
                   <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '300px' }}></div>
                 </div>
@@ -164,7 +164,7 @@ export default function GeneDetailPage() {
           </div>
 
           {/* External Database Links Section Skeleton */}
-          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+          <div className="rounded-md overflow-hidden border-2 border-gray-300">
             <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
               <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '250px' }}></div>
             </div>
@@ -187,7 +187,7 @@ export default function GeneDetailPage() {
           </div>
 
           {/* Target-Disease Module Section Skeleton */}
-          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+          <div className="rounded-md overflow-hidden border-2 border-gray-300">
             <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
               <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '350px' }}></div>
             </div>
@@ -232,7 +232,7 @@ export default function GeneDetailPage() {
           </div>
 
           {/* Target-Aging Module Section Skeleton */}
-          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+          <div className="rounded-md overflow-hidden border-2 border-gray-300">
             <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
               <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '400px' }}></div>
             </div>
@@ -257,7 +257,7 @@ export default function GeneDetailPage() {
           </div>
 
           {/* Target-Development Module Section Skeleton */}
-          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+          <div className="rounded-md overflow-hidden border-2 border-gray-300">
             <div className="bg-blue-100 border-b border-gray-200 px-2 py-1">
               <div className="h-4 bg-blue-200 rounded animate-pulse" style={{ width: '300px' }}></div>
             </div>
@@ -303,7 +303,7 @@ export default function GeneDetailPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="container mx-auto px-6 pb-6 space-y-6 flex-grow">
+      <div className="container mx-auto px-6 pb-6 space-y-2 flex-grow">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -319,10 +319,10 @@ export default function GeneDetailPage() {
 
 
       {/* TFactorTx IDs and Classification Section - Side by Side */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-2">
         {/* TFactorTx IDs Section - 1/3 width */}
         <div className="col-span-1">
-          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+          <div className="rounded-md overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
             <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
               <div className="text-blue-900 text-sm font-semibold">
@@ -366,7 +366,7 @@ export default function GeneDetailPage() {
 
         {/* Classification Section - 2/3 width */}
         <div className="col-span-2">
-          <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+          <div className="rounded-md overflow-hidden border-2 border-gray-300">
             {/* Header Row - spans full width */}
             <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
               <div className="text-blue-900 text-sm font-semibold">
@@ -425,7 +425,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* External Database Links Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="rounded-md overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
           <div className="text-blue-900 text-sm font-semibold">
@@ -571,7 +571,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* Target-Disease Module (based on Open Targets) Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="rounded-md overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
           <div className="text-blue-900 text-sm font-semibold">
@@ -916,7 +916,7 @@ export default function GeneDetailPage() {
       </div>
 
       {/* Target-Aging Module Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="rounded-md overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200 flex items-center justify-between px-2 py-1">
           <div className="text-blue-900 text-sm font-semibold">
@@ -1003,7 +1003,7 @@ export default function GeneDetailPage() {
               
               if (value === 'Pro-Longevity') {
                 return (
-                  <span className="text-xs bg-[#440154] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[100px] flex items-center justify-center">
+                  <span className="text-xs bg-[#440154] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap flex items-center justify-center">
                     {value}
                   </span>
                 );
@@ -1011,7 +1011,7 @@ export default function GeneDetailPage() {
               
               if (value === 'Anti-Longevity') {
                 return (
-                  <span className="text-xs bg-[#FDE725] text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[100px] flex items-center justify-center">
+                  <span className="text-xs bg-[#FDE725] text-gray-800 px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap flex items-center justify-center">
                     {value}
                   </span>
                 );
@@ -1019,7 +1019,7 @@ export default function GeneDetailPage() {
               
               if (value === 'Unclear') {
                 return (
-                  <span className="text-xs bg-[#1f9e89] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap flex items-center justify-center">
+                  <span className="text-xs bg-[#1f9e89] text-white px-2 py-0.5 rounded-md border border-transparent whitespace-nowrap w-[60px] flex items-center justify-center">
                     {value}
                   </span>
                 );
@@ -1308,7 +1308,7 @@ export default function GeneDetailPage() {
 
 
       {/* Target-Development Module (based on Pharos / DGIdb / TTD / ChEMBL) Section */}
-      <div className="rounded-lg overflow-hidden border-2 border-gray-300">
+      <div className="rounded-md overflow-hidden border-2 border-gray-300">
         {/* Header Row - spans full width */}
         <div className="bg-blue-100 border-b border-gray-200">
           <div className="flex items-center justify-between px-2 py-1">
