@@ -244,11 +244,15 @@ export default function DatabasePage() {
   // Handle page size URL updates
   const handlePageSizeChange = (pageSize: number) => {
     updateURL({ pageSize: pageSize.toString() });
+    // Scroll to top when page size changes to prevent scroll offset issues
+    window.scrollTo(0, 0);
   };
 
   // Handle pagination URL updates
   const handlePageChange = (pageIndex: number) => {
     updateURL({ page: (pageIndex + 1).toString() });
+    // Scroll to top when page changes to prevent scroll offset issues
+    window.scrollTo(0, 0);
   };
 
   // Handle search term change
@@ -714,6 +718,12 @@ export default function DatabasePage() {
     fetchData();
   }, []);
 
+  // Ensure page scrolls to top on mount and when page size changes
+  useEffect(() => {
+    // Scroll to top when component mounts or when page size changes
+    window.scrollTo(0, 0);
+  }, []);
+
 
 
 
@@ -1072,12 +1082,135 @@ export default function DatabasePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-20">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex items-center justify-center h-64">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-              <p className="text-gray-600">Loading 1642 entries...</p>
+      <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+        <div className="container mx-auto px-4 pt-4 pb-0 mb-8">
+          {/* Filter Options Skeleton */}
+          <div className="mb-2 p-2 bg-white border-2 border-gray-300 rounded-md" style={{ minHeight: '48px' }}>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="flex-1" style={{ maxWidth: 'fit-content', minWidth: '220px' }}>
+                  <div className="h-8 bg-gray-200 rounded-md animate-pulse" style={{ width: '220px' }}></div>
+                </div>
+                <div className="flex items-center" style={{ width: '140px', flexShrink: 0 }}>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse" style={{ width: '100px' }}></div>
+                </div>
+              </div>
+              
+              {/* Export Button Skeleton */}
+              <div className="flex items-center" style={{ width: '80px', flexShrink: 0 }}>
+                <div className="h-7 bg-gray-200 rounded animate-pulse w-full"></div>
+              </div>
+              
+              {/* Column Visibility Toggle Skeleton */}
+              <div className="flex items-center" style={{ width: '100px', flexShrink: 0 }}>
+                <div className="h-7 bg-gray-200 rounded animate-pulse w-full"></div>
+              </div>
+              
+              {/* Clear All Filters Button Skeleton */}
+              <div className="flex items-center" style={{ width: '120px', flexShrink: 0 }}>
+                <div className="h-7 bg-gray-200 rounded animate-pulse w-full"></div>
+              </div>
+              
+              {/* Viridis Legend Skeleton */}
+              <div className="flex items-center space-x-2" style={{ flexShrink: 0 }}>
+                <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                <div className="flex items-center space-x-1">
+                  {[...Array(10)].map((_, i) => (
+                    <div key={i} className="w-4 h-3 bg-gray-200 rounded-sm animate-pulse"></div>
+                  ))}
+                </div>
+                <div className="flex items-center space-x-1">
+                  <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '30px' }}></div>
+                  <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '10px' }}></div>
+                  <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '40px' }}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Pagination Controls Skeleton */}
+          <div className="mb-2 p-1 bg-white border-2 border-gray-300 rounded-md">
+            <div className="flex items-center justify-between">
+              <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '120px' }}></div>
+              <div className="flex items-center space-x-3 flex-nowrap">
+                <div className="flex items-center space-x-1 flex-shrink-0">
+                  <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                  <div className="h-6 bg-gray-200 rounded animate-pulse" style={{ width: '50px' }}></div>
+                </div>
+                <div className="flex items-center space-x-1 flex-nowrap">
+                  {[...Array(5)].map((_, i) => (
+                    <div key={i} className="h-6 bg-gray-200 rounded animate-pulse" style={{ width: '24px' }}></div>
+                  ))}
+                  <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '40px' }}></div>
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="h-6 bg-gray-200 rounded animate-pulse" style={{ width: '24px' }}></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content Skeleton */}
+          <div className="space-y-2">
+            {/* Table Skeleton */}
+            <div className="overflow-x-auto border-2 border-gray-300 rounded-md">
+              <div className="w-full">
+                {/* Table Header Skeleton */}
+                <div className="bg-white">
+                  {/* Rotated Headers Row Skeleton */}
+                  <div className="flex" style={{ height: '124px' }}>
+                    {[...Array(12)].map((_, i) => (
+                      <div key={i} className="flex-1 border-r border-gray-200 p-2">
+                        <div className="h-4 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Functional Headers Row Skeleton */}
+                  <div className="flex" style={{ backgroundColor: '#31688e', height: '32px' }}>
+                    {[...Array(12)].map((_, i) => (
+                      <div key={i} className="flex-1 border-r border-gray-200 p-1">
+                        <div className="h-6 bg-gray-200 rounded animate-pulse mx-auto" style={{ width: '20px' }}></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Table Body Skeleton */}
+                <div>
+                  {[...Array(20)].map((_, rowIndex) => (
+                    <div key={rowIndex} className={`flex ${rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-100'}`} style={{ height: '24px' }}>
+                      {[...Array(12)].map((_, colIndex) => (
+                        <div key={colIndex} className="flex-1 border-r border-gray-200 p-1">
+                          <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Pagination Controls Skeleton */}
+            <div className="p-1 bg-white border-2 border-gray-300 rounded-md">
+              <div className="flex items-center justify-between">
+                <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '120px' }}></div>
+                <div className="flex items-center space-x-3 flex-nowrap">
+                  <div className="flex items-center space-x-1 flex-shrink-0">
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '60px' }}></div>
+                    <div className="h-6 bg-gray-200 rounded animate-pulse" style={{ width: '50px' }}></div>
+                  </div>
+                  <div className="flex items-center space-x-1 flex-nowrap">
+                    {[...Array(5)].map((_, i) => (
+                      <div key={i} className="h-6 bg-gray-200 rounded animate-pulse" style={{ width: '24px' }}></div>
+                    ))}
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '40px' }}></div>
+                    {[...Array(2)].map((_, i) => (
+                      <div key={i} className="h-6 bg-gray-200 rounded animate-pulse" style={{ width: '24px' }}></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1101,11 +1234,11 @@ export default function DatabasePage() {
   }
 
   return (
-    <div className="min-h-screen pt-4" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
-      <div className="container mx-auto px-4 pt-0 pb-0 mb-8" style={{ marginTop: '-20px' }}>
+    <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+      <div className="container mx-auto px-4 pt-4 pb-0 mb-8">
 
         {/* Filter Options - Horizontal Layout */}
-        <div className="mb-1 p-2 bg-white border-2 border-gray-300 rounded-md" style={{ minHeight: '48px' }}>
+        <div className="mb-2 p-2 bg-white border-2 border-gray-300 rounded-md" style={{ minHeight: '48px' }}>
           <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-4">
                 <div className="flex-1" style={{ maxWidth: 'fit-content', minWidth: '220px' }}>
@@ -1227,12 +1360,12 @@ export default function DatabasePage() {
           </div>
         </div>
 
-        {/* Pagination Controls - Moved to top */}
-        <div className="mb-1 p-1 bg-white border-2 border-gray-300 rounded-md">
-          <div className="flex items-center justify-between">
-            <div className="text-xs text-gray-600" style={{ width: '120px', flexShrink: 0 }}>
-              {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
-            </div>
+                 {/* Pagination Controls - Moved to top */}
+         <div className="mb-2 p-1 bg-white border-2 border-gray-300 rounded-md">
+           <div className="flex items-center justify-between">
+             <div className="text-xs text-gray-600 pl-2" style={{ width: '120px', flexShrink: 0 }}>
+               {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
+             </div>
             <div className="flex items-center space-x-3 flex-nowrap">
                 {/* Page Size Selector */}
                 <div className="flex items-center space-x-1 flex-shrink-0">
@@ -1671,12 +1804,12 @@ export default function DatabasePage() {
             </div>
           )}
 
-          {/* Pagination Controls - Bottom */}
-          <div className="mt-1 p-1 bg-white border-2 border-gray-300 rounded-md">
-            <div className="flex items-center justify-between">
-              <div className="text-xs text-gray-600" style={{ width: '120px', flexShrink: 0 }}>
-                {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
-              </div>
+                     {/* Pagination Controls - Bottom */}
+           <div className="mt-1 p-1 bg-white border-2 border-gray-300 rounded-md">
+             <div className="flex items-center justify-between">
+               <div className="text-xs text-gray-600 pl-2" style={{ width: '120px', flexShrink: 0 }}>
+                 {table.getRowModel().rows.length} of {table.getFilteredRowModel().rows.length} results
+               </div>
               <div className="flex items-center space-x-3 flex-nowrap">
                 {/* Page Size Selector */}
                 <div className="flex items-center space-x-1 flex-shrink-0">
