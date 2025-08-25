@@ -5,7 +5,7 @@ import Image from "next/image";
 const featureBlocks = [
   {
     title: "Collaborate and build in a git-based workflow",
-    description: "Sync your docs to GitHub or GitLab and collaborate in GitBook’s WYSIWYG editor or your IDE.",
+    description: "Sync your docs to GitHub or GitLab and collaborate in GitBook's WYSIWYG editor or your IDE.",
     image: "/placeholder-feature.svg",
   },
   {
@@ -20,7 +20,7 @@ const featureBlocks = [
   },
   {
     title: "Measure and improve KPIs with testing and analytics",
-    description: "Use built-in insights to track your docs’ success and focus on improving conversion, signups and more.",
+    description: "Use built-in insights to track your docs' success and focus on improving conversion, signups and more.",
     image: "/placeholder-feature.svg",
   },
   {

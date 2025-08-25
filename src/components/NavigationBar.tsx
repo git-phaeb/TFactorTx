@@ -9,10 +9,10 @@ export function NavigationBar() {
           <div className="text-white text-lg font-bold">
             <Link href="/">TFactorTx</Link>
           </div>
-          {/* Center: Alpha badge, absolutely centered */}
+          {/* Center: Beta badge, absolutely centered */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <div className="inline-block rounded-lg bg-gray-700 px-2 py-1 text-xs text-gray-200">
-              Alpha v0.2.0-alpha.2
+              Beta v0.2.0-beta.1
             </div>
           </div>
           {/* Right: Navigation links */}

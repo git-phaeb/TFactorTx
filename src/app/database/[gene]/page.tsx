@@ -246,7 +246,12 @@ export default function GeneDetailPage() {
               </div>
               {[...Array(5)].map((_, rowIndex) => (
                 <div key={rowIndex} className="grid grid-cols-5 divide-x">
-                  {[...Array(5)].map((_, colIndex) => (
+                  {/* Database name column (gray background) */}
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
+                    <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '80px' }}></div>
+                  </div>
+                  {/* Data columns (white background) */}
+                  {[...Array(4)].map((_, colIndex) => (
                     <div key={colIndex} className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
                       <div className="h-3 bg-gray-200 rounded animate-pulse" style={{ width: '40px' }}></div>
                     </div>
@@ -1112,17 +1117,10 @@ export default function GeneDetailPage() {
                 {/* Data Rows */}
                 <div className="grid grid-cols-5 divide-x">
                   {/* Row 1: PMID35343830 */}
-                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="flex items-center h-full">
-                      <div className="text-gray-700 text-xs">
-                        <a 
-                          href="https://pubmed.ncbi.nlm.nih.gov/35343830/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline"
-                        >
-                          PMID35343830
-                        </a>
+                      <div className="font-bold text-gray-700 text-xs">
+                        PMID35343830
                       </div>
                     </div>
                   </div>
@@ -1150,17 +1148,10 @@ export default function GeneDetailPage() {
                 
                 <div className="grid grid-cols-5 divide-x">
                   {/* Row 2: HAGR */}
-                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="flex items-center h-full">
-                      <div className="text-gray-700 text-xs">
-                        <a 
-                          href="https://genomics.senescence.info/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline"
-                        >
-                          HAGR
-                        </a>
+                      <div className="font-bold text-gray-700 text-xs">
+                        HAGR
                       </div>
                     </div>
                   </div>
@@ -1188,17 +1179,10 @@ export default function GeneDetailPage() {
                 
                 <div className="grid grid-cols-5 divide-x">
                   {/* Row 3: Open Genes */}
-                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="flex items-center h-full">
-                      <div className="text-gray-700 text-xs">
-                        <a 
-                          href="https://open-genes.com/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline"
-                        >
-                          Open Genes
-                        </a>
+                      <div className="font-bold text-gray-700 text-xs">
+                        Open Genes
                       </div>
                     </div>
                   </div>
@@ -1226,17 +1210,10 @@ export default function GeneDetailPage() {
                 
                 <div className="grid grid-cols-5 divide-x">
                   {/* Row 4: AgingReG */}
-                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="flex items-center h-full">
-                      <div className="text-gray-700 text-xs">
-                        <a 
-                          href="https://bio.liclab.net/Aging-ReG/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline"
-                        >
-                          AgingReG
-                        </a>
+                      <div className="font-bold text-gray-700 text-xs">
+                        AgingReG
                       </div>
                     </div>
                   </div>
@@ -1264,17 +1241,10 @@ export default function GeneDetailPage() {
                 
                 <div className="grid grid-cols-5 divide-x">
                   {/* Row 5: SeneQuest */}
-                  <div className="bg-white" style={{ padding: '4px 6px', height: '32px' }}>
+                  <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="flex items-center h-full">
-                      <div className="text-gray-700 text-xs">
-                        <a 
-                          href="https://senequest.net/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline"
-                        >
-                          SeneQuest
-                        </a>
+                      <div className="font-bold text-gray-700 text-xs">
+                        SeneQuest
                       </div>
                     </div>
                   </div>

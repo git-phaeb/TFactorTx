@@ -28,7 +28,7 @@ export default function RootLayout({
             <div className="mb-1 font-semibold text-base">TFactorTx</div>
             <div className="mb-1 text-xs">A placeholder footer section for future content, links, and information.</div>
             <div className="mb-1">
-              <span className="inline-block rounded-lg bg-gray-700 px-2 py-0.5 text-xs">Alpha v0.2.0-alpha.2</span>
+              <span className="inline-block rounded-lg bg-gray-700 px-2 py-0.5 text-xs">Beta v0.2.0-beta.1</span>
             </div>
             <div className="text-xs text-gray-400 mb-1 flex items-center justify-center" style={{ display: 'inline', width: 'auto' }}>
               <span className="text-xs align-middle">TFactorTx is marked with</span>
