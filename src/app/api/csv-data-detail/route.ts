@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
+// Force dynamic rendering for this route since it uses request.url
+export const dynamic = 'force-dynamic';
+
 // Helper function to clean CSV values by removing carriage returns and trimming whitespace
 function cleanCSVValue(value: string): string {
   return value.replace(/\r?\n/g, '').trim();

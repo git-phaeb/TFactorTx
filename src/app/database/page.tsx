@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
   useReactTable,
@@ -21,26 +21,27 @@ import { Badge } from '@/components/ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { TFactorTxData, getTDL } from '@/lib/csv-loader';
 
-export default function DatabasePage() {
-  // Helper function for column tooltips
-  const getColumnTooltip = (columnId: string): string => {
-    switch (columnId) {
-      case 'TF Symbol': return 'Transcription factor gene symbol - click to view detailed information';
-      case 'sort_disease_ot_ard_aging_overall_rank': return 'Combined ranking based on disease associations and aging data';
-      case 'sort_disease_ot_total_assoc_score_rank': return 'Ranking based on total disease association score from Open Targets';
-      case 'sort_disease_ot_ard_total_assoc_count_score_rank': return 'Ranking based on aging-related disease associations';
-      case 'disease_ot_ard_strongest_linked_disease': return 'Aging-related disease with strongest association evidence';
-      case 'sort_aging_summary_total_db_entries_count_rank': return 'Ranking based on total aging database entries across all species';
-      case 'aging_summary_human': return 'Human aging data availability from multiple databases';
-      case 'aging_summary_mm_influence': return 'Mouse aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
-      case 'aging_summary_ce_influence': return 'Worm aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
-      case 'aging_summary_dm_influence': return 'Fly aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
-      case 'dev_summary_dev_level_category': return 'Drug development level category (High, Medium, Low)';
-      case 'dev_pharos_tcrd_tdl': return 'Target Development Level from Pharos database';
-      default: return 'Column information and data description';
-    }
-  };
+// Helper function for column tooltips
+const getColumnTooltip = (columnId: string): string => {
+  switch (columnId) {
+    case 'TF Symbol': return 'Transcription factor gene symbol - click to view detailed information';
+    case 'sort_disease_ot_ard_aging_overall_rank': return 'Combined ranking based on disease associations and aging data';
+    case 'sort_disease_ot_total_assoc_score_rank': return 'Ranking based on total disease association score from Open Targets';
+    case 'sort_disease_ot_ard_total_assoc_count_score_rank': return 'Ranking based on aging-related disease associations';
+    case 'disease_ot_ard_strongest_linked_disease': return 'Aging-related disease with strongest association evidence';
+    case 'sort_aging_summary_total_db_entries_count_rank': return 'Ranking based on total aging database entries across all species';
+    case 'aging_summary_human': return 'Human aging data availability from multiple databases';
+    case 'aging_summary_mm_influence': return 'Mouse aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
+    case 'aging_summary_ce_influence': return 'Worm aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
+    case 'aging_summary_dm_influence': return 'Fly aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
+    case 'dev_summary_dev_level_category': return 'Drug development level category (High, Medium, Low)';
+    case 'dev_pharos_tcrd_tdl': return 'Target Development Level from Pharos database';
+    default: return 'Column information and data description';
+  }
+};
 
+// Separate component that uses useSearchParams
+function DatabaseContent() {
   const [sorting, setSorting] = useState<SortingState>([
     { id: 'sort_disease_ot_ard_aging_overall_rank', desc: false }
   ]);
@@ -1893,5 +1894,24 @@ export default function DatabasePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Main component with Suspense boundary
+export default function DatabasePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+        <div className="container mx-auto px-4 pt-4 pb-0 mb-8">
+          <div className="flex items-center justify-center h-64">
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">Loading database...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }>
+      <DatabaseContent />
+    </Suspense>
   );
 } 
