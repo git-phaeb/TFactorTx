@@ -4,28 +4,28 @@ import Image from "next/image";
 
 const featureBlocks = [
   {
-    title: "Collaborate and build in a git-based workflow",
-    description: "Sync your docs to GitHub or GitLab and collaborate in GitBook's WYSIWYG editor or your IDE.",
+    title: "Comprehensive Transcription Factor Database",
+    description: "Access a manually curated database of human transcription factors with detailed annotations and cross-references.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Publish beautiful, hosted docs in one click",
-    description: "Add your own branding and publish. Docs are automatically optimized for SEO and AI data ingestion.",
+    title: "Advanced Search and Filtering",
+    description: "Find specific transcription factors using powerful search tools and apply multiple filters to narrow down results.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Create a seamless experience between your docs and product",
-    description: "Connect your docs and product more deeply, and give users a personalized experience with adaptive content.",
+    title: "Disease and Aging Associations",
+    description: "Explore connections between transcription factors and various diseases, with a focus on aging-related research.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Measure and improve KPIs with testing and analytics",
-    description: "Use built-in insights to track your docs' success and focus on improving conversion, signups and more.",
+    title: "Research and Therapeutic Insights",
+    description: "Gain valuable insights for your research projects and identify potential therapeutic targets for drug development.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Get started with open source",
-    description: "Play around with GitBook and set up your docs for free. Add your team and pay when you're ready.",
+    title: "Open Source and Community Driven",
+    description: "Contribute to the database and help improve our understanding of transcription factors in human biology.",
     image: "/placeholder-feature.svg",
   },
 ];
@@ -66,13 +66,13 @@ export default function Home() {
       <section className="w-full py-4" style={{ border: '' }}>
         <div className="container mx-auto px-4 max-w-4xl" style={{ border: '' }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
-            Simplify your docs workflow and help your users succeed
+            Discover the Power of Transcription Factor Research
           </h2>
           <div className="relative" style={{ border: '' }}>
             {/* Vertical line starts at subtitle and covers all feature blocks */}
             <div className="hidden md:block absolute left-0 top-0 h-full" style={{ width: '2px', backgroundColor: '#93c5fd', zIndex: 0 }} />
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              GitBook gives your teams everything you need to create unbeatable docs — with a workflow that your whole team will recognize, and insights to measure success.
+              TFactorTx provides researchers with comprehensive tools to explore human transcription factors, understand their roles in disease, and accelerate scientific discovery through our curated database.
             </p>
             <div className="flex mt-8" style={{ border: '' }}>
               <div className="flex-1 space-y-8 relative" style={{ border: '' }}>
