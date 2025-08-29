@@ -4,27 +4,27 @@ import Image from "next/image";
 
 const featureBlocks = [
   {
-    title: "Comprehensive Transcription Factor Database",
+    title: "TFs as Drug Targets",
     description: "Access a manually curated database of human transcription factors with detailed annotations and cross-references.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Advanced Search and Filtering",
+    title: "The Unexplored TF Target Space",
     description: "Find specific transcription factors using powerful search tools and apply multiple filters to narrow down results.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Disease and Aging Associations",
+    title: "TFactorTx Database",
     description: "Explore connections between transcription factors and various diseases, with a focus on aging-related research.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Research and Therapeutic Insights",
+    title: "Searching and Filtering TFactorTx",
     description: "Gain valuable insights for your research projects and identify potential therapeutic targets for drug development.",
     image: "/placeholder-feature.svg",
   },
   {
-    title: "Open Source and Community Driven",
+    title: "Aging, Disease, and Drug Associations",
     description: "Contribute to the database and help improve our understanding of transcription factors in human biology.",
     image: "/placeholder-feature.svg",
   },
@@ -40,20 +40,20 @@ export default function Home() {
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               TFactorTx<br />
               <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800">
-                An Open Source Database for Human Transcription Factors
+                An Open Source Database for<br />Human Transcription Factors
               </span>
             </h1>
-            <p className="mx-auto mt-6 max-w-[725px] text-muted-foreground md:text-xl">
-              Accelerate your research with a manually curated, searchable, and
-              filterable database of human transcription factors and their links to aging and
-              disease. Explore this dataset to find your next research or therapeutic target.
+            <p className="mx-auto mt-6 max-w-[750px] text-muted-foreground md:text-xl">
+              Accelerate your research with our manually curated database of
+              human transcription factors and their links to aging, disease, and drug development.
+              Explore this dataset to find your next research or therapeutic target.
             </p>
             <div className="mt-10 flex justify-center gap-4">
-              <Link href="/database">
-                <Button size="lg">Get Started</Button>
+              <Link href="/database" className="w-32">
+                <Button size="lg" className="w-full h-10 !h-10">Get Started</Button>
               </Link>
-              <Link href="/documentation">
-                <Button size="lg" variant="outline">
+              <Link href="/documentation" className="w-32">
+                <Button size="lg" variant="outline" className="w-full h-10 !h-10">
                   Learn More
                 </Button>
               </Link>
@@ -64,15 +64,41 @@ export default function Home() {
 
       {/* Lower Timeline Section with debugging borders */}
       <section className="w-full py-4" style={{ border: '' }}>
-        <div className="container mx-auto px-4 max-w-4xl" style={{ border: '' }}>
+        <div className="container mx-auto px-4 max-w-5xl" style={{ border: '' }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
-            Discover the Power of Transcription Factor Research
+            Discover the Power of Transcription Factors (TFs)
           </h2>
           <div className="relative" style={{ border: '' }}>
             {/* Vertical line starts at subtitle and covers all feature blocks */}
             <div className="hidden md:block absolute left-0 top-0 h-full" style={{ width: '2px', backgroundColor: '#93c5fd', zIndex: 0 }} />
+            
+            {/* Top timeline circle */}
+            <div className="hidden md:block absolute left-0" style={{ top: '-8px', left: '-8px' }}>
+              <div
+                style={{
+                  width: '16px',
+                  height: '16px',
+                  background: '#60a5fa',
+                  borderRadius: '50%',
+                  boxShadow: '0 0 4px rgba(96, 165, 250, 0.3)',
+                }}
+              />
+            </div>
+            
+            {/* Bottom timeline circle */}
+            <div className="hidden md:block absolute left-0" style={{ bottom: '-8px', left: '-8px' }}>
+              <div
+                style={{
+                  width: '16px',
+                  height: '16px',
+                  background: '#60a5fa',
+                  borderRadius: '50%',
+                  boxShadow: '0 0 4px rgba(96, 165, 250, 0.3)',
+                }}
+              />
+            </div>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              TFactorTx provides researchers with comprehensive tools to explore human transcription factors, understand their roles in disease, and accelerate scientific discovery through our curated database.
+            Did you know that humans have over 1,600 transcription factors, with hundreds linked<br />to aging and disease, yet only 23 of them are targeted by approved drugs?
             </p>
             <div className="flex mt-8" style={{ border: '' }}>
               <div className="flex-1 space-y-8 relative" style={{ border: '' }}>
@@ -105,7 +131,7 @@ export default function Home() {
                     </div>
                     {/* Content and image: always text left, image right */}
                     <div className="flex-1 flex flex-col md:flex-row items-center md:items-start">
-                      <div className="md:w-1/4 w-full flex flex-col justify-center px-4 md:pl-0 md:ml-[56px] md:pr-8 text-center md:text-left">
+                      <div className="md:w-1/3 w-full flex flex-col justify-center px-4 md:pl-0 md:ml-[56px] md:pr-8 text-center md:text-left">
                         <h3 className="text-xl md:text-2xl font-semibold mb-2">{block.title}</h3>
                         <p className="text-base text-muted-foreground mb-4">{block.description}</p>
                       </div>
@@ -128,11 +154,11 @@ export default function Home() {
         
         {/* Buttons at the end */}
         <div className="mt-16 flex justify-center gap-4">
-          <Link href="/database">
-            <Button size="lg">Get Started</Button>
+          <Link href="/database" className="w-32">
+            <Button size="lg" className="w-full h-10">Get Started</Button>
           </Link>
-          <Link href="/documentation">
-            <Button size="lg" variant="outline">
+          <Link href="/documentation" className="w-32">
+            <Button size="lg" variant="outline" className="w-full h-10">
               Learn More
             </Button>
           </Link>

@@ -9,10 +9,13 @@ export function NavigationBar() {
           <div className="text-white text-lg font-bold">
             <Link href="/">TFactorTx</Link>
           </div>
-          {/* Center: Beta badge, absolutely centered */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <div className="inline-block rounded-lg bg-gray-700 px-2 py-1 text-xs text-gray-200">
+          {/* Center: Beta badge and mobile notice, absolutely centered */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 text-center">
+            <div className="inline-block rounded-lg bg-gray-700 px-2 py-1 text-xs text-gray-200 mb-1">
               Beta v0.2.0-beta.2
+            </div>
+            <div className="text-xs text-gray-400">
+              Not Optimized for Mobile
             </div>
           </div>
           {/* Right: Navigation links */}

@@ -30,6 +30,9 @@ export default function RootLayout({
             <div className="mb-1">
               <span className="inline-block rounded-lg bg-gray-700 px-2 py-0.5 text-xs">Beta v0.2.0-beta.2</span>
             </div>
+            <div className="mb-1 text-xs text-gray-400">
+              Not Optimized for Mobile
+            </div>
             <div className="text-xs text-gray-400 mb-1 flex items-center justify-center" style={{ display: 'inline', width: 'auto' }}>
               <span className="text-xs align-middle">TFactorTx is marked with</span>
               <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer" className="text-xs align-middle hover:underline inline-flex items-center" style={{ marginLeft: '2px' }}>
