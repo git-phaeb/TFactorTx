@@ -5,27 +5,27 @@ import Image from "next/image";
 const featureBlocks = [
   {
     title: "TFs as Drug Targets",
-    description: "Access a manually curated database of human transcription factors with detailed annotations and cross-references.",
+    description: "Nuclear receptors, a specific TF class, are highly succesful as drug targets. Unlike most other TFs, nuclear receptors can be targeted directly with small molecules.",
     image: "/placeholder-feature.svg",
   },
-  {
-    title: "The Unexplored TF Target Space",
-    description: "Find specific transcription factors using powerful search tools and apply multiple filters to narrow down results.",
-    image: "/placeholder-feature.svg",
-  },
+      {
+      title: "Unexplored TF\nTarget Space",
+      description: "While most TFs are traditionally considered 'undruggable,' this paradigm is rapidly changing with the advancement of new modalities and improved small molecules.<br/><br/>This unlocks new opportunities for targeting TFs linked to aging and disease.",
+      image: "/placeholder-feature.svg",
+    },
   {
     title: "TFactorTx Database",
-    description: "Explore connections between transcription factors and various diseases, with a focus on aging-related research.",
-    image: "/placeholder-feature.svg",
-  },
-  {
-    title: "Searching and Filtering TFactorTx",
-    description: "Gain valuable insights for your research projects and identify potential therapeutic targets for drug development.",
+    description: "The TFactorTx database provides an entry point to identify research and therapeutic targets from the space of all 1,600+ human TFs.",
     image: "/placeholder-feature.svg",
   },
   {
     title: "Aging, Disease, and Drug Associations",
-    description: "Contribute to the database and help improve our understanding of transcription factors in human biology.",
+         description: "Information from several other databases (see <a href='/documentation' style='color: #60a5fa; text-decoration: underline;' onMouseOver=\"this.style.color='#93c5fb'\" onMouseOut=\"this.style.color='#60a5fa'\">documentation</a>) is aggregated to provide a convenient overview of TFs links to aging across several species, relevance for human disease, and current drug development states.",
+    image: "/placeholder-feature.svg",
+  },
+  {
+    title: "Searching, Filtering, and Exploring",
+    description: "Use the intuitive searching and filtering options to narrow in on targets of interest. Check detailed TF cards to better understand your targets and explore linked databases to dive deeper.",
     image: "/placeholder-feature.svg",
   },
 ];
@@ -33,19 +33,19 @@ const featureBlocks = [
 export default function Home() {
   return (
     <div className="h-full" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
-      {/* Hero Section with debugging borders */}
-      <section className="relative w-full py-2 md:py-4 lg:py-6" style={{ border: '' }}>
-        <div className="container" style={{ border: '' }}>
-          <div className="relative z-10 mx-auto max-w-3xl text-center" style={{ border: '' }}>
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              TFactorTx<br />
-              <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800">
-                An Open Source Database for<br />Human Transcription Factors
+      {/* Hero Section */}
+      <section className="relative w-full py-2 md:py-4 lg:py-6">
+        <div className="container">
+          <div className="relative z-10 mx-auto max-w-3xl text-center">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              TFactorTx<br/>
+              <span className="block mt-2 text-2xl sm:text-3xl font-semibold text-gray-800">
+                An Open Source Database for<br/>Human Transcription Factors
               </span>
             </h1>
-            <p className="mx-auto mt-6 max-w-[750px] text-muted-foreground md:text-xl">
+            <p className="mx-auto mt-6 max-w-[750px] text-muted-foreground text-base px-2">
               Accelerate your research with our manually curated database of
-              human transcription factors and their links to aging, disease, and drug development.
+              human transcription factors and their links to aging, disease, and drug development.<br/><br/>
               Explore this dataset to find your next research or therapeutic target.
             </p>
             <div className="mt-10 flex justify-center gap-4">
@@ -62,13 +62,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Lower Timeline Section with debugging borders */}
-      <section className="w-full py-4" style={{ border: '' }}>
-        <div className="container mx-auto px-4 max-w-5xl" style={{ border: '' }}>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
-            Discover the Power of Transcription Factors (TFs)
-          </h2>
-          <div className="relative" style={{ border: '' }}>
+      {/* Lower Timeline Section */}
+      <section className="w-full py-4">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="font-bold tracking-tighter">
+              <span className="block mt-2 text-2xl sm:text-3xl font-semibold text-gray-800 tracking-tighter">
+                Discover the Power of Transcription Factors (TFs)
+              </span>
+            </h1>
+          </div>
+          <div className="relative">
             {/* Vertical line starts at subtitle and covers all feature blocks */}
             <div className="hidden md:block absolute left-0 top-0 h-full" style={{ width: '2px', backgroundColor: '#93c5fd', zIndex: 0 }} />
             
@@ -97,13 +101,13 @@ export default function Home() {
                 }}
               />
             </div>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Did you know that humans have over 1,600 transcription factors, with hundreds linked<br />to aging and disease, yet only 23 of them are targeted by approved drugs?
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto px-2 text-base">
+              Did you know that humans have over 1,600 transcription factors, with hundreds linked<br/>to aging and disease, yet only 23 of them are targeted by approved drugs?
             </p>
-            <div className="flex mt-8" style={{ border: '' }}>
-              <div className="flex-1 space-y-8 relative" style={{ border: '' }}>
+            <div className="flex mt-8">
+              <div className="flex-1 space-y-8 relative">
                 {featureBlocks.map((block, idx) => (
-                  <div key={block.title} className="flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-0 relative" style={{ border: '' }}>
+                  <div key={block.title} className="flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-0 relative">
                     {/* Curved branch and marker using SVG */}
                     <div className="hidden md:block absolute left-0" style={{ top: '12px', height: '32px', width: '32px' }}>
                       <svg width="32" height="32" style={{ position: 'absolute', left: 0, top: 0 }}>
@@ -131,9 +135,9 @@ export default function Home() {
                     </div>
                     {/* Content and image: always text left, image right */}
                     <div className="flex-1 flex flex-col md:flex-row items-center md:items-start">
-                      <div className="md:w-1/3 w-full flex flex-col justify-center px-4 md:pl-0 md:ml-[56px] md:pr-8 text-center md:text-left">
-                        <h3 className="text-xl md:text-2xl font-semibold mb-2">{block.title}</h3>
-                        <p className="text-base text-muted-foreground mb-4">{block.description}</p>
+                      <div className="md:w-1/3 w-full flex flex-col justify-center px-2 md:pl-0 md:ml-[56px] md:pr-4 text-center md:text-left">
+                        <h3 className="text-xl font-semibold mb-2" style={{ whiteSpace: 'pre-line' }}>{block.title}</h3>
+                                                 <p className="text-base text-muted-foreground mb-4" dangerouslySetInnerHTML={{ __html: block.description }}></p>
                       </div>
                       <div className="md:w-3/4 w-full flex justify-center items-center mb-6 md:mb-0">
                         <Image
