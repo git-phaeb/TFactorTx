@@ -19,7 +19,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Gene symbol is required' }, { status: 400 });
     }
 
-    const csvPath = path.join(process.cwd(), 'src', 'data', '250725_TFactorTx_Master_Table_nf.csv');
+    const csvPath = path.join(process.cwd(), 'src', 'data', '250830_TFactorTx_Master_Table_nf.csv');
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
     const lines = csvContent.trim().split('\n');

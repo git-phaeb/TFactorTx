@@ -676,11 +676,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_total_assoc_count && geneData.disease_ot_total_assoc_count_norm ? 
-                    `${geneData.disease_ot_total_assoc_count} (${geneData.disease_ot_total_assoc_count_norm})` : 'N/A'
+                  {geneData.disease_ot_total_assoc_count && geneData.disease_ot_total_assoc_count_rank ? 
+                    `${geneData.disease_ot_total_assoc_count} (${geneData.disease_ot_total_assoc_count_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -688,11 +688,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_lowconf_count && geneData.disease_ot_lowconf_count_norm ? 
-                    `${geneData.disease_ot_lowconf_count} (${geneData.disease_ot_lowconf_count_norm})` : 'N/A'
+                  {geneData.disease_ot_lowconf_count && geneData.disease_ot_lowconf_count_rank ? 
+                    `${geneData.disease_ot_lowconf_count} (${geneData.disease_ot_lowconf_count_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -700,11 +700,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_modconf_count && geneData.disease_ot_modconf_count_norm ? 
-                    `${geneData.disease_ot_modconf_count} (${geneData.disease_ot_modconf_count_norm})` : 'N/A'
+                  {geneData.disease_ot_modconf_count && geneData.disease_ot_modconf_count_rank ? 
+                    `${geneData.disease_ot_modconf_count} (${geneData.disease_ot_modconf_count_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -712,11 +712,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_hiconf_count && geneData.disease_ot_hiconf_count_norm ? 
-                    `${geneData.disease_ot_hiconf_count} (${geneData.disease_ot_hiconf_count_norm})` : 'N/A'
+                  {geneData.disease_ot_hiconf_count && geneData.disease_ot_hiconf_count_rank ? 
+                    `${geneData.disease_ot_hiconf_count} (${geneData.disease_ot_hiconf_count_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -724,11 +724,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_ard_disease_count && geneData.disease_ot_ard_disease_count_norm ? 
-                    `${geneData.disease_ot_ard_disease_count} (${geneData.disease_ot_ard_disease_count_norm})` : 'N/A'
+                  {geneData.disease_ot_ard_disease_count && geneData.disease_ot_ard_disease_count_rank ? 
+                    `${geneData.disease_ot_ard_disease_count} (${geneData.disease_ot_ard_disease_count_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -749,6 +749,7 @@ export default function GeneDetailPage() {
                     'N/A'
                   )}
                 </div>
+
               </div>
             </div>
 
@@ -798,11 +799,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_total_assoc_score && geneData.disease_ot_total_assoc_score_norm ? 
-                    `${geneData.disease_ot_total_assoc_score} (${geneData.disease_ot_total_assoc_score_norm})` : 'N/A'
+                  {geneData.disease_ot_total_assoc_score && geneData.disease_ot_total_assoc_score_rank ? 
+                    `${geneData.disease_ot_total_assoc_score} (${geneData.disease_ot_total_assoc_score_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -810,11 +811,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_lowconf_score && geneData.disease_ot_lowconf_score_norm ? 
-                    `${geneData.disease_ot_lowconf_score} (${geneData.disease_ot_lowconf_score_norm})` : 'N/A'
+                  {geneData.disease_ot_lowconf_score && geneData.disease_ot_lowconf_score_rank ? 
+                    `${geneData.disease_ot_lowconf_score} (${geneData.disease_ot_lowconf_score_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -822,11 +823,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_modconf_score && geneData.disease_ot_modconf_score_norm ? 
-                    `${geneData.disease_ot_modconf_score} (${geneData.disease_ot_modconf_score_norm})` : 'N/A'
+                  {geneData.disease_ot_modconf_score && geneData.disease_ot_modconf_score_rank ? 
+                    `${geneData.disease_ot_modconf_score} (${geneData.disease_ot_modconf_score_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -834,11 +835,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_hiconf_score && geneData.disease_ot_hiconf_score_norm ? 
-                    `${geneData.disease_ot_hiconf_score} (${geneData.disease_ot_hiconf_score_norm})` : 'N/A'
+                  {geneData.disease_ot_hiconf_score && geneData.disease_ot_hiconf_score_rank ? 
+                    `${geneData.disease_ot_hiconf_score} (${geneData.disease_ot_hiconf_score_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -846,11 +847,11 @@ export default function GeneDetailPage() {
             <div className="col-span-1 bg-white">
               <div className="p-2">
                 <div className="text-gray-900 text-xs">
-                  {geneData.disease_ot_ard_total_score && geneData.disease_ot_ard_total_score_norm ? 
-                    `${geneData.disease_ot_ard_total_score} (${geneData.disease_ot_ard_total_score_norm})` : 'N/A'
+                  {geneData.disease_ot_ard_total_score && geneData.disease_ot_ard_total_score_rank ? 
+                    `${geneData.disease_ot_ard_total_score} (${geneData.disease_ot_ard_total_score_rank})` : 'N/A'
                   }
-
                 </div>
+
               </div>
             </div>
 
@@ -914,6 +915,7 @@ export default function GeneDetailPage() {
                     return 'N/A';
                   })()}
                 </div>
+
               </div>
             </div>
           </div>
