@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className + " min-h-screen flex flex-col"}>
         <NavigationBar />
         <main className="pt-20">{children}</main>
-        <footer className="w-full bg-gray-100 text-gray-700 py-2 border-t border-gray-200">
+        <footer className="w-full bg-gray-100 text-gray-700 py-2">
           <div className="container mx-auto px-4 text-center text-xs">
             <div className="mb-1 font-semibold text-base text-gray-900">TFactorTx</div>
             <div className="mb-1 text-xs">A placeholder footer section for future content, links, and information.</div>

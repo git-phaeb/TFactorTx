@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function NavigationBar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white py-4 px-2 z-50 shadow-sm border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 bg-white py-4 px-2 z-50">
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           {/* Left: Logo + Navigation */}
