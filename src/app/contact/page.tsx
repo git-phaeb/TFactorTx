@@ -12,8 +12,7 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,32 +21,7 @@ export default function ContactPage() {
       [name]: value
     }));
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) {
-        throw new Error("Failed to send");
-      }
-
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err) {
-      console.error(err);
-      alert("There was a problem sending your message. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
@@ -65,7 +39,7 @@ export default function ContactPage() {
 
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -129,25 +103,17 @@ export default function ContactPage() {
             </div>
             
             <Button 
-              type="submit" 
+              type="button" 
               className="w-full" 
               size="lg"
-              disabled={isSubmitting}
+              disabled
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              Send Message
             </Button>
           </form>
         </CardContent>
       </Card>
-
-      {isSubmitted && (
-        <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-          <p className="text-green-800 text-center">
-            ✅ Message sent successfully! We'll get back to you soon.
-          </p>
-        </div>
-      )}
-
+      
       
     </div>
     </div>
