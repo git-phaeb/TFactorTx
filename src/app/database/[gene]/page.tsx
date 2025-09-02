@@ -93,7 +93,7 @@ export default function GeneDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
         <div className="container mx-auto px-6 pb-6 space-y-2 flex-grow">
           {/* Header Skeleton */}
           <div className="flex items-center justify-between">
@@ -307,7 +307,7 @@ export default function GeneDetailPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
       <div className="container mx-auto px-6 pb-6 space-y-2 flex-grow">
       {/* Header */}
       <div className="flex items-center justify-between">
