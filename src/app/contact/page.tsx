@@ -25,30 +25,28 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     setIsSubmitting(true);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Simulate successful message sending
-    console.log("Message sent:", formData);
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send");
+      }
+
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      console.error(err);
+      alert("There was a problem sending your message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -57,16 +55,14 @@ export default function ContactPage() {
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
         <p className="text-muted-foreground">
-          Have questions about TFactorTx? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          Please send questions and suggestions using the form below.
         </p>
       </div>
 
       <Card>
         <CardHeader>
           <CardTitle>Send us a message</CardTitle>
-          <CardDescription>
-            Fill out the form below and we'll get back to you via email.
-          </CardDescription>
+
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -152,17 +148,7 @@ export default function ContactPage() {
         </div>
       )}
 
-      <div className="mt-8 text-center text-sm text-muted-foreground">
-        <p>
-          Alternatively, you can email us directly at:{" "}
-          <a 
-            href="mailto:contact@tfactorx.com" 
-            className="text-blue-600 hover:text-blue-800 underline"
-          >
-            contact@tfactorx.com
-          </a>
-        </p>
-      </div>
+      
     </div>
     </div>
   );

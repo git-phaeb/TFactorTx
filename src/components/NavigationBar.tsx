@@ -13,27 +13,15 @@ export function NavigationBar() {
             {/* Navigation links */}
             <div className="space-x-4 flex items-center">
               <Link href="/" className="text-gray-700 hover:text-gray-900 inline-flex items-center">
-                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                </svg>
                 <span>Home</span>
               </Link>
               <Link href="/database" className="text-gray-700 hover:text-gray-900 inline-flex items-center">
-                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                </svg>
                 <span>Database</span>
               </Link>
               <Link
                 href="/documentation"
                 className="text-gray-700 hover:text-gray-900 inline-flex items-center"
               >
-                <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                  <rect x="4" y="2" width="12" height="16" rx="2" />
-                  <rect x="7" y="6" width="6" height="1.2" rx="0.6" fill="currentColor"/>
-                  <rect x="7" y="10" width="6" height="1.2" rx="0.6" fill="currentColor"/>
-                  <rect x="7" y="14" width="6" height="1.2" rx="0.6" fill="currentColor"/>
-                </svg>
                 <span>Documentation</span>
               </Link>
             </div>
@@ -53,3 +41,25 @@ export function NavigationBar() {
     </nav>
   );
 }
+
+/*
+Stored nav SVG icons for optional restoration:
+
+Home icon:
+<svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+</svg>
+
+Database icon:
+<svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+</svg>
+
+Documentation icon:
+<svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+  <rect x="4" y="2" width="12" height="16" rx="2" />
+  <rect x="7" y="6" width="6" height="1.2" rx="0.6" fill="currentColor"/>
+  <rect x="7" y="10" width="6" height="1.2" rx="0.6" fill="currentColor"/>
+  <rect x="7" y="14" width="6" height="1.2" rx="0.6" fill="currentColor"/>
+</svg>
+*/
