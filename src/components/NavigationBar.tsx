@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function NavigationBar() {
   return (
@@ -8,7 +9,15 @@ export function NavigationBar() {
           {/* Left: Logo + Navigation */}
           <div className="flex items-center gap-6">
             <div className="text-gray-900 text-lg font-bold">
-              <Link href="/">TFactorTx</Link>
+              <Link href="/">
+                <Image
+                  src="/250902_TFactorTx_Logo_Color_Variation_Path_Header_Footer.svg"
+                  alt="TFactorTx"
+                  width={160}
+                  height={32}
+                  className="h-8 w-auto"
+                />
+              </Link>
             </div>
             {/* Navigation links */}
             <div className="space-x-4 flex items-center">
