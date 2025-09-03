@@ -37,9 +37,15 @@ export default function Home() {
       <section className="relative w-full py-2 md:py-4 lg:py-6">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="relative z-10 text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              TFactorTx
-            </h1>
+            <div className="flex justify-center">
+              <Image
+                src="/250902_TFactorTx_Logo_Color_Variation_Path.svg"
+                alt="TFactorTx"
+                width={400}
+                height={80}
+                className="h-16 sm:h-20 md:h-24 w-auto"
+              />
+            </div>
             <h1 className="font-bold tracking-tighter">
               <span className="block mt-2 text-2xl sm:text-3xl font-semibold text-gray-800 tracking-tighter">
                 An Open Source Database for<br/>Human Transcription Factors

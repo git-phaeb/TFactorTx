@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavigationBar } from "@/components/NavigationBar";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,15 @@ export default function RootLayout({
         <main className="pt-20">{children}</main>
         <footer className="w-full bg-gray-100 text-gray-700 py-2">
           <div className="container mx-auto px-4 text-center text-xs">
-            <div className="mb-1 font-semibold text-base text-gray-900">TFactorTx</div>
+            <div className="mb-1 flex justify-center">
+              <Image
+                src="/250902_TFactorTx_Logo_Color_Variation_Path_Header_Footer.svg"
+                alt="TFactorTx"
+                width={160}
+                height={32}
+                className="h-8 w-auto"
+              />
+            </div>
             <div className="mb-1 text-xs">A placeholder footer section for future content, links, and information.</div>
             <div className="mb-1">
               <span className="inline-block rounded-lg bg-white px-2 py-0.5 text-xs border border-gray-200 text-gray-700">Beta v0.2.0-beta.2</span>
