@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
+   fill="none"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="250903_TFactorTx_favicon.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.4910193"
+     inkscape:cx="15.020753"
+     inkscape:cy="43.829788"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <!-- 15% reduction: circle radius from 32 to 27.2, center remains at (32,32) -->
+  <!-- All TF symbol elements reduced by 15% and centered -->
+  <!-- Horizontal T bar -->
+  <!-- T stem -->
+  <!-- F middle bar -->
+  <g
+     id="g6-8"
+     transform="matrix(0.06962025,0,0,0.06962025,-4.96166,-5.1711506)">
+    <g
+       id="g6-8-3"
+       transform="translate(18.903868)">
+      <g
+         id="g10"
+         transform="translate(0,20.18645)">
+        <path
+           d="m 117,608.4 v 157.79149 c 1.5,82.82948 155.7,149.83561 395,149.83561 239.3,0 393.4,-67.00613 395,-149.83561 V 608.4 Z"
+           fill="#1b9bdb"
+           id="path1"
+           sodipodi:nodetypes="ccsccc"
+           style="fill:#60a5fa;fill-opacity:1;stroke-width:0.940205" />
+        <path
+           d="m 907,607.7 c 0,99.4 -154.8,180 -395,180 -240.2,0 -395,-80.6 -395,-180 0,-99.4 154.8,-180 395,-180 240.2,0 395,80.5 395,180 z"
+           fill="#ffffff"
+           id="path2"
+           sodipodi:nodetypes="sssss" />
+        <path
+           d="m 117,428.4 v 144.25709 c 1.5,85.28005 155.7,163.37001 395,163.37001 239.3,0 393.4,-78.08996 395,-163.37001 V 428.4 Z"
+           fill="#1b9bdb"
+           id="path3"
+           sodipodi:nodetypes="ccsccc"
+           style="fill:#60a5fa;fill-opacity:1;stroke-width:0.954012" />
+        <path
+           d="m 907,427.7 c 0,99.4 -154.8,180 -395,180 -240.2,0 -395,-80.6 -395,-180 0,-99.4 154.8,-180 395,-180 240.2,0 395,80.5 395,180 z"
+           fill="#ffffff"
+           id="path4-8"
+           sodipodi:nodetypes="sssss" />
+        <path
+           d="m 117,248.4 v 144.25709 c 1.5,85.28005 155.7,163.37001 395,163.37001 239.3,0 393.4,-78.08996 395,-163.37001 V 248.4 Z"
+           fill="#1b9bdb"
+           id="path5"
+           sodipodi:nodetypes="ccsccc"
+           style="fill:#60a5fa;fill-opacity:1;stroke-width:0.954012" />
+        <path
+           d="m 907,248.66128 c 0,75.78448 -154.8,137.23547 -395,137.23547 -240.2,0 -395,-61.45099 -395,-137.23547 0,-75.78447 154.8,-137.23545 395,-137.23545 240.2,0 395,61.37474 395,137.23545 z"
+           fill="#3ed6ff"
+           id="path6-2"
+           sodipodi:nodetypes="sssss"
+           style="fill:#dbeafe;fill-opacity:1;stroke-width:0.873166" />
+      </g>
+    </g>
+  </g>
+</svg>

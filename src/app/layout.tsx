@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "TFactorTx",
   description: "Transcription Factor Database",
   icons: [
-    { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
+    { rel: "icon", url: "/250903_TFactorTx_favicon.svg", type: "image/svg+xml" },
   ],
 };
 
