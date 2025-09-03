@@ -39,7 +39,7 @@ export default function Home() {
           <div className="relative z-10 text-center">
             <div className="flex justify-center">
               <Image
-                src="/250902_TFactorTx_Logo_Color_Variation_Path.svg"
+                src="/250903_TFactorTx_Logo_v2_Path.svg"
                 alt="TFactorTx"
                 width={400}
                 height={80}
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="hidden md:block absolute left-0 top-0 h-full" style={{ width: '2px', backgroundColor: '#93c5fd', zIndex: 0 }} />
             
             {/* Top timeline circle */}
-            <div className="hidden md:block absolute left-0" style={{ top: '-8px', left: '-8px' }}>
+            <div className="hidden md:block absolute left-0" style={{ top: '-8px', left: '-7px' }}>
               <div
                 style={{
                   width: '16px',
@@ -98,7 +98,7 @@ export default function Home() {
             </div>
             
             {/* Bottom timeline circle */}
-            <div className="hidden md:block absolute left-0" style={{ bottom: '-8px', left: '-8px' }}>
+            <div className="hidden md:block absolute left-0" style={{ bottom: '-8px', left: '-7px' }}>
               <div
                 style={{
                   width: '16px',
