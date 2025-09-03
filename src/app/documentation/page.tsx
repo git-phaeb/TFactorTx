@@ -56,7 +56,7 @@ export default function DocumentationPage() {
           <main className="flex-1 bg-white rounded-lg pt-0 md:pt-16 pr-8 pb-8 pl-8 shadow-lg">
             <section id="intro" className="mb-12 scroll-mt-24">
               <h1 className="text-2xl font-bold mb-4 text-gray-900">Documentation</h1>
-              <p className="leading-relaxed text-gray-700 mb-3">Website and Documentation Last Updated: 02.09.2025 <span id="docs-last-updated"></span></p>
+              <p className="leading-relaxed text-gray-700 mb-3">Website and Documentation Last Updated: 03.09.2025 <span id="docs-last-updated"></span></p>
               <h2 className="text-lg font-semibold mb-2 text-gray-800">Introduction</h2>
               <p className="leading-relaxed text-gray-700">
                 Welcome to the TFactorTx documentation. Here you’ll find information about the data columns, methodology, and sources used in this project. This section is currently being updated.
@@ -103,7 +103,7 @@ export default function DocumentationPage() {
             <section id="license" className="mb-12 scroll-mt-24">
               <h2 className="text-lg font-semibold mb-2 text-gray-800">License</h2>
               <p className="leading-relaxed text-gray-700">
-              This project is dedicated to the public domain under the terms of the Creative Commons Zero v1.0 Universal Public Domain Dedication (CC0 1.0). TFactorTx.com was created and is maintained by <a href="https://orcid.org/0000-0002-4159-3178" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-700">Fabian Fischer</a>.<br/><br/>
+              This project is dedicated to the public domain under the terms of the <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-700">Creative Commons Zero v1.0 Universal Public Domain Dedication (CC0 1.0)</a>. TFactorTx.com was created and is maintained by <a href="https://orcid.org/0000-0002-4159-3178" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-700">Fabian Fischer</a>.<br/><br/>
               All content has been compiled exclusively from publicly available and openly licensed sources, which are cited in the above project documentation. No proprietary or confidential materials have been used.
               </p>
               

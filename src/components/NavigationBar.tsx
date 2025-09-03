@@ -4,11 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export function NavigationBar() {
-  const handleMailtoClick = () => {
-    const mailtoLink = document.createElement('a');
-    mailtoLink.href = 'mailto:info@tfactortx.com';
-    mailtoLink.click();
-  };
+
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white py-4 px-2 z-50">
@@ -19,7 +15,7 @@ export function NavigationBar() {
             <div className="text-gray-900 text-lg font-bold">
               <Link href="/">
                 <Image
-                  src="/250902_TFactorTx_Logo_Color_Variation_Path_Header_Footer.svg"
+                  src="/250903_TFactorTx_Logo_v2_Path.svg"
                   alt="TFactorTx"
                   width={160}
                   height={32}
@@ -45,9 +41,8 @@ export function NavigationBar() {
           </div>
           {/* Right: Last Updated + Contact */}
           <div className="flex items-center gap-4">
-            <div className="text-sm text-gray-600">Last Updated: 02.09.2025</div>
+            <div className="text-sm text-gray-600">Last Updated: 03.09.2025</div>
             <button 
-              onClick={handleMailtoClick}
               className="text-gray-600 hover:text-gray-800 cursor-pointer"
               title="Contact us"
             >

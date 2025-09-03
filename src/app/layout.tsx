@@ -28,7 +28,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 text-center text-xs">
             <div className="mb-1 flex justify-center">
               <Image
-                src="/250902_TFactorTx_Logo_Color_Variation_Path_Header_Footer.svg"
+                src="/250903_TFactorTx_Logo_v2_Path.svg"
                 alt="TFactorTx"
                 width={160}
                 height={32}
@@ -44,14 +44,14 @@ export default function RootLayout({
             </div>
             <div className="text-xs text-gray-500 mb-1 flex items-center justify-center" style={{ display: 'inline', width: 'auto' }}>
               <span className="text-xs align-middle">TFactorTx is marked with</span>
-              <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer" className="text-xs align-middle hover:underline inline-flex items-center" style={{ marginLeft: '2px' }}>
+              <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline text-xs align-middle inline-flex items-center" style={{ marginLeft: '2px' }}>
                 <span className="text-xs align-middle">CC0 1.0</span>
                 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="Creative Commons" className="inline w-5 h-5 align-middle" style={{ marginLeft: '2px' }} />
                 <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt="CC0" className="inline w-5 h-5 align-middle" style={{ marginLeft: '2px' }} />
               </a>
             </div>
             <div className="text-xs text-gray-500">
-              Built with <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">Cursor</a>
+              Built with <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Cursor</a>
             </div>
           </div>
         </footer>
