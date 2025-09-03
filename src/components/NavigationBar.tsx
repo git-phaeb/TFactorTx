@@ -1,7 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
 export function NavigationBar() {
+  const handleMailtoClick = () => {
+    const mailtoLink = document.createElement('a');
+    mailtoLink.href = 'mailto:info@tfactortx.com';
+    mailtoLink.click();
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white py-4 px-2 z-50">
       <div className="container mx-auto">
@@ -38,12 +46,16 @@ export function NavigationBar() {
           {/* Right: Last Updated + Contact */}
           <div className="flex items-center gap-4">
             <div className="text-sm text-gray-600">Last Updated: 02.09.2025</div>
-            <a href="mailto:info@tfactortx.com" className="text-gray-600 hover:text-gray-800" title="Contact us">
+            <button 
+              onClick={handleMailtoClick}
+              className="text-gray-600 hover:text-gray-800 cursor-pointer"
+              title="Contact us"
+            >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
