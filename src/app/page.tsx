@@ -165,7 +165,7 @@ export default function Home() {
         </div>
         
         {/* Buttons at the end */}
-        <div className="mt-16 flex justify-center gap-4">
+        <div className="mt-16 mb-8 flex justify-center gap-4">
           <Link href="/database" className="w-32">
             <Button size="lg" className="w-full h-10">Get Started</Button>
           </Link>
