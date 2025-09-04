@@ -15,7 +15,7 @@ export function NavigationBar() {
             <div className="text-gray-900 text-lg font-bold">
               <Link href="/">
                 <Image
-                  src="/250903_TFactorTx_Logo_v2_Path.svg"
+                  src="/250904_TFactorTx_Logo_v3_Path.svg"
                   alt="TFactorTx"
                   width={160}
                   height={32}

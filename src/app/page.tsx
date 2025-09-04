@@ -39,7 +39,7 @@ export default function Home() {
           <div className="relative z-10 text-center">
             <div className="flex justify-center">
               <Image
-                src="/250903_TFactorTx_Logo_v2_Path.svg"
+                src="/250904_TFactorTx_Logo_v3_Path.svg"
                 alt="TFactorTx"
                 width={400}
                 height={80}
