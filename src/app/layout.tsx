@@ -28,7 +28,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 text-center text-xs">
             <div className="mb-1 flex justify-center">
               <Image
-                src="/250903_TFactorTx_Logo_v2_Path.svg"
+                src="/250904_TFactorTx_Logo_v3_Path.svg"
                 alt="TFactorTx"
                 width={160}
                 height={32}
