@@ -55,6 +55,10 @@ export default function Home() {
               Accelerate your research with our manually curated database of
               human transcription factors and their links to aging, disease, and drug development.<br/><br/>
               Explore this database to find your next research or therapeutic target.
+              <br/><br/>
+              <div className="bg-blue-600 rounded-lg px-4 py-3 text-white text-base font-medium">
+                This is a beta version of TFactorTx. The database is already fully functional, landing page and documentation are still being updated.
+              </div>
             </p>
             <div className="mt-10 flex justify-center gap-4">
               <Link href="/database" className="w-32">

@@ -39,9 +39,15 @@ export function NavigationBar() {
               </Link>
             </div>
           </div>
-          {/* Right: Last Updated + Contact */}
+          {/* Right: Last Updated + Beta Badge + Mobile Notice + Contact */}
           <div className="flex items-center gap-4">
-            <div className="text-sm text-gray-600">Last Updated: 03.09.2025</div>
+            <div className="text-sm text-gray-600">Last Updated: 05.09.2025</div>
+            <div className="flex items-center gap-2">
+              <span className="inline-block rounded-lg bg-white px-2 py-0.5 text-xs border border-gray-200 text-gray-700">Beta v0.2.0-beta.2</span>
+              <div className="text-xs text-gray-500">
+                Not Optimized for Mobile
+              </div>
+            </div>
             <button 
               className="text-gray-600 hover:text-gray-800 cursor-pointer"
               title="Contact us"
