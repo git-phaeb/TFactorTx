@@ -36,11 +36,11 @@ export default function RootLayout({
               />
             </div>
             <div className="mb-1 text-xs">A placeholder footer section for future content, links, and information.</div>
-            <div className="mb-1">
+            <div className="mb-1 flex items-center justify-center gap-2">
               <span className="inline-block rounded-lg bg-white px-2 py-0.5 text-xs border border-gray-200 text-gray-700">Beta v0.2.0-beta.2</span>
-            </div>
-            <div className="mb-1 text-xs text-gray-500">
-              Not Optimized for Mobile
+              <div className="text-xs text-gray-500">
+                Not Optimized for Mobile
+              </div>
             </div>
             <div className="text-xs text-gray-500 mb-1 flex items-center justify-center" style={{ display: 'inline', width: 'auto' }}>
               <span className="text-xs align-middle">TFactorTx is marked with</span>

@@ -56,7 +56,7 @@ export default function DocumentationPage() {
           <main className="flex-1 bg-white rounded-lg pt-0 md:pt-16 pr-8 pb-8 pl-8 shadow-lg">
             <section id="intro" className="mb-12 scroll-mt-24">
               <h1 className="text-2xl font-bold mb-4 text-gray-900">Documentation</h1>
-              <p className="leading-relaxed text-gray-700 mb-3">Website and Documentation Last Updated: 03.09.2025 <span id="docs-last-updated"></span></p>
+              <p className="leading-relaxed text-gray-700 mb-3">Website and Documentation Last Updated: 05.09.2025 <span id="docs-last-updated"></span></p>
               <h2 className="text-lg font-semibold mb-2 text-gray-800">Introduction</h2>
               <p className="leading-relaxed text-gray-700">
                 Welcome to the TFactorTx documentation. Here you’ll find information about the data columns, methodology, and sources used in this project. This section is currently being updated.
