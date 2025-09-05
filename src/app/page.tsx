@@ -57,7 +57,7 @@ export default function Home() {
               Explore this database to find your next research or therapeutic target.
               <br/><br/>
               <div className="bg-blue-600 rounded-lg px-4 py-3 text-white text-base font-medium">
-                This is a beta version of TFactorTx. The database is already fully functional, landing page and documentation are still being updated.
+                This is a beta version of TFactorTx. The database is fully functional, landing page and documentation are still being updated.
               </div>
             </p>
             <div className="mt-10 flex justify-center gap-4">
