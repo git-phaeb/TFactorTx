@@ -51,15 +51,16 @@ export default function Home() {
                 An Open Source Database for<br/>Human Transcription Factors
               </span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-muted-foreground text-base px-2">
-              Accelerate your research with our manually curated database of
-              human transcription factors and their links to aging, disease, and drug development.<br/><br/>
-              Explore this database to find your next research or therapeutic target.
-              <br/><br/>
-              <div className="bg-blue-600 rounded-lg px-4 py-3 text-white text-base font-medium">
-                This is a beta version of TFactorTx. The database is fully functional, landing page and documentation are still being updated.
+            <div className="mx-auto mt-6 max-w-2xl text-muted-foreground text-base px-2">
+              <p>
+                Accelerate your research with our manually curated database of
+                human transcription factors and their links to aging, disease, and drug development.<br/><br/>
+                Explore this database to find your next research or therapeutic target.
+              </p>
+              <div className="bg-blue-600 rounded-lg px-4 py-3 text-white text-base font-medium mt-4">
+                This is a beta version of TFactorTx. The database is already fully functional, landing page and documentation are still being updated.
               </div>
-            </p>
+            </div>
             <div className="mt-10 flex justify-center gap-4">
               <Link href="/database" className="w-32">
                 <Button size="lg" className="w-full h-10 !h-10">Get Started</Button>
