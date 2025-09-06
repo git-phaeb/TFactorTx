@@ -41,7 +41,7 @@ export function NavigationBar() {
           </div>
           {/* Right: Last Updated + Beta Badge + Mobile Notice + Contact */}
           <div className="flex items-center gap-4">
-            <div className="text-sm text-gray-600">Last Updated: 05.09.2025</div>
+            <div className="text-sm text-gray-600">Last Updated: 06.09.2025</div>
             <div className="flex items-center gap-2">
               <span className="inline-block rounded-lg bg-white px-2 py-0.5 text-xs border border-gray-200 text-gray-700">Beta v0.2.0-beta.2</span>
               <div className="text-xs text-gray-500">
