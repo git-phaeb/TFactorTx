@@ -35,23 +35,21 @@ export default function RootLayout({
                 className="h-8 w-auto"
               />
             </div>
-            <div className="mb-1 text-xs">A placeholder footer section for future content, links, and information.</div>
-            <div className="mb-1 flex items-center justify-center gap-2">
-              <span className="inline-block rounded-lg bg-white px-2 py-0.5 text-xs border border-gray-200 text-gray-700">Beta v0.2.0-beta.2</span>
-              <div className="text-xs text-gray-500">
-                Not Optimized for Mobile
+            <div className="mb-1">
+              <div className="text-xs text-gray-500 flex items-center justify-center">
+                <span className="text-xs align-middle">TFactorTx is marked with</span>
+                <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline text-xs align-middle inline-flex items-center" style={{ marginLeft: '2px' }}>
+                  <span className="text-xs align-middle">CC0 1.0</span>
+                  <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="Creative Commons" className="inline w-5 h-5 align-middle" style={{ marginLeft: '2px' }} />
+                  <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt="CC0" className="inline w-5 h-5 align-middle" style={{ marginLeft: '2px' }} />
+                </a>
+                <span className="text-xs align-middle mx-2">|</span>
+                <span className="text-xs align-middle">Follow TFactorTx</span>
+                <a href="https://www.linkedin.com/company/tfactortx/" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn" width="16" height="16" className="inline-block" /></a>
               </div>
             </div>
-            <div className="text-xs text-gray-500 mb-1 flex items-center justify-center" style={{ display: 'inline', width: 'auto' }}>
-              <span className="text-xs align-middle">TFactorTx is marked with</span>
-              <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline text-xs align-middle inline-flex items-center" style={{ marginLeft: '2px' }}>
-                <span className="text-xs align-middle">CC0 1.0</span>
-                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="Creative Commons" className="inline w-5 h-5 align-middle" style={{ marginLeft: '2px' }} />
-                <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt="CC0" className="inline w-5 h-5 align-middle" style={{ marginLeft: '2px' }} />
-              </a>
-            </div>
             <div className="text-xs text-gray-500">
-              Built with <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Cursor</a>
+              Built with <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Cursor</a> by Dr. Fabian Fischer <a href="https://orcid.org/0000-0002-4159-3178" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID" width="16" height="16" className="inline-block" /></a> <a href="https://www.linkedin.com/in/dr-fabian-fischer/" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn" width="16" height="16" className="inline-block" /></a>
             </div>
           </div>
         </footer>
