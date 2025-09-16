@@ -5,28 +5,28 @@ import Image from "next/image";
 const featureBlocks = [
   {
     title: "TFs as Drug Targets",
-    description: "Nuclear receptors, a specific TF class, are highly succesful as drug targets. Unlike most other TFs, nuclear receptors can be targeted directly with small molecules.",
-    image: "/placeholder-feature.svg",
+    description: "Nuclear receptors, a specific TF class, are highly succesful as drug targets, despite being the smallest target class. Unlike most other TFs, nuclear receptors can be targeted directly with small molecules.",
+    image: "/250916_TFactorTx_Figure_1_Export.svg",
   },
       {
       title: "Unexplored TF\nTarget Space",
-      description: "While most TFs are traditionally considered 'undruggable,' this paradigm is rapidly changing with the advancement of new modalities and improved small molecules.<br/><br/>This unlocks many new opportunities for targeting TFs linked to aging and disease.",
-      image: "/placeholder-feature.svg",
+      description: "While most other TFs have been considered 'undruggable', this paradigm is rapidly changing with the advancement of new modalities and improved small molecules.<br/><br/>This unlocks new opportunities for therapeutically targeting TFs linked to disease and aging.",
+      image: "/250916_TFactorTx_Figure_2_Export.svg",
     },
   {
     title: "TFactorTx Database",
     description: "The TFactorTx database provides an entry point to identify research and therapeutic targets from the space of all 1,600+ human TFs.",
-    image: "/placeholder-feature.svg",
+    image: "/250916_TFactorTx_Figure_3_Export.svg",
   },
   {
     title: "Aging, Disease, and Drug Associations",
          description: "Information from several other databases (see <a href='/documentation' style='color: #60a5fa; text-decoration: underline;' onMouseOver=\"this.style.color='#93c5fb'\" onMouseOut=\"this.style.color='#60a5fa'\">documentation</a>) is aggregated to provide a convenient overview of TFs links to aging across several species, relevance for human disease, and current drug development states.",
-    image: "/placeholder-feature.svg",
+    image: "/250916_TFactorTx_Figure_4_Export.svg",
   },
   {
     title: "Searching, Filtering, and Exploring",
     description: "Use the intuitive searching and filtering options to narrow in on targets of interest. Check detailed TF cards to better understand your targets and explore linked databases to dive deeper.",
-    image: "/placeholder-feature.svg",
+    image: "/250916_TFactorTx_Figure_5_Export.svg",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function Home() {
                 Explore this database to find your next research or therapeutic target.
               </p>
               <div className="bg-blue-600 rounded-lg px-4 py-3 text-white text-base font-medium mt-4">
-                This is a beta version of TFactorTx. The database is already fully functional, landing page and documentation are still being updated.
+                This is a beta version of TFactorTx. The core database is already fully functional, the documentation is currently being updated, and additional data sources and features will be added over time.
               </div>
             </div>
             <div className="mt-10 flex justify-center gap-4">
