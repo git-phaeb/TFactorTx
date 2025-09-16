@@ -20,7 +20,7 @@ const featureBlocks = [
   },
   {
     title: "Aging, Disease, and Drug Associations",
-         description: "Information from several other databases (see <a href='/documentation' style='color: #60a5fa; text-decoration: underline;' onMouseOver=\"this.style.color='#93c5fb'\" onMouseOut=\"this.style.color='#60a5fa'\">documentation</a>) is aggregated to provide a convenient overview of TFs links to aging across several species, relevance for human disease, and current drug development states.",
+         description: "Information from several other databases (see <a href='/documentation' style='color: #60a5fa; text-decoration: underline;' onMouseOver=\"this.style.color='#93c5fb'\" onMouseOut=\"this.style.color='#60a5fa'\">documentation</a>) is aggregated to provide a convenient overview of TFs links to aging across several species, relevance for human disease, and current drug development status.",
     image: "/250916_TFactorTx_Figure_4_Export.svg",
   },
   {
