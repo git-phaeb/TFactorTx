@@ -24,18 +24,18 @@ import { TFactorTxData, getTDL } from '@/lib/csv-loader';
 // Helper function for column tooltips
 const getColumnTooltip = (columnId: string): string => {
   switch (columnId) {
-    case 'TF Symbol': return 'Transcription factor gene symbol - click to view detailed information';
-    case 'sort_disease_ot_ard_aging_overall_rank': return 'Combined ranking based on disease associations and aging data';
-    case 'sort_disease_ot_total_assoc_score_rank': return 'Ranking based on total disease association score from Open Targets';
-    case 'sort_disease_ot_ard_total_assoc_count_score_rank': return 'Ranking based on aging-related disease associations';
-    case 'disease_ot_ard_strongest_linked_disease': return 'Aging-related disease with strongest association evidence';
-    case 'sort_aging_summary_total_db_entries_count_rank': return 'Ranking based on total aging database entries across all species';
-    case 'aging_summary_human': return 'Human aging data availability from multiple databases';
-    case 'aging_summary_mm_influence': return 'Mouse aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
-    case 'aging_summary_ce_influence': return 'Worm aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
-    case 'aging_summary_dm_influence': return 'Fly aging influence data (Pro-Longevity, Anti-Longevity, or Unclear)';
-    case 'dev_summary_dev_level_category': return 'Drug development level category (High, Medium, Low)';
-    case 'dev_pharos_tcrd_tdl': return 'Target Development Level from Pharos database';
+    case 'TF Symbol': return 'Transcription factor gene name. Click entry to view detailed information.';
+    case 'sort_disease_ot_ard_aging_overall_rank': return 'Overall rank based on disease associations and aging data. Lower is better.';
+    case 'sort_disease_ot_total_assoc_score_rank': return 'Rank based on the sum of Open Targets disease association scores across all diseases linked to this transcription factor.';
+    case 'sort_disease_ot_ard_total_assoc_count_score_rank': return 'Rank based on the sum of Open Targets disease association scores across selected age-related diseases (ARDs) linked to this transcription factor.';
+    case 'disease_ot_ard_strongest_linked_disease': return 'Age-related disease with highest Open Targets assocation score for this transcription factor.';
+    case 'sort_aging_summary_total_db_entries_count_rank': return 'Rank based on number of aging database entries across all species.';
+    case 'aging_summary_human': return 'Indicates if any evidence linking this transcription factor to human aging is available across checked databases.';
+    case 'aging_summary_mm_influence': return 'Overall conclusion about the influence of this transcription factor on mouse aging, based on evidence across checked databases.';
+    case 'aging_summary_ce_influence': return 'Overall conclusion about the influence of this transcription factor on worm aging, based on evidence across checked databases.';
+    case 'aging_summary_dm_influence': return 'Overall conclusion about the influence of this transcription factor on fly aging, based on evidence across checked databases.';
+    case 'dev_summary_dev_level_category': return 'Drug development level, based on evidence across checked databases.';
+    case 'dev_pharos_tcrd_tdl': return 'Target development level (TDL) according to Pharos database.';
     default: return 'Column information and data description';
   }
 };
@@ -732,6 +732,24 @@ function DatabaseContent() {
 
 
   // Column definitions
+  const rankSortingFn = (rowA: any, rowB: any, columnId: string) => {
+    const getNum = (row: any) => {
+      const v = row.getValue(columnId);
+      const n = Number(v);
+      return isNaN(n) ? Number.POSITIVE_INFINITY : n;
+    };
+    const aNum = getNum(rowA);
+    const bNum = getNum(rowB);
+
+    if (aNum < bNum) return -1;
+    if (aNum > bNum) return 1;
+
+    // Tie-breaker: alphabetical by TF Symbol (case-insensitive)
+    const aName = String(rowA.original['TF Symbol'] || '').toLowerCase();
+    const bName = String(rowB.original['TF Symbol'] || '').toLowerCase();
+    return aName.localeCompare(bName);
+  };
+
   const columns = useMemo<ColumnDef<TFactorTxData>[]>(() => [
     {
       accessorKey: 'TF Symbol',
@@ -763,6 +781,7 @@ function DatabaseContent() {
     {
       accessorKey: 'sort_disease_ot_ard_aging_overall_rank',
       header: columnNames[1] || 'Overall Rank',
+      sortingFn: rankSortingFn,
       cell: ({ getValue }) => (
         <span className="text-sm font-medium truncate" title={getValue() as string}>
           {getValue() as number}
@@ -772,6 +791,7 @@ function DatabaseContent() {
     {
       accessorKey: 'sort_disease_ot_total_assoc_score_rank',
       header: columnNames[2] || 'All Diseases Rank',
+      sortingFn: rankSortingFn,
       cell: ({ getValue }) => {
         const rank = getValue() as number;
         return (
@@ -785,6 +805,7 @@ function DatabaseContent() {
     {
       accessorKey: 'sort_disease_ot_ard_total_assoc_count_score_rank',
       header: columnNames[3] || 'ARDs Rank',
+      sortingFn: rankSortingFn,
       cell: ({ getValue }) => {
         const rank = getValue() as number;
         return (
@@ -821,6 +842,7 @@ function DatabaseContent() {
     {
       accessorKey: 'sort_aging_summary_total_db_entries_count_rank',
       header: columnNames[5] || 'Aging Rank',
+      sortingFn: rankSortingFn,
       cell: ({ getValue }) => {
         const rank = getValue() as number;
         return (
