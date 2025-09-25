@@ -46,28 +46,28 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-12" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
+    <div className="min-h-screen pt-12 pb-12" style={{ background: 'linear-gradient(to bottom, #eff6ff 0%, #eff6ff 60%, #ffffff 100%)' }}>
       <div className="container mx-auto px-4 max-w-3xl">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h1 className="text-2xl sm:text-3xl font-semibold text-gray-800 tracking-tighter">Contact Us</h1>
-          <p className="text-muted-foreground mt-2">We usually reply within 1-2 business days.</p>
+          <p className="text-muted-foreground mt-2">Send us any questions, suggestions, or feedback about TFactorTx using the form below.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-gray-700 mb-1">First name</label>
-              <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="First name" />
+              <label className="block text-sm text-gray-700 mb-1">First Name</label>
+              <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="" />
             </div>
             <div>
-              <label className="block text-sm text-gray-700 mb-1">Last name</label>
-              <Input value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last name" />
+              <label className="block text-sm text-gray-700 mb-1">Last Name</label>
+              <Input value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="" />
             </div>
           </div>
 
           <div>
             <label className="block text-sm text-gray-700 mb-1">Email</label>
-            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
+            <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="youremail@example.com" />
           </div>
 
           <div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="How can we help?"
+              placeholder="Your message to TFactorTx"
               className="w-full min-h-[140px] rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             />
           </div>
