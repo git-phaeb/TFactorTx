@@ -34,7 +34,7 @@ const getColumnTooltip = (columnId: string): string => {
     case 'aging_summary_mm_influence': return 'Overall conclusion about the influence of this transcription factor on mouse aging, based on evidence across checked databases.';
     case 'aging_summary_ce_influence': return 'Overall conclusion about the influence of this transcription factor on worm aging, based on evidence across checked databases.';
     case 'aging_summary_dm_influence': return 'Overall conclusion about the influence of this transcription factor on fly aging, based on evidence across checked databases.';
-    case 'dev_summary_dev_level_category': return 'Drug development level, based on evidence across checked databases.';
+    case 'dev_summary_dev_level_category': return 'Overall development level of targeting this transcription factor with drugs, based on evidence across checked databases.';
     case 'dev_pharos_tcrd_tdl': return 'Target development level (TDL) according to Pharos database.';
     default: return 'Column information and data description';
   }
