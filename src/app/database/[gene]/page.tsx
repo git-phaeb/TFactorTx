@@ -335,12 +335,12 @@ export default function GeneDetailPage() {
               </div>
               <span
                 className="text-blue-700 cursor-help text-sm relative group"
-                title="Internal database identifiers and gene names for this transcription factor"
+                title="Internal TFactorTx ID and gene name for this transcription factor."
               >
                 ?
                 <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
                   <div className="font-medium mb-1">TFactorTx IDs Module</div>
-                  <div className="text-gray-300">Internal database identifiers and gene names for this transcription factor</div>
+                  <div className="text-gray-300">Internal TFactorTx ID and gene name for this transcription factor.</div>
                   <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                 </div>
               </span>
@@ -388,12 +388,12 @@ export default function GeneDetailPage() {
               </div>
               <span
                 className="text-blue-700 cursor-help text-sm relative group"
-                title="TFClass-based hierarchy: Superclass → Class → Family"
+                title="Classification of this transcription factor based on the TFClass hierarchy: Superclass → Class → Family."
               >
                 ?
                 <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
                   <div className="font-medium mb-1">Classification Module</div>
-                  <div className="text-gray-300">TFClass-based hierarchy: Superclass → Class → Family</div>
+                  <div className="text-gray-300">Classification of this transcription factor based on the TFClass hierarchy: Superclass → Class → Family.</div>
                   <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                 </div>
               </span>
@@ -438,12 +438,12 @@ export default function GeneDetailPage() {
           </div>
           <span
             className="text-blue-700 cursor-help text-sm relative group"
-            title="Direct links to major biological databases including Ensembl, HGNC, NCBI, UniProt, JASPAR, and Open Targets"
+            title="Identifiers and links to entries for this transcription factor in major databases. JASPAR via UniProt ID and Open Targets via Ensembl ID."
           >
             ?
             <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
               <div className="font-medium mb-1">External Database IDs Module</div>
-              <div className="text-gray-300">Direct links to major biological databases including Ensembl, HGNC, NCBI, UniProt, JASPAR, and Open Targets</div>
+              <div className="text-gray-300">Identifiers and links to entries for this transcription factor in major databases. JASPAR via UniProt ID and Open Targets via Ensembl ID.</div>
               <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
             </div>
           </span>
@@ -593,12 +593,12 @@ export default function GeneDetailPage() {
           </div>
           <span
             className="text-blue-700 cursor-help text-sm relative group"
-            title="Disease associations with confidence levels and aging-related disease data"
+            title="Counts, aggregated association scores, and ranks for total, low, medium, and high confidence target–disease associations for this transcription factor according to Open Targets, plus for selected age-related diseases (ARDs)."
           >
             ?
             <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
               <div className="font-medium mb-1">Target-Disease Module</div>
-              <div className="text-gray-300">Disease associations with confidence levels and aging-related disease data from Open Targets platform</div>
+              <div className="text-gray-300">Counts, aggregated association scores, and ranks for total, low, medium, and high confidence target–disease associations for this transcription factor according to Open Targets, plus for selected age-related diseases (ARDs).</div>
               <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
             </div>
           </span>
@@ -985,12 +985,12 @@ export default function GeneDetailPage() {
           </div>
           <span
             className="text-blue-700 cursor-help text-sm relative group"
-            title="Aging-related data from multiple databases across human, mouse, worm, and fly species"
+            title="Overview of evidence linking this transcription factor to aging in humans and different model organisms, according to the indicated databases."
           >
             ?
             <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
               <div className="font-medium mb-1">Target-Aging Module</div>
-              <div className="text-gray-300">Aging-related data from multiple databases across human, mouse, worm, and fly species</div>
+              <div className="text-gray-300">Overview of evidence linking this transcription factor to aging in humans and different model organisms, according to the indicated databases.</div>
               <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
             </div>
           </span>
@@ -1353,12 +1353,12 @@ export default function GeneDetailPage() {
               {/* Tooltip */}
               <span
                 className="text-blue-700 cursor-help text-sm relative group"
-                title="Drug development data from multiple pharmaceutical databases"
+                title="Overview of drugs and drug development efforts for this transcription factor, according to the indicated databases."
               >
                 ?
                 <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 max-w-xs">
                   <div className="font-medium mb-1">Target-Development Module</div>
-                  <div className="text-gray-300">Drug development data from Pharos, DGIdb, TTD, and ChEMBL databases</div>
+                  <div className="text-gray-300">Overview of drugs and drug development efforts for this transcription factor, according to the indicated databases.</div>
                   <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                 </div>
               </span>
