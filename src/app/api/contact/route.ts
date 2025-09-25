@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     const html = `
       <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #111827;">
         <h2 style="margin: 0 0 8px 0;">New contact form submission</h2>
-        <p style="margin: 0 0 12px 0; color:#374151;">From: <strong>${firstName} ${lastName}</strong> &lt;${email}&gt;</p>
+        <p style="margin: 0 0 12px 0; color:#374151;">From: <strong>${escapeHtml(firstName)} ${escapeHtml(lastName)}</strong> &lt;${email}&gt;</p>
         <div style="padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; background: #f9fafb; white-space: pre-wrap;">${escapeHtml(message)}</div>
       </div>
     `;
@@ -57,17 +57,17 @@ export async function POST(req: NextRequest) {
       const userSubject = "Thanks for contacting TFactorTx — we received your message";
       const userHtml = `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111827;">
-          <h2 style="margin: 0 0 8px 0;">We received your message</h2>
-          <p style="margin: 0 0 12px 0; color:#374151;">Hi ${escapeHtml(firstName)},</p>
-          <p style="margin: 0 0 12px 0;">Thanks for reaching out to <strong>TFactorTx</strong>. Everything looks good — we've received your message and a team member will get back to you within 1–2 business days.</p>
+
+          <p style="margin: 0 0 12px 0;">Hi ${escapeHtml(firstName)},</p>
+          <p style="margin: 0 0 12px 0;">Thanks for reaching out to <strong>TFactorTx</strong>. We will get back to you as soon as possible.</p>
           <div style="padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; background: #f9fafb; white-space: pre-wrap;">
             ${escapeHtml(message)}
           </div>
-          <p style="margin: 12px 0 0 0; color:#374151;">If you need to add anything, just reply to this email.</p>
-          <p style="margin: 8px 0 0 0;">— TFactorTx Team</p>
+          <p style="margin: 12px 0 0 0;">If you want to add anything, just reply to this email.</p>
+          <p style="margin: 8px 0 0 0;">TFactorTx Team</p>
         </div>
       `;
-      const userText = `Hi ${firstName},\n\nThanks for contacting TFactorTx. Everything looks good — we've received your message and will reply within 1–2 business days.\n\nYour message:\n${message}\n\n— TFactorTx Team`;
+      const userText = `Hi ${firstName},\n\nThanks for contacting TFactorTx. We will get back to you as soon as possible.\n\nYour message:\n${message}\n\n— TFactorTx Team`;
 
       const { error: userError } = await resend.emails.send({
         from: fromAddress,
