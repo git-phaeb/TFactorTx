@@ -9,7 +9,7 @@ function cleanCSVValue(value: string): string {
 
 export async function GET() {
   try {
-    const csvPath = path.join(process.cwd(), 'src', 'data', '250726_TFactorTx_Master_Table_nf_Overview_for_CSV.csv');
+    const csvPath = path.join(process.cwd(), 'src', 'data', '250925_TFactorTx_Master_Table_nf_Overview_for_CSV.csv');
     const csvContent = fs.readFileSync(csvPath, 'utf-8');
 
     const lines = csvContent.trim().split('\n');

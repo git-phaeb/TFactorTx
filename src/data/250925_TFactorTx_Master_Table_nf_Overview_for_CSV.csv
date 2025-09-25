@@ -1,0 +1,1643 @@
+﻿Gene Name;Overall Rank;All Diseases Rank;ARDs Rank;Strongest Linked ARD;Aging Rank;Human Link Y/N;M. musculus Link;C. elegans Link;D. melanogaster Link;Development Level;Pharos TDL
+TP53;1;1;4;Cancer;1;Yes;Unclear;Anti-Longevity;Unclear;Medium;Tchem
+PPARG;2;6;3;Type 2 Diabetes Mellitus;6;Yes;Pro-Longevity;Unclear;None;High;Tclin
+NR3C1;3;2;1;Chronic Obstructive Pulmonary Disease;34;Yes;None;Unclear;None;High;Tclin
+ESR1;4;4;14;Cancer;34;Yes;None;Unclear;None;High;Tclin
+STAT3;5;29;12;Cancer;14;Yes;Pro-Longevity;None;Pro-Longevity;Medium;Tchem
+AR;6;8;19;Cancer;34;Yes;Pro-Longevity;None;None;High;Tclin
+MYC;7;15;52;Cancer;3;Yes;Anti-Longevity;None;Anti-Longevity;Low;Tchem
+NFE2L2;8;26;44;Cancer;6;Yes;Pro-Longevity;Pro-Longevity;Unclear;High;Tchem
+NFKB1;9;32;35;Osteoarthritis;10;Yes;Unclear;None;Anti-Longevity;High;Tclin
+VDR;10;43;2;Type 2 Diabetes Mellitus;34;Yes;None;Unclear;None;High;Tclin
+SMAD3;11;10;29;Cancer;62;Yes;None;Anti-Longevity;Unclear;Low;Tchem
+FOXO3;12;40;62;Alzheimer Disease;2;Yes;Pro-Longevity;Pro-Longevity;Unclear;Low;Tbio
+HIF1A;13;73;28;Alzheimer Disease;6;Yes;Pro-Longevity;Unclear;Anti-Longevity;Medium;Tchem
+FOXO1;14;35;86;Osteoarthritis;3;Yes;Pro-Longevity;Pro-Longevity;Unclear;Low;Tbio
+ERG;15;38;25;Benign Prostatic Hyperplasia;62;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+HNF4A;16;41;31;Type 2 Diabetes Mellitus;62;Yes;None;Unclear;None;Medium;Tchem
+TBX3;17;23;54;Chronic Obstructive Pulmonary Disease;62;Yes;None;None;None;None;Tbio
+KLF4;18;87;26;Myocardial Infarction;34;Yes;Pro-Longevity;None;None;Low;Tbio
+ZFHX3;18;12;8;Heart Failure;127;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+PPARA;20;131;13;Type 2 Diabetes Mellitus;10;Yes;Pro-Longevity;Unclear;None;High;Tclin
+BCL11A;21;28;17;Cancer;127;Yes;Unclear;None;None;None;Tbio
+THRB;22;62;53;Non-Alcoholic Fatty Liver Disease;62;Yes;None;Unclear;None;High;Tclin
+ARNTL;23;139;24;Osteoarthritis;25;Yes;Pro-Longevity;Pro-Longevity;None;None;Tbio
+PGR;24;76;56;Cancer;62;Yes;None;Unclear;None;High;Tclin
+RARB;25;63;82;Chronic Obstructive Pulmonary Disease;62;Yes;None;Unclear;Anti-Longevity;High;Tclin
+HMGA2;26;46;38;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+CREB1;27;142;58;Alzheimer Disease;14;Yes;Unclear;Unclear;None;Medium to Low;Tbio
+ETV6;28;44;46;Cancer;127;Yes;None;Pro-Longevity;Pro-Longevity;Low;Tbio
+STAT5B;29;105;100;Cancer;14;Yes;Pro-Longevity;None;Pro-Longevity;Low;Tchem
+CUX1;30;45;50;Cancer;127;Yes;None;None;None;Medium to Low;Tbio
+NR3C2;31;91;6;Myocardial Infarction;127;Yes;None;Unclear;None;High;Tclin
+JUN;32;155;36;Cancer;34;Yes;Pro-Longevity;None;None;Low;Tchem
+NFKB2;33;103;93;Alzheimer Disease;34;Yes;Pro-Longevity;None;None;Medium;Tchem
+ETS1;34;92;114;Type 2 Diabetes Mellitus;25;Yes;None;Pro-Longevity;Anti-Longevity;None;Tbio
+SMAD4;35;34;145;Cancer;62;Yes;None;Anti-Longevity;None;Low;Tbio
+AHR;36;82;134;Cancer;34;Yes;Anti-Longevity;Anti-Longevity;None;High;Tclin
+RUNX1;37;7;188;Cancer;62;Yes;None;None;None;Low;Tbio
+ESR2;38;109;23;Cancer;127;Yes;None;Unclear;None;High;Tclin
+EBF1;39;25;122;Type 2 Diabetes Mellitus;127;Yes;None;None;None;Medium to Low;Tbio
+HMGA1;40;68;91;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+ETV1;41;86;76;Type 2 Diabetes Mellitus;127;Yes;None;None;None;Low;Tbio
+ARNT;42;164;94;Alzheimer Disease;34;Yes;Pro-Longevity;Pro-Longevity;None;Medium to Low;Tbio
+SPI1;42;173;57;Alzheimer Disease;62;Yes;None;Anti-Longevity;None;None;Tbio
+WT1;44;22;209;Type 2 Diabetes Mellitus;62;Yes;None;Pro-Longevity;None;Medium;Tbio
+ZEB2;45;102;71;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+NFIB;46;110;65;Alzheimer Disease;127;Yes;None;Pro-Longevity;None;Low;Tbio
+SOX5;47;113;156;Osteoarthritis;34;Yes;Unclear;None;None;None;Tbio
+FOXP1;48;11;166;Cancer;127;Yes;None;Anti-Longevity;None;None;Tbio
+RELA;49;236;41;Alzheimer Disease;34;Yes;None;None;None;Medium;Tchem
+MITF;50;17;173;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;Low;Tchem
+SREBF1;51;266;32;Alzheimer Disease;25;Yes;Unclear;Pro-Longevity;None;Low;Tchem
+TFEB;52;157;160;Alzheimer Disease;14;Yes;Pro-Longevity;Pro-Longevity;None;None;Tbio
+EPAS1;53;69;230;Non-Alcoholic Fatty Liver Disease;34;Yes;None;Unclear;Anti-Longevity;High;Tclin
+SPEN;53;70;136;Parkinson Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+PPARD;55;203;69;Type 2 Diabetes Mellitus;62;Yes;None;Unclear;None;Medium;Tchem
+FOXP3;56;89;184;Cancer;62;Yes;None;Anti-Longevity;None;Low;Tbio
+STAT1;57;124;85;Cancer;127;Yes;None;None;Pro-Longevity;Low;Tchem
+MECP2;58;94;117;Cancer;127;Yes;None;None;None;Low;Tchem
+SATB1;59;125;152;Type 2 Diabetes Mellitus;62;Yes;None;Pro-Longevity;None;None;Tbio
+DNMT1;60;170;47;Cancer;127;Yes;None;None;None;High;Tclin
+NFATC2;60;71;146;Type 2 Diabetes Mellitus;127;Yes;None;None;None;Low;Tbio
+CEBPB;62;263;80;Type 2 Diabetes Mellitus;10;Yes;Unclear;None;None;Medium to Low;Tbio
+E2F1;63;297;40;Alzheimer Disease;25;Yes;None;Anti-Longevity;None;Medium;Tbio
+FOS;64;204;138;Cancer;34;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+TET1;64;78;171;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+RORA;66;55;197;Type 2 Diabetes Mellitus;127;Yes;None;Unclear;None;Low;Tchem
+HIC1;67;260;59;Alzheimer Disease;62;Yes;None;None;None;None;Tbio
+FOXM1;68;328;42;Cancer;14;Yes;Pro-Longevity;None;None;Low;Tchem
+NR1H4;69;206;55;Non-Alcoholic Fatty Liver Disease;127;No;None;Unclear;Anti-Longevity;High;Tclin
+GABPA;70;226;43;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;Low;Tbio
+FOXA2;71;251;112;Type 2 Diabetes Mellitus;34;Yes;None;Pro-Longevity;Unclear;None;Tbio
+MYCN;72;104;242;Type 2 Diabetes Mellitus;62;Yes;None;None;Anti-Longevity;Low;Tbio
+SOX4;73;127;161;Type 2 Diabetes Mellitus;127;Yes;Pro-Longevity;None;None;None;Tbio
+REST;74;232;151;Myocardial Infarction;34;Yes;Unclear;Pro-Longevity;None;None;Tbio
+TET2;75;3;9;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Low;Tchem
+TP63;76;24;385;Cancer;14;Yes;Pro-Longevity;None;Anti-Longevity;None;Tbio
+FOXP2;77;153;214;Osteoarthritis;62;Yes;None;Anti-Longevity;None;None;Tbio
+TCF7L2;78;16;7;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tbio
+CLOCK;79;308;110;Type 2 Diabetes Mellitus;14;Yes;Pro-Longevity;Pro-Longevity;None;Low;Tbio
+EGR1;80;274;129;Type 2 Diabetes Mellitus;34;Yes;Unclear;None;None;Medium;Tbio
+THRA;80;184;126;Myocardial Infarction;127;No;None;Unclear;Anti-Longevity;High;Tclin
+HNF4G;82;217;99;Alzheimer Disease;127;Yes;None;Unclear;None;None;Tbio
+KAT7;83;264;60;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+PROX1;84;182;143;Type 2 Diabetes Mellitus;127;Yes;None;None;None;Low;Tbio
+ZEB1;85;37;289;Cancer;127;Yes;None;None;None;Low;Tbio
+STAT4;86;218;109;Alzheimer Disease;127;Yes;None;None;Pro-Longevity;Low;Tchem
+TWIST1;87;136;192;Ischemic Stroke;127;Yes;None;None;None;Low;Tbio
+RUNX3;88;167;227;Type 2 Diabetes Mellitus;62;Yes;None;None;None;Low;Tbio
+BCL6;89;50;280;Type 2 Diabetes Mellitus;127;Yes;None;None;None;Low;Tchem
+NR4A2;89;284;111;Parkinson Disease;62;Yes;Pro-Longevity;None;None;Medium;Tchem
+FLI1;91;51;346;Type 2 Diabetes Mellitus;62;Yes;None;Pro-Longevity;Anti-Longevity;Low;Tbio
+FOXA1;92;158;288;Parkinson Disease;14;Yes;None;Pro-Longevity;Pro-Longevity;Medium to Low;Tbio
+MLXIPL;92;9;324;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+SOX2;94;75;325;Cancer;62;Yes;None;None;None;None;Tbio
+NFIA;95;129;210;Heart Failure;127;Yes;None;Pro-Longevity;None;None;Tbio
+NR1H3;95;133;271;Alzheimer Disease;62;Yes;None;Unclear;Anti-Longevity;Medium;Tchem
+GATA4;97;84;377;Myocardial Infarction;14;Yes;None;None;Pro-Longevity;Low;Tbio
+GATA3;98;21;329;Cancer;127;Yes;None;Anti-Longevity;None;Medium to Low;Tbio
+RREB1;99;64;20;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+RERE;100;183;248;Chronic Obstructive Pulmonary Disease;62;Yes;None;Pro-Longevity;None;None;Tbio
+RARA;101;77;292;Alzheimer Disease;127;No;None;Unclear;Anti-Longevity;High;Tclin
+CEBPA;102;95;379;Cancer;34;Yes;Unclear;None;None;Medium to Low;Tbio
+GLIS3;103;97;11;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+KLF14;104;67;49;Type 2 Diabetes Mellitus;407;No;None;Pro-Longevity;None;None;Tbio
+MEF2C;105;61;63;Age-Related Macular Degeneration;407;Yes;None;None;None;None;Tbio
+PITX2;106;107;21;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+NR1I2;107;288;125;Cancer;127;Yes;None;Unclear;None;Low;Tchem
+RFX6;108;387;27;Type 2 Diabetes Mellitus;127;Yes;None;Anti-Longevity;None;None;Tbio
+STAT5A;109;439;87;Cancer;25;Yes;Pro-Longevity;None;Pro-Longevity;Low;Tchem
+PRDM1;110;60;467;Cancer;34;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+CASZ1;111;143;15;Ischemic Stroke;407;Yes;None;None;None;None;Tbio
+L3MBTL3;112;59;101;Alzheimer Disease;407;Yes;None;None;None;Low;Tchem
+HSF1;113;422;142;Type 2 Diabetes Mellitus;10;Yes;Pro-Longevity;Pro-Longevity;None;Low;Tchem
+TCF4;114;42;127;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+KLF5;115;214;304;Chronic Obstructive Pulmonary Disease;62;Yes;None;Pro-Longevity;None;Medium;Tchem
+STAT6;116;52;404;Cancer;127;Yes;None;None;Pro-Longevity;Low;Tchem
+GATA6;117;287;265;Chronic Obstructive Pulmonary Disease;34;Yes;None;Anti-Longevity;Pro-Longevity;Medium to Low;Tbio
+XBP1;118;312;246;Alzheimer Disease;34;Yes;None;Unclear;Pro-Longevity;Low;Tchem
+RUNX2;119;112;74;Osteoarthritis;407;Yes;None;None;None;Low;Tbio
+TCF3;120;128;459;Alzheimer Disease;14;Yes;None;Anti-Longevity;None;Low;Tbio
+RXRA;121;199;276;Alzheimer Disease;127;Yes;None;None;None;High;Tclin
+SKI;122;168;309;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;None;Tbio
+CTCF;123;117;81;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+GATA2;124;83;396;Chronic Obstructive Pulmonary Disease;127;No;None;Unclear;None;Medium to Low;Tbio
+PRDM16;125;47;153;Ischemic Stroke;407;Yes;None;None;None;Low;Tbio
+HLF;126;198;284;Heart Failure;127;Yes;None;Anti-Longevity;None;None;Tbio
+SOX6;127;118;431;Parkinson Disease;62;Yes;None;None;None;None;Tbio
+ZBTB38;128;145;61;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+SOX9;129;98;115;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ARID5B;130;130;89;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tbio
+TRPS1;131;18;203;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+SP1;132;361;244;Cancer;25;Yes;None;Pro-Longevity;None;Low;Tbio
+SIX1;133;159;350;Benign Prostatic Hyperplasia;127;Yes;None;None;None;None;Tbio
+EGR2;134;276;241;Osteoarthritis;127;Yes;None;None;None;Medium to Low;Tbio
+JUND;135;340;300;Cancer;6;Yes;Pro-Longevity;Pro-Longevity;None;Low;Tbio
+DDIT3;136;229;291;Alzheimer Disease;127;Yes;None;None;None;Low;Tbio
+ARX;137;241;283;Osteoarthritis;127;Yes;None;Pro-Longevity;None;None;Tbio
+IRF1;138;114;135;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Low;Tbio
+LEF1;139;134;121;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Low;Tchem
+GLI2;140;58;200;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tchem
+KLF6;141;165;439;Cancer;62;Yes;None;Pro-Longevity;None;None;Tbio
+PRRX1;142;148;113;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+ETV4;143;179;83;Benign Prostatic Hyperplasia;407;Yes;None;None;None;Medium to Low;Tbio
+SATB2;144;99;512;Cancer;62;Yes;None;Pro-Longevity;None;None;Tbio
+MAF;145;56;215;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+POU5F1B;146;246;30;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+MEIS1;147;181;382;Type 2 Diabetes Mellitus;127;Yes;None;Anti-Longevity;None;None;Tbio
+SETBP1;147;19;264;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+NR2F2;149;215;70;Parkinson Disease;407;Yes;None;None;None;Low;Tchem
+POU5F1;150;231;349;Cancer;127;Yes;None;None;None;Low;Tbio
+TRAFD1;150;249;51;Ischemic Stroke;407;Yes;None;None;None;None;Tbio
+KLF7;152;346;238;Age-Related Hearing Impairment;127;Yes;None;Pro-Longevity;None;None;Tbio
+ZFHX4;153;253;332;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+HSF2;154;333;253;Chronic Obstructive Pulmonary Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+BNC2;155;108;199;Cancer;407;Yes;None;None;None;None;Tbio
+GLI3;156;48;260;Benign Prostatic Hyperplasia;407;Yes;None;None;None;Medium to Low;Tbio
+ZNF462;156;176;132;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+NFATC1;158;172;420;Non-Alcoholic Fatty Liver Disease;127;Yes;None;None;None;Low;Tchem
+MECOM;159;20;296;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Medium to Low;Tbio
+NR1H2;160;651;39;Alzheimer Disease;34;Yes;None;Unclear;Anti-Longevity;Medium;Tchem
+PBX1;161;93;505;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+TFAP2A;162;202;398;Cancer;127;Yes;None;None;None;Low;Tbio
+ZNF652;163;180;141;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+LCORL;164;162;165;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+KMT2A;165;30;299;Cancer;407;Yes;None;None;None;Medium;Tchem
+DOT1L;166;419;191;Myocardial Infarction;127;Yes;None;Anti-Longevity;None;Low;Tchem
+ATF4;167;433;273;Alzheimer Disease;34;Yes;Unclear;Anti-Longevity;None;Medium to Low;Tbio
+NPAS3;168;277;402;Type 2 Diabetes Mellitus;62;Yes;None;Unclear;Anti-Longevity;Low;Tbio
+SNAI1;169;487;222;Type 2 Diabetes Mellitus;34;Yes;None;None;Unclear;None;Tbio
+NFAT5;170;230;107;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+TFAP4;171;460;263;Benign Prostatic Hyperplasia;25;Yes;Anti-Longevity;Anti-Longevity;None;None;Tbio
+NFE2L3;172;81;544;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+BACH2;173;80;269;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+MEOX2;173;371;258;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+TAL1;175;121;229;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+IKZF2;176;250;102;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+GTF2I;177;348;10;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Medium to Low;Tbio
+FOXO4;178;248;516;Cancer;5;Yes;Pro-Longevity;Pro-Longevity;Unclear;None;Tbio
+ATF3;179;438;205;Cancer;127;Yes;None;None;None;Medium to Low;Tbio
+NR2C2;180;379;266;Cancer;127;Yes;None;Pro-Longevity;None;Medium;Tchem
+BCL11B;181;49;602;Cancer;127;Yes;None;None;None;None;Tbio
+FOXG1;181;212;159;Alzheimer Disease;407;Yes;None;None;None;Medium to Low;Tbio
+HEY2;181;201;170;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+NR2F1;184;269;386;Benign Prostatic Hyperplasia;127;Yes;None;Unclear;None;None;Tbio
+TBX2;185;151;506;Cancer;127;Yes;None;None;None;Low;Tbio
+TEAD1;185;299;78;Osteoarthritis;407;Yes;None;None;None;Low;Tchem
+REL;187;106;274;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+IRF3;188;389;272;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;None;Low;Tbio
+OTX2;189;197;531;Age-Related Macular Degeneration;62;Yes;None;Pro-Longevity;None;None;Tbio
+SETDB1;190;283;381;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;None;Tbio
+ZFPM2;191;57;328;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+TWIST2;192;357;314;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;None;None;Tbio
+CDC5L;193;326;66;Alzheimer Disease;407;Yes;None;None;None;Medium to Low;Tbio
+IRX1;194;256;137;Myocardial Infarction;407;Yes;None;None;None;None;Tbio
+MEF2A;194;518;155;Myocardial Infarction;127;Yes;None;None;None;None;Tbio
+IRF5;196;208;466;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+PCGF2;197;476;201;Alzheimer Disease;127;Yes;None;None;None;None;Tbio
+ZNF76;197;375;302;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;None;Tbio
+TFE3;199;190;489;Parkinson Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+ETS2;200;407;339;Benign Prostatic Hyperplasia;62;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+RORB;201;227;176;Age-Related Macular Degeneration;407;No;None;Unclear;None;Low;Tchem
+ZNF800;201;339;64;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ARID2;203;36;370;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+RBPJ;204;359;48;Cancer;407;Yes;None;None;None;Low;Tchem
+TP73;205;396;408;Cancer;14;Yes;Pro-Longevity;None;Anti-Longevity;Low;Tbio
+XPA;205;242;514;Cancer;62;Yes;Pro-Longevity;Pro-Longevity;None;Low;Tchem
+TCF21;207;243;174;Myocardial Infarction;407;Yes;None;None;None;None;Tbio
+DMRTA2;208;314;108;Heart Failure;407;Yes;None;None;None;None;Tbio
+ZGLP1;209;342;84;Type 2 Diabetes Mellitus;407;No;None;Anti-Longevity;None;None;Tdark
+BHLHE40;210;437;337;Alzheimer Disease;62;Yes;None;None;None;Low;Tbio
+HHEX;211;262;168;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+PIN1;211;506;204;Cancer;127;Yes;None;None;None;Low;Tchem
+RFX3;213;347;368;Alzheimer Disease;127;Yes;None;Anti-Longevity;None;None;Tbio
+TCF12;214;120;318;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+YY1;215;461;259;Cancer;127;Yes;None;None;None;Low;Tbio
+NR5A2;216;268;453;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;Low;Tchem
+SP8;217;467;262;Benign Prostatic Hyperplasia;127;Yes;None;Pro-Longevity;None;None;Tbio
+E2F3;218;321;131;Alzheimer Disease;407;Yes;None;None;None;Medium;Tbio
+TFDP1;218;676;149;Alzheimer Disease;34;Yes;None;None;None;None;Tbio
+ZBTB20;220;220;235;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+TBPL1;221;360;378;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+ZFPM1;222;144;315;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+HOXA11;223;126;334;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+MYRF;224;39;436;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Medium to Low;Tbio
+PAX8;225;123;353;Cancer;407;Yes;None;None;None;Low;Tchem
+FOXC1;226;72;406;Cancer;407;Yes;None;None;None;None;Tbio
+MLX;227;395;364;Type 2 Diabetes Mellitus;127;No;None;Pro-Longevity;None;Low;Tchem
+PAX6;227;74;405;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+SNAI2;229;457;371;Cancer;62;Yes;None;None;Unclear;None;Tbio
+MAFB;230;14;473;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tbio
+MYB;230;53;434;Cancer;407;Yes;None;None;None;Low;Tbio
+OVOL1;232;278;212;Osteoarthritis;407;No;None;None;Anti-Longevity;None;Tbio
+TFCP2L1;233;409;90;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ARNT2;234;504;341;Chronic Obstructive Pulmonary Disease;62;Yes;Pro-Longevity;Pro-Longevity;None;None;Tbio
+SALL1;234;194;586;Cancer;127;Yes;None;None;None;None;Tbio
+GATA5;236;235;270;Benign Prostatic Hyperplasia;407;No;None;Anti-Longevity;None;None;Tbio
+RARG;236;224;281;Alzheimer Disease;407;No;None;Unclear;None;High;Tclin
+ZNF664;238;140;366;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+MYCL;239;221;633;Cancer;62;Yes;Anti-Longevity;None;Anti-Longevity;None;Tbio
+JUNB;240;484;308;Cancer;127;Yes;Pro-Longevity;None;None;Low;Tbio
+PBX3;240;440;352;Chronic Obstructive Pulmonary Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+LTF;242;363;150;Alzheimer Disease;407;Yes;None;None;None;Low;Tbio
+ZBTB16;242;31;482;Cancer;407;Yes;None;None;None;None;Tbio
+HIVEP2;244;258;256;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Medium to Low;Tbio
+ZNF285;245;178;338;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+FOXP4;246;445;355;Cancer;127;Yes;None;Anti-Longevity;None;None;Tbio
+KDM2B;246;469;331;Alzheimer Disease;127;Yes;None;None;None;Low;Tchem
+NEUROD1;246;417;103;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tbio
+NR2E1;249;556;249;Alzheimer Disease;127;Yes;None;None;None;Medium to Low;Tbio
+ZKSCAN1;250;703;104;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+CEBPG;251;571;307;Type 2 Diabetes Mellitus;62;Yes;Unclear;None;None;None;Tbio
+ZIC3;252;344;190;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+HES1;253;408;410;Cancer;127;Yes;None;None;None;Low;Tbio
+IKZF1;253;13;525;Cancer;407;Yes;None;None;None;Low;Tbio
+PRDM5;255;463;79;Osteoarthritis;407;Yes;None;None;None;None;Tbio
+PDX1;256;365;189;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+NFIC;257;279;556;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+MYNN;258;374;462;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+SALL4;259;119;440;Cancer;407;Yes;None;None;None;None;Tbio
+IRF7;260;545;295;Age-Related Macular Degeneration;127;Yes;None;None;None;None;Tbio
+NFE2L1;261;536;401;Type 2 Diabetes Mellitus;34;Yes;None;Pro-Longevity;None;None;Tbio
+NR1D1;262;558;287;Cancer;127;Yes;None;Anti-Longevity;None;Low;Tchem
+MBD2;263;432;140;Alzheimer Disease;407;Yes;None;None;None;Low;Tchem
+ETV5;264;66;515;Cancer;407;Yes;None;None;None;Low;Tbio
+FOXN1;265;219;708;Osteoporosis;62;Yes;Pro-Longevity;None;None;None;Tbio
+TERF2;266;740;217;Alzheimer Disease;34;Yes;Anti-Longevity;None;None;Low;Tchem
+ZBTB7A;266;429;435;Cancer;127;Yes;None;None;None;None;Tbio
+MNX1;268;330;255;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Medium to Low;Tbio
+GATA1;269;90;842;Cancer;62;Yes;None;Anti-Longevity;None;None;Tbio
+ZHX2;269;385;202;Atherosclerosis;407;Yes;None;None;None;Medium to Low;Tbio
+SP4;271;200;668;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+ELF3;272;315;557;Cancer;127;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+TSHZ2;273;366;228;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tbio
+ZNF365;274;539;336;Cancer;127;Yes;None;None;None;None;Tbio
+DLX2;275;770;106;Alzheimer Disease;127;Yes;None;None;None;None;Tbio
+MAFF;276;177;423;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+KLF10;277;552;397;Non-Alcoholic Fatty Liver Disease;62;Yes;Unclear;None;None;None;Tbio
+ATF6;278;538;417;Type 2 Diabetes Mellitus;62;Yes;None;Anti-Longevity;None;None;Tbio
+GLI1;279;185;428;Cancer;407;Yes;None;None;None;Medium;Tchem
+IRF2;280;486;128;Alzheimer Disease;407;Yes;None;None;None;Low;Tbio
+KDM5B;280;436;458;Cancer;127;Yes;None;Unclear;None;Low;Tchem
+NPAS2;280;458;501;Type 2 Diabetes Mellitus;62;Yes;Pro-Longevity;Pro-Longevity;None;None;Tbio
+POU1F1;280;615;344;Type 2 Diabetes Mellitus;62;Yes;Anti-Longevity;None;None;None;Tbio
+FOSL1;284;547;68;Alzheimer Disease;407;Yes;None;None;None;Low;Tbio
+ZNF629;284;797;98;Parkinson Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+SIX2;286;309;310;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+MXI1;287;414;596;Cancer;25;Yes;None;Unclear;Pro-Longevity;Low;Tbio
+GFI1;288;327;305;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ATF5;289;820;97;Alzheimer Disease;127;Yes;None;Anti-Longevity;None;Low;Tbio
+NR4A1;289;483;154;Cancer;407;Yes;None;None;None;Low;Tchem
+SP6;289;245;672;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+ZNF217;289;370;267;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZFP64;293;362;277;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+TGIF1;294;372;549;Type 2 Diabetes Mellitus;127;Yes;None;Anti-Longevity;None;None;Tbio
+NR4A3;295;188;456;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tchem
+MYBL2;296;586;340;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+CDX2;297;209;446;Cancer;407;Yes;None;None;None;Low;Tbio
+TFAM;298;667;342;Chronic Obstructive Pulmonary Disease;62;Yes;Unclear;None;None;None;Tbio
+CREB3L2;299;141;526;Cancer;407;Yes;None;None;None;None;Tbio
+IRF8;299;147;520;Cancer;407;Yes;None;None;None;None;Tbio
+ATF1;301;169;499;Cancer;407;Yes;None;None;None;Medium;Tchem
+KLF3;301;161;507;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+CREB5;303;318;351;Osteoarthritis;407;Yes;None;None;None;None;Tbio
+RELB;304;244;426;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+PHF20;305;566;387;Cancer;127;Yes;None;Anti-Longevity;None;None;Tbio
+MSX2;306;239;437;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+RORC;306;222;454;Cancer;407;No;None;Unclear;None;Medium;Tchem
+FOSB;308;392;285;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+PROP1;308;505;517;Type 2 Diabetes Mellitus;62;Yes;Anti-Longevity;None;None;None;Tbio
+TERF1;308;631;419;Cancer;34;Yes;None;None;None;None;Tbio
+NKX2-5;311;132;546;Atherosclerosis;407;Yes;None;None;None;Medium to Low;Tbio
+FOXQ1;312;520;443;Cancer;127;Yes;None;None;None;None;Tbio
+NCOA3;312;451;232;Osteoarthritis;407;Yes;None;None;None;Low;Tchem
+PURA;312;553;130;Alzheimer Disease;407;Yes;None;None;None;Low;Tbio
+TBP;315;641;392;Parkinson Disease;62;Yes;None;Pro-Longevity;None;Low;Tbio
+POU2F2;316;599;372;Alzheimer Disease;127;Yes;None;Anti-Longevity;None;Low;Tbio
+CEBPD;317;511;461;Cancer;127;Yes;Unclear;None;None;None;Tbio
+HBP1;318;589;449;Type 2 Diabetes Mellitus;62;Yes;None;None;None;None;Tbio
+MAX;319;116;860;Cancer;127;Yes;None;Anti-Longevity;None;None;Tbio
+CREB3L1;320;160;539;Cancer;407;Yes;None;None;None;None;Tbio
+NRF1;320;624;75;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+NR1I3;322;524;457;Non-Alcoholic Fatty Liver Disease;127;Yes;None;Unclear;None;Medium;Tchem
+SOX11;323;192;510;Cancer;407;Yes;None;None;None;None;Tbio
+ZBTB7B;323;465;237;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+FOSL2;325;292;413;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+DPF3;326;345;376;Age-Related Macular Degeneration;407;Yes;None;None;None;None;Tbio
+NKX6-1;327;767;236;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;Low;Tbio
+BARHL2;328;355;369;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+PAX4;328;628;96;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+PATZ1;330;186;825;Cancer;127;Yes;None;None;None;None;Tbio
+SP3;331;398;616;Cancer;127;Yes;None;Pro-Longevity;None;Low;Tbio
+CARF;332;485;251;Myocardial Infarction;407;Yes;None;None;None;None;Tbio
+LHX2;333;712;306;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;Low;Tbio
+KLF15;334;583;441;Heart Failure;127;Yes;None;Pro-Longevity;None;None;Tbio
+SP9;334;662;362;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;None;Tdark
+HOXC4;336;382;647;Cancer;127;Yes;None;None;None;Low;Tbio
+HLX;337;163;869;Cancer;127;Yes;None;None;None;None;Tbio
+KLF2;338;376;380;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF608;339;338;430;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+HNF1A;340;5;16;Type 2 Diabetes Mellitus;1161;No;None;None;None;Low;Tbio
+NR2E3;341;352;429;Age-Related Macular Degeneration;407;Yes;None;None;None;Low;Tchem
+DACH1;342;265;519;Cancer;407;Yes;None;None;None;None;Tbio
+TBX21;343;310;480;Cancer;407;Yes;None;None;None;Low;Tbio
+JAZF1;344;33;5;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ELF4;345;175;618;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+NFIX;345;305;488;Osteoarthritis;407;No;None;Pro-Longevity;None;None;Tbio
+ZNF268;345;834;239;Osteoarthritis;127;Yes;None;None;Anti-Longevity;None;Tbio
+NCOA1;348;191;605;Alzheimer Disease;407;No;None;Pro-Longevity;None;Low;Tchem
+SMAD1;349;541;538;Cancer;127;Yes;None;None;Unclear;None;Tbio
+NR1D2;350;532;551;Cancer;127;Yes;None;Unclear;None;Low;Tchem
+FOXF2;351;526;279;Ischemic Stroke;407;Yes;None;None;None;Low;Tbio
+ELK3;352;664;487;Age-Related Macular Degeneration;62;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+POU2F1;353;638;450;Alzheimer Disease;127;Yes;None;Anti-Longevity;None;None;Tbio
+DLX3;354;743;415;Alzheimer Disease;62;Yes;None;None;None;Medium to Low;Tbio
+IRF4;355;27;33;Cancer;1161;No;None;None;None;None;Tbio
+POU2AF1;356;156;665;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+ZNF799;356;782;319;Type 2 Diabetes Mellitus;127;Yes;None;None;Anti-Longevity;None;Tdark
+HIF3A;358;794;374;Cancer;62;Yes;None;Unclear;Anti-Longevity;None;Tbio
+HOXA9;358;234;589;Cancer;407;Yes;None;None;None;Low;Tbio
+PKNOX2;358;730;373;Type 2 Diabetes Mellitus;127;Yes;None;Anti-Longevity;None;None;Tbio
+HOXB9;361;678;147;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+GATAD2B;362;605;221;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+HMG20A;363;603;225;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+EN1;364;210;621;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+ESRRA;365;755;357;Cancer;127;Yes;None;Unclear;None;Medium;Tchem
+ZNF385D;366;512;323;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tdark
+MYOD1;367;257;580;Cancer;407;Yes;None;None;None;Low;Tbio
+GTF3A;368;640;481;Alzheimer Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+MXD3;369;702;486;Cancer;62;Yes;None;Anti-Longevity;Pro-Longevity;None;Tbio
+HSF4;370;369;761;Ischemic Stroke;127;Yes;None;Pro-Longevity;None;None;Tbio
+ZNF423;371;166;688;Parkinson Disease;407;Yes;None;None;None;Low;Tbio
+FOXN3;372;441;422;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+NFATC3;372;391;472;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+SIM1;374;364;780;Type 2 Diabetes Mellitus;127;No;None;Unclear;Anti-Longevity;None;Tbio
+IRX2;375;502;365;Age-Related Hearing Impairment;407;Yes;None;None;None;None;Tbio
+NFE2;376;252;896;Cancer;127;Yes;None;Pro-Longevity;None;Low;Tchem
+DLX5;377;351;518;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+SOX21;378;455;698;Alzheimer Disease;127;Yes;None;None;None;None;Tbio
+KIN;379;694;181;Parkinson Disease;407;No;None;Pro-Longevity;None;None;Tbio
+ZNF207;380;805;72;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+TFAP2B;381;88;37;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+CRX;382;293;587;Age-Related Macular Degeneration;407;No;None;Pro-Longevity;None;None;Tbio
+HIVEP3;383;290;591;Osteoporosis;407;Yes;None;None;None;None;Tbio
+IRX3;384;319;563;Osteoarthritis;407;Yes;None;None;None;None;Tbio
+PRDM9;385;378;513;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF143;385;648;523;Chronic Obstructive Pulmonary Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+PBX4;387;454;721;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+KLF9;388;489;407;Myocardial Infarction;407;Yes;None;None;None;Medium to Low;Tbio
+GRHL2;389;404;493;Cancer;407;Yes;None;None;None;None;Tbio
+STAT2;390;602;578;Cancer;127;Yes;None;None;Pro-Longevity;Low;Tbio
+NANOG;391;717;465;Cancer;127;Yes;None;None;None;None;Tbio
+DMRTA1;392;497;416;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+SPZ1;393;636;278;Cancer;407;Yes;None;None;None;None;Tbio
+SOX17;394;255;660;Cancer;407;Yes;None;None;None;None;Tbio
+SPDEF;395;650;547;Chronic Obstructive Pulmonary Disease;127;No;None;Anti-Longevity;None;None;Tbio
+ATF2;396;689;509;Cancer;127;Yes;None;None;None;Low;Tbio
+ZNF385B;396;601;317;Age-Related Macular Degeneration;407;Yes;None;None;None;None;Tbio
+ARID3A;398;475;445;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+FOXD2;398;386;534;Cancer;407;Yes;None;None;None;None;Tbio
+HNF1B;400;150;18;Type 2 Diabetes Mellitus;1161;No;None;None;None;Low;Tbio
+RBCK1;401;620;303;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ELK4;402;291;915;Alzheimer Disease;127;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+ZNF169;402;779;427;Type 2 Diabetes Mellitus;127;Yes;None;None;Anti-Longevity;None;Tdark
+ATOH8;404;807;120;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+HOXA13;404;96;831;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+MEIS2;404;428;779;Cancer;127;Yes;None;Anti-Longevity;None;None;Tbio
+CUX2;407;152;22;Ischemic Stroke;1161;No;None;None;None;Low;Tbio
+FOXF1;407;343;585;Osteoporosis;407;Yes;None;None;None;Low;Tbio
+EMX2;409;320;890;Cancer;127;Yes;None;Pro-Longevity;None;Medium to Low;Tbio
+ZNF229;409;356;854;Parkinson Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+NR5A1;411;298;913;Cancer;127;Yes;None;Pro-Longevity;None;Low;Tchem
+NKX2-2;412;738;478;Type 2 Diabetes Mellitus;127;Yes;None;Anti-Longevity;None;None;Tbio
+HESX1;413;573;648;Heart Failure;127;Yes;None;None;None;None;Tbio
+CAMTA1;414;85;859;Cancer;407;Yes;None;None;None;None;Tbio
+ZIC2;415;405;545;Cancer;407;Yes;None;None;None;None;Tbio
+ASCL1;416;403;548;Alzheimer Disease;407;Yes;None;None;None;Medium to Low;Tbio
+HOXC6;417;448;504;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Medium to Low;Tbio
+E2F4;418;591;643;Alzheimer Disease;127;Yes;None;Anti-Longevity;None;Medium;Tbio
+IRF6;419;325;631;Cancer;407;Yes;None;None;None;Low;Tbio
+BHLHE41;420;632;326;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+MTF1;421;810;494;Cancer;62;Yes;None;None;Pro-Longevity;Low;Tbio
+ELK1;422;671;634;Alzheimer Disease;62;Yes;None;None;None;Medium to Low;Tbio
+CXXC5;423;307;654;Cancer;407;Yes;None;None;None;None;Tbio
+E2F2;423;367;594;Cancer;407;Yes;None;None;None;Medium;Tbio
+CPEB1;425;604;640;Cancer;127;Yes;None;None;None;None;Tbio
+ZNF521;426;101;865;Cancer;407;Yes;None;None;None;None;Tbio
+LIN28B;427;354;613;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+NCOA2;428;115;853;Heart Failure;407;Yes;None;None;None;Low;Tbio
+AKAP8L;429;848;124;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ARHGAP35;430;137;837;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+LHX9;431;472;785;Chronic Obstructive Pulmonary Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+TBX5;432;154;77;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tbio
+ZNF700;433;1036;234;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+OLIG2;434;329;662;Ischemic Stroke;407;Yes;None;None;None;None;Tbio
+SREBF2;435;680;322;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;Low;Tchem
+NR2C1;436;819;186;Alzheimer Disease;407;Yes;None;None;None;Low;Tbio
+FOXA3;437;733;623;Cancer;62;Yes;None;Pro-Longevity;Pro-Longevity;Medium to Low;Tbio
+YBX1;437;710;301;Cancer;407;Yes;None;None;None;Low;Tbio
+SRF;439;908;384;Cancer;127;Yes;None;None;None;None;Tbio
+SMAD9;440;588;705;Cancer;127;Yes;None;None;Unclear;None;Tbio
+PAX3;441;65;953;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF84;442;1090;211;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF148;443;549;756;Cancer;127;Yes;None;None;None;None;Tbio
+HES4;444;896;133;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+HINFP;444;911;118;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+LIN28A;446;534;496;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+HOXA5;447;491;542;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+SKIL;448;774;541;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+SOX10;448;282;753;Cancer;407;Yes;None;None;None;Low;Tbio
+HEY1;450;353;683;Cancer;407;Yes;None;None;None;None;Tbio
+FEZF1;451;575;464;Osteoarthritis;407;Yes;None;None;None;None;Tbio
+IKZF3;452;122;919;Cancer;407;Yes;None;None;None;Low;Tbio
+PHOX2A;452;856;185;Alzheimer Disease;407;Yes;None;None;None;Medium to Low;Tbio
+ADNP;454;544;498;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+PBX2;455;1155;179;Alzheimer Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+E2F8;456;587;470;Osteoarthritis;407;Yes;None;None;None;Medium;Tbio
+FOXD3;456;699;358;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tbio
+GBX2;458;658;400;Alzheimer Disease;407;Yes;None;None;None;Medium to Low;Tbio
+MEF2D;459;494;568;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+GRHL1;460;528;881;Cancer;62;Yes;Unclear;Pro-Longevity;None;None;Tbio
+MLXIP;461;443;968;Type 2 Diabetes Mellitus;62;Yes;None;Pro-Longevity;None;None;Tbio
+CXXC1;462;965;105;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+SKOR1;463;551;530;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+MBNL2;464;513;570;Cancer;407;Yes;None;None;None;None;Tbio
+MEOX1;465;482;882;Cancer;127;Yes;None;None;None;None;Tbio
+TET3;465;501;583;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF827;467;300;34;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+E2F7;468;478;892;Cancer;127;Yes;None;None;None;Medium;Tbio
+ZBTB17;468;859;231;Heart Failure;407;Yes;None;None;None;None;Tbio
+KLF12;470;195;897;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+TSHZ3;471;273;67;Benign Prostatic Hyperplasia;1161;No;None;None;None;None;Tbio
+ZNF227;472;1149;226;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+SMYD3;473;685;411;Cancer;407;Yes;None;None;None;Low;Tchem
+TCF7;473;390;706;Cancer;407;Yes;None;None;None;None;Tbio
+SOX1;475;719;658;Cancer;127;Yes;None;None;None;None;Tbio
+EHF;476;695;754;Cancer;62;Yes;None;Pro-Longevity;None;Low;Tbio
+VEZF1;477;989;116;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZNF337;477;612;773;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+NKX2-3;479;207;148;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+BPTF;480;240;119;Type 2 Diabetes Mellitus;1161;No;None;None;None;Low;Tchem
+HOXD13;481;54;312;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;Medium to Low;Tbio
+PURG;481;711;409;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+SIX3;483;213;158;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+FOXL2;484;196;931;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+PKNOX1;484;728;679;Type 2 Diabetes Mellitus;127;No;None;Anti-Longevity;None;None;Tbio
+POU3F3;486;313;817;Cancer;407;Yes;None;None;None;None;Tbio
+KMT2B;487;286;92;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF318;487;459;673;Age-Related Hearing Impairment;407;Yes;None;None;None;None;Tbio
+PLAG1;489;111;268;Cancer;1161;No;None;None;None;None;Tbio
+SLC2A4RG;489;597;536;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+FOXE1;491;399;736;Cancer;407;Yes;None;None;None;None;Tbio
+KLF13;491;280;855;Cancer;407;Yes;None;None;None;None;Tbio
+GLIS2;493;495;986;Cancer;62;Yes;None;None;Pro-Longevity;None;Tbio
+TBX6;494;406;731;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+HOXC13;495;233;908;Cancer;407;Yes;None;None;None;Low;Tbio
+HOXD11;496;171;974;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+MGA;497;582;565;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+KLF16;498;606;543;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+VSX2;499;384;766;Age-Related Macular Degeneration;407;No;None;Pro-Longevity;None;None;Tbio
+ZNF512;500;531;620;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ZNF641;501;714;438;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ZNF763;501;957;195;Parkinson Disease;407;Yes;None;None;None;None;Tdark
+KLF8;503;808;345;Type 2 Diabetes Mellitus;407;No;None;Pro-Longevity;None;None;Tbio
+CENPA;504;821;617;Cancer;127;Yes;None;None;None;None;Tbio
+POU4F1;505;519;641;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+MTF2;506;550;611;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+MYSM1;506;731;710;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+SIM2;506;644;862;Cancer;62;Yes;None;Unclear;Anti-Longevity;None;Tbio
+MSX1;509;349;824;Cancer;407;Yes;None;None;None;None;Tbio
+ZIC1;510;331;848;Osteoporosis;407;Yes;None;None;None;None;Tbio
+ESRRB;511;725;737;Cancer;127;Yes;None;Unclear;None;Medium;Tchem
+ZNF619;512;977;206;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZXDA;512;849;614;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;None;Tbio
+CIC;514;100;1087;Cancer;407;Yes;None;None;None;Low;Tbio
+ATOH1;515;718;474;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+POU2F3;516;875;598;Myocardial Infarction;127;Yes;None;Anti-Longevity;None;None;Tbio
+EVX2;517;296;144;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+CTCFL;518;613;584;Cancer;407;Yes;None;None;None;None;Tbio
+FOXK2;519;626;572;Cancer;407;Yes;None;None;None;None;Tbio
+SALL2;520;802;680;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+MYBL1;521;456;748;Cancer;407;Yes;None;None;None;None;Tbio
+KLF17;522;1030;175;Alzheimer Disease;407;No;None;Pro-Longevity;None;None;Tbio
+NME2;523;858;629;Cancer;127;Yes;None;Anti-Longevity;None;Low;Tbio
+THAP1;524;744;468;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZNF236;525;842;375;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+SIX6;526;302;163;Alzheimer Disease;1161;Yes;None;None;None;None;Tbio
+YBX3;526;592;627;Cancer;407;Yes;None;None;None;None;Tbio
+GFI1B;528;285;182;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ARNTL2;529;1070;503;Cancer;62;Yes;Pro-Longevity;Pro-Longevity;None;None;Tbio
+GRHL3;530;563;666;Cancer;407;Yes;None;None;None;None;Tbio
+NKX3-2;531;619;612;Osteoarthritis;407;Yes;None;None;None;Medium to Low;Tbio
+PLSCR1;532;761;751;Osteoarthritis;127;Yes;None;Anti-Longevity;None;None;Tbio
+ZNF436;533;693;540;Cancer;407;Yes;None;None;None;None;Tbio
+EOMES;534;400;836;Cancer;407;Yes;None;None;None;Low;Tbio
+PAX9;534;225;257;Osteoarthritis;1161;No;None;None;None;None;Tbio
+TTF1;534;739;497;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+POU3F4;537;554;689;Cancer;407;Yes;None;None;None;None;Tbio
+SIX5;537;431;812;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+ZBTB4;539;778;469;Benign Prostatic Hyperplasia;407;Yes;None;None;None;Low;Tbio
+ZNF680;540;837;414;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZHX3;541;138;361;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+CREM;542;555;699;Cancer;407;Yes;None;None;None;None;Tbio
+GTF2B;542;578;676;Age-Related Hearing Impairment;407;Yes;None;None;None;Medium to Low;Tbio
+ZBED3;542;933;321;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ISL1;545;295;208;Non-Alcoholic Fatty Liver Disease;1161;No;None;None;None;None;Tbio
+TOPORS;545;741;861;Alzheimer Disease;62;Yes;Pro-Longevity;None;None;None;Tbio
+ETV7;547;853;685;Osteoarthritis;127;Yes;None;Pro-Longevity;None;None;Tbio
+ZNF536;548;421;841;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF714;548;1231;311;Type 2 Diabetes Mellitus;127;Yes;None;None;Anti-Longevity;None;Tdark
+EBF2;550;259;250;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+POU3F2;551;515;750;Cancer;407;Yes;None;None;None;None;Tbio
+L3MBTL1;552;923;343;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tchem
+MXD1;552;846;802;Chronic Obstructive Pulmonary Disease;25;Yes;None;Unclear;Unclear;None;Tbio
+ZNF408;554;681;867;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+PRRX2;555;1045;224;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+LMX1B;556;228;293;Osteoarthritis;1161;Yes;None;None;None;None;Tbio
+FOXK1;557;481;45;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ELF1;558;449;832;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+TEF;559;322;963;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+ZBTB18;560;686;601;Cancer;407;Yes;None;None;None;None;Tbio
+RXRG;561;446;88;Alzheimer Disease;1161;No;None;None;None;High;Tclin
+PRDM6;562;413;877;Ischemic Stroke;407;Yes;None;None;None;None;Tbio
+HOXB7;563;816;755;Cancer;127;Yes;None;None;None;None;Tbio
+SP7;563;649;642;Osteoporosis;407;Yes;None;None;None;Low;Tbio
+RFX7;565;595;697;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF331;566;238;1055;Cancer;407;Yes;None;None;None;None;Tbio
+HOXD9;567;535;760;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+SMAD5;567;840;735;Cancer;127;Yes;None;None;Unclear;None;Tbio
+PAX5;569;79;463;Type 2 Diabetes Mellitus;1161;No;None;None;None;Low;Tbio
+PROX2;569;980;316;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZNF429;571;304;993;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+TBX18;572;426;873;Ischemic Stroke;407;Yes;None;None;None;None;Tbio
+MYT1;573;768;532;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tchem
+SPIB;574;687;619;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+CGGBP1;575;931;656;Type 2 Diabetes Mellitus;127;Yes;None;None;None;None;Tbio
+THAP3;576;826;484;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+BBX;577;324;988;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+EGR4;578;614;701;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+SON;578;488;73;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+FOXL1;580;415;903;Cancer;407;Yes;None;None;None;None;Tbio
+ZFP91;581;898;425;Heart Failure;407;Yes;None;None;None;None;Tbio
+TLX1;582;275;1050;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+ZNF239;583;1042;286;Myocardial Infarction;407;Yes;None;None;None;None;Tbio
+IRX4;584;503;828;Cancer;407;Yes;None;None;None;None;Tbio
+TEAD3;585;707;626;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tbio
+HOXC8;586;516;821;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+LHX5;587;888;451;Chronic Obstructive Pulmonary Disease;407;No;None;Pro-Longevity;None;None;Tbio
+HIVEP1;588;311;1029;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+OTX1;589;653;971;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+CBX2;590;716;630;Cancer;407;Yes;None;None;None;Low;Tchem
+ZNF615;590;1130;216;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+FOXO6;592;594;759;Cancer;407;Yes;None;None;None;None;Tbio
+CREB3L3;593;508;95;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+PLAGL1;594;623;740;Cancer;407;Yes;None;None;None;Low;Tbio
+SOX30;594;537;826;Cancer;407;Yes;None;None;None;None;Tbio
+NR2F6;596;758;607;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+ZFAT;597;223;1143;Type 2 Diabetes Mellitus;407;No;None;Pro-Longevity;None;None;Tbio
+ZBTB7C;598;645;724;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ZBTB40;599;424;193;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF831;600;271;347;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tdark
+SP140;601;522;851;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF280D;602;722;655;Benign Prostatic Hyperplasia;407;Yes;None;None;None;None;Tdark
+ZNF585B;603;1021;359;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+MAF1;604;1177;550;Alzheimer Disease;62;No;Anti-Longevity;Anti-Longevity;Pro-Longevity;None;Tbio
+USF1;605;872;511;Atherosclerosis;407;Yes;None;None;None;None;Tbio
+ZNF813;606;1209;177;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+TRERF1;607;750;637;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+LMX1A;608;306;333;Age-Related Hearing Impairment;1161;No;None;None;None;None;Tbio
+OSR1;609;350;294;Alzheimer Disease;1161;No;None;None;None;Low;Tchem
+ZNF100;609;986;412;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tdark
+TEAD4;611;967;432;Benign Prostatic Hyperplasia;407;Yes;None;None;None;Medium;Tchem
+ZNF503;612;811;593;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+HOXD10;613;635;771;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+PITX1;614;146;508;Type 2 Diabetes Mellitus;1161;Yes;None;None;None;None;Tbio
+HOXB2;615;852;558;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Medium to Low;Tbio
+SOX18;615;464;946;Cancer;407;Yes;None;None;None;None;Tbio
+SOX8;617;607;807;Heart Failure;407;Yes;None;None;None;None;Tbio
+DBP;618;776;639;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Medium to Low;Tbio
+ZXDB;619;1217;479;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;None;Tdark
+GMEB2;620;941;476;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF689;621;1061;638;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+PITX3;622;634;789;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+FOXD1;623;823;606;Cancer;407;Yes;None;None;None;None;Tbio
+PHF19;624;705;727;Cancer;407;Yes;None;None;None;None;Tbio
+CREB3L4;625;542;891;Cancer;407;Yes;None;None;None;None;Tbio
+EGR3;625;751;682;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Medium to Low;Tbio
+NFATC4;625;862;571;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+DMBX1;628;523;157;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+VSX1;629;647;792;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+ZNF230;630;1248;475;Alzheimer Disease;127;Yes;None;None;Pro-Longevity;None;Tbio
+DMRT2;631;444;252;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+TBX20;632;377;320;Myocardial Infarction;1161;No;None;None;None;None;Tbio
+ZNF589;632;1141;590;Type 2 Diabetes Mellitus;127;Yes;None;None;Anti-Longevity;None;Tbio
+TBX15;634;174;524;Cancer;1161;No;None;None;None;None;Tbio
+JDP2;635;788;667;Cancer;407;Yes;None;None;None;None;Tbio
+TBXT;635;334;367;Cancer;1161;No;None;None;None;Low;Tbio
+AEBP2;637;585;871;Myocardial Infarction;407;Yes;None;None;None;None;Tbio
+ZNF114;637;1213;243;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+MNT;639;720;1084;Cancer;62;No;None;Anti-Longevity;Pro-Longevity;None;Tbio
+ZBTB46;640;453;254;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+NRL;641;706;757;Age-Related Macular Degeneration;407;Yes;None;None;None;None;Tbio
+IRX5;642;466;998;Cancer;407;Yes;None;None;None;None;Tbio
+USF2;643;969;778;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+CXXC4;644;498;970;Cancer;407;Yes;None;None;None;Low;Tbio
+GATAD2A;644;507;207;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+TCF20;646;383;335;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZBED6;646;622;1130;Alzheimer Disease;127;Yes;None;Pro-Longevity;None;None;Tbio
+BARX2;648;657;816;Cancer;407;Yes;None;None;None;None;Tbio
+TCF7L1;648;557;916;Cancer;407;Yes;None;None;None;None;Tbio
+ONECUT1;650;430;290;Type 2 Diabetes Mellitus;1161;No;None;None;None;Medium to Low;Tbio
+BATF3;651;666;813;Atherosclerosis;407;Yes;None;None;None;None;Tbio
+RFX4;652;721;1040;Alzheimer Disease;127;Yes;None;Anti-Longevity;None;None;Tbio
+SOX7;653;401;330;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+TBX22;654;565;169;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+KCNIP3;655;934;555;Cancer;407;Yes;None;None;None;None;Tbio
+NKX3-1;655;724;765;Benign Prostatic Hyperplasia;407;Yes;None;None;None;None;Tbio
+NKX6-2;657;790;983;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+SP100;658;775;719;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF628;659;570;172;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+BAZ2B;660;610;888;Cancer;407;Yes;None;None;None;Low;Tchem
+HOXA3;661;773;726;Alzheimer Disease;407;Yes;None;None;None;Medium to Low;Tbio
+ZFP14;661;1005;774;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZFP42;661;527;218;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF646;664;1004;782;Type 2 Diabetes Mellitus;127;Yes;None;None;Anti-Longevity;None;Tdark
+TFAP2C;665;548;959;Cancer;407;Yes;None;None;None;None;Tbio
+BAZ2A;666;793;716;Cancer;407;Yes;None;None;None;Low;Tchem
+IRF9;666;955;554;Cancer;407;Yes;None;None;None;None;Tbio
+NFYA;668;951;564;Cancer;407;Yes;None;None;None;None;Tbio
+SETDB2;669;772;744;Atherosclerosis;407;No;None;Pro-Longevity;None;None;Tbio
+NKX2-1;670;135;628;Cancer;1161;No;None;None;None;None;Tbio
+FOXJ1;671;672;847;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+ZNF708;672;1173;348;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ZNF224;673;1099;703;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+ESRRG;674;323;448;Cancer;1161;Yes;None;None;None;Medium;Tchem
+SOX13;675;906;624;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+NHLH2;676;577;960;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+DZIP1;677;593;945;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+HSF5;678;643;904;Ischemic Stroke;407;No;None;Pro-Longevity;None;None;Tbio
+AHRR;679;600;198;Age-Related Hearing Impairment;1161;No;None;None;None;Low;Tbio
+HOXB4;679;865;687;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Medium to Low;Tbio
+ZNF367;681;745;809;Cancer;407;Yes;None;None;None;None;Tbio
+KLF1;682;301;502;Cancer;1161;No;None;None;None;None;Tbio
+TSHZ1;683;683;876;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+POU3F1;684;627;938;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF692;685;1039;528;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tbio
+OSR2;686;596;977;Benign Prostatic Hyperplasia;407;Yes;None;None;None;None;Tbio
+FOXC2;687;368;452;Cancer;1161;No;None;None;None;Low;Tbio
+BACH1;688;546;282;Cancer;1161;No;None;None;None;None;Tbio
+MSC;688;698;884;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tbio
+NFIL3;690;427;403;Cancer;1161;No;None;None;None;None;Tbio
+CREB3;691;1085;500;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ELF5;692;927;659;Cancer;407;No;None;Unclear;None;Medium to Low;Tbio
+RXRB;693;447;390;Alzheimer Disease;1161;No;None;None;None;High;Tclin
+ZNF341;694;675;164;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+HOXC5;695;660;180;Type 2 Diabetes Mellitus;1161;No;None;None;None;Medium to Low;Tbio
+OVOL2;695;984;610;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+YBX2;695;618;976;Cancer;407;Yes;None;None;None;None;Tbio
+FOXS1;698;981;615;Cancer;407;Yes;None;None;None;None;Tbio
+RFX8;698;713;883;Cancer;407;No;None;Anti-Longevity;None;None;Tdark
+ZNF329;700;813;784;Age-Related Macular Degeneration;407;Yes;None;None;None;None;Tdark
+SRCAP;701;590;1010;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+GPBP1;702;869;733;Cancer;407;Yes;None;None;None;None;Tbio
+HAND2;703;358;491;Cancer;1161;No;None;None;None;None;Tbio
+MAFK;703;864;739;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tbio
+PAX7;705;187;664;Cancer;1161;No;None;None;None;None;Tbio
+ZNF585A;706;1195;695;Parkinson Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+ASH1L;707;336;521;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tbio
+ZNF410;708;1174;718;Type 2 Diabetes Mellitus;127;Yes;None;Pro-Longevity;None;None;Tbio
+RFX1;709;1144;749;Cancer;127;Yes;None;Anti-Longevity;None;None;Tbio
+ETV2;710;1052;562;Myocardial Infarction;407;No;None;Pro-Longevity;None;Medium to Low;Tbio
+HOXC9;711;616;1001;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF32;712;679;187;Myocardial Infarction;1161;No;None;None;None;None;Tbio
+ZSCAN2;712;815;1085;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+INSM1;714;579;1045;Cancer;407;Yes;None;None;None;None;Tbio
+TBX1;715;270;603;Cancer;1161;No;None;None;None;None;Tbio
+ZBTB26;716;1068;561;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ZNF564;717;1187;444;Osteoarthritis;407;No;None;None;Anti-Longevity;None;Tdark
+HOXA7;718;1032;600;Cancer;407;Yes;None;None;None;Low;Tbio
+MXD4;719;918;1088;Cancer;34;Yes;None;Anti-Longevity;Unclear;None;Tbio
+AIRE;720;247;635;Age-Related Macular Degeneration;1161;No;None;None;None;Medium to Low;Tbio
+ZNF569;721;1102;537;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+HOXB3;722;708;932;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+ZNF785;723;1250;391;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+OTP;724;904;738;Type 2 Diabetes Mellitus;407;No;None;Pro-Longevity;None;None;Tbio
+ZBTB24;725;902;741;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+SHOX2;726;411;483;Cancer;1161;No;None;None;None;None;Tbio
+AEBP1;727;598;298;Type 2 Diabetes Mellitus;1161;No;None;None;None;Medium to Low;Tbio
+EEA1;728;990;661;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+DLX4;729;885;772;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+TCFL5;730;759;899;Heart Failure;407;Yes;None;None;None;None;Tbio
+DMRT1;731;416;490;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+CHCHD3;732;697;966;Cancer;407;Yes;None;None;None;None;Tbio
+TFEC;732;654;1009;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+FOXN2;734;611;1068;Cancer;407;Yes;None;None;None;None;Tbio
+NPAS4;735;950;730;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+REPIN1;736;1031;650;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tbio
+TFCP2;737;1131;552;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+NEUROG3;738;748;183;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF366;739;332;1354;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+PRDM14;740;637;297;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF507;740;509;1179;Cancer;407;Yes;None;None;None;None;Tdark
+TBPL2;742;771;920;Type 2 Diabetes Mellitus;407;No;None;Pro-Longevity;None;None;Tbio
+CSRNP3;743;715;978;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tdark
+PRMT3;744;1011;684;Cancer;407;Yes;None;None;None;Low;Tchem
+ZNF469;744;490;1205;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF384;746;373;576;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+IKZF4;747;890;814;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ELF2;748;992;995;Cancer;127;Yes;None;None;Anti-Longevity;Medium to Low;Tbio
+RFX5;749;674;1034;Cancer;407;Yes;None;None;None;None;Tbio
+ZIC5;750;907;803;Cancer;407;Yes;None;None;None;None;Tbio
+CHAMP1;751;729;982;Cancer;407;Yes;None;None;None;None;Tbio
+MAFA;752;921;791;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+HOMEZ;753;746;213;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+PA2G4;753;884;829;Cancer;407;Yes;None;None;None;None;Tbio
+HOXA10;755;425;535;Cancer;1161;No;None;None;None;None;Tbio
+E2F6;756;804;911;Cancer;407;Yes;None;None;None;Medium;Tbio
+HES5;757;1041;675;Cancer;407;Yes;None;None;None;None;Tbio
+ZBTB33;757;1197;799;Cancer;127;Yes;None;None;None;None;Tbio
+ZNF667;759;1210;787;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZFP90;760;828;1172;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZKSCAN3;760;1331;734;Cancer;62;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF335;760;289;677;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tbio
+HMBOX1;763;1040;681;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF276;764;580;388;Cancer;1161;No;None;None;None;None;Tdark
+ZNF300;765;1163;843;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+PAX1;766;189;786;Cancer;1161;No;None;None;None;None;Tbio
+ZNF395;766;910;819;Cancer;407;Yes;None;None;None;None;Tbio
+MAZ;768;1086;645;Cancer;407;Yes;None;None;None;Low;Tbio
+BCL6B;769;822;910;Cancer;407;Yes;None;None;None;None;Tbio
+SCMH1;770;397;582;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tbio
+ZNF385A;771;806;929;Cancer;407;Yes;None;None;None;None;Tbio
+HOXA2;772;764;975;Cancer;407;Yes;None;None;None;None;Tbio
+PRDM2;773;205;781;Cancer;1161;No;None;None;None;None;Tbio
+ZNF281;773;568;418;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF574;773;847;893;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+SAFB;776;863;880;Cancer;407;Yes;None;None;None;None;Tbio
+UBP1;777;752;240;Parkinson Disease;1161;No;None;None;None;None;Tbio
+TMF1;778;682;1065;Cancer;407;Yes;None;None;None;None;Tbio
+BNC1;779;704;1047;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+HOXB6;780;882;875;Alzheimer Disease;407;Yes;None;None;None;Medium to Low;Tbio
+NKRF;781;1364;394;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+HES7;782;435;1325;Cancer;407;Yes;None;None;None;None;Tbio
+NEUROG2;783;903;858;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+ZBTB41;783;1184;577;Age-Related Macular Degeneration;407;No;None;None;Anti-Longevity;None;Tdark
+BATF;785;442;569;Cancer;1161;No;None;None;None;None;Tbio
+ZBTB37;786;818;196;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF24;786;726;1042;Cancer;407;Yes;None;None;None;None;Tbio
+LHX6;788;838;178;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+RAG1;788;254;762;Cancer;1161;No;None;None;None;None;Tbio
+SGSM2;790;850;925;Cancer;407;Yes;None;None;None;None;Tbio
+LHX8;791;642;1137;Cancer;407;Yes;None;None;None;None;Tbio
+HOXB5;792;777;1007;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+HOXC10;793;388;644;Cancer;1161;No;None;None;None;Low;Tbio
+PAX2;794;211;823;Cancer;1161;No;None;None;None;Low;Tbio
+SP5;794;939;1129;Cancer;127;Yes;None;Pro-Longevity;None;None;Tdark
+ZNF44;794;1214;574;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZKSCAN2;797;1008;1061;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF418;798;1352;722;Myocardial Infarction;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF830;799;1147;649;Age-Related Macular Degeneration;407;Yes;None;None;None;None;Tdark
+ZNF717;800;873;1204;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF398;801;887;912;Cancer;407;Yes;None;None;None;None;Tbio
+ZC3H8;802;924;123;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+LIN54;803;496;1307;Cancer;407;Yes;None;None;None;None;Tbio
+HOXD8;804;756;1048;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+MKX;805;691;360;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZBTB9;805;912;139;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF579;807;886;167;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+E2F5;808;983;827;Cancer;407;Yes;None;None;None;Medium;Tbio
+GTF2IRD2;808;673;383;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF711;808;889;1201;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+NHLH1;811;769;1323;Cancer;127;Yes;None;Anti-Longevity;None;Low;Tbio
+ZNF23;812;919;1176;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF485;812;786;275;Myocardial Infarction;1161;No;None;None;None;None;Tdark
+GLMP;814;661;1155;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tdark
+DUX4;815;1150;670;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+ZNF471;816;997;1105;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF704;817;780;1044;Cancer;407;Yes;None;None;None;None;Tdark
+UNCX;818;412;1413;Cancer;407;No;None;None;None;None;Tbio
+HOXA6;819;1016;810;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+ZNF501;820;1252;575;Cancer;407;Yes;None;None;None;Low;Tdark
+TSC22D1;821;1025;804;Cancer;407;Yes;None;None;None;None;Tbio
+ARID5A;822;930;900;Cancer;407;Yes;None;None;None;None;Tbio
+NR0B1;822;402;674;Cancer;1161;No;None;None;None;Low;Tbio
+L3MBTL4;824;845;233;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF821;825;901;934;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+HOXA1;826;517;567;Cancer;1161;No;None;None;None;None;Tbio
+ZNF678;827;929;1196;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+TGIF2;828;1050;797;Cancer;407;No;None;Unclear;None;None;Tbio
+DLX6;829;514;581;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+TBX4;829;216;879;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+SOX3;831;394;702;Ischemic Stroke;1161;No;None;None;None;None;Tbio
+PRDM8;832;800;1051;Cancer;407;Yes;None;None;None;None;Tbio
+RFX2;833;559;1294;Chronic Obstructive Pulmonary Disease;407;No;None;Anti-Longevity;None;None;Tbio
+SIX4;834;1080;783;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+FEZF2;835;762;1102;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF845;835;1118;746;Age-Related Macular Degeneration;407;No;None;None;Anti-Longevity;None;Tdark
+ANKZF1;837;893;219;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+CSRNP1;838;812;1056;Cancer;407;Yes;None;None;None;None;Tbio
+MAFG;838;1048;820;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF878;840;1069;806;Age-Related Macular Degeneration;407;No;None;None;Anti-Longevity;None;Tdark
+EBF3;841;393;729;Cancer;1161;Yes;None;None;None;None;Tbio
+MESP1;841;1254;622;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF146;843;1108;769;Cancer;407;Yes;None;None;None;None;Tbio
+FOXJ2;844;938;940;Cancer;407;Yes;None;None;None;None;Tbio
+MBD3;844;1006;872;Cancer;407;Yes;None;None;None;None;Tbio
+NKX6-3;846;909;223;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+PHOX2B;847;193;941;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+TEAD2;847;1206;962;Cancer;127;Yes;None;None;None;None;Tbio
+DLX1;849;1078;811;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF750;850;894;999;Cancer;407;Yes;None;None;None;None;Tbio
+ATF6B;851;1320;856;Cancer;127;Yes;None;Anti-Longevity;None;Medium to Low;Tbio
+ATOH7;852;420;728;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tbio
+ZNF789;852;560;1342;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF296;854;829;1081;Cancer;407;Yes;None;None;None;None;Tbio
+NANOGP8;855;1200;713;Cancer;407;No;None;Pro-Longevity;None;None;Tdark
+ZNF683;856;1120;795;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+CC2D1A;857;851;313;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF780A;857;963;955;Parkinson Disease;407;No;None;None;Anti-Longevity;None;Tdark
+GLYR1;859;876;1324;Cancer;127;Yes;None;Anti-Longevity;None;None;Tbio
+NEUROD2;860;499;669;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+SALL3;860;839;1083;Cancer;407;Yes;None;None;None;None;Tbio
+ERF;862;462;709;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+LHX3;862;381;790;Cancer;1161;No;None;None;None;None;Tbio
+ZNF140;864;1321;608;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ZNF891;865;1278;652;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+HES6;866;1232;704;Cancer;407;Yes;None;None;None;None;Tbio
+ZBTB48;867;1171;768;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+HEYL;868;765;421;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+BATF2;869;1047;894;Cancer;407;Yes;None;None;None;None;Tbio
+FOXR2;869;860;327;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF184;869;1448;838;Parkinson Disease;62;Yes;None;Pro-Longevity;Anti-Longevity;None;Tbio
+ZNF461;869;1481;460;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+TFDP2;873;468;720;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+POU6F1;874;975;969;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+POU4F2;875;567;632;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tbio
+ALX4;876;267;933;Cancer;1161;No;None;None;None;None;Tbio
+ZNF132;877;1221;1015;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+DR1;878;410;794;Parkinson Disease;1161;No;None;None;None;Medium to Low;Tbio
+TIGD2;879;895;1064;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tdark
+NFYC;880;1142;818;Cancer;407;Yes;None;None;None;None;Tbio
+HOXB13;881;684;529;Cancer;1161;No;None;None;None;None;Tbio
+PRR12;882;561;653;Heart Failure;1161;No;None;None;None;None;Tdark
+PTF1A;883;621;597;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tbio
+ZNF778;883;952;1020;Type 2 Diabetes Mellitus;407;No;None;None;Anti-Longevity;None;Tdark
+FOXN4;885;831;389;Myocardial Infarction;1161;No;None;None;None;None;Tbio
+HOXD3;886;530;691;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+GSC;887;470;752;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+CAMTA2;888;978;1000;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZNF234;888;1266;992;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+AKNA;890;510;715;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF598;891;1211;770;Cancer;407;Yes;None;None;None;None;Tbio
+KLF11;892;572;657;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+RAX2;893;985;247;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tbio
+GTF2IRD2B;894;609;625;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF768;894;1281;707;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF438;896;576;1413;Myocardial Infarction;407;Yes;None;None;None;None;Tdark
+VENTX;897;1383;887;Cancer;127;Yes;None;None;None;None;Tbio
+PRDM12;898;959;1033;Cancer;407;Yes;None;None;None;None;Tbio
+AHDC1;899;646;1347;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ARID3B;900;1088;906;Cancer;407;Yes;None;None;None;None;Tbio
+SP110;900;785;1209;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF492;902;1462;533;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+HOXC11;903;316;927;Cancer;1161;No;None;None;None;None;Tbio
+MYOG;903;690;553;Cancer;1161;No;None;None;None;None;Tbio
+NACC2;905;1237;763;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+NKX2-8;906;1093;909;Cancer;407;Yes;None;None;None;None;Tbio
+PRDM10;906;1081;921;Cancer;407;Yes;None;None;None;None;Tbio
+PRDM13;908;529;723;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tbio
+ZNF326;908;954;1052;Cancer;407;Yes;None;None;None;None;Tbio
+ASCL2;910;857;399;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+SRY;910;564;692;Cancer;1161;No;None;None;None;Low;Tbio
+TIGD1;912;1139;874;Cancer;407;Yes;None;None;None;Low;Tdark
+POU5F2;913;1084;934;Benign Prostatic Hyperplasia;407;No;None;Anti-Longevity;None;None;Tdark
+LHX4;914;809;1210;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF334;915;1202;1104;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF703;915;879;393;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+NPAS1;917;1146;1228;Parkinson Disease;62;Yes;None;Unclear;Anti-Longevity;None;Tbio
+ZNF419;917;1271;758;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF257;919;1018;261;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+CREBZF;920;1191;844;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+DNTTIP1;921;971;1066;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF77;922;1122;162;Myocardial Infarction;1161;No;None;None;None;None;Tbio
+HMGN3;923;1198;852;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+INSM2;923;1007;1043;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tbio
+GMEB1;925;1330;732;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ZNF695;925;1123;939;Cancer;407;Yes;None;None;None;None;Tdark
+MYF5;927;562;747;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF480;927;1419;924;Type 2 Diabetes Mellitus;127;Yes;None;None;Anti-Longevity;None;Tdark
+DACH2;929;962;1103;Cancer;407;Yes;None;None;None;None;Tbio
+NFYB;929;1257;808;Cancer;407;Yes;None;None;None;None;Tbio
+LYL1;931;294;1018;Cancer;1161;No;None;None;None;None;Tbio
+ZNF468;931;1043;1023;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZFX;933;861;455;Osteoarthritis;1161;Yes;None;None;None;None;Tbio
+ZNF248;934;1019;1053;Cancer;407;Yes;None;None;None;None;Tdark
+PRDM4;935;917;1156;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF69;935;1227;846;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ZNF420;937;854;1220;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tbio
+CEBPE;938;341;980;Atherosclerosis;1161;No;None;None;None;None;Tbio
+ZNF10;939;1497;579;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+JRK;940;914;1166;Cancer;407;Yes;None;None;None;None;Tdark
+ZHX1;940;1132;194;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF645;940;841;485;Cancer;1161;No;None;None;None;None;None
+ZNF407;943;760;1322;Cancer;407;Yes;None;None;None;None;Tbio
+TFAP2D;944;569;764;Cancer;1161;No;None;None;None;None;Tbio
+ZNF219;945;835;1253;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+ZFP1;946;968;1122;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF277;946;1066;1024;Cancer;407;Yes;None;None;None;None;Tbio
+GPBP1L1;948;1095;245;Age-Related Hearing Impairment;1161;No;None;None;None;None;Tdark
+SOX12;948;1261;833;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF251;950;1353;745;Type 2 Diabetes Mellitus;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF18;951;891;1211;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+NR6A1;952;1119;985;Cancer;407;Yes;None;None;None;Low;Tbio
+PURB;952;976;1128;Cancer;407;Yes;None;None;None;None;Tbio
+MBD1;954;1121;984;Cancer;407;Yes;None;None;None;None;Tbio
+SPIC;955;753;1356;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+HIC2;956;937;1173;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF467;957;1028;1085;Osteoporosis;407;Yes;None;None;None;None;Tdark
+THAP12;958;1079;1038;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZNF777;958;1113;1004;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ZNF668;960;798;566;Parkinson Disease;1161;No;None;None;None;None;Tbio
+ZNF746;961;970;395;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF35;962;974;1148;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF267;963;1343;1060;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF488;964;1134;990;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF208;965;947;424;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZNF573;966;1022;1106;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+VAX1;967;825;1307;Cancer;407;Yes;None;None;None;None;Tbio
+EN2;968;787;592;Benign Prostatic Hyperplasia;1161;No;None;None;None;Medium to Low;Tbio
+KDM2A;969;608;775;Cancer;1161;No;None;None;None;Low;Tchem
+PRDM15;969;1029;354;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+RBAK;971;1223;1195;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+SOX15;971;1049;1089;Cancer;407;Yes;None;None;None;None;Tbio
+ALX3;973;692;693;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZBTB2;973;1020;1119;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF107;975;1275;1145;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+HMX1;976;964;1181;Cancer;407;Yes;None;None;None;None;Tbio
+SP140L;977;830;1318;Cancer;407;Yes;None;None;None;None;Tdark
+ZFP28;978;960;1469;None;127;Yes;None;None;Anti-Longevity;None;Tbio
+BHLHE22;979;479;917;Cancer;1161;No;None;None;None;None;Tbio
+FOXH1;980;492;907;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tbio
+ZNF654;981;878;522;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZXDC;982;1309;1126;Cancer;127;Yes;None;Pro-Longevity;None;None;Tbio
+HOXD1;983;677;725;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+ZNF16;983;1322;1114;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF699;983;1203;1233;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF112;986;737;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF460;986;1369;1070;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF594;988;1495;952;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF197;989;1196;972;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZIC4;990;303;1116;Cancer;1161;No;None;None;None;Low;Tbio
+ZNF713;991;1112;1063;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+CENPT;992;1009;1167;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZNF319;992;1274;902;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tdark
+ZNF710;994;1035;1142;Myocardial Infarction;407;Yes;None;None;None;None;Tdark
+POU6F2;995;477;947;Cancer;1161;No;None;None;None;None;Tbio
+TLX2;995;932;492;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+ZNF12;997;949;1232;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+TBR1;998;418;1011;Cancer;1161;No;None;None;None;None;Tbio
+ADNP2;999;1110;1079;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+EMX1;1000;1026;1164;Cancer;407;No;None;Pro-Longevity;None;Medium to Low;Tbio
+ETV3;1001;1014;1177;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Medium to Low;Tbio
+CENPS;1002;1222;979;Cancer;407;Yes;None;None;None;None;Tbio
+TFAP2E;1002;1176;1025;Osteoarthritis;407;Yes;None;None;None;None;Tbio
+ZNF397;1004;1382;1101;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+DEAF1;1005;655;796;Cancer;1161;No;None;None;None;None;Tbio
+ZNF787;1005;999;1206;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+LHX1;1007;996;1212;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+IRX6;1008;944;1266;Cancer;407;Yes;None;None;None;None;Tbio
+MYPOP;1009;897;560;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZNF14;1010;995;1217;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF470;1010;1023;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+AHCTF1;1012;1096;1118;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+TBX19;1013;867;1348;Cancer;407;Yes;None;None;None;None;Tbio
+EVX1;1014;868;599;Benign Prostatic Hyperplasia;1161;No;None;None;None;None;Tbio
+MYF6;1014;796;671;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+NOBOX;1014;799;1422;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+ZKSCAN7;1014;1162;1059;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF706;1018;1151;1071;Cancer;407;Yes;None;None;None;None;Tdark
+PCGF6;1019;948;1276;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF560;1020;1317;1188;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+GLIS1;1021;668;805;Cancer;1161;No;None;None;None;None;Tbio
+ZNF627;1022;1117;1111;Myocardial Infarction;407;Yes;None;None;None;None;Tdark
+MBD4;1023;789;686;Cancer;1161;No;None;None;None;Low;Tbio
+ZNF3;1023;1192;1037;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF592;1023;871;604;Heart Failure;1161;No;None;None;None;None;Tbio
+ZNF837;1023;1255;220;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF263;1027;1345;885;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF275;1028;1046;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF22;1029;1027;1213;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF513;1029;844;1396;Cancer;407;Yes;None;None;None;None;Tbio
+DMTF1;1031;1229;1014;Cancer;407;Yes;None;None;None;None;Tbio
+HOXD12;1031;237;1252;Cancer;1161;No;None;None;None;None;Tbio
+ZSCAN21;1033;958;1289;Parkinson Disease;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF804A;1034;317;1178;Alzheimer Disease;1161;No;None;None;None;Low;Tbio
+ONECUT2;1035;630;866;Cancer;1161;No;None;None;None;None;Tbio
+ZNF90;1035;781;1469;None;407;Yes;None;None;None;None;Tbio
+FOXE3;1037;149;1348;Cancer;1161;No;None;None;None;None;Tbio
+ZNF320;1038;1153;1099;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF554;1039;1038;1216;Cancer;407;Yes;None;None;None;None;Tdark
+REXO4;1040;1337;926;Cancer;407;Yes;None;None;None;None;Tbio
+MZF1;1041;817;694;Cancer;1161;No;None;None;None;None;Tbio
+ZNF483;1042;972;1296;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF716;1043;943;573;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZNF493;1044;1082;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZBTB11;1045;993;527;Cancer;1161;No;None;None;None;None;Tbio
+ZNF383;1046;1284;991;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+GLI4;1047;982;1296;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;Medium to Low;Tbio
+ZNF92;1047;1053;471;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF528;1049;1520;1039;Osteoporosis;127;Yes;None;None;Anti-Longevity;None;Tdark
+NKX1-1;1050;1170;356;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZSCAN4;1050;1410;870;Cancer;407;Yes;None;None;None;None;Tbio
+FLYWCH1;1052;1233;1049;Alzheimer Disease;407;Yes;None;None;None;None;Tbio
+ZNF484;1053;1160;1405;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF85;1054;1288;1280;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZBTB10;1055;261;1275;Cancer;1161;No;None;None;None;None;Tbio
+ZNF549;1055;1590;700;Chronic Obstructive Pulmonary Disease;407;No;None;None;Anti-Longevity;None;Tdark
+ZGPAT;1057;723;815;Cancer;1161;No;None;None;None;None;Tbio
+CCDC17;1058;1111;433;Age-Related Hearing Impairment;1161;No;None;None;None;None;Tdark
+HOXD4;1059;803;743;Cancer;1161;No;None;None;None;None;Tbio
+POGK;1060;1013;1288;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZNF568;1060;1060;1241;Cancer;407;No;None;None;Anti-Longevity;Low;Tdark
+ZNF518A;1062;946;1356;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZNF93;1063;1181;1122;Cancer;407;Yes;None;None;None;None;Tbio
+TLX3;1064;335;1215;Cancer;1161;No;None;None;None;None;Tbio
+FEV;1065;474;1077;Cancer;1161;No;None;None;None;None;Tbio
+ZNF618;1066;913;1393;Cancer;407;Yes;None;None;None;None;Tdark
+HAND1;1067;784;777;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ISX;1067;423;1138;Cancer;1161;No;None;None;None;None;Tbio
+ZNF697;1069;1051;1265;Type 2 Diabetes Mellitus;407;Yes;None;None;None;Low;Tdark
+ZNF415;1070;1531;788;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+MYT1L;1071;434;1133;Alzheimer Disease;1161;Yes;None;None;None;Low;Tbio
+OLIG3;1071;617;950;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF135;1071;1569;1032;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+DPF1;1074;987;1337;Cancer;407;Yes;None;None;None;None;Tbio
+GSX2;1075;915;1413;Cancer;407;Yes;None;None;None;None;Tbio
+HMX3;1076;1126;1218;Cancer;407;Yes;None;None;None;None;Tbio
+ZSCAN25;1077;1115;1233;Cancer;407;No;None;None;Anti-Longevity;Low;Tdark
+VAX2;1078;1158;1193;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF540;1078;1361;1270;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+CENPB;1080;700;898;Cancer;1161;No;None;None;None;None;Tbio
+DMRT3;1081;833;767;Cancer;1161;No;None;None;None;None;Tbio
+ZNF442;1082;1477;878;Type 2 Diabetes Mellitus;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF354C;1083;1215;1422;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF350;1084;1431;928;Cancer;407;Yes;None;None;None;None;Tbio
+ZBED5;1085;1135;1225;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+NAIF1;1086;1395;967;Parkinson Disease;407;Yes;None;None;None;None;Tbio
+ZBTB3;1086;1562;800;Cancer;407;Yes;None;None;None;None;Tdark
+ZSCAN10;1088;922;690;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tdark
+NFX1;1089;1446;922;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF182;1089;899;1469;None;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF71;1091;1091;1279;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF43;1092;1374;1278;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF74;1092;1296;1356;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+SNAI3;1094;1241;1134;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+THAP11;1095;1259;1120;Cancer;407;Yes;None;None;None;None;Tbio
+ZFP30;1095;1159;1220;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tdark
+ZNF786;1095;1190;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF83;1095;1559;1100;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF205;1099;1216;1169;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF597;1100;1062;1331;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF155;1101;925;1469;None;407;No;None;None;Unclear;None;Tdark
+HKR1;1102;1193;1202;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF316;1102;926;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF33A;1104;1204;1194;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ISL2;1105;795;850;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF595;1105;1154;1245;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF280C;1107;1010;636;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tdark
+ZNF572;1108;1148;1253;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF160;1109;1367;1035;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tbio
+OLIG1;1110;814;835;Cancer;1161;No;None;None;None;None;Tbio
+ZNF215;1110;1409;994;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF516;1110;500;1149;Cancer;1161;No;None;None;None;None;Tbio
+NFXL1;1113;1097;1307;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF45;1113;935;1469;None;407;Yes;None;None;None;None;Tdark
+BSX;1115;1092;559;Cancer;1161;No;None;None;None;None;Tbio
+THAP9;1116;940;712;Cancer;1161;No;None;None;None;None;Tbio
+ZMAT1;1117;1466;944;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF620;1117;1054;1356;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF611;1119;1269;1422;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+TAL2;1120;480;1180;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZSCAN31;1120;1558;1136;Chronic Obstructive Pulmonary Disease;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF624;1122;1083;1332;Non-Alcoholic Fatty Liver Disease;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF292;1123;471;1191;Cancer;1161;No;None;None;None;None;Tbio
+SOX14;1124;670;997;Cancer;1161;No;None;None;None;None;Tbio
+ZNF180;1124;1168;1253;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF587;1126;1461;1241;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF596;1127;1067;1356;Cancer;407;Yes;None;None;None;None;Tdark
+ALX1;1128;473;1198;Cancer;1161;No;None;None;None;None;Tbio
+ZNF502;1128;1293;1132;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF7;1130;1072;1356;Type 2 Diabetes Mellitus;407;No;None;None;Anti-Longevity;None;Tbio
+ST18;1131;735;942;Cancer;1161;No;None;None;None;None;Tbio
+ZNF660;1132;1436;996;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF696;1133;1012;1422;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF816;1134;1246;1469;None;127;Yes;None;None;Anti-Longevity;Low;Tdark
+ZNF417;1135;1311;1405;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF322;1136;1542;895;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+PREB;1137;1244;1199;Non-Alcoholic Fatty Liver Disease;407;Yes;None;None;None;None;Tbio
+SNAPC5;1137;1137;1306;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+NEUROD6;1139;973;717;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+FOXI1;1140;521;1171;Cancer;1161;No;None;None;None;None;Tbio
+ZSCAN20;1140;1286;1160;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF479;1142;337;1356;Cancer;1161;No;None;None;None;None;Tbio
+ZNF91;1143;1179;1269;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF101;1144;665;1031;Atherosclerosis;1161;No;None;None;None;None;Tdark
+ZBTB47;1145;1199;1253;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZNF674;1146;1377;1079;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+CEBPZ;1147;1057;646;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+BARX1;1148;629;1075;Cancer;1161;No;None;None;None;None;Tbio
+ZNF774;1148;928;776;Atherosclerosis;1161;No;None;None;None;None;Tdark
+ZBED4;1150;991;1469;None;407;No;None;Pro-Longevity;None;None;Tdark
+FOXR1;1151;533;1174;Cancer;1161;No;None;None;None;None;Tbio
+LBX1;1151;877;830;Cancer;1161;No;None;None;None;None;Tbio
+ZNF19;1153;994;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF428;1153;1460;1003;Myocardial Infarction;407;Yes;None;None;None;None;Tdark
+ZSCAN18;1153;1422;1041;Cancer;407;Yes;None;None;None;None;Tdark
+MSANTD1;1156;734;981;Type 2 Diabetes Mellitus;1161;No;None;None;None;Low;Tdark
+PLAGL2;1156;1001;714;Cancer;1161;No;None;None;None;None;Tbio
+ZNF709;1156;1596;1153;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF793;1156;1347;1122;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF432;1160;1333;1422;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+GTF2IRD1;1161;701;1021;Cancer;1161;No;None;None;None;None;Tbio
+MSANTD3;1161;1256;1220;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF28;1161;1287;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+HOXA4;1164;883;840;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;Medium to Low;Tbio
+ZNF433;1164;1519;958;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF266;1166;1314;1165;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tbio
+ZNF676;1167;1059;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+PHF1;1168;1235;495;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF808;1168;1295;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+FBXL19;1170;696;1036;Cancer;1161;No;None;None;None;Low;Tbio
+SNAPC4;1170;452;1280;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF133;1172;1264;1226;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+MTERF2;1173;1393;1098;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF771;1173;1285;1206;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ZNF682;1175;272;1469;None;1161;No;None;None;None;None;Tdark
+ZNF529;1176;1423;1076;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF142;1177;281;1469;None;1161;No;None;None;None;None;Tbio
+ZNF304;1178;1366;1140;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZBTB8A;1179;1390;1117;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF202;1180;1560;949;Atherosclerosis;407;Yes;None;None;None;None;Tbio
+ZNF770;1181;1260;1250;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZNF571;1182;1106;1405;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF644;1182;574;1183;Benign Prostatic Hyperplasia;1161;No;None;None;None;None;Tbio
+ZNF792;1184;1324;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+GCM2;1185;633;1127;Cancer;1161;No;None;None;None;None;Tbio
+BARHL1;1186;1166;595;Ischemic Stroke;1161;No;None;None;None;None;Tbio
+FOXJ3;1187;747;1017;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+CDX1;1188;749;1016;Cancer;1161;No;None;None;None;None;Tbio
+MEIS3;1188;1447;1072;Cancer;407;No;None;Anti-Longevity;None;None;Tbio
+ZBTB21;1190;1234;1286;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF345;1190;1378;1422;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF79;1190;1172;1348;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF425;1193;1334;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF473;1193;1532;1271;Osteoporosis;127;Yes;None;None;Anti-Longevity;None;Tbio
+SOHLH2;1195;493;1277;Cancer;1161;No;None;None;None;None;Tbio
+ZNF443;1195;1335;1469;None;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF214;1197;1476;1332;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF543;1197;1501;1027;Parkinson Disease;407;No;None;None;Anti-Longevity;None;Tdark
+ZFHX2;1199;1344;1185;Cancer;407;No;None;Pro-Longevity;None;None;Tdark
+ZUFSP;1200;1167;609;Cancer;1161;No;None;None;None;None;None
+BHLHA15;1201;892;886;Cancer;1161;No;None;None;None;None;Tbio
+ZNF486;1202;1064;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF382;1203;1349;1187;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF860;1204;1424;1114;Type 2 Diabetes Mellitus;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF583;1205;1597;943;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF223;1206;1356;1469;None;127;Yes;None;None;Pro-Longevity;None;Tdark
+ZNF621;1207;1077;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+NEUROD4;1208;791;1008;Parkinson Disease;1161;No;None;None;None;None;Tbio
+FAM200B;1209;1089;711;Parkinson Disease;1161;No;None;None;None;None;Tdark
+RLF;1209;1263;1291;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF782;1209;1412;1422;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+SNAPC2;1212;1438;363;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZNF514;1213;1308;1253;Chronic Obstructive Pulmonary Disease;407;Yes;None;None;None;None;Tdark
+ZKSCAN4;1214;1489;1356;Cancer;127;Yes;None;None;Anti-Longevity;None;Tbio
+BRF2;1215;1161;651;Cancer;1161;No;None;None;None;None;Tbio
+RAX;1216;663;1152;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF804B;1216;669;1146;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF724;1218;1381;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ATF7;1219;625;1192;Cancer;1161;No;None;None;None;None;Tbio
+ZNF33B;1220;1104;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF605;1221;1387;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF613;1221;1500;1356;Cancer;127;Yes;None;None;Anti-Longevity;Low;Tdark
+FOXI3;1223;905;918;Cancer;1161;No;None;None;None;None;Tbio
+HOXB8;1224;742;1082;Cancer;1161;No;None;None;None;None;Tbio
+ZBTB43;1224;1156;1422;Cancer;407;Yes;None;None;None;None;Tdark
+ZFP62;1224;1502;1356;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF414;1227;1327;1253;Cancer;407;Yes;None;None;None;None;Tdark
+LCOR;1228;766;1062;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF607;1229;1301;1283;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF846;1230;1116;1469;None;407;Yes;None;None;None;None;Tdark
+PEG3;1231;966;868;Cancer;1161;No;None;None;None;None;Tbio
+ZNF235;1232;1400;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+POU4F3;1233;652;1186;Cancer;1161;No;None;None;None;None;Tbio
+ZNF440;1234;1360;1233;Parkinson Disease;407;No;None;None;Anti-Longevity;None;Tdark
+HOXB1;1235;783;1058;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+HSFY2;1236;1127;1469;None;407;No;None;Pro-Longevity;None;None;None
+HSFY1;1237;1128;1469;None;407;No;None;Pro-Longevity;None;None;Tbio
+ZNF506;1238;732;1113;Cancer;1161;No;None;None;None;None;Tdark
+ZNF726;1238;1297;1302;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF775;1240;1180;1422;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF648;1241;380;1469;None;1161;No;None;None;None;None;Tdark
+ZNF283;1242;1416;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+CREBL2;1243;1279;1327;Cancer;407;Yes;None;None;None;Medium to Low;Tbio
+ZFP69B;1243;1591;1295;Cancer;127;Yes;None;None;None;None;Tbio
+ZNF302;1245;1514;1093;Myocardial Infarction;407;Yes;None;None;None;None;Tdark
+PHF21A;1246;450;1405;Cancer;1161;No;None;None;None;None;Tbio
+ZNF658;1246;1420;1469;None;127;Yes;None;None;Anti-Longevity;None;Tbio
+ZNF561;1248;1518;1096;Myocardial Infarction;407;Yes;None;None;None;None;Tdark
+ZNF141;1249;1346;1271;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF362;1250;1276;1342;Cancer;407;Yes;None;None;None;None;Tdark
+SP2;1251;961;905;Cancer;1161;No;None;None;None;None;Tbio
+ZNF260;1252;1152;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF805;1252;1432;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF675;1254;1218;1405;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF519;1255;1157;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF347;1256;1605;1302;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF233;1257;1290;1339;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+DUXA;1258;1238;1392;Cancer;407;No;None;Pro-Longevity;None;None;Tdark
+ZSCAN1;1258;1397;1233;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF587B;1260;1524;1107;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZFP37;1261;1563;1069;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+ZMAT4;1261;659;1219;Alzheimer Disease;1161;No;None;None;None;Low;Tbio
+ZNF530;1263;1620;1296;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZBTB1;1264;543;1342;Cancer;1161;No;None;None;None;None;Tbio
+ZNF26;1265;1564;1356;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+CSRNP2;1266;1506;1135;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF175;1267;1310;1332;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tbio
+FIZ1;1268;1175;1469;None;407;Yes;None;None;None;None;Tdark
+RBPJL;1269;1444;447;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF8;1269;1486;1159;Cancer;407;Yes;None;None;None;None;Tdark
+SOHLH1;1271;639;1253;Cancer;1161;No;None;None;None;None;Tbio
+ZNF131;1271;866;1026;Cancer;1161;No;None;None;None;None;Tbio
+ZNF814;1273;1458;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF567;1274;1463;1467;Alzheimer Disease;127;Yes;None;None;Anti-Longevity;None;Tdark
+CENPX;1275;1236;663;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+ZNF729;1276;1105;798;Age-Related Macular Degeneration;1161;No;None;None;None;None;Tdark
+ZNF609;1277;900;1005;Cancer;1161;No;None;None;None;None;Tbio
+ZNF232;1278;1318;588;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF765;1278;1429;477;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+SCML4;1280;709;1200;Cancer;1161;No;None;None;None;None;Tdark
+ZSCAN23;1281;1608;1337;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF500;1282;1440;1227;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF280A;1283;1473;442;Heart Failure;1161;No;None;None;None;None;Tdark
+ZNF189;1284;1488;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF273;1285;1342;1342;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF718;1286;1455;1233;Type 2 Diabetes Mellitus;407;Yes;None;None;None;None;Tdark
+ZNF578;1287;1556;1413;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF211;1288;1363;1327;Cancer;407;No;None;None;Anti-Longevity;Low;Tdark
+ZNF749;1289;1503;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+SKOR2;1290;584;1356;Cancer;1161;No;None;None;None;Low;Tbio
+ZNF606;1290;1505;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+HES2;1292;1428;1268;Cancer;407;Yes;None;None;None;None;Tdark
+THAP4;1293;1228;1469;None;407;Yes;None;None;None;None;Tbio
+DRAP1;1294;1541;1157;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF274;1294;1485;1213;Cancer;407;Yes;None;None;None;None;Tbio
+ZBTB12;1296;1592;1107;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF441;1297;1513;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+AKAP8;1298;1100;849;Cancer;1161;No;None;None;None;None;Tbio
+ZNF772;1299;1239;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF454;1300;1392;1317;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF681;1300;1240;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF134;1302;1552;1158;Osteoarthritis;407;Yes;None;None;None;Low;Tdark
+MTERF1;1303;832;1125;Cancer;1161;No;None;None;None;None;Tbio
+SHOX;1304;763;1196;Osteoarthritis;1161;No;None;None;None;None;Tbio
+ZNF791;1305;1525;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+FAM170A;1306;540;1422;Cancer;1161;No;None;None;None;None;Tdark
+MEF2B;1307;870;1095;Cancer;1161;No;None;None;None;None;Tbio
+ZSCAN12;1308;1602;1404;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF2;1309;1372;1356;Heart Failure;407;Yes;None;None;None;None;Tbio
+ZNF512B;1310;945;1030;Parkinson Disease;1161;No;None;None;None;None;Tbio
+ZNF37A;1311;880;1097;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF497;1312;1573;1160;Type 2 Diabetes Mellitus;407;No;None;None;Anti-Longevity;None;Tdark
+ZBTB42;1313;727;1253;Cancer;1161;No;None;None;None;None;Tbio
+ZNF691;1314;1267;1469;None;407;Yes;None;None;None;None;Tdark
+EBF4;1315;1508;1230;Cancer;407;Yes;None;None;None;None;Tbio
+NKX2-4;1316;1034;951;Osteoarthritis;1161;No;None;None;None;None;Tdark
+TIGD7;1316;1499;1240;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZNF852;1316;1270;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF280B;1319;1474;1266;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF853;1320;1272;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF623;1321;1443;1302;Cancer;407;Yes;None;None;None;None;Tdark
+ZZZ3;1322;525;1469;None;1161;No;None;None;None;None;Tbio
+ZBTB39;1323;1280;1469;None;407;Yes;None;None;None;None;Tdark
+RHOXF1;1324;827;1170;Cancer;1161;No;None;None;None;None;Tbio
+ZNF600;1324;1282;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF154;1326;1302;696;Cancer;1161;No;None;None;None;None;Tbio
+ZNF823;1326;1283;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF630;1328;1613;1422;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF841;1329;1567;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF541;1330;581;1422;Cancer;1161;No;None;None;None;None;Tdark
+LEUTX;1331;1439;1319;Cancer;407;No;None;Pro-Longevity;None;None;Tdark
+ZNF391;1332;1617;1422;Parkinson Disease;127;Yes;None;Pro-Longevity;None;None;Tdark
+ZNF511;1333;1404;1356;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF671;1333;1328;678;Cancer;1161;No;None;None;None;None;Tbio
+DPRX;1335;1292;1469;None;407;No;None;Pro-Longevity;None;None;Tdark
+ZNF546;1336;1622;1422;Cancer;127;Yes;None;None;Anti-Longevity;None;Tdark
+JRKL;1337;1169;845;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+HOXC12;1338;874;1141;Cancer;1161;No;None;None;None;Low;Tbio
+ZNF730;1338;1300;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF264;1340;1483;1287;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF282;1340;1003;1013;Cancer;1161;No;None;None;None;None;Tdark
+ZNF221;1342;1582;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF195;1343;1472;1300;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF324B;1343;1350;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF81;1345;1417;1356;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+HMG20B;1346;1107;914;Cancer;1161;No;None;None;None;None;Tbio
+LBX2;1347;1188;834;Cancer;1161;No;None;None;None;None;Tbio
+ZNF136;1347;1307;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF124;1349;1359;1422;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF431;1350;1315;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF75D;1351;1540;1245;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF551;1352;1599;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF783;1352;1319;1469;None;407;Yes;None;None;None;None;Tdark
+ZBTB14;1354;1017;1019;Non-Alcoholic Fatty Liver Disease;1161;No;None;None;None;None;Tbio
+BHLHA9;1355;688;1356;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF836;1356;1614;1469;None;127;Yes;None;None;Anti-Longevity;None;Tdark
+ZNF99;1357;1384;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZFY;1358;979;1074;Cancer;1161;No;None;None;None;None;Tdark
+ZNF385C;1358;1385;1422;Cancer;407;Yes;None;None;None;None;Tdark
+ATMIN;1360;1000;1054;Cancer;1161;No;None;None;None;None;Tbio
+MIXL1;1361;1194;864;Benign Prostatic Hyperplasia;1161;No;None;None;None;None;Tbio
+THAP10;1361;1124;934;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tdark
+ZNF70;1363;1391;1422;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF525;1364;1546;1271;Cancer;407;Yes;None;None;None;None;Tdark
+ZIK1;1365;1504;1316;Cancer;407;Yes;None;None;None;None;Tbio
+TPRX1;1366;1465;1356;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+HELT;1367;1230;839;Cancer;1161;No;None;None;None;None;Tbio
+ZFP3;1367;1401;1422;Heart Failure;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF287;1367;1467;1356;Chronic Obstructive Pulmonary Disease;407;No;None;None;Anti-Longevity;None;Tdark
+ARGFX;1370;1357;1469;None;407;No;None;Pro-Longevity;None;None;Tdark
+TIGD3;1371;1405;1422;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF253;1372;1145;930;Cancer;1161;No;None;None;None;None;Tdark
+ZBTB8B;1373;1578;1253;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF727;1373;1220;857;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZNF250;1375;1589;1245;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ASCL3;1376;1289;793;Cancer;1161;No;None;None;None;None;Tbio
+ZNF662;1377;1368;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF616;1378;1370;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+TERB1;1379;754;1332;Cancer;1161;No;None;None;None;None;Tdark
+ZNF829;1380;1373;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZBED2;1381;1539;1305;Cancer;407;Yes;None;None;None;None;Tdark
+ZNF117;1381;1125;965;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF449;1381;1454;1390;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+YY2;1384;1291;801;Osteoporosis;1161;No;None;None;None;None;Tbio
+ZNF346;1385;1129;964;Cancer;1161;No;None;None;None;None;Tbio
+ZNF761;1386;1492;1356;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF850;1387;1493;1356;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+DBX1;1388;956;1144;Cancer;1161;No;None;None;None;None;Tbio
+FERD3L;1389;824;1280;Cancer;1161;No;None;None;None;None;Tbio
+MESP2;1390;801;1307;Cancer;1161;No;None;None;None;None;Tbio
+DBX2;1391;1212;901;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+SEBOX;1392;1399;1469;None;407;No;None;Pro-Longevity;None;None;Tbio
+TGIF2LX;1392;1594;1274;Cancer;407;No;None;Unclear;None;None;Tbio
+HES3;1394;1299;822;Cancer;1161;No;None;None;None;None;Tbio
+ZNF584;1394;1406;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF517;1396;1408;1469;None;407;Yes;None;None;None;None;Tdark
+CCDC169-SOHLH2;1397;656;1469;None;1161;No;None;None;None;None;None
+ZNF226;1398;1411;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF665;1399;1413;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF17;1400;1528;1356;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF570;1400;1415;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZSCAN16;1402;1464;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tbio
+MBD6;1403;988;1146;Cancer;1161;No;None;None;None;None;Tbio
+ZNF701;1404;1421;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF766;1405;1425;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF474;1406;1426;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF177;1407;1575;1321;Cancer;407;Yes;None;None;None;None;Tbio
+ZNF747;1407;1427;1469;None;407;Yes;None;None;None;None;Tdark
+ZBTB34;1409;1076;1073;Cancer;1161;No;None;None;None;None;Tdark
+ZNF563;1409;1434;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF324;1411;1491;1413;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF121;1412;1487;1420;Cancer;407;Yes;None;None;None;None;Tdark
+NKX2-6;1413;736;1420;Cancer;1161;No;None;None;None;None;Tbio
+ZFP2;1413;1441;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF582;1415;1207;954;Cancer;1161;No;None;None;None;None;Tbio
+ZFP57;1416;1071;1091;Cancer;1161;No;None;None;None;None;Tbio
+ZNF404;1417;1450;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF835;1417;1517;1402;Alzheimer Disease;407;No;None;None;Anti-Longevity;None;Tdark
+SAFB2;1419;1037;1131;Cancer;1161;No;None;None;None;None;Tbio
+ZNF527;1419;1453;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF518B;1421;1056;1121;Cancer;1161;No;None;None;None;None;Tdark
+ZKSCAN5;1422;836;1348;Cancer;1161;No;None;None;None;None;Tbio
+ZNF773;1422;1469;1469;None;407;Yes;None;None;None;None;Tdark
+HSFX1;1424;1585;1356;Cancer;407;No;None;Pro-Longevity;None;None;Tbio
+HSFX2;1425;1587;1356;Cancer;407;No;None;Pro-Longevity;None;None;None
+ZNF534;1425;1530;1413;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZBTB5;1427;1522;1422;Cancer;407;Yes;None;None;None;None;Tbio
+ZSCAN5;1428;942;1253;Cancer;1161;No;None;None;None;None;None
+ZNF510;1429;1482;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF707;1429;1609;1342;Cancer;407;Yes;None;None;None;None;Tdark
+OVOL3;1431;1535;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF311;1432;1568;1405;Cancer;407;Yes;None;None;None;None;Tdark
+USF3;1433;1109;1112;Osteoporosis;1161;No;None;None;None;None;Tdark
+ZNF66;1433;1579;1396;Alzheimer Disease;407;Yes;None;None;None;None;Tdark
+ZNF426;1435;1507;1469;None;407;Yes;None;None;None;None;Tbio
+DMRTC2;1436;757;1469;None;1161;No;None;None;None;None;Tdark
+GZF1;1436;936;1290;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF30;1438;1516;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZKSCAN8;1439;1527;1469;None;407;No;None;None;Anti-Longevity;None;Tbio
+ZNF677;1440;1294;956;Cancer;1161;No;None;None;None;None;Tbio
+ZNF670;1441;1537;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF610;1442;1543;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF526;1443;792;1469;None;1161;No;None;None;None;None;Tdark
+MTERF4;1444;1074;1189;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF576;1444;1548;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF20;1446;1549;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF157;1447;1551;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+GBX1;1448;855;1413;Alzheimer Disease;1161;No;None;None;None;Medium to Low;Tbio
+ZNF790;1448;1553;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF138;1450;1603;1422;Cancer;407;Yes;None;None;None;None;Tdark
+ASCL4;1451;1133;1139;Heart Failure;1161;No;None;None;None;None;Tdark
+ZNF655;1451;1182;1090;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+TGIF2LY;1453;1561;1469;None;407;No;None;Unclear;None;None;Tdark
+ZNF532;1453;881;1395;Cancer;1161;No;None;None;None;None;Tdark
+ZNF883;1455;1566;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+MTERF3;1456;1312;973;Cancer;1161;No;None;None;None;None;Tbio
+ZNF880;1457;1547;742;Cancer;1161;No;None;None;None;None;Tdark
+ZNF575;1458;1185;1107;Cancer;1161;No;None;None;None;None;Tdark
+ZNF780B;1459;1625;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+NEUROG1;1460;1249;1046;Cancer;1161;No;None;None;None;None;Tbio
+ZNF544;1461;1581;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF614;1462;1630;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF284;1463;1632;1422;Cancer;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF254;1464;953;1356;Cancer;1161;No;None;None;None;None;Tdark
+TBX10;1465;843;1469;None;1161;No;None;None;None;None;Tbio
+ZSCAN5B;1466;1024;1291;Cancer;1161;No;None;None;None;None;Tdark
+ZNF586;1467;1606;1469;None;407;Yes;None;None;None;None;Tdark
+ZNF256;1468;1610;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF430;1469;1611;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF552;1470;1615;1469;None;407;Yes;None;None;None;None;Tdark
+TFDP3;1471;1470;863;Cancer;1161;No;None;None;None;None;Tbio
+ZSCAN22;1471;1618;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+ZNF225;1473;1619;1469;None;407;No;None;None;Anti-Longevity;None;Tdark
+SCRT1;1474;1348;987;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+FIGLA;1475;916;1422;Cancer;1161;No;None;None;None;None;Tbio
+E4F1;1476;1313;1028;Cancer;1161;No;None;None;None;Medium to Low;Tbio
+ZNF672;1476;1626;1469;None;407;Yes;None;None;None;None;Tdark
+ONECUT3;1478;1251;1094;Cancer;1161;No;None;None;None;None;Tbio
+RHOXF2;1479;1386;961;Cancer;1161;No;None;None;None;None;Tbio
+ZNF34;1480;1033;1320;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZBTB32;1481;1055;1301;Cancer;1161;No;None;None;None;None;Tbio
+ZBED1;1482;1355;1002;Cancer;1161;No;None;None;None;None;Tbio
+ZFP82;1482;1189;1168;Cancer;1161;No;None;None;None;None;Tbio
+ZFP41;1484;1073;1291;Cancer;1161;No;None;None;None;None;Tdark
+WIZ;1485;1058;1307;Atherosclerosis;1161;No;None;None;None;Low;Tchem
+ZNF165;1486;1490;889;Cancer;1161;No;None;None;None;Low;Tbio
+TCF15;1487;1087;1296;Atherosclerosis;1161;No;None;None;None;None;Tbio
+ZNF490;1487;1044;1339;Cancer;1161;No;None;None;None;None;Tdark
+ZNF557;1489;1380;1006;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZBTB25;1490;920;1469;None;1161;No;None;None;None;None;Tbio
+ZNF451;1491;1247;1151;Cancer;1161;No;None;None;None;None;Tbio
+HMX2;1492;1183;1224;Cancer;1161;No;None;None;None;None;Tbio
+ZNF687;1492;1245;1162;Cancer;1161;No;None;None;None;None;Tbio
+IKZF5;1494;1063;1356;Cancer;1161;No;None;None;None;None;Tbio
+ZNF487;1495;1065;1356;Cancer;1161;No;None;None;None;None;Tdark
+FOXD4;1496;1433;989;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tbio
+ZNF547;1497;1479;948;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tdark
+FOXB2;1498;1418;1012;Cancer;1161;No;None;None;None;None;Tdark
+ZBTB6;1499;1496;937;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+GSX1;1500;1098;1339;Cancer;1161;No;None;None;None;None;Tbio
+GCM1;1501;1332;1110;Cancer;1161;No;None;None;None;None;Tbio
+RBSN;1502;1379;1067;Cancer;1161;No;None;None;None;None;Tbio
+FOXB1;1503;1225;1229;Cancer;1161;No;None;None;None;None;Tbio
+TIGD5;1504;1103;1356;Cancer;1161;No;None;None;None;None;Tdark
+ZBTB49;1504;1536;923;Cancer;1161;No;None;None;None;None;Tdark
+ZNF80;1506;998;1469;None;1161;No;None;None;None;None;Tdark
+ZFP92;1507;1002;1469;None;1161;No;None;None;None;None;Tdark
+DMRTB1;1508;1015;1469;None;1161;No;None;None;None;None;Tdark
+ZBTB44;1509;1323;1182;Cancer;1161;No;None;None;None;None;Tdark
+FOXI2;1510;1253;1253;Cancer;1161;No;None;None;None;None;Tbio
+ZNF213;1511;1375;1150;Cancer;1161;No;None;None;None;None;Tbio
+THYN1;1512;1351;1175;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+SCX;1513;1325;1203;Cancer;1161;No;None;None;None;None;Tbio
+ZFP69;1513;1471;1057;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+C11orf95;1515;1305;1230;Cancer;1161;No;None;None;None;None;Tbio
+ZBTB45;1516;1316;1220;Cancer;1161;No;None;None;None;None;Tdark
+ZNF496;1517;1136;1405;Cancer;1161;No;None;None;None;None;Tbio
+MYRFL;1518;1075;1469;None;1161;No;None;None;None;None;Tdark
+MSANTD4;1519;1303;1243;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZIM2;1519;1219;1327;Cancer;1161;No;None;None;None;None;Tbio
+ETV3L;1521;1201;1356;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF735;1521;1600;957;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZNF580;1523;1371;1189;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tbio
+TIGD6;1524;1140;1422;Cancer;1161;No;None;None;None;None;Tdark
+MSGN1;1525;1094;1469;None;1161;No;None;None;None;None;Tbio
+ZNF445;1526;1143;1422;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+NOTO;1527;1262;1307;Osteoporosis;1161;No;None;None;None;None;Tdark
+ZBTB22;1528;1478;1092;Cancer;1161;No;None;None;None;Low;Tbio
+ZNF626;1528;1101;1469;None;1161;No;None;None;None;None;Tdark
+ZNF639;1530;1329;1244;Cancer;1161;No;None;None;None;None;Tbio
+ZSCAN5C;1531;1114;1469;None;1161;No;None;None;None;None;Tdark
+ZNF354A;1532;1165;1422;Cancer;1161;No;None;None;None;None;Tbio
+KCMF1;1533;1512;1078;Cancer;1161;No;None;None;None;None;Tbio
+ANHX;1534;1358;1233;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF446;1535;1273;1332;Osteoporosis;1161;No;None;None;None;None;Tdark
+ZNF174;1536;1138;1469;None;1161;No;None;None;None;None;Tbio
+ZNF865;1537;1607;1022;Parkinson Disease;1161;No;None;None;None;None;Tdark
+ZNF333;1538;1164;1469;None;1161;No;None;None;None;None;Tdark
+ZNF577;1539;1402;1239;Cancer;1161;No;None;None;None;None;Tdark
+TCF23;1540;1178;1469;None;1161;No;None;None;None;None;Tbio
+ZNF358;1541;1186;1469;None;1161;No;None;None;None;None;Tdark
+ZNF75A;1542;1339;1326;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ESX1;1543;1388;1285;Cancer;1161;No;None;None;None;None;Tbio
+BHLHE23;1544;1511;1163;Cancer;1161;No;None;None;None;None;Tdark
+HDX;1544;1205;1469;None;1161;No;None;None;None;None;Tbio
+ZNF728;1546;1208;1469;None;1161;No;None;None;None;None;Tdark
+NANOGNB;1547;1435;1245;Cancer;1161;No;None;None;None;None;Tdark
+THAP5;1548;1277;1405;Myocardial Infarction;1161;No;None;None;None;None;Tdark
+FOXD4L4;1549;1442;1245;Cancer;1161;No;None;None;None;None;Tdark
+TIGD4;1550;1224;1469;None;1161;No;None;None;None;None;Tdark
+ZNF212;1551;1226;1469;None;1161;No;None;None;None;None;Tdark
+ZNF25;1552;1306;1394;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF416;1553;1452;1251;Cancer;1161;No;None;None;None;None;Tdark
+ZNF888;1554;1242;1469;None;1161;No;None;None;None;None;Tdark
+ZNF684;1555;1243;1469;None;1161;No;None;None;None;None;Tdark
+ZNF732;1556;1304;1422;Cancer;1161;No;None;None;None;None;Tdark
+ZSCAN29;1557;1258;1469;None;1161;No;None;None;None;None;Tdark
+ZNF736;1558;1265;1469;None;1161;No;None;None;None;None;Tdark
+ZNF740;1559;1340;1396;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+ZNF396;1560;1268;1469;None;1161;No;None;None;None;None;Tbio
+ARID3C;1561;1396;1355;Cancer;1161;No;None;None;None;None;Tdark
+ZNF200;1561;1598;1153;Cancer;1161;No;None;None;None;None;Tdark
+ZNF843;1563;1398;1356;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF737;1564;1338;1422;Cancer;1161;No;None;None;None;None;Tdark
+DRGX;1565;1298;1469;None;1161;No;None;None;None;None;Tbio
+ZNF721;1566;1430;1348;Cancer;1161;No;None;None;None;None;Tdark
+CPXCR1;1567;1574;1206;Cancer;1161;No;None;None;None;None;Tdark
+ZNF764;1568;1326;1469;None;1161;No;None;None;None;None;Tdark
+ZNF705A;1569;1376;1422;Cancer;1161;No;None;None;None;None;Tdark
+ZNF625;1570;1616;1184;Cancer;1161;No;None;None;None;None;Tdark
+THAP6;1571;1336;1469;None;1161;No;None;None;None;None;Tdark
+ZNF439;1571;1403;1402;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF98;1573;1341;1469;None;1161;No;None;None;None;None;Tdark
+ZNF688;1574;1354;1469;None;1161;No;None;None;None;None;Tdark
+FOXD4L5;1575;1407;1422;Cancer;1161;No;None;None;None;None;Tdark
+ZNF491;1576;1362;1469;None;1161;No;None;None;None;None;Tdark
+ZNF48;1577;1365;1469;None;1161;No;None;None;None;None;Tdark
+NFE4;1578;1595;1253;Cancer;1161;No;None;None;None;None;Tbio
+FOXD4L6;1579;1457;1396;Cancer;1161;No;None;None;None;None;Tdark
+THAP7;1579;1538;1315;Cancer;1161;No;None;None;None;None;Tbio
+AC092835.1;1581;1389;1469;None;1161;No;None;None;None;None;None
+ZNF444;1582;1394;1469;None;1161;No;None;None;None;None;Tdark
+ZNF653;1583;1593;1283;Alzheimer Disease;1161;No;None;None;None;None;Tbio
+FOXD4L1;1584;1550;1327;Cancer;1161;No;None;None;None;None;Tdark
+ZNF599;1585;1459;1422;Cancer;1161;No;None;None;None;None;Tdark
+ZNF394;1586;1414;1469;None;1161;No;None;None;None;None;Tdark
+ZNF57;1587;1586;1307;Cancer;1161;No;None;None;None;None;Tdark
+TCF24;1588;1588;1307;Cancer;1161;No;None;None;None;None;Tdark
+ASCL5;1589;1484;1422;Cancer;1161;No;None;None;None;None;Tdark
+ZNF784;1589;1437;1469;None;1161;No;None;None;None;None;Tdark
+CDX4;1591;1445;1469;None;1161;No;None;None;None;None;Tbio
+ZNF558;1592;1521;1396;Cancer;1161;No;None;None;None;None;Tdark
+ZNF844;1593;1449;1469;None;1161;No;None;None;None;None;Tdark
+ZNF524;1594;1451;1469;None;1161;No;None;None;None;None;Tdark
+ZSCAN30;1595;1456;1469;None;1161;No;None;None;None;None;Tdark
+FOXD4L3;1596;1570;1356;Chronic Obstructive Pulmonary Disease;1161;No;None;None;None;None;Tdark
+THAP2;1597;1509;1422;Cancer;1161;No;None;None;None;None;Tbio
+ZNF556;1598;1584;1348;Cancer;1161;No;None;None;None;None;Tdark
+ZNF562;1599;1580;1356;Cancer;1161;No;None;None;None;None;Tdark
+ZNF41;1600;1468;1469;None;1161;No;None;None;None;None;Tbio
+ZNF548;1601;1475;1469;None;1161;No;None;None;None;None;Tdark
+ZBED9;1602;1554;1391;Cancer;1161;No;None;None;None;None;Tbio
+ZNF559;1603;1480;1469;None;1161;No;None;None;None;None;Tdark
+ZNF555;1604;1555;1396;Cancer;1161;No;None;None;None;None;Tdark
+ZNF565;1605;1533;1422;Cancer;1161;No;None;None;None;Low;Tdark
+ZSCAN26;1606;1604;1356;Type 2 Diabetes Mellitus;1161;No;None;None;None;None;Tdark
+ZNF776;1607;1494;1468;Alzheimer Disease;1161;No;None;None;None;None;Tdark
+ZNF343;1608;1498;1469;None;1161;No;None;None;None;None;Tdark
+ZSCAN9;1609;1621;1356;Cancer;1161;No;None;None;None;None;Tdark
+ZNF679;1610;1510;1469;None;1161;No;None;None;None;None;Tdark
+ZNF581;1611;1515;1469;None;1161;No;None;None;None;None;Tdark
+ZNF317;1612;1629;1356;Cancer;1161;No;None;None;None;None;Tdark
+GSC2;1613;1523;1469;None;1161;No;None;None;None;None;Tbio
+ZNF781;1614;1572;1422;Cancer;1161;No;None;None;None;None;Tdark
+RHOXF2B;1615;1526;1469;None;1161;No;None;None;None;None;Tdark
+ZSCAN32;1616;1529;1469;None;1161;No;None;None;None;None;Tdark
+SCRT2;1617;1534;1469;None;1161;No;None;None;None;None;Tdark
+ZNF669;1618;1544;1469;None;1161;No;None;None;None;None;Tdark
+NKX1-2;1619;1545;1469;None;1161;No;None;None;None;None;Tdark
+ZNF566;1620;1557;1469;None;1161;No;None;None;None;None;Tdark
+THAP8;1621;1565;1469;None;1161;No;None;None;None;None;Tdark
+ZNF649;1621;1612;1422;Cancer;1161;No;None;None;None;None;Tdark
+ZNF222;1623;1571;1469;None;1161;No;None;None;None;None;Tdark
+ZNF550;1624;1576;1469;None;1161;No;None;None;None;None;Tdark
+ZIM3;1625;1577;1469;None;1161;No;None;None;None;None;Tdark
+ZNF354B;1626;1583;1469;None;1161;No;None;None;None;None;Tdark
+ZNF705D;1627;1631;1422;Cancer;1161;No;None;None;None;None;Tdark
+ZNF705B;1628;1601;1469;None;1161;No;None;None;None;None;Tdark
+ZNF788;1629;1623;1469;None;1161;No;None;None;None;None;None
+ZNF286A;1630;1624;1469;None;1161;No;None;None;None;None;Tdark
+CENPBD1;1631;1627;1469;None;1161;No;None;None;None;None;Tdark
+ZNF181;1632;1628;1469;None;1161;No;None;None;None;None;Tdark
+ZNF879;1633;1633;1469;None;1161;No;None;None;None;None;Tdark
+AC008770.3;1634;1634;1469;None;1161;No;None;None;None;None;None
+AC023509.3;1634;1634;1469;None;1161;No;None;None;None;None;None
+AC138696.1;1634;1634;1469;None;1161;No;None;None;None;None;None
+BORCS8-MEF2B;1634;1634;1469;None;1161;No;None;None;None;None;None
+DUX1_HUMAN;1634;1634;1469;None;1161;No;None;None;None;None;None
+DUX3_HUMAN;1634;1634;1469;None;1161;No;None;None;None;None;None
+ZNF286B;1634;1634;1469;None;1161;No;None;None;None;None;Tdark
+ZNF705E;1634;1634;1469;None;1161;No;None;None;None;None;Tdark
+ZNF705G;1634;1634;1469;None;1161;No;None;None;None;None;Tdark
