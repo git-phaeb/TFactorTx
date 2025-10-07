@@ -41,7 +41,7 @@ export function NavigationBar() {
           </div>
           {/* Right: Last Updated + Beta Badge + Mobile Notice + Contact */}
           <div className="flex items-center gap-4">
-            <div className="text-sm text-gray-600">Last Updated: 07.10.2025</div>
+            <div className="text-sm text-gray-600">Last Updated: October 10, 2025</div>
             <div className="flex items-center gap-2">
               <div className="text-xs text-gray-500">
                 Not Optimized for Mobile

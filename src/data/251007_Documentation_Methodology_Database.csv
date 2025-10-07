@@ -1,0 +1,13 @@
+﻿Element;Data Source;Description
+Gene Name;HGNC;Transcription factor gene name. Click entry to view detailed information in the TF card.
+Overall Rank;"All ""Target-Disease Module"" and ""Target-Aging Module"" data sources";Overall rank based on disease associations and aging data. Lower is better.
+All Diseases Rank;Open Targets;Rank based on the sum of Open Targets disease association scores across all diseases linked to this transcription factor.
+ARDs Rank;Open Targets;Rank based on the sum of Open Targets disease association scores across selected age-related diseases (ARDs) linked to this transcription factor.
+Strongest Linked ARD;Open Targets;Age-related disease with highest Open Targets assocation score for this transcription factor.
+Aging Rank;"All ""Target-Aging Module"" data sources";Rank based on number of aging database entries across all species.
+Human Link Y/N;"All ""Target-Aging Module"" data sources";Indicates if any evidence linking this transcription factor to human aging is available across checked databases.
+M. musculus Link;PMID 35343830, HAGR, Open Genes;Overall conclusion about the influence of this transcription factor on mouse aging, based on evidence across checked databases.
+C. elegans Link;PMID 35343830, HAGR, Open Genes;Overall conclusion about the influence of this transcription factor on worm aging, based on evidence across checked databases.
+D. melanogaster Link;PMID 35343830, HAGR, Open Genes;Overall conclusion about the influence of this transcription factor on fly aging, based on evidence across checked databases.
+Development Level;"All ""Target-Development Module"" data sources";Overall development level of targeting this transcription factor with drugs, based on evidence across checked databases.
+Pharos TDL;Pharos;Target development level (TDL) according to Pharos database.

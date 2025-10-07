@@ -1,0 +1,17 @@
+﻿Data Source;Category;Link;Citation
+TFClass;Classification;http://tfclass.bioinf.med.uni-goettingen.de/;https://pubmed.ncbi.nlm.nih.gov/29087517/
+Ensembl;External Database IDs;https://useast.ensembl.org/;https://pubmed.ncbi.nlm.nih.gov/39656687/
+HGNC;External Database IDs;https://www.genenames.org/;https://pubmed.ncbi.nlm.nih.gov/36243972/
+NCBI;External Database IDs;https://www.ncbi.nlm.nih.gov/;https://pubmed.ncbi.nlm.nih.gov/39526373/
+UniProt;External Database IDs;https://www.uniprot.org/;https://pubmed.ncbi.nlm.nih.gov/39552041/
+JASPAR;External Database IDs;https://jaspar.elixir.no/;https://pubmed.ncbi.nlm.nih.gov/37962376/
+Open Targets;Target-Disease Module;https://www.opentargets.org/;https://pubmed.ncbi.nlm.nih.gov/39657122/
+PMID 35343830;Target-Aging Module;https://pubmed.ncbi.nlm.nih.gov/35343830/;https://pubmed.ncbi.nlm.nih.gov/35343830/
+HAGR;Target-Aging Module;https://genomics.senescence.info/;https://pubmed.ncbi.nlm.nih.gov/37933854/
+Open Genes;Target-Aging Module;https://open-genes.com/;https://pubmed.ncbi.nlm.nih.gov/37665017/
+AgingReG;Target-Aging Module;https://bio.liclab.net/Aging-ReG/;https://pubmed.ncbi.nlm.nih.gov/37805704/
+SeneQuest;Target-Aging Module;https://senequest.net/;https://senequest.net/about
+Pharos;Target-Development Module;https://pharos.nih.gov/;https://pubmed.ncbi.nlm.nih.gov/36624666/
+DGIdb;Target-Development Module;https://dgidb.org/;https://pubmed.ncbi.nlm.nih.gov/37953380/
+TTD;Target-Development Module;https://idrblab.net/ttd/;https://pubmed.ncbi.nlm.nih.gov/37713619/
+ChEMBL;Target-Development Module;https://www.ebi.ac.uk/chembl/;https://pubmed.ncbi.nlm.nih.gov/37933841/
