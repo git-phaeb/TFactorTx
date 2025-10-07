@@ -44,12 +44,15 @@ export default function RootLayout({
                   <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt="CC0" className="inline w-5 h-5 align-middle" style={{ marginLeft: '2px' }} />
                 </a>
                 <span className="text-xs align-middle mx-2">|</span>
+                <span className="text-xs align-middle">Version history on GitHub</span>
+                <a href="https://github.com/git-phaeb/TFactorTx" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="/github-mark.png" alt="GitHub" width="16" height="16" className="inline-block" /></a>
+                <span className="text-xs align-middle mx-2">|</span>
                 <span className="text-xs align-middle">Follow TFactorTx</span>
-                <a href="https://www.linkedin.com/company/tfactortx/" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn" width="16" height="16" className="inline-block" /></a>
+                <a href="https://www.linkedin.com/company/tfactortx/" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="/LI-In-Bug.png" alt="LinkedIn" width="16" height="16" className="inline-block" /></a>
               </div>
             </div>
             <div className="text-xs text-gray-500">
-              Built with <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Cursor</a> by Dr. Fabian Fischer <a href="https://orcid.org/0000-0002-4159-3178" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID" width="16" height="16" className="inline-block" /></a> <a href="https://www.linkedin.com/in/dr-fabian-fischer/" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn" width="16" height="16" className="inline-block" /></a>
+              Built with <a href="https://cursor.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">Cursor</a> by Dr. Fabian Fischer <a href="https://orcid.org/0000-0002-4159-3178" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID" width="16" height="16" className="inline-block" /></a> <a href="https://www.linkedin.com/in/dr-fabian-fischer/" target="_blank" rel="noopener noreferrer" className="inline-block ml-1"><img src="/LI-In-Bug.png" alt="LinkedIn" width="16" height="16" className="inline-block" /></a>
             </div>
           </div>
         </footer>

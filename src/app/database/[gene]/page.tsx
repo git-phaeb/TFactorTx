@@ -934,7 +934,7 @@ export default function GeneDetailPage() {
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 underline"
             >
-              PMID35343830
+              PMID 35343830
             </a>
             {' '}/{' '}
             <a 
@@ -1089,7 +1089,7 @@ export default function GeneDetailPage() {
                   {/* Database header */}
                   <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="flex items-center h-full">
-                      <div className="font-bold text-gray-700 text-xs">Database</div>
+                      <div className="font-bold text-gray-700 text-xs">Data Source</div>
                     </div>
                   </div>
                   
@@ -1118,11 +1118,11 @@ export default function GeneDetailPage() {
                 
                 {/* Data Rows */}
                 <div className="grid grid-cols-5 divide-x">
-                  {/* Row 1: PMID35343830 */}
+                  {/* Row 1: PMID 35343830 */}
                   <div className="bg-gray-100" style={{ padding: '4px 6px', height: '32px' }}>
                     <div className="flex items-center h-full">
                       <div className="font-bold text-gray-700 text-xs">
-                        PMID35343830
+                        PMID 35343830
                       </div>
                     </div>
                   </div>
