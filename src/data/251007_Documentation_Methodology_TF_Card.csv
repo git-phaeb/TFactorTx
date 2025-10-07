@@ -1,7 +1,7 @@
 ﻿Element;Data Source;Description
 TFactorTx IDs;HGNC;Internal TFactorTx ID and gene name for this transcription factor.
 Classification;TFClass;Classification of this transcription factor based on the TFClass hierarchy: Superclass → Class → Family.
-External Database Ids;"All ""External Database IDs"" data sources and Open Targets";Identifiers and links to entries for this transcription factor in major databases. JASPAR via UniProt ID and Open Targets via Ensembl ID.
+External Database IDs;"All ""External Database IDs"" data sources and Open Targets";Identifiers and links to entries for this transcription factor in major databases. JASPAR via UniProt ID and Open Targets via Ensembl ID.
 Target-Disease Module;Open Targets;Counts, aggregated association scores, and ranks in parentheses for total, low, medium, and high confidence target–disease associations for this transcription factor according to Open Targets, plus for selected age-related diseases (ARDs).
 Target-Aging Module;"All ""Target-Aging Module"" data sources";Overview of evidence linking this transcription factor to aging in humans and different model organisms, according to the indicated databases.
 Target-Development Module;"All ""Target-Development Module"" data sources";Overview of drugs and drug development efforts for this transcription factor, according to the indicated databases.
