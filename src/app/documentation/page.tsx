@@ -4,7 +4,7 @@ import path from "path";
 
 const sections = [
   { id: "intro", label: "Introduction" },
-  { id: "data-sources", label: "Data Sources" },
+  { id: "data-sources", label: "Data and Other Sources" },
   { id: "methodology", label: "Methodology" },
   { id: "license", label: "License and Attribution" },
 ];
@@ -108,7 +108,7 @@ export default function DocumentationPage() {
 
             
             <section id="data-sources" className="mb-12 scroll-mt-24">
-              <h2 className="text-lg font-semibold mb-2 text-gray-800">Data Sources</h2>
+              <h2 className="text-lg font-semibold mb-2 text-gray-800">Data and Other Sources</h2>
               <p className="leading-relaxed text-gray-700">
                 The data for the database and detailed TF cards was compiled from publicly available and openly licensed sources. The sources are listed in the table below, including links to the original sources and appropriate recent citations.
               </p>
@@ -145,7 +145,11 @@ export default function DocumentationPage() {
                   </table>
                 </div>
               )}
-              
+              <p className="leading-relaxed text-gray-700 mt-4">
+                Additional sources may be added over time as new datasets become available. All sources are subject to the licensing terms specified by their respective creators.
+                <br/><br/>
+                Other sources include: "Collections of Icons and Workflows for Robotic and Generative AI Agent-oriented Research for Health and Sustainability Sciences, Alex Zhavoronkov et al, Insilico Medicine, 2024, CC BY-NC-SA."
+              </p>
             </section>
 
             <section id="methodology" className="mb-12 scroll-mt-24">
