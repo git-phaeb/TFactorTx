@@ -98,7 +98,7 @@ export default function DocumentationPage() {
           <main className="flex-1 bg-white rounded-lg pt-4 pr-8 pb-8 pl-8 shadow-lg mb-20">
             <section id="intro" className="mb-12 scroll-mt-24">
               <h1 className="text-2xl font-bold mb-4 text-gray-900">Documentation</h1>
-              <p className="leading-relaxed text-gray-700 mb-3">Last Updated: October 10, 2025<span id="docs-last-updated"></span></p>
+              <p className="leading-relaxed text-gray-700 mb-3">Last Updated: October 7, 2025<span id="docs-last-updated"></span></p>
               <h2 className="text-lg font-semibold mb-2 text-gray-800">Introduction</h2>
               <p className="leading-relaxed text-gray-700">
                 This is the TFactorTx documentation. Here you’ll find information about the data sources and how the database and detailed TF cards are derived from them.
