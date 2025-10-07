@@ -1,5 +1,5 @@
 # TFactorTx
 
-This repository contains the codebase for the TFactorTx project.
+This is the initial TFactorTx release version. October 7, 2025
 
-More documentation coming soon.
+https://www.tfactortx.com/
